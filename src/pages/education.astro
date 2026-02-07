@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Ignite Education" description="Wildfire Leadership provides purpose-driven tools that transform students into confident leaders.">
+
+  <!-- ===== HERO — Dark hero with real education image ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/education-students.jpg"
+    imageAlt="Wildfire Leadership education workshop"
+    title='<em>Empowering</em> students to expand, build, & grow.'
+    subtitle="Purpose-driven tools that transform students into confident leaders."
+  />
+
+  <!-- ===== TWO PROGRAMS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        {[
+          {
+            title: "Ignite Students K-12",
+            desc: "Adaptable, age-appropriate solutions for schools that help students discover their strengths, build character, and develop leadership skills from an early age.",
+            image: "/images/education-students.jpg",
+            href: "/contact",
+          },
+          {
+            title: "Ignite Higher Education",
+            desc: "Empowering college and university students with purpose-driven frameworks that prepare them for meaningful careers and lives of impact.",
+            image: "/images/education-higher.jpeg",
+            href: "/contact",
+          },
+        ].map((program, i) => (
+          <div class:list={["reveal group rounded-2xl overflow-hidden border border-sand/50 bg-white card-glow lift", `reveal-d${i + 1}`]}>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img src={program.image} alt={program.title} class="w-full h-full object-cover img-hover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <div class="relative z-10 p-8 md:p-10">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Program {i + 1}</p>
+              <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">{program.title}</h3>
+              <p class="text-stone text-base leading-relaxed mb-8">{program.desc}</p>
+              <a
+                href={program.href}
+                class="group/link inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal link-underline"
+              >
+                Learn more
+                <svg class="w-4 h-4 transition-transform duration-400 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT STAT ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="reveal font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.15]">
+          Only <em class="ember-gradient">13%</em> of people understand their purpose — <em>let's change that!</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Mission</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+          Discover Purpose.<br/><em>Grow as Leaders.</em>
+        </h2>
+        <p class="reveal reveal-d2 text-lg md:text-xl text-stone leading-relaxed">
+          Ignite Education provides an empowering environment for students and educators to discover their unique purpose and grow as leaders. We teach students to apply leadership values to their lives through personal choices that lead to transformation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUTCOMES ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Outcomes</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          What Students Can <em>Expect</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            number: "01",
+            heading: "Expand Their Vision",
+            desc: "Students gain a deeper understanding of their strengths, passions, and future goals.",
+          },
+          {
+            number: "02",
+            heading: "Build Resilience",
+            desc: "Our tools help students overcome challenges, staying focused on their purpose.",
+          },
+          {
+            number: "03",
+            heading: "Grow into Leaders",
+            desc: "Students leave with a concrete plan for their future.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="This curriculum is a must for students... It fosters a culture of purpose, reflection, and growth."
+        name="Bob Morton"
+        title="Defiance City Schools Superintendent"
+      />
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction
+    title='Ignite your<br/><em class="ember-gradient">students.</em>'
+    image="/images/education-students.jpg"
+  />
+
+</BaseLayout>

@@ -1,0 +1,244 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navGroups = [
+  {
+    label: 'About',
+    items: [
+      { href: '/about', label: 'Our Story' },
+      { href: '/team', label: 'Our Team' },
+      { href: '/business', label: 'Business & Organizations' },
+      { href: '/education', label: 'Education' },
+    ],
+  },
+  {
+    label: 'Faith',
+    items: [
+      { href: '/invest-marriage', label: 'INVEST Marriage' },
+      { href: '/churches', label: 'Churches' },
+    ],
+  },
+  {
+    label: 'Start Your Journey',
+    items: [
+      { href: '/facilitators', label: 'Certification' },
+      { href: '/workshops', label: 'Workshops' },
+      { href: '/resources', label: 'Resources' },
+    ],
+  },
+];
+
+const allLinks = navGroups.flatMap(g => g.items);
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <nav class="max-w-[1400px] mx-auto px-5 md:px-8 h-18 md:h-20 flex items-center justify-between">
+    <!-- Left: Logo -->
+    <a href="/" class="relative z-10 flex items-center shrink-0">
+      <img
+        src="/images/logo-white.png"
+        alt="Wildfire Leadership"
+        class="h-10 md:h-12 w-auto"
+        id="header-logo-white"
+      />
+      <img
+        src="/images/logo-dark.png"
+        alt="Wildfire Leadership"
+        class="h-10 md:h-12 w-auto hidden"
+        id="header-logo-dark"
+      />
+    </a>
+
+    <!-- Center: Desktop nav with dropdowns -->
+    <div class="hidden lg:flex items-center gap-1">
+      {navGroups.map((group) => (
+        <div class="relative group/nav">
+          <button class="nav-link flex items-center gap-1 px-4 py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 rounded-lg hover:bg-charcoal/5">
+            {group.label}
+            <svg class="w-3.5 h-3.5 opacity-50 transition-transform duration-300 group-hover/nav:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
+            <div class="bg-white rounded-xl shadow-xl shadow-charcoal/8 border border-sand/60 py-2 min-w-[220px]">
+              {group.items.map((item) => (
+                <a
+                  href={item.href}
+                  class:list={[
+                    "block px-4 py-2.5 text-[13px] transition-colors duration-200",
+                    currentPath === item.href
+                      ? "text-ember font-medium"
+                      : "text-charcoal/70 hover:text-charcoal hover:bg-warm-white"
+                  ]}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Right: CTA + Mobile burger -->
+    <div class="flex items-center gap-4">
+      <a
+        href="/contact"
+        class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium tracking-wide text-white bg-charcoal rounded-full hover:bg-charcoal-deep transition-colors duration-300"
+      >
+        Get Started
+      </a>
+      <button id="mobile-menu-btn" class="lg:hidden nav-link p-2 -mr-2 rounded-lg hover:bg-charcoal/5 transition-colors" aria-label="Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-white z-50">
+    <div class="px-5 h-16 flex justify-between items-center border-b border-sand/50">
+      <a href="/">
+        <img src="/images/logo-dark.png" alt="Wildfire Leadership" class="h-10 w-auto" />
+      </a>
+      <button id="mobile-close-btn" class="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors rounded-lg hover:bg-warm-white" aria-label="Close menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="overflow-y-auto max-h-[calc(100vh-64px)] px-5 py-6">
+      <a href="/" class:list={["block py-3 font-display text-2xl transition-colors border-b border-sand/30", currentPath === '/' ? "text-ember" : "text-charcoal/80 hover:text-charcoal"]}>
+        Home
+      </a>
+      {navGroups.map((group) => (
+        <div class="mt-6">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-stone mb-3">{group.label}</p>
+          {group.items.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "block py-3 font-display text-xl transition-colors border-b border-sand/30",
+                currentPath === item.href ? "text-ember" : "text-charcoal/80 hover:text-charcoal"
+              ]}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      ))}
+      <div class="mt-8">
+        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-charcoal rounded-full">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const menu = document.getElementById('mobile-menu');
+  const header = document.getElementById('site-header');
+  const logoWhite = document.getElementById('header-logo-white');
+  const logoDark = document.getElementById('header-logo-dark');
+
+  function updateLogo() {
+    const isScrolled = header?.classList.contains('header-scrolled');
+    const isLight = header?.classList.contains('header-light');
+    const showDark = isScrolled || isLight;
+    if (logoWhite && logoDark) {
+      logoWhite.classList.toggle('hidden', showDark);
+      logoDark.classList.toggle('hidden', !showDark);
+    }
+  }
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+  closeBtn?.addEventListener('click', () => {
+    menu?.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  // Close on link click
+  menu?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header?.classList.add('header-scrolled');
+    } else {
+      header?.classList.remove('header-scrolled');
+    }
+    updateLogo();
+  });
+
+  // Initial logo state
+  updateLogo();
+</script>
+
+<style>
+  /* Default: transparent header for hero pages */
+  #site-header .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  #site-header .nav-link:hover {
+    color: #ffffff;
+  }
+  #site-header a[href="/contact"] {
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+  }
+  #site-header a[href="/contact"]:hover {
+    background-color: rgba(255,255,255,0.25);
+  }
+
+  /* Scrolled: solid white background */
+  .header-scrolled {
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(232, 226, 217, 0.5);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.04);
+  }
+  .header-scrolled .nav-link {
+    color: rgba(26, 26, 23, 0.7) !important;
+  }
+  .header-scrolled .nav-link:hover {
+    color: rgba(26, 26, 23, 1) !important;
+    background-color: rgba(26, 26, 23, 0.04) !important;
+  }
+  .header-scrolled a[href="/contact"] {
+    background-color: #1a1a17 !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    color: #ffffff !important;
+  }
+  .header-scrolled a[href="/contact"]:hover {
+    background-color: #121210 !important;
+  }
+
+  /* Light header variant (for pages with light hero) */
+  :global(.header-light) .nav-link {
+    color: rgba(26, 26, 23, 0.7) !important;
+  }
+  :global(.header-light) .nav-link:hover {
+    color: rgba(26, 26, 23, 1) !important;
+  }
+  :global(.header-light) a[href="/contact"] {
+    background-color: #1a1a17 !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    color: #ffffff !important;
+  }
+</style>

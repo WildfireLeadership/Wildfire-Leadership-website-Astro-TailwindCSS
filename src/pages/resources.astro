@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Resources & Next Steps" description="Discover coaching services, workshops, and practical tools from Wildfire Leadership to help you thrive.">
+
+  <!-- Force header-light for light hero -->
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="light"
+    title='Resources &<br/><em>Next Steps</em>'
+    subtitle="Discover coaching services, workshops, and practical tools to help you thrive."
+  />
+
+  <!-- ===== BOOKS SECTION — Warm-white bg ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Library</p>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Books</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+
+        <!-- Book 1: Wildfire Daily Journal -->
+        <div class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-ember/5 rounded-full blur-[60px]"></div>
+            <div class="relative text-center px-8">
+              <div class="w-16 h-16 mx-auto rounded-xl bg-ember/10 flex items-center justify-center mb-4">
+                <svg class="w-7 h-7 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              <p class="font-display text-xl text-charcoal">Wildfire Daily Journal</p>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl text-charcoal mb-3">Wildfire Daily Journal</h3>
+            <p class="text-sm text-stone leading-relaxed mb-6">
+              A powerful tool to ignite intentional living, gratitude, and purpose every day.
+            </p>
+            <a href="#" class="group/link inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+              Order on Amazon
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Book 2: Discovering Joy in Your Lane -->
+        <div class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-amber/5 rounded-full blur-[60px]"></div>
+            <div class="relative text-center px-8">
+              <div class="w-16 h-16 mx-auto rounded-xl bg-amber/10 flex items-center justify-center mb-4">
+                <svg class="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              <p class="font-display text-xl text-charcoal">Discovering Joy<br/>in Your Lane</p>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl text-charcoal mb-1">Discovering Joy in Your Lane</h3>
+            <p class="text-[13px] text-stone mb-3">by Stephanie Lammers</p>
+            <p class="text-sm text-stone leading-relaxed mb-6">
+              A guide to finding joy and fulfillment in the path God designed for you.
+            </p>
+            <a href="#" class="group/link inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+              Order on Amazon
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Book 3: Flip the Script -->
+        <div class="reveal reveal-d2 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 relative">
+          <!-- Coming Soon badge -->
+          <div class="absolute top-5 right-5 z-10 px-3 py-1 rounded-full bg-ember text-white text-[11px] font-medium tracking-wide uppercase">
+            Coming Soon
+          </div>
+          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-ember/5 rounded-full blur-[60px]"></div>
+            <div class="relative text-center px-8">
+              <div class="w-16 h-16 mx-auto rounded-xl bg-ember/10 flex items-center justify-center mb-4">
+                <svg class="w-7 h-7 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              <p class="font-display text-xl text-charcoal">Flip the Script</p>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl text-charcoal mb-1">Flip the Script</h3>
+            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
+            <p class="text-sm text-stone leading-relaxed">
+              Learn to transform lies and negative thoughts into empowering truths. Coming 2025.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Ready to<br/><em class="ember-gradient">go deeper?</em>'
+    description="Explore our tools, connect with a facilitator, or start your journey toward discovering your unique purpose."
+  />
+
+</BaseLayout>

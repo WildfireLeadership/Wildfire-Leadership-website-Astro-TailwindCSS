@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import SplitSection from '../components/SplitSection.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Ignite Business" description="Wildfire Leadership partners with business teams, government leaders, sports organizations, and creative industries to unleash potential.">
+
+  <!-- ===== HERO — Dark hero with real business image ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/business-hero.jpg"
+    imageAlt="Wildfire Leadership business workshop"
+    title='Ignite<br/><em>Business</em>'
+    subtitle="We partner with business teams, government leaders, sports organizations, and creative industries."
+  />
+
+  <!-- ===== MAIN MESSAGE ===== -->
+  <section class="relative py-28 md:py-40 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-4xl">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-8">The Challenge</p>
+        <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3rem] text-charcoal leading-[1.2]">
+          The success of your business depends on you. You and your team can avoid feeling stuck, overwhelmed, and lacking vision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <TestimonialCard
+          quote="Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture and unleashed renewed purpose for my team."
+          name="Mike Remer"
+          title="Global Client Manager, Hewlett Packard"
+        />
+        <TestimonialCard
+          quote="Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
+          name="Bryan Keller"
+          title="CEO, Keller Logistics"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT'S INSIDE ===== -->
+  <SplitSection
+    label="What's Inside"
+    title='Flexible &<br/><em>Customizable</em>'
+    description="Wildfire Leadership offers flexible implementation models to meet the unique needs of your business or organization. Whether you're looking to enhance leadership, team engagement, or cultural transformation, Ignite Business can seamlessly integrate into your operations."
+    image="/images/education-students.jpg"
+    imageAlt="Wildfire Leadership in action"
+    imagePosition="right"
+    bg="white"
+    link={{ text: "Get started", href: "/contact" }}
+  />
+
+  <!-- ===== OUTCOMES ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Outcomes</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          What You Can <em>Expect</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            number: "01",
+            heading: "Expand Their Vision",
+            desc: "Over 30,000 individuals have gained clarity in purpose after completing the Mission Portrait.",
+          },
+          {
+            number: "02",
+            heading: "Build Resilience",
+            desc: "87% report greater clarity and confidence through challenges.",
+          },
+          {
+            number: "03",
+            heading: "Grow into Purpose-Driven Leaders",
+            desc: "92% have developed a personalized roadmap for growth.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DOWNLOAD RESOURCES ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Resources</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Download &<br/><em>Learn More</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          { label: "Ignite Business Overview", href: "#" },
+          { label: "Ignite Business Implementation", href: "#" },
+          { label: "Leadership & Team Development", href: "#" },
+        ].map((res, i) => (
+          <a
+            href={res.href}
+            class:list={["reveal group flex items-center gap-4 p-6 rounded-xl border border-sand/50 bg-white hover:shadow-lg hover:shadow-charcoal/5 hover:-translate-y-1 transition-all duration-400", `reveal-d${i + 1}`]}
+          >
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center group-hover:bg-ember/20 transition-colors duration-300">
+              <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <span class="text-[11px] uppercase tracking-[0.2em] font-medium text-charcoal group-hover:text-ember transition-colors duration-300">{res.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction
+    title='Ignite your<br/><em class="ember-gradient">organization.</em>'
+    image="/images/business-hero.jpg"
+  />
+
+</BaseLayout>

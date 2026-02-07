@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Workshops & Experiences" description="Transform your team, marriage, or personal journey through hands-on Wildfire Leadership workshop experiences.">
+
+  <!-- Force header-light for light hero -->
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="light"
+    title='Workshops &<br/><em>Experiences</em>'
+    subtitle="Transform your team, marriage, or personal journey through our hands-on workshop experiences."
+  />
+
+  <!-- ===== WORKSHOP LISTINGS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Workshops</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Hands-on experiences that <em>transform.</em>
+        </h2>
+      </div>
+
+      <div class="space-y-5 md:space-y-6">
+
+        <!-- Workshop 1 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Working Genius + Mission Portrait Workshop</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">3 hours</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Equips leaders with essential tools for workplace challenges. Includes Working Genius assessment and Mission Portrait creation.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 2 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Mission Portrait + 7 Igniters Workshop</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">3 hours</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Craft a personalized Mission Portrait then use it through 7 stages to bring your vision to life.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 3 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Individual Mission Portrait Design + Coaching</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">60 min</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            A certified facilitator coaches you through the Mission Portrait process for clarity and purpose.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 4 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Couples Mission Portrait Design + Coaching</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">90 min</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Enhance your relationship by defining individual and shared life purposes and goals.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 5 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Family Mission Portrait Design + Coaching</h3>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Capture your family's unique values, dreams, and purpose. A shared legacy for generations.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 6 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Homeschool Moms Workshop</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">3 hours</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Invest in your homeschooling journey. Discover your "why" and create a homeschool mission.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Workshop 7 -->
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Mission Portrait Design Session</h3>
+            <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">90 min</span>
+          </div>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Discover your unique purpose and leave with a visual daily reminder of who you are.
+          </p>
+          <a href="/contact" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Book this workshop
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA link -->
+      <div class="reveal mt-14 text-center">
+        <a href="/contact" class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:shadow-xl hover:shadow-charcoal/15 transition-all duration-400 hover:scale-[1.02]">
+          Contact us to book
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Book your<br/><em class="ember-gradient">workshop.</em>'
+    description="Ready to invest in your team, your family, or yourself? Let's find the right workshop for you."
+  />
+
+</BaseLayout>

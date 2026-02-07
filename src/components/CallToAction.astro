@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  buttonText = 'Start your journey',
+  buttonHref = '/contact',
+  image = '/images/hero-main.jpg',
+} = Astro.props;
+---
+
+<section class="relative py-32 md:py-44 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src={image} alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" />
+    <div class="absolute inset-0 bg-charcoal-deep/70"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ember/6 rounded-full blur-[150px] fire-orb-1"></div>
+    <div class="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-amber/4 rounded-full blur-[120px] fire-orb-2"></div>
+  </div>
+  <div class="relative max-w-[1400px] mx-auto px-5 md:px-8 text-center">
+    <h2 class="reveal font-display text-4xl md:text-5xl lg:text-7xl text-white leading-[0.95]" set:html={title} />
+    {description && (
+      <p class="reveal reveal-d1 mt-8 text-lg text-white/60 max-w-xl mx-auto">{description}</p>
+    )}
+    <div class="reveal reveal-d2 mt-10">
+      <a
+        href={buttonHref}
+        class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal bg-white hover:shadow-xl hover:shadow-white/15 transition-all duration-400 hover:scale-[1.02]"
+      >
+        {buttonText}
+        <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

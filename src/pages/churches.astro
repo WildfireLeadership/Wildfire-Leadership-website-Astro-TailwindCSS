@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Ignite Faith" description="Inspiring and empowering individuals on their spiritual journey, providing guidance, support, and resources to deepen faith.">
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/hero-main.jpg"
+    title='Ignite<br/><em>Faith</em>'
+    subtitle="Inspiring and empowering individuals on their spiritual journey, providing guidance, support, and resources."
+  />
+
+  <!-- ===== INTRO ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Welcome</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+          Are You Ready to<br/><em>Ignite Your Faith?</em>
+        </h2>
+        <p class="reveal reveal-d2 text-lg md:text-xl text-stone leading-relaxed">
+          Ignite Faith aims to inspire and empower individuals on their spiritual journey, providing guidance, support, and resources to help you deepen and revitalize your faith.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKSHOPS ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Offerings</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Workshops
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          {
+            title: "Working Genius + Mission Portrait Workshop",
+            duration: "3 hours — two 90-min segments",
+            desc: "Discover your working genius and design your personal Mission Portrait in one powerful combined session.",
+          },
+          {
+            title: "Mission Portrait + 7 Igniters Workshop",
+            duration: "3 hours",
+            desc: "Create your Mission Portrait and learn the 7 Igniters framework to fuel lasting personal growth.",
+          },
+          {
+            title: "Individualized Mission Portrait Design + Coaching",
+            duration: "60 min",
+            desc: "A one-on-one session to design your personalized Mission Portrait with guided coaching.",
+          },
+          {
+            title: "Couples Mission Portrait Design + Coaching",
+            duration: "90 min",
+            desc: "Align your shared purpose as a couple through a guided Mission Portrait design experience.",
+          },
+          {
+            title: "Family Mission Portrait Design + Coaching",
+            duration: null,
+            desc: "Unite your family around a shared vision with a collaborative Mission Portrait session.",
+          },
+          {
+            title: "Homeschool Moms Workshop",
+            duration: "3 hours",
+            desc: "Equip homeschool moms with purpose-driven tools to lead their families with clarity and confidence.",
+          },
+          {
+            title: "Mission Portrait Design Session",
+            duration: "90 min",
+            desc: "A focused group session to walk participants through designing their own Mission Portrait.",
+          },
+        ].map((workshop, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8", i < 2 ? `reveal-d${i + 1}` : ""]}>
+            <h3 class="text-lg font-medium text-charcoal mb-2">{workshop.title}</h3>
+            {workshop.duration && (
+              <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">{workshop.duration}</p>
+            )}
+            <p class="text-stone text-sm leading-relaxed">{workshop.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-12 text-center">
+        <a
+          href="/contact"
+          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-charcoal/90 hover:shadow-lg transition-all duration-400 hover:scale-[1.02]"
+        >
+          Request Workshop Info
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ONGOING COACHING ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Ongoing Support</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Ongoing <em>Coaching</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          {
+            title: "Monthly Life & Leadership Coaching",
+            desc: "Ongoing one-on-one coaching to help you grow in purpose, leadership, and faith each month.",
+          },
+          {
+            title: "Tailored Preview Sessions",
+            duration: "4 sessions — 60 min each",
+            desc: "A focused series to preview and explore Wildfire Leadership tools for your community.",
+          },
+          {
+            title: "Quarterly Working Genius Sessions",
+            duration: "4 sessions",
+            desc: "Seasonal deep-dives into Working Genius to keep your team aligned and energized.",
+          },
+          {
+            title: "All-Staff Working Genius Virtual Sessions",
+            duration: "6 sessions",
+            desc: "Virtual sessions designed to bring Working Genius to your entire church staff.",
+          },
+          {
+            title: "Marriage Coaching",
+            duration: "4 sessions — 60 min each",
+            desc: "Purpose-driven coaching to strengthen communication, unity, and vision in your marriage.",
+          },
+          {
+            title: "Ignite HER Coaching",
+            desc: "A coaching experience designed to empower women to discover and live out their unique purpose.",
+          },
+        ].map((option, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8", i < 2 ? `reveal-d${i + 1}` : ""]}>
+            <h3 class="text-lg font-medium text-charcoal mb-2">{option.title}</h3>
+            {option.duration && (
+              <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">{option.duration}</p>
+            )}
+            <p class="text-stone text-sm leading-relaxed">{option.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAITH-BASED CURRICULUM ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Curriculum</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Faith-Based <em>Curriculum</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            title: "Mission Portrait Small Group Curriculum",
+            subtitle: "Igniting Your Divine Purpose",
+            desc: "A small group experience guiding participants to uncover their God-given purpose through the Mission Portrait framework.",
+          },
+          {
+            title: "7 Igniters Small Group Curriculum",
+            subtitle: null,
+            desc: "Walk through the 7 Igniters with your small group to build habits that fuel lasting spiritual and personal growth.",
+          },
+          {
+            title: "INVEST Marriage Small Group Curriculum",
+            subtitle: "8-week series",
+            desc: "An eight-week journey for couples to invest in their marriage through purpose, communication, and shared vision.",
+          },
+        ].map((curr, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <h3 class="text-lg font-medium text-charcoal mb-2">{curr.title}</h3>
+            {curr.subtitle && (
+              <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">{curr.subtitle}</p>
+            )}
+            <p class="text-stone text-sm leading-relaxed">{curr.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SITE LICENSE ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Church-Wide Access</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Mission Portrait<br/><em>Site License</em>
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            The Mission Portrait Site License gives your entire church community unlimited access to the Mission Portrait platform. Equip your congregation, small groups, staff, and volunteers with the tools to discover their God-given purpose — all under one license.
+          </p>
+          <div class="reveal reveal-d3 mt-8">
+            <a
+              href="/contact"
+              class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400"
+            >
+              Request license info
+              <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-d2 relative aspect-[4/3] rounded-xl overflow-hidden group">
+          <img
+            src="/images/hero-cta.jpg"
+            alt="Church community using Mission Portrait"
+            class="absolute inset-0 w-full h-full object-cover img-hover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="Wildfire Leadership gave me greater knowledge of my strengths, weaknesses, and values. I have a better understanding of what makes me unique and how God uses me to fulfill His greater purpose."
+        name="Church Leader"
+      />
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction title='Ignite your<br/><em class="ember-gradient">faith community.</em>' />
+
+</BaseLayout>
+
+<style>
+  .ember-gradient {
+    background: linear-gradient(135deg, #f07840 0%, #e8642c 40%, #d4a04a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

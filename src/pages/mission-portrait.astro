@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Mission Portrait" description="A customized visual daily reminder of who you are and your mission. Discover your purpose with Wildfire Leadership's Mission Portrait.">
+
+  <!-- ===== HERO — Dark cinematic ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/hero-main.jpg"
+    title='Mission<br/><em>Portrait</em>'
+    subtitle="A customized visual daily reminder of who you are and your mission."
+  />
+
+  <!-- ===== WHAT IS A MISSION PORTRAIT — White bg, split layout ===== -->
+  <SplitSection
+    label="The Tool"
+    title='What is a<br/><em>Mission Portrait?</em>'
+    description="A Wildfire innovative tool, the custom-tailored Mission Portrait is a daily visual reminder of who you are and your mission. This compass points you toward your purpose of making a difference in other's lives."
+    image="/images/mission-portrait-what.png"
+    imageAlt="Mission Portrait example graphic"
+    imagePosition="right"
+    bg="white"
+    link={{ text: "See how it works", href: "#pricing" }}
+  />
+
+  <!-- ===== PRICING — Warm-white bg ===== -->
+  <section id="pricing" class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Choose Your Path</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Two ways to discover<br/><em>your mission.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Self-Guided -->
+        <div class="reveal bg-white rounded-2xl border border-sand/50 p-10 flex flex-col">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Self-Guided</p>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-display text-5xl text-charcoal">$35</span>
+            <span class="text-stone line-through text-lg">$50</span>
+          </div>
+          <p class="text-sm text-stone mb-8">One-time purchase</p>
+
+          <ul class="space-y-4 mb-10 flex-1">
+            {[
+              "Electronic PDF workbook",
+              "Step-by-step guidance",
+              "Customized digital Mission Portrait",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
+                <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a href="/contact" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
+            Get Started
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Facilitated -->
+        <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-10 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-ember text-white text-[11px] uppercase tracking-[0.2em] font-medium px-4 py-1.5 rounded-bl-xl">Most Popular</div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Facilitated</p>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-display text-5xl text-charcoal">$299</span>
+          </div>
+          <p class="text-sm text-stone mb-8">Per session</p>
+
+          <ul class="space-y-4 mb-10 flex-1">
+            {[
+              "60-minute virtual session with Certified Facilitator",
+              "All materials included",
+              "Electronic PDF workbook",
+              "Customized digital Mission Portrait",
+              "Flexible for Individual / Marriage / Family",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
+                <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a href="/contact" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+            Book Now
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTRAIT SHOWCASE — White bg ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+        <div>
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Real Portraits</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.05]">
+            Every portrait tells<br/>a <em>unique story.</em>
+          </h2>
+        </div>
+      </div>
+      <div class="reveal reveal-d2 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        {[
+          { src: "/images/portrait-coleen-full.png", name: "Coleen", location: "Indian Lake" },
+          { src: "/images/portrait-zeb-full.png", name: "Zeb", location: "Mainstop" },
+          { src: "/images/portrait-sarah-full.png", name: "Sarah", location: "Keller" },
+          { src: "/images/portrait-ryan-full.png", name: "Ryan", location: "Napoleon" },
+        ].map((portrait) => (
+          <div class="relative aspect-[3/4] rounded-xl overflow-hidden group">
+            <img src={portrait.src} alt={`Mission Portrait - ${portrait.name}`} class="absolute inset-0 w-full h-full object-cover img-hover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/60 via-charcoal-deep/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <p class="text-sm font-medium text-white">{portrait.name}</p>
+              <p class="text-xs text-white/60">{portrait.location}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL — Cream bg ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="The Mission Portrait I created became a valuable tool in understanding my worth and my purpose."
+        name="Lisa Roth"
+        title="Whitehouse, OH"
+      />
+    </div>
+  </section>
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Your purpose is<br/><em class="ember-gradient">waiting.</em>'
+    description="Take the first step toward discovering your mission and creating your personalized Mission Portrait."
+  />
+
+</BaseLayout>

@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SplitSection from '../components/SplitSection.astro';
+import StatCounter from '../components/StatCounter.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="The 7 Igniters" description="A proven seven-step framework from purpose to potential. Each stage of your journey ignites something within you.">
+
+  <!-- ===== HERO — Dark cinematic ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/7-igniters.jpg"
+    title='The 7<br/><em>Igniters</em>'
+    subtitle="A proven seven-step framework from purpose to potential."
+  />
+
+  <!-- ===== OVERVIEW — White bg, split layout ===== -->
+  <SplitSection
+    label="The Framework"
+    title='From purpose<br/>to <em>potential.</em>'
+    description="Each stage of your journey ignites something within you that unleashes your potential. The 7 Igniters curriculum brings action to your Mission Portrait to ensure you live out your potential!"
+    image="/images/7-igniters-diagram.png"
+    imageAlt="The 7 Igniters framework diagram"
+    imagePosition="right"
+    bg="white"
+    link={{ text: "Get started today", href: "/contact" }}
+  />
+
+  <!-- ===== THE 7 IGNITERS LIST — Warm-white bg ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16 md:mb-20">
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">The Journey</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Seven steps to ignite<br/><em>your potential.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              num: "01",
+              title: "Uncover Your Purpose",
+              desc: "Discover the unique mission only you were created to fulfill.",
+            },
+            {
+              num: "02",
+              title: "Illuminate Your Dreams",
+              desc: "Give yourself permission to dream boldly about your future.",
+            },
+            {
+              num: "03",
+              title: "Assess Your Potential",
+              desc: "Take an honest inventory of your strengths, gifts, and growth areas.",
+            },
+            {
+              num: "04",
+              title: "Prioritize & Eliminate",
+              desc: "Clear the distractions that keep you from what matters most.",
+            },
+            {
+              num: "05",
+              title: "Build Your Support Team",
+              desc: "Surround yourself with people who champion your mission.",
+            },
+            {
+              num: "06",
+              title: "Connect the Dots",
+              desc: "See how your purpose, dreams, and strengths align into a clear path.",
+            },
+            {
+              num: "07",
+              title: "Ignite Your Journey",
+              desc: "Take decisive action and step into the life you were made for.",
+            },
+          ].map((igniter, i) => (
+            <div class:list={["reveal group flex items-start gap-6 md:gap-8 py-8 border-b border-sand/60 last:border-b-0", `reveal-d${Math.min(i + 1, 5)}`]}>
+              <span class="font-display text-4xl md:text-5xl text-ember/30 group-hover:text-ember transition-colors duration-400 flex-shrink-0 w-16 text-right">
+                {igniter.num}
+              </span>
+              <div class="pt-1">
+                <h3 class="font-display text-xl md:text-2xl text-charcoal group-hover:text-ember transition-colors duration-400 leading-[1.2]">
+                  {igniter.title}
+                </h3>
+                <p class="mt-2 text-sm md:text-base text-stone leading-relaxed">
+                  {igniter.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <StatCounter
+    bg="cream"
+    stats={[
+      { value: 30000, suffix: "+", label: "Mission Portraits\ncompleted" },
+      { value: 87, suffix: "%", label: "Report greater clarity\nand confidence" },
+      { value: 92, suffix: "%", label: "Developed a personalized\nroadmap for growth" },
+    ]}
+  />
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Ready to ignite<br/><em class="ember-gradient">your potential?</em>'
+    description="Take the first step on a proven path from purpose to potential."
+  />
+
+</BaseLayout>

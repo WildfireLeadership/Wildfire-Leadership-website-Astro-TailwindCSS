@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Our Team" description="Meet the team behind Wildfire Leadership — passionate about helping you uncover purpose and unleash potential.">
+
+  <!-- Force header-light for light hero -->
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <!-- ===== HERO — Light variant ===== -->
+  <PageHero
+    variant="light"
+    title='Our <em>Team</em>'
+    subtitle="At Wildfire Leadership, our team combines decades of experience in leadership, organizational development, coaching, and strategy."
+  />
+
+  <!-- ===== BILL LAMMERS — White bg ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <!-- Text -->
+        <div>
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Founder & CEO</p>
+          <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05] mb-8">
+            Bill <em>Lammers</em>
+          </h2>
+          <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed mb-8">
+            Bill Lammers is an author, entrepreneur, strategist, and leadership coach with more than two decades of experience helping leaders and organizations thrive. He is the Founder and CEO of Wildfire Leadership and the Founder of Ignite Academy. Known for simplifying complexity, Bill has created trademarked tools used globally to streamline processes, clarify vision, and empower leaders.
+          </p>
+
+          <!-- Credentials -->
+          <div class="reveal reveal-d3 mb-8">
+            <h4 class="text-xs uppercase tracking-[0.2em] text-charcoal font-medium mb-4">Credentials</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Dual master's degrees (MBA + Organizational Leadership)
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Engineering degree
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Patrick Lencioni CapaPro member
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Certified John Maxwell coach
+              </li>
+            </ul>
+          </div>
+
+          <!-- Publications -->
+          <div class="reveal reveal-d4">
+            <h4 class="text-xs uppercase tracking-[0.2em] text-charcoal font-medium mb-4">Publications</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Author of <em class="text-charcoal font-medium not-italic">Flip the Script: Set Your Mind Free</em>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Co-creator of the Flip the Script app
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Co-developer of <em class="text-charcoal font-medium not-italic">INVEST Marriage</em> curriculum
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Image Placeholder -->
+        <div class="reveal reveal-d2 relative">
+          <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-20 h-20 rounded-full bg-sand/60 mx-auto mb-4 flex items-center justify-center">
+                <svg class="w-8 h-8 text-stone/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <p class="text-sm text-stone/60">Photo coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEPHANIE LAMMERS — Warm-white bg, reversed ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <!-- Image Placeholder (LEFT on desktop) -->
+        <div class="reveal reveal-d1 relative lg:order-1">
+          <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-20 h-20 rounded-full bg-sand/60 mx-auto mb-4 flex items-center justify-center">
+                <svg class="w-8 h-8 text-stone/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <p class="text-sm text-stone/60">Photo coming soon</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text (RIGHT on desktop) -->
+        <div class="lg:order-2">
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Co-Founder & Leadership Coach</p>
+          <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05] mb-8">
+            Stephanie <em>Lammers</em>
+          </h2>
+          <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed mb-8">
+            Stephanie Lammers is a respected keynote speaker, author, and leadership coach known for equipping leaders, couples, and families to thrive with clarity and purpose. She is the Co-Founder of Wildfire Leadership and Ignite Academy, where she combines decades of leadership experience with a passion for helping others lead with confidence and impact.
+          </p>
+
+          <!-- Credentials -->
+          <div class="reveal reveal-d3 mb-8">
+            <h4 class="text-xs uppercase tracking-[0.2em] text-charcoal font-medium mb-4">Credentials</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Certified Patrick Lencioni CapaPro member
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Over 20 years in the medical field
+              </li>
+            </ul>
+          </div>
+
+          <!-- Publications -->
+          <div class="reveal reveal-d4">
+            <h4 class="text-xs uppercase tracking-[0.2em] text-charcoal font-medium mb-4">Publications</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Author of <em class="text-charcoal font-medium not-italic">Discovering Joy in Your Lane</em>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-stone leading-relaxed">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
+                Co-developer of <em class="text-charcoal font-medium not-italic">INVEST Marriage</em> curriculum
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BILL & STEPHANIE TOGETHER — Cream bg ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Together</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+          Bill & <em>Stephanie</em>
+        </h2>
+        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
+          Bill and Stephanie have been married for 28 years and are the proud parents of four children. Their shared passion for helping others uncover purpose and unleash potential continues to shape everything they build together through Wildfire Leadership and Ignite Academy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIFFANY RODRIGUEZ — White bg ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Operations & Administrative Director</p>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05] mb-8">
+          Tiffany <em>Rodriguez</em>
+        </h2>
+        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
+          Tiffany Rodriguez ensures that Wildfire Leadership operates with excellence and efficiency. As Operations & Administrative Director, she oversees systems, client support, and project coordination, ensuring that every engagement delivers meaningful results.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACILITATOR NETWORK — Warm-white bg ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Network</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+          Our Network of <em>Facilitators</em>
+        </h2>
+        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed mb-10">
+          Wildfire Leadership is powered by a growing network of more than 70 certified facilitators, serving leaders and teams across business, education, and non-profit sectors.
+        </p>
+
+        <!-- Stats row -->
+        <div class="reveal reveal-d3 flex justify-center gap-16 mb-10">
+          <div class="text-center">
+            <p class="font-display text-5xl md:text-6xl text-charcoal" data-count="70" data-suffix="+">0+</p>
+            <p class="mt-2 text-[13px] text-stone">Certified Facilitators</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-5xl md:text-6xl text-charcoal" data-count="3" data-suffix="">0</p>
+            <p class="mt-2 text-[13px] text-stone">Sectors Served</p>
+          </div>
+        </div>
+
+        <div class="reveal reveal-d4">
+          <a href="/facilitators" class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400">
+            Learn about certification
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Want to <em class="ember-gradient">work with us?</em>'
+    description="Whether you need coaching, a workshop, or certification — we'd love to connect."
+    buttonText="Get In Touch"
+  />
+
+</BaseLayout>

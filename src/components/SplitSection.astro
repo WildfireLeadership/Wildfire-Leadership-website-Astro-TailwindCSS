@@ -1,0 +1,63 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt?: string;
+  /** Image on left or right */
+  imagePosition?: 'left' | 'right';
+  /** Link text and URL */
+  link?: { text: string; href: string };
+  /** Background color */
+  bg?: 'white' | 'warm-white' | 'cream';
+}
+
+const {
+  label,
+  title,
+  description,
+  image,
+  imageAlt = '',
+  imagePosition = 'right',
+  link,
+  bg = 'white',
+} = Astro.props;
+
+const bgClass = bg === 'warm-white' ? 'bg-warm-white' : bg === 'cream' ? 'bg-cream' : 'bg-white';
+---
+
+<section class:list={["relative py-24 md:py-32", bgClass]}>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+    <div class:list={["grid lg:grid-cols-2 gap-12 lg:gap-20 items-center", imagePosition === 'left' && "lg:direction-rtl"]}>
+      <!-- Text -->
+      <div class:list={[imagePosition === 'left' && "lg:direction-ltr"]}>
+        {label && (
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">{label}</p>
+        )}
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]" set:html={title} />
+        <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">{description}</p>
+        {link && (
+          <div class="reveal reveal-d3 mt-8">
+            <a href={link.href} class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400">
+              {link.text}
+              <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        )}
+        <slot />
+      </div>
+
+      <!-- Image -->
+      <div class:list={["reveal reveal-d2 relative aspect-[4/3] rounded-xl overflow-hidden group", imagePosition === 'left' && "lg:direction-ltr"]}>
+        <img
+          src={image}
+          alt={imageAlt}
+          class="absolute inset-0 w-full h-full object-cover img-hover"
+        />
+      </div>
+    </div>
+  </div>
+</section>

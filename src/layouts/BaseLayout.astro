@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Wildfire Leadership helps ignite your journey to discover your purpose with practical, visual tools that unlock your potential." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <title>{title} | Wildfire Leadership</title>
+  </head>
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach((el) => observer.observe(el));
+
+      // Counters
+      document.querySelectorAll('[data-count]').forEach((el) => {
+        const counterObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const target = parseInt((entry.target as HTMLElement).dataset.count || '0');
+              const suffix = (entry.target as HTMLElement).dataset.suffix || '';
+              const start = performance.now();
+              const animate = (now: number) => {
+                const p = Math.min((now - start) / 2000, 1);
+                const eased = 1 - Math.pow(1 - p, 4);
+                (entry.target as HTMLElement).textContent = Math.floor(eased * target).toLocaleString() + suffix;
+                if (p < 1) requestAnimationFrame(animate);
+              };
+              requestAnimationFrame(animate);
+              counterObs.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.5 }
+        );
+        counterObs.observe(el);
+      });
+    </script>
+  </body>
+</html>
