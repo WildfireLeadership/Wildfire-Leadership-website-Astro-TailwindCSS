@@ -47,6 +47,28 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== TRUSTED BY ===== -->
+  <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by leading organizations</p>
+      <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {[
+          { src: "/images/client-logo-2.jpg", alt: "Hewlett Packard" },
+          { src: "/images/client-logo-1.jpg", alt: "Keller Logistics" },
+          { src: "/images/client-logo-5.jpg", alt: "Flatrock Bridge Group" },
+          { src: "/images/client-logo-7.jpg", alt: "Elevated Coastal Productions" },
+          { src: "/images/client-logo-3.jpg", alt: "Get Me Pallets" },
+          { src: "/images/client-logo-4.jpg", alt: "Tap Culture Coffee" },
+          { src: "/images/client-logo-6.jpg", alt: "Herron's Amish Furniture" },
+          { src: "/images/client-logo-8.jpg", alt: "Coastal Creek Design" },
+          { src: "/images/client-logo-9.jpg", alt: "Vistage" },
+        ].map((logo) => (
+          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ===== WHAT'S INSIDE ===== -->
   <SplitSection
     label="What's Inside"
@@ -109,12 +131,14 @@ import CallToAction from '../components/CallToAction.astro';
 
       <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {[
-          { label: "Ignite Business Overview", href: "#" },
-          { label: "Ignite Business Implementation", href: "#" },
-          { label: "Leadership & Team Development", href: "#" },
+          { label: "Ignite Business Overview", href: "/downloads/Ignite-Business-Overview.pdf" },
+          { label: "Ignite Business Implementation", href: "/downloads/Ignite-Business-Implementation.pdf" },
+          { label: "Leadership & Team Development", href: "/downloads/Leadership-Team-Development-Series.pdf" },
         ].map((res, i) => (
           <a
             href={res.href}
+            target="_blank"
+            download
             class:list={["reveal group flex items-center gap-4 p-6 rounded-xl border border-sand/50 bg-white hover:shadow-lg hover:shadow-charcoal/5 hover:-translate-y-1 transition-all duration-400", `reveal-d${i + 1}`]}
           >
             <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center group-hover:bg-ember/20 transition-colors duration-300">
