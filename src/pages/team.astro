@@ -94,17 +94,10 @@ import CallToAction from '../components/CallToAction.astro';
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <!-- Image Placeholder (LEFT on desktop) -->
+        <!-- Image (LEFT on desktop) -->
         <div class="reveal reveal-d1 relative lg:order-1">
-          <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-20 h-20 rounded-full bg-sand/60 mx-auto mb-4 flex items-center justify-center">
-                <svg class="w-8 h-8 text-stone/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-              </div>
-              <p class="text-sm text-stone/60">Photo coming soon</p>
-            </div>
+          <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden">
+            <img src="/images/stephanie-lammers.jpg" alt="Stephanie Lammers" class="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -155,14 +148,21 @@ import CallToAction from '../components/CallToAction.astro';
   <!-- ===== BILL & STEPHANIE TOGETHER — Cream bg ===== -->
   <section class="relative py-24 md:py-32 bg-cream">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Together</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
-          Bill & <em>Stephanie</em>
-        </h2>
-        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
-          Bill and Stephanie have been married for 28 years and are the proud parents of four children. Their shared passion for helping others uncover purpose and unleash potential continues to shape everything they build together through Wildfire Leadership and Ignite Academy.
-        </p>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden">
+            <img src="/images/bill-stephanie-together.jpg" alt="Bill and Stephanie Lammers presenting together" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div>
+          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Together</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+            Bill & <em>Stephanie</em>
+          </h2>
+          <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
+            Bill and Stephanie have been married for 28 years and are the proud parents of four children. Their shared passion for helping others uncover purpose and unleash potential continues to shape everything they build together through Wildfire Leadership and Ignite Academy.
+          </p>
+        </div>
       </div>
     </div>
   </section>
