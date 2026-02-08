@@ -106,7 +106,7 @@ body::before {
 
 /* ---- Ember gradient text ---- */
 .ember-gradient {
-  background: linear-gradient(135deg, #f07840 0%, #e8642c 40%, #d4a04a 100%);
+  background: linear-gradient(135deg, #eb4230 0%, #e53525 40%, #d42e20 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
