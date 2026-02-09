@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CallToAction from '../../components/CallToAction.astro';
+---
+
+<BaseLayout title="Ignite Higher Education" description="In just 4 hours, students uncover their purpose, gain clarity on identity and values, and walk away with a personalized roadmap and AI-powered career recommendations.">
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/education-higher.jpeg"
+    imageAlt="College students in a Wildfire Leadership session"
+    title='Ignite<br/><em>Higher Ed</em>'
+    subtitle="In just 4 hours, students uncover their purpose, gain clarity on identity and values, and walk away with a personalized roadmap for life."
+  />
+
+  <!-- ===== THE CHALLENGE ===== -->
+  <section class="relative py-28 md:py-40 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-4xl">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-8">The Challenge</p>
+        <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3rem] text-charcoal leading-[1.2]">
+          If your students could clearly articulate their purpose, understand who they are, and step confidently into a pathway aligned with their strengths — how would that impact <em class="text-ember">retention, engagement, academic focus,</em> and long-term success?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUSTED BY ===== -->
+  <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by schools across the country</p>
+      <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {[
+          { src: "/images/school-logo-1.png", alt: "Southeastern University" },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College" },
+          { src: "/images/school-logo-5.png", alt: "Defiance City Schools" },
+          { src: "/images/school-logo-3.png", alt: "Northeastern Local Schools" },
+          { src: "/images/school-logo-6.png", alt: "Ayersville Local Schools" },
+          { src: "/images/school-logo-7.png", alt: "Indian Lake High School" },
+          { src: "/images/dream-center.png", alt: "Dream Center" },
+        ].map((logo) => (
+          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="Wildfire Leadership gave our students a framework to connect who they are with where they're going. The transformation was immediate and lasting."
+        name="University Partner"
+      />
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">How It Works</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          4 Hours. <em>Two Tools. One Transformation.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="reveal bg-warm-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Session 1 — ~2 Hours</p>
+          <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">Mission Portrait</h3>
+          <p class="text-stone text-base leading-relaxed">
+            Students uncover their purpose and gain clarity around identity, values, mission, and vision. They receive a customized purpose snapshot — a visual daily reminder of who they are and where they're headed.
+          </p>
+        </div>
+        <div class="reveal reveal-d1 bg-warm-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Session 2 — ~2 Hours</p>
+          <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">The 7 Igniters</h3>
+          <p class="text-stone text-base leading-relaxed">
+            Students complete the 7 Igniters framework and walk away with a personalized roadmap life plan — plus AI-automated Top 3 Career Discovery recommendations aligned to their strengths and purpose.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUTCOMES ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Outcomes</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          What Campuses Can <em>Expect</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            number: "01",
+            heading: "Improved Retention",
+            desc: "Students who understand their purpose stay. Clarity around identity and direction reduces drift and dropout.",
+          },
+          {
+            number: "02",
+            heading: "Career-Ready Graduates",
+            desc: "AI-powered career recommendations plus a personalized roadmap give students a clear path from campus to career.",
+          },
+          {
+            number: "03",
+            heading: "Deeper Engagement",
+            desc: "Purpose-driven students show up more fully — in class, in organizations, and in their communities.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction
+    title='Bring Ignite to<br/><em class="ember-gradient">your campus.</em>'
+    image="/images/education-higher.jpeg"
+    buttonText="Bring Ignite to Your Campus"
+  />
+
+</BaseLayout>

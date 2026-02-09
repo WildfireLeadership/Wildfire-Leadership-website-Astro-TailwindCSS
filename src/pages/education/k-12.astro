@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CallToAction from '../../components/CallToAction.astro';
+---
+
+<BaseLayout title="Ignite Students K-12" description="Helping students discover purpose before they choose their path. A practical framework that builds clarity, confidence, and direction.">
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/education-students.jpg"
+    imageAlt="K-12 students in a Wildfire Leadership workshop"
+    title='Ignite<br/><em>Students K-12</em>'
+    subtitle="Helping students discover purpose before they choose their path. A practical framework that builds clarity, confidence, and direction."
+  />
+
+  <!-- ===== THE CHALLENGE ===== -->
+  <section class="relative py-28 md:py-40 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-4xl">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-8">The Challenge</p>
+        <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3rem] text-charcoal leading-[1.2]">
+          Only <em class="text-ember">13%</em> of people understand their purpose. And <em class="text-ember">50%</em> of students report stress and confusion about their future. They need tools to discover their purpose early.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUSTED BY ===== -->
+  <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by schools across the country</p>
+      <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {[
+          { src: "/images/school-logo-5.png", alt: "Defiance City Schools" },
+          { src: "/images/school-logo-3.png", alt: "Northeastern Local Schools" },
+          { src: "/images/school-logo-6.png", alt: "Ayersville Local Schools" },
+          { src: "/images/school-logo-7.png", alt: "Indian Lake High School" },
+          { src: "/images/school-logo-1.png", alt: "Southeastern University" },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College" },
+          { src: "/images/dream-center.png", alt: "Dream Center" },
+        ].map((logo) => (
+          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR APPROACH ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Approach</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Two Tools. <em>One Transformation.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="reveal bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 1</p>
+          <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">Mission Portrait</h3>
+          <p class="text-stone text-base leading-relaxed">
+            A personalized visual guide that helps students stay focused on their core values and goals. It provides clarity and direction, allowing them to expand their understanding of what matters most.
+          </p>
+        </div>
+        <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 2</p>
+          <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">The 7 Igniters</h3>
+          <p class="text-stone text-base leading-relaxed">
+            A 7-stage framework guiding students through self-discovery, goal-setting, career exploration, and action — equipping them with clarity, direction, and momentum for their future.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPLEMENTATION MODELS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Implementation</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Flexible Models <em>for Every School</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            number: "01",
+            heading: "Administrator Workshop",
+            desc: "A dynamic, hands-on session that gives school administrators firsthand experience with the Mission Portrait and 7 Igniters — helping them lead with clarity and alignment before introducing the tools to staff and students.",
+          },
+          {
+            number: "02",
+            heading: "Certified Facilitators",
+            desc: "Certify teachers to lead Ignite Students programs in classrooms and small groups. Equipped with Mission Portrait and 7 Igniters tools, facilitators guide students on their journey of self-discovery and leadership development.",
+          },
+          {
+            number: "03",
+            heading: "Annual Licensing",
+            desc: "Access digital and physical curriculum resources to sustain the program year-round. Includes all the tools needed to integrate the curriculum effectively, empower facilitators, and ensure long-term success.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-10 max-w-3xl mx-auto">
+        <div class="bg-cream rounded-xl border border-sand/50 p-6 md:p-8 text-center">
+          <p class="text-sm text-stone leading-relaxed">
+            A fully digitized, plug-and-play version of the Mission Portrait and 7 Igniters is available for schools that need a flexible, low-facilitation option. Includes video-based delivery and student-facing digital workbooks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TINORA CASE STUDY ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Case Study</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Tinora Schools: <em>A Success Story</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        {[
+          { label: "Professional Development", desc: "School leadership participated in Wildfire Leadership training as part of faculty and staff professional development, building excitement and buy-in for a shared vision of transformative leadership." },
+          { label: "Certified Teacher Facilitators", desc: "Teachers earned certification as Wildfire Leadership facilitators, seamlessly integrating its principles into daily classroom activities." },
+          { label: "8th-Grade Curriculum", desc: "All 8th-grade students participate in the program, establishing a strong foundation in self-discovery and leadership skills." },
+          { label: "Senior Capstone Project", desc: "Seniors complete a capstone experience centered around the Mission Portrait and 7 Igniters, equipping them for success after completing the program." },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-6 md:p-8", i < 2 ? `reveal-d${i + 1}` : ""]}>
+            <h3 class="text-base font-medium text-ember mb-2">{item.label}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Before / After Stats -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="reveal bg-charcoal rounded-xl p-8 md:p-10 text-center">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-4">Before</p>
+          <p class="font-display text-5xl md:text-6xl text-white mb-2">13%</p>
+          <p class="text-sm text-white/60">understood their purpose</p>
+          <p class="text-[10px] text-white/30 mt-2">Lifeway Research, 2017</p>
+        </div>
+        <div class="reveal reveal-d1 bg-ember rounded-xl p-8 md:p-10 text-center">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-4">After</p>
+          <p class="font-display text-5xl md:text-6xl text-white mb-2">94%</p>
+          <p class="text-sm text-white/80">clarity and understanding of purpose</p>
+          <p class="text-[10px] text-white/50 mt-2">Tinora Schools internal reporting</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">What They're Saying</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Real voices. <em>Real impact.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <TestimonialCard
+          quote="Since implementing Ignite, we've seen a shift in both students and teachers. Students are more engaged, and our educators feel re-energized. The culture of our school has transformed — we're not just preparing students academically, but equipping them with purpose and vision for their future."
+          name="Principal Alex Nafziger"
+          title="Tinora High School"
+        />
+        <TestimonialCard
+          quote="As a teacher, I have been able to watch this program transform students' mindsets and build their confidence in who they are as people and how they hope to succeed in their lives. This program is more than a '5-year plan'. It goes deeper and truly engages students in determining their value and worth in today's world."
+          name="Mrs. Profera"
+          title="Tinora High School"
+        />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-8">
+        <TestimonialCard
+          quote="Ignite Students helped me discover my purpose and stay focused on being fearless and courageous. My Mission Portrait reminds me every day that I have meaning and a mission to lead, support, and encourage others."
+          name="Reaghan"
+          title="8th Grade Ignite Students Participant"
+        />
+        <TestimonialCard
+          quote="Ignite Students helped me express myself better, understand my value, and completely changed my perspective. It transformed my outlook and made me realize what I have to offer."
+          name="Victor"
+          title="High School Ignite Students Participant"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUTCOMES ===== -->
+  <section class="relative py-24 md:py-32 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Impact</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Impact on <em>Your School</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            number: "01",
+            heading: "Expanded Student Engagement",
+            desc: "Students who understand their purpose are more engaged in school and extracurricular activities.",
+          },
+          {
+            number: "02",
+            heading: "Build School Culture",
+            desc: "Empowering students to lead with confidence fosters a positive, purpose-driven environment across your school.",
+          },
+          {
+            number: "03",
+            heading: "Growing Long-Term Success",
+            desc: "Students equipped with the right tools and mindset are more likely to thrive in life beyond the program.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction
+    title='Bring Ignite to<br/><em class="ember-gradient">your school.</em>'
+    image="/images/education-students.jpg"
+    buttonText="Bring Ignite to Your School"
+  />
+
+</BaseLayout>

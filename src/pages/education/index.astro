@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import CallToAction from '../components/CallToAction.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CallToAction from '../../components/CallToAction.astro';
 ---
 
 <BaseLayout title="Ignite Education" description="Wildfire Leadership provides purpose-driven tools that transform students into confident leaders.">
@@ -25,13 +25,13 @@ import CallToAction from '../components/CallToAction.astro';
             title: "Ignite Students K-12",
             desc: "Adaptable, age-appropriate solutions for schools that help students discover their strengths, build character, and develop leadership skills from an early age.",
             image: "/images/education-students.jpg",
-            href: "/contact",
+            href: "/education/k-12",
           },
           {
             title: "Ignite Higher Education",
             desc: "Empowering college and university students with purpose-driven frameworks that prepare them for meaningful careers and lives of impact.",
             image: "/images/education-higher.jpeg",
-            href: "/contact",
+            href: "/education/higher-ed",
           },
         ].map((program, i) => (
           <div class:list={["reveal group rounded-2xl overflow-hidden border border-sand/50 bg-white card-glow lift", `reveal-d${i + 1}`]}>
@@ -54,6 +54,28 @@ import CallToAction from '../components/CallToAction.astro';
               </a>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUSTED BY ===== -->
+  <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by schools across the country</p>
+      <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {[
+          { src: "/images/school-logo-5.png", alt: "Defiance City Schools" },
+          { src: "/images/school-logo-3.png", alt: "Northeastern Local Schools" },
+          { src: "/images/school-logo-6.png", alt: "Ayersville Local Schools" },
+          { src: "/images/school-logo-7.png", alt: "Indian Lake High School" },
+          { src: "/images/school-logo-1.png", alt: "Southeastern University" },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College" },
+          { src: "/images/dream-center.png", alt: "Dream Center" },
+        ].map((logo) => (
+          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -139,6 +161,7 @@ import CallToAction from '../components/CallToAction.astro';
   <CallToAction
     title='Ignite your<br/><em class="ember-gradient">students.</em>'
     image="/images/education-students.jpg"
+    buttonText="Bring Ignite to Your School"
   />
 
 </BaseLayout>
