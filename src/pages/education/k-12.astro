@@ -103,16 +103,18 @@ import CallToAction from '../../components/CallToAction.astro';
         <div class="reveal bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
           <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 1</p>
           <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">Mission Portrait</h3>
-          <p class="text-stone text-base leading-relaxed">
+          <p class="text-stone text-base leading-relaxed mb-6">
             A personalized visual guide that helps students stay focused on their core values and goals. It provides clarity and direction, allowing them to expand their understanding of what matters most.
           </p>
+          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait framework diagram showing Core Values, Vision, Mission, Passage, and ID components" class="w-full rounded-lg" />
         </div>
         <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
           <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 2</p>
           <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">The 7 Igniters</h3>
-          <p class="text-stone text-base leading-relaxed">
+          <p class="text-stone text-base leading-relaxed mb-6">
             A 7-stage framework guiding students through self-discovery, goal-setting, career exploration, and action — equipping them with clarity, direction, and momentum for their future.
           </p>
+          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" class="w-full rounded-lg" />
         </div>
       </div>
 
@@ -124,69 +126,86 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== PROVEN RESULTS ===== -->
+  <!-- ===== CASE STUDY: TINORA SCHOOLS ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Proven Results</p>
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Case Study</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          The numbers <em>speak for themselves.</em>
+          Tinora Schools: <em>From Uncertainty to Purpose</em>
         </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Tinora Schools implemented Ignite across their entire district. Here's how they did it — and the results they measured.
+        </p>
       </div>
 
-      <!-- Before/After Stats -->
-      <div class="grid md:grid-cols-2 gap-6 mb-16">
-        <!-- Purpose Clarity -->
-        <div class="reveal rounded-xl overflow-hidden">
-          <div class="bg-charcoal p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
-            <p class="font-display text-5xl md:text-6xl text-white">13%</p>
-            <p class="text-sm text-white/60 mt-2">understood their purpose</p>
-            <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
-          </div>
-          <div class="bg-ember p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After</p>
-            <p class="font-display text-5xl md:text-6xl text-white">94%</p>
-            <p class="text-sm text-white/80 mt-2">clarity and understanding of purpose</p>
-            <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
-          </div>
-        </div>
-        <!-- Direction & Roadmap -->
-        <div class="reveal reveal-d1 rounded-xl overflow-hidden">
-          <div class="bg-charcoal p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
-            <p class="font-display text-5xl md:text-6xl text-white">17%</p>
-            <p class="text-sm text-white/60 mt-2">had clarity of direction</p>
-            <p class="text-[10px] text-white/30 mt-1">Gallup-Strada, 2017</p>
-          </div>
-          <div class="bg-ember p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After</p>
-            <p class="font-display text-5xl md:text-6xl text-white">80%</p>
-            <p class="text-sm text-white/80 mt-2">clarity of direction and a defined roadmap</p>
-            <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tinora Case Study -->
-      <div class="reveal max-w-4xl mx-auto">
-        <p class="text-[11px] uppercase tracking-[0.3em] text-ember text-center mb-10">Tinora Schools — A Model of Excellence</p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+      <!-- What They Did -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-charcoal/40 mb-6">How They Implemented</p>
+        <div class="grid sm:grid-cols-2 gap-4">
           {[
             { label: "Professional Development", desc: "School leadership participated in Wildfire Leadership training, building buy-in for a shared vision of transformative leadership." },
             { label: "Certified Teacher Facilitators", desc: "Teachers earned certification as facilitators, seamlessly integrating the framework into daily classroom activities." },
             { label: "8th-Grade Curriculum", desc: "All 8th-grade students participate in the program, building a foundation in self-discovery and leadership." },
             { label: "Senior Capstone Experience", desc: "Seniors complete a capstone centered on the Mission Portrait and 7 Igniters, equipping them for life after graduation." },
           ].map((item) => (
-            <div class="bg-warm-white rounded-lg border border-sand/50 p-5">
+            <div class="reveal bg-warm-white rounded-lg border border-sand/50 p-5">
               <h4 class="text-sm font-medium text-ember mb-1">{item.label}</h4>
               <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
-        <p class="text-stone text-sm text-center leading-relaxed">
-          The before/after results above reflect Tinora's internal reporting after full district-wide implementation.
-        </p>
+      </div>
+
+      <!-- What Happened — Before/After Stats -->
+      <div class="max-w-4xl mx-auto">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-charcoal/40 mb-6">The Results</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Purpose Clarity -->
+          <div class="reveal rounded-xl overflow-hidden">
+            <div class="bg-charcoal p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">13%</p>
+              <p class="text-sm text-white/60 mt-2">understood their purpose</p>
+              <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">94%</p>
+              <p class="text-sm text-white/80 mt-2">clarity and understanding of purpose</p>
+              <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
+            </div>
+          </div>
+          <!-- Direction & Roadmap -->
+          <div class="reveal reveal-d1 rounded-xl overflow-hidden">
+            <div class="bg-charcoal p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">17%</p>
+              <p class="text-sm text-white/60 mt-2">had clarity of direction</p>
+              <p class="text-[10px] text-white/30 mt-1">Gallup-Strada, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">80%</p>
+              <p class="text-sm text-white/80 mt-2">clarity of direction and a defined roadmap</p>
+              <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Qualitative Impact -->
+        <div class="reveal grid md:grid-cols-3 gap-4 mt-10">
+          {[
+            { label: "Improved School Culture", desc: "Students and faculty collaborate in a unified, purpose-driven environment." },
+            { label: "Student Engagement", desc: "Increased participation in classroom and extracurricular activities." },
+            { label: "Post-Program Success", desc: "Students leave equipped with a clear vision and the confidence to achieve their goals." },
+          ].map((item) => (
+            <div class="bg-warm-white rounded-lg border border-sand/50 p-5 text-center">
+              <h4 class="text-sm font-medium text-charcoal mb-1">{item.label}</h4>
+              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -308,7 +327,7 @@ import CallToAction from '../../components/CallToAction.astro';
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Bring Ignite to<br/><em class="ember-gradient">your school.</em>'
-    image="/images/faith-family-workshop.jpg"
+    image="/images/education-students.jpg"
     buttonText="Bring Ignite to Your School"
   />
 
