@@ -166,15 +166,47 @@ import MapSection from '../components/MapSection.astro';
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS — Large quote (Palantir-style) ===== -->
+  <!-- ===== TESTIMONIALS — One per sector ===== -->
   <section class="relative py-24 md:py-36 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <TestimonialCard
-        variant="large"
-        quote="Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture and unleashed renewed purpose for my team."
-        name="Mike Remer"
-        title="Global Client Manager, Hewlett Packard"
-      />
+      <div class="text-center mb-14">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">What Leaders Are Saying</p>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Trusted across <em>every sector.</em></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 md:gap-5">
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">K–12 Education</p>
+          <TestimonialCard
+            quote="This curriculum is a must for every student. It fosters a culture of purpose, reflection, and growth — the impact across our schools has been transformative."
+            name="Bob Morton"
+            title="Superintendent, Defiance City Schools"
+          />
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Higher Education</p>
+          <TestimonialCard
+            quote="Our students come to us searching for direction. Wildfire's curriculum gives them something most programs miss — real clarity on their purpose and a vision for their future."
+            name="Dr. Todd Hernandez"
+            title="President, Northwest State Community College"
+          />
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Business</p>
+          <TestimonialCard
+            quote="Before Wildfire, we struggled to align our leaders with a unified vision. Now, from the field to senior leadership, everyone understands our purpose — and lives it daily."
+            name="Leslie Meyer"
+            title="President & Co-Owner, Flatrock Bridge Group"
+          />
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Faith & Community</p>
+          <TestimonialCard
+            quote="The Mission Portrait process was extremely helpful in clarifying my calling. Wildfire has created a unique tool to help people capture their gifts, passions, and vision."
+            name="Greg Surratt"
+            title="Co-Founder, ARC"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -188,7 +220,7 @@ import MapSection from '../components/MapSection.astro';
         {[
           { title: "Education", desc: "Empower students K-12 through higher ed to discover purpose.", href: "/education", icon: "M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" },
           { title: "Business & Organizations", desc: "Align your team around a unified mission.", href: "/business", icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" },
-          { title: "Faith", desc: "Equip your community with faith-centered tools.", href: "/churches", icon: "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" },
+          { title: "Faith & Community", desc: "Equip your community with purpose-driven tools.", href: "/churches", icon: "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" },
         ].map((item, i) => (
           <a href={item.href} class:list={["group reveal block p-8 md:p-10 rounded-2xl border border-sand/80 bg-white hover:border-ember/30 card-glow transition-all duration-500", i > 0 && `reveal-d${i}`]}>
             <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-6 group-hover:bg-ember/15 transition-colors duration-400">
@@ -269,18 +301,6 @@ import MapSection from '../components/MapSection.astro';
           ></iframe>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== SECOND TESTIMONIAL ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <TestimonialCard
-        variant="large"
-        quote="Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
-        name="Bryan Keller"
-        title="CEO, Keller Logistics"
-      />
     </div>
   </section>
 

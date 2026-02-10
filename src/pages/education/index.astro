@@ -69,13 +69,17 @@ import CallToAction from '../../components/CallToAction.astro';
           { src: "/images/school-logo-3.png", alt: "Northeastern Local Schools" },
           { src: "/images/school-logo-6.png", alt: "Ayersville Local Schools" },
           { src: "/images/school-logo-7.png", alt: "Indian Lake High School" },
+          { src: "/images/school-logo-napoleon.gif", alt: "Napoleon Area Schools" },
+          { src: "/images/school-logo-patrick-henry.png", alt: "Patrick Henry Local Schools" },
+          { src: "/images/school-logo-allen-east.jpg", alt: "Allen East Schools" },
+
           { src: "/images/school-logo-1.png", alt: "Southeastern University" },
-          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
-          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
-          { src: "/images/school-logo-4.png", alt: "Defiance College" },
-          { src: "/images/dream-center.png", alt: "Dream Center" },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University", scale: 1.3 },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College", scale: 1.4 },
+          { src: "/images/school-logo-4.png", alt: "Defiance College", scale: 1.3 },
+          { src: "/images/school-logo-hocking.png", alt: "Hocking College" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+          <img src={logo.src} alt={logo.alt} class="h-14 w-28 md:h-18 md:w-36 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" style={logo.scale ? `transform: scale(${logo.scale})` : undefined} />
         ))}
       </div>
     </div>
