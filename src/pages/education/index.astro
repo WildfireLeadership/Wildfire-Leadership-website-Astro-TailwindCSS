@@ -92,6 +92,7 @@ import CallToAction from '../../components/CallToAction.astro';
         <p class="reveal font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.15]">
           Only <em class="ember-gradient">13%</em> of people understand their purpose — <em>let's change that!</em>
         </p>
+        <p class="reveal text-xs text-stone/50 mt-4">Lifeway Research, 2017</p>
       </div>
     </div>
   </section>
@@ -149,15 +150,27 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== TESTIMONIAL ===== -->
+  <!-- ===== TESTIMONIALS ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <TestimonialCard
-        variant="large"
-        quote="This curriculum is a must for students... It fosters a culture of purpose, reflection, and growth."
-        name="Bob Morton"
-        title="Defiance City Schools Superintendent"
-      />
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-6">K–12 Education</p>
+          <TestimonialCard
+            quote="Ignite Students builds self-discipline, connection, and clarity through powerful tools like the Mission Portrait. It fosters a culture of purpose, reflection, and growth. This curriculum is a must for students to learn the process of goal realization."
+            name="Bob Morton"
+            title="Superintendent, Defiance City Schools"
+          />
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Higher Education</p>
+          <TestimonialCard
+            quote="Wildfire Leadership has been a catalyst for transformation at Northwest State. The framework gave our leadership team a common language and shared purpose that has cascaded into every corner of our institution. We're seeing measurable results in retention, engagement, and institutional growth."
+            name="Dr. Todd Hernandez"
+            title="President, Northwest State Community College"
+          />
+        </div>
+      </div>
     </div>
   </section>
 

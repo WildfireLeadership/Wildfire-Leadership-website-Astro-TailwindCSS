@@ -5,7 +5,7 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 import CallToAction from '../../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Ignite Higher Education" description="In just 4 hours, students uncover their purpose, gain clarity on identity and values, and walk away with a personalized roadmap and AI-powered career recommendations.">
+<BaseLayout title="Ignite Higher Education" description="A purpose-driven framework that helps college students uncover who they are, gain clarity on their direction, and step confidently into their future.">
 
   <!-- ===== HERO ===== -->
   <PageHero
@@ -13,7 +13,7 @@ import CallToAction from '../../components/CallToAction.astro';
     image="/images/education-higher.jpeg"
     imageAlt="College students in a Wildfire Leadership session"
     title='Ignite<br/><em>Higher Ed</em>'
-    subtitle="In just 4 hours, students uncover their purpose, gain clarity on identity and values, and walk away with a personalized roadmap for life."
+    subtitle="A purpose-driven framework that helps college students uncover who they are, gain clarity on their direction, and step confidently into their future."
   />
 
   <!-- ===== VIDEO TESTIMONIAL ===== -->
@@ -33,13 +33,27 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== THE CHALLENGE ===== -->
-  <section class="relative py-28 md:py-40 bg-white">
+  <!-- ===== THE PROBLEM ===== -->
+  <section class="relative py-28 md:py-40 bg-charcoal">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-4xl">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-8">The Challenge</p>
-        <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3rem] text-charcoal leading-[1.2]">
-          If your students could clearly articulate their purpose, understand who they are, and step confidently into a pathway aligned with their strengths — how would that impact <em class="text-ember">retention, engagement, academic focus,</em> and long-term success?
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember text-center mb-12">The Problem</p>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
+        <div class="reveal text-center md:text-right">
+          <p class="font-display text-7xl md:text-8xl lg:text-9xl text-ember leading-none">80%</p>
+          <p class="text-white/70 text-base md:text-lg mt-3">of college students <strong class="text-white">do not feel connected to a clear sense of purpose.</strong></p>
+          <p class="text-white/30 text-xs mt-2">Wildfire Leadership program data</p>
+        </div>
+        <div class="reveal reveal-d1 text-center md:text-left">
+          <p class="font-display text-7xl md:text-8xl lg:text-9xl text-ember leading-none">50%</p>
+          <p class="text-white/70 text-base md:text-lg mt-3">report <strong class="text-white">significant stress and confusion about their future.</strong></p>
+          <p class="text-white/30 text-xs mt-2">Ipsos, 2022</p>
+        </div>
+      </div>
+
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <p class="font-display text-xl md:text-2xl text-white/90 leading-relaxed">
+          Everyone's asking students where they're going. But first, they need to understand <em class="text-ember">who they are.</em>
         </p>
       </div>
     </div>
@@ -48,7 +62,7 @@ import CallToAction from '../../components/CallToAction.astro';
   <!-- ===== TRUSTED BY ===== -->
   <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by schools across the country</p>
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by colleges and universities</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
           { src: "/images/school-logo-1.png", alt: "Southeastern University" },
@@ -56,14 +70,6 @@ import CallToAction from '../../components/CallToAction.astro';
           { src: "/images/school-logo-2.png", alt: "Northwest State Community College", scale: 1.4 },
           { src: "/images/school-logo-4.png", alt: "Defiance College", scale: 1.3 },
           { src: "/images/school-logo-hocking.png", alt: "Hocking College" },
-          { src: "/images/school-logo-5.png", alt: "Defiance City Schools" },
-          { src: "/images/school-logo-3.png", alt: "Northeastern Local Schools" },
-          { src: "/images/school-logo-6.png", alt: "Ayersville Local Schools" },
-          { src: "/images/school-logo-7.png", alt: "Indian Lake High School" },
-          { src: "/images/school-logo-napoleon.gif", alt: "Napoleon Area Schools" },
-          { src: "/images/school-logo-patrick-henry.png", alt: "Patrick Henry Local Schools" },
-          { src: "/images/school-logo-allen-east.jpg", alt: "Allen East Schools" },
-
         ].map((logo) => (
           <img src={logo.src} alt={logo.alt} class="h-14 w-28 md:h-18 md:w-36 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" style={logo.scale ? `transform: scale(${logo.scale})` : undefined} />
         ))}
@@ -71,53 +77,60 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== TESTIMONIAL ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
+  <!-- ===== 40K STAT ===== -->
+  <section class="relative py-16 md:py-20 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <TestimonialCard
-        variant="large"
-        quote="Wildfire Leadership gave our students a framework to connect who they are with where they're going. The transformation was immediate and lasting."
-        name="University Partner"
-      />
+      <p class="reveal font-display text-3xl md:text-4xl lg:text-5xl text-charcoal text-center leading-[1.1]">
+        More than <em class="text-ember">40,000</em> individuals and students have completed a personal Mission Portrait.
+      </p>
+      <p class="reveal text-center text-xs text-stone/50 mt-4">Wildfire Leadership</p>
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
+  <!-- ===== OUR APPROACH ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">How It Works</p>
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Approach</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          4 Hours. <em>Two Tools. One Transformation.</em>
+          Two Tools. <em>One Transformation.</em>
         </h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="reveal bg-warm-white rounded-2xl border border-sand/50 p-8 md:p-10">
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Session 1 — ~2 Hours</p>
+        <div class="reveal bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 1</p>
           <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">Mission Portrait</h3>
-          <p class="text-stone text-base leading-relaxed">
-            Students uncover their purpose and gain clarity around identity, values, mission, and vision. They receive a customized purpose snapshot — a visual daily reminder of who they are and where they're headed.
+          <p class="text-stone text-base leading-relaxed mb-6">
+            A personalized visual guide that helps students stay focused on their core values and goals. It provides clarity and direction, allowing them to expand their understanding of what matters most.
           </p>
+          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait framework diagram showing Core Values, Vision, Mission, Passage, and ID components" class="w-full rounded-lg" />
         </div>
-        <div class="reveal reveal-d1 bg-warm-white rounded-2xl border border-sand/50 p-8 md:p-10">
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Session 2 — ~2 Hours</p>
+        <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-5">Tool 2</p>
           <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">The 7 Igniters</h3>
-          <p class="text-stone text-base leading-relaxed">
-            Students complete the 7 Igniters framework and walk away with a personalized roadmap life plan — plus AI-automated Top 3 Career Discovery recommendations aligned to their strengths and purpose.
+          <p class="text-stone text-base leading-relaxed mb-6">
+            A 7-stage framework guiding students through self-discovery, goal-setting, career exploration, and action — equipping them with clarity, direction, and momentum for their future. Includes AI-powered Top 3 Career Discovery recommendations aligned to their strengths and purpose.
           </p>
+          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" class="w-full rounded-lg" />
         </div>
+      </div>
+
+      <div class="reveal mt-8 text-center">
+        <p class="text-sm text-stone leading-relaxed">
+          Built for flexibility — small groups or full classrooms. The curriculum adapts to a variety of group sizes, timelines, and learning environments, with resources available in print, digital, and video-based formats.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ===== OUTCOMES ===== -->
-  <section class="relative py-24 md:py-32 bg-cream">
+  <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
         <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Outcomes</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          What Campuses Can <em>Expect</em>
+          What Students Can <em>Expect</em>
         </h2>
       </div>
 
@@ -125,21 +138,21 @@ import CallToAction from '../../components/CallToAction.astro';
         {[
           {
             number: "01",
-            heading: "Improved Retention",
-            desc: "Students who understand their purpose stay. Clarity around identity and direction reduces drift and dropout.",
+            heading: "Expand Their Vision",
+            desc: "Students gain a deeper understanding of their strengths, passions, and future goals.",
           },
           {
             number: "02",
-            heading: "Career-Ready Graduates",
-            desc: "AI-powered career recommendations plus a personalized roadmap give students a clear path from campus to career.",
+            heading: "Build Resilience",
+            desc: "Our tools help students overcome challenges, staying focused on their purpose and personal roadmap.",
           },
           {
             number: "03",
-            heading: "Deeper Engagement",
-            desc: "Purpose-driven students show up more fully — in class, in organizations, and in their communities.",
+            heading: "Grow into Leaders",
+            desc: "Students leave with a concrete plan for their future, whether they are pursuing higher education, entering the workforce, or exploring entrepreneurship.",
           },
         ].map((item, i) => (
-          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
             <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
             <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
             <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
@@ -149,10 +162,365 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== MEASURABLE IMPACT ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Measurable Impact</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          The numbers speak <em>for themselves.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { stat: "90%+", label: "purpose clarity after completing a Mission Portrait" },
+          { stat: "90%", label: "leave with a personalized roadmap and career plan" },
+          { stat: "87%", label: "increase in student engagement" },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10 text-center", `reveal-d${i + 1}`]}>
+            <p class="font-display text-5xl md:text-6xl text-ember leading-none mb-4">{item.stat}</p>
+            <p class="text-stone text-base leading-relaxed">{item.label}</p>
+          </div>
+        ))}
+      </div>
+      <p class="reveal text-center text-xs text-stone/50 mt-6">Wildfire Leadership program data</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDY: NORTHWEST STATE COMMUNITY COLLEGE ===== -->
+  <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
+    <!-- Subtle background accent -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Featured Case Study</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3.5rem] text-white leading-[1.1]">
+          Northwest State Community College:<br/><em class="text-ember">Leadership-Driven Institutional Growth</em>
+        </h2>
+        <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          Northwest State Community College adopted Wildfire Leadership as a strategic framework for institutional transformation — starting with leadership teams and expanding into key departments and programming. The results are reshaping the future of the college.
+        </p>
+      </div>
+
+      <!-- How They Implemented -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-6">How They Implemented</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { label: "Executive Leadership Alignment", desc: "President and VP-level leadership engaged in Wildfire workshops, establishing a shared vision and purpose-driven strategy for the institution." },
+            { label: "Leadership Team Development", desc: "Senior leadership and department heads completed Mission Portraits and the 7 Igniters, building alignment across the college's leadership structure." },
+            { label: "Department Integration", desc: "Select departments and student-facing programs adopted the framework, creating purpose-driven cultures within key areas of the college." },
+            { label: "Strategic Programming", desc: "Wildfire tools integrated into targeted student success programming, connecting institutional goals to individual student outcomes." },
+          ].map((item) => (
+            <div class="reveal bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-5">
+              <h4 class="text-sm font-medium text-ember mb-2">{item.label}</h4>
+              <p class="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- The Results — Big Impact Numbers -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">The Results</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Retention -->
+          <div class="reveal rounded-xl overflow-hidden">
+            <div class="bg-white/5 border border-white/10 p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/40 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white/60">58%</p>
+              <p class="text-sm text-white/40 mt-2">student retention rate</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">73%</p>
+              <p class="text-sm text-white/80 mt-2">student retention rate</p>
+              <p class="text-[10px] text-white/50 mt-1">*Placeholder — NSCC internal reporting</p>
+            </div>
+          </div>
+          <!-- Leadership Alignment -->
+          <div class="reveal reveal-d1 rounded-xl overflow-hidden">
+            <div class="bg-white/5 border border-white/10 p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/40 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white/60">34%</p>
+              <p class="text-sm text-white/40 mt-2">leadership team alignment</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">91%</p>
+              <p class="text-sm text-white/80 mt-2">leadership team alignment</p>
+              <p class="text-[10px] text-white/50 mt-1">*Placeholder — NSCC internal reporting</p>
+            </div>
+          </div>
+          <!-- Employee Engagement -->
+          <div class="reveal reveal-d2 rounded-xl overflow-hidden">
+            <div class="bg-white/5 border border-white/10 p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/40 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white/60">41%</p>
+              <p class="text-sm text-white/40 mt-2">staff engagement & morale</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">86%</p>
+              <p class="text-sm text-white/80 mt-2">staff engagement & morale</p>
+              <p class="text-[10px] text-white/50 mt-1">*Placeholder — NSCC internal reporting</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headline Growth Stat -->
+      <div class="reveal max-w-3xl mx-auto text-center mb-16">
+        <p class="font-display text-5xl md:text-6xl lg:text-7xl text-ember leading-none mb-4">+26%</p>
+        <p class="text-white/70 text-base md:text-lg">enrollment growth in departments where Wildfire Leadership was implemented</p>
+        <p class="text-white/30 text-xs mt-2">*Placeholder — NSCC internal reporting</p>
+      </div>
+
+      <!-- Qualitative Impact -->
+      <div class="reveal grid md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
+        {[
+          { label: "Institutional Growth", desc: "Measurable enrollment and retention gains driven by purpose-aligned leadership." },
+          { label: "Cross-Department Collaboration", desc: "Teams working from a shared framework, breaking down silos across the institution." },
+          { label: "Leadership Clarity", desc: "Executives and department heads operating with unified vision and strategic alignment." },
+          { label: "Student Success", desc: "Students in Wildfire-integrated programs show stronger engagement and completion rates." },
+        ].map((item) => (
+          <div class="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-5 text-center">
+            <h4 class="text-sm font-medium text-ember mb-1">{item.label}</h4>
+            <p class="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- NSCC Testimonials -->
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+        <div class="reveal bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
+          <svg class="w-8 h-8 text-ember/40 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-white/80 text-base leading-relaxed italic mb-6">
+            Wildfire Leadership has been a catalyst for transformation at Northwest State. The framework gave our leadership team a common language and shared purpose that has cascaded into every corner of our institution. We're seeing measurable results in retention, engagement, and institutional growth.
+          </p>
+          <div>
+            <p class="text-white font-medium text-sm">Dr. Todd Hernandez</p>
+            <p class="text-white/40 text-xs">President, Northwest State Community College</p>
+          </div>
+        </div>
+        <div class="reveal reveal-d1 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8">
+          <svg class="w-8 h-8 text-ember/40 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-white/80 text-base leading-relaxed italic mb-6">
+            What sets Wildfire apart is the depth of the impact. It's not just a workshop — it's a framework that changes how teams think, collaborate, and lead. Our departments that have adopted the program are outperforming across every metric we track.
+          </p>
+          <div>
+            <p class="text-white font-medium text-sm">Jim Drewes</p>
+            <p class="text-white/40 text-xs">Vice President of Workforce Development, Northwest State Community College</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDY: HOCKING COLLEGE ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Case Study</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Hocking College: <em>Campus-Wide Transformation</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Hocking College integrated Wildfire Leadership across their entire campus — from leadership to every incoming freshman.
+        </p>
+      </div>
+
+      <!-- How They Implemented -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-charcoal/40 mb-6">How They Implemented</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          {[
+            { label: "Campus-Wide Leadership Development", desc: "Leadership adopted the framework for campus-wide transformation, creating alignment from the top down." },
+            { label: "13 Certified Facilitators", desc: "Staff trained and certified to deliver the curriculum across departments, orientations, and student programs." },
+            { label: "Curriculum Integration", desc: "Every incoming freshman completes a Mission Portrait as part of orientation — building purpose from day one." },
+          ].map((item) => (
+            <div class="reveal bg-white rounded-lg border border-sand/50 p-5">
+              <h4 class="text-sm font-medium text-ember mb-1">{item.label}</h4>
+              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- The Results — Before/After Stats -->
+      <div class="max-w-4xl mx-auto">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-charcoal/40 mb-6">The Results</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Purpose Clarity -->
+          <div class="reveal rounded-xl overflow-hidden">
+            <div class="bg-charcoal p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">13%</p>
+              <p class="text-sm text-white/60 mt-2">understood their purpose</p>
+              <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">94%</p>
+              <p class="text-sm text-white/80 mt-2">clarity and understanding of purpose</p>
+              <p class="text-[10px] text-white/50 mt-1">Hocking College internal reporting</p>
+            </div>
+          </div>
+          <!-- Direction & Roadmap -->
+          <div class="reveal reveal-d1 rounded-xl overflow-hidden">
+            <div class="bg-charcoal p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">8%</p>
+              <p class="text-sm text-white/60 mt-2">had a roadmap and clear direction</p>
+              <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">65%</p>
+              <p class="text-sm text-white/80 mt-2">left with a personalized roadmap and direction</p>
+              <p class="text-[10px] text-white/50 mt-1">Hocking College internal reporting</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Qualitative Impact -->
+        <div class="reveal grid md:grid-cols-3 gap-4 mt-10">
+          {[
+            { label: "Improved Campus Culture", desc: "Faculty and students collaborate in a unified, purpose-driven environment." },
+            { label: "Student Engagement", desc: "Increased participation, collaboration, and morale across campus." },
+            { label: "Retention & Success", desc: "Students equipped with clear vision stay enrolled and graduate with confidence." },
+          ].map((item) => (
+            <div class="bg-white rounded-lg border border-sand/50 p-5 text-center">
+              <h4 class="text-sm font-medium text-charcoal mb-1">{item.label}</h4>
+              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">What They're Saying</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Real voices. <em>Real impact.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <TestimonialCard
+          quote="This program has been transformational for our campus. Students are more engaged, faculty are more connected, and we're seeing real results in retention and student success."
+          name="Dr. Betty Young"
+          title="President, Hocking College"
+        />
+        <TestimonialCard
+          quote="As a faculty member, I have been able to watch this program transform students' mindsets and build their confidence in who they are as people and how they hope to succeed in their lives. This program is more than a '5-year plan'. It goes deeper and truly engages students in determining their value and worth in today's world."
+          name="Terry Koons"
+          title="Executive Director for Student Engagement and Success, Hocking College"
+        />
+        <TestimonialCard
+          quote="Wildfire Leadership gave our students the tools to define their future with clarity and purpose. They are now more confident and engaged in both their academic and personal lives."
+          name="Hannah Guada"
+          title="Vice President of Student Affairs, Hocking College"
+        />
+        <TestimonialCard
+          quote="The Mission Portrait gave me a clear purpose to work toward every day. I finally understand who I am and what I'm meant to do."
+          name="Student Participant"
+          title="Hocking College"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPLEMENTATION ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Implementation</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          How to Bring Ignite <em>to Your Campus</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            number: "01",
+            heading: "Administrator Workshop",
+            desc: "A dynamic, hands-on session that gives administrators firsthand experience with the Mission Portrait and Working Genius frameworks — helping them lead with clarity and alignment before introducing the tools to staff and students.",
+          },
+          {
+            number: "02",
+            heading: "Certified Facilitators",
+            desc: "Certify faculty and staff to lead students in classrooms and small groups. Equipped with Mission Portrait and 7 Igniters tools, facilitators guide students on their journey of self-discovery and leadership development.",
+          },
+          {
+            number: "03",
+            heading: "Annual Licensing",
+            desc: "Access digital and physical curriculum resources to sustain the program year-round. Includes all the tools needed to integrate the curriculum effectively, empower facilitators, and ensure long-term success.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-10 max-w-3xl mx-auto">
+        <div class="bg-cream rounded-xl border border-sand/50 p-6 md:p-8 text-center">
+          <p class="text-sm text-stone leading-relaxed">
+            Need a flexible option? A fully digitized, plug-and-play version is available with video-based delivery and student-facing digital workbooks — perfect for campuses that need a low-facilitation path to get started.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEE IT IN ACTION ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">See It in Action</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Watch the <em>short clips.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { title: "Who We Are", desc: "A short intro to Wildfire Leadership and our mission.", url: "https://drive.google.com/file/d/10z8d5yvQ8Ky04N68mf6nfGdsgYCpWPCb/view" },
+          { title: "What's a Mission Portrait?", desc: "See how students discover and articulate their purpose.", url: "https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/view?usp=sharing" },
+          { title: "The 7 Igniters Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://vimeo.com/1151621096?fl=pl&fe=sh" },
+        ].map((video, i) => (
+          <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group bg-warm-white rounded-xl border border-sand/50 p-8 hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
+            <div class="flex items-center gap-4 mb-3">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-ember/10 flex items-center justify-center group-hover:bg-ember/20 transition-colors duration-300">
+                <svg class="w-5 h-5 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-base font-medium text-charcoal group-hover:text-ember transition-colors duration-300">{video.title}</h3>
+                <p class="text-xs text-ember/60 font-medium uppercase tracking-wider">Watch Video</p>
+              </div>
+            </div>
+            <p class="text-sm text-stone leading-relaxed">{video.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Bring Ignite to<br/><em class="ember-gradient">your campus.</em>'
-    image="/images/education-higher.jpeg"
+    image="/images/students-mission-portraits.jpg"
     buttonText="Bring Ignite to Your Campus"
   />
 
