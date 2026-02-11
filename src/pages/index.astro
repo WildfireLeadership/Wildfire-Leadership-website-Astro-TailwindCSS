@@ -54,7 +54,7 @@ import MapSection from '../components/MapSection.astro';
   <section class="relative py-28 md:py-40 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="max-w-5xl">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-8">What We Do</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">What We Do</p>
         <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3.5rem] text-charcoal leading-[1.2]">
           We help individuals, families, and organizations <em class="text-ember">uncover purpose</em> and <em class="text-ember">unleash potential</em> through proprietary, visual tools and proven frameworks.
         </p>
@@ -67,7 +67,7 @@ import MapSection from '../components/MapSection.astro';
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
         <div>
-          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Our Tools</p>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Our Tools</p>
           <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Tools that <em>transform.</em></h2>
         </div>
         <p class="reveal reveal-d2 text-sm text-stone max-w-md">Two proprietary frameworks designed to help you uncover purpose, build resilience, and ignite lasting change.</p>
@@ -132,7 +132,7 @@ import MapSection from '../components/MapSection.astro';
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
         <div>
-          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Real Stories</p>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Real Stories</p>
           <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">
             Over 40,000 portraits.<br/><em>Each one unique.</em>
           </h2>
@@ -153,13 +153,8 @@ import MapSection from '../components/MapSection.astro';
           { src: "/images/portrait-sarah-full.png", name: "Sarah", location: "Keller" },
           { src: "/images/portrait-ryan-full.png", name: "Ryan", location: "Napoleon" },
         ].map((portrait) => (
-          <div class="relative aspect-[3/4] rounded-xl overflow-hidden group cursor-pointer">
-            <img src={portrait.src} alt={`Mission Portrait - ${portrait.name}`} class="absolute inset-0 w-full h-full object-cover img-hover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/60 via-charcoal-deep/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <p class="text-sm font-medium text-white">{portrait.name}</p>
-              <p class="text-xs text-white/60">{portrait.location}</p>
-            </div>
+          <div class="relative aspect-[3/4] rounded-xl overflow-hidden">
+            <img src={portrait.src} alt="Mission Portrait example" class="absolute inset-0 w-full h-full object-cover" />
           </div>
         ))}
       </div>
@@ -170,12 +165,12 @@ import MapSection from '../components/MapSection.astro';
   <section class="relative py-24 md:py-36 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-14">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">What Leaders Are Saying</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">What Leaders Are Saying</p>
         <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Trusted across <em>every sector.</em></h2>
       </div>
       <div class="grid md:grid-cols-2 gap-4 md:gap-5">
         <div>
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">K–12 Education</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-3 font-medium">K–12 Education</p>
           <TestimonialCard
             quote="This curriculum is a must for every student. It fosters a culture of purpose, reflection, and growth — the impact across our schools has been transformative."
             name="Bob Morton"
@@ -183,7 +178,7 @@ import MapSection from '../components/MapSection.astro';
           />
         </div>
         <div>
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Higher Education</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-3 font-medium">Higher Education</p>
           <TestimonialCard
             quote="Our students come to us searching for direction. Wildfire's curriculum gives them something most programs miss — real clarity on their purpose and a vision for their future."
             name="Dr. Todd Hernandez"
@@ -191,7 +186,7 @@ import MapSection from '../components/MapSection.astro';
           />
         </div>
         <div>
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Business</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-3 font-medium">Business</p>
           <TestimonialCard
             quote="Before Wildfire, we struggled to align our leaders with a unified vision. Now, from the field to senior leadership, everyone understands our purpose — and lives it daily."
             name="Leslie Meyer"
@@ -199,7 +194,7 @@ import MapSection from '../components/MapSection.astro';
           />
         </div>
         <div>
-          <p class="text-[11px] uppercase tracking-[0.3em] text-ember mb-3 font-medium">Faith & Community</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-3 font-medium">Faith & Community</p>
           <TestimonialCard
             quote="The Mission Portrait process was extremely helpful in clarifying my calling. Wildfire has created a unique tool to help people capture their gifts, passions, and vision."
             name="Greg Surratt"
@@ -213,7 +208,7 @@ import MapSection from '../components/MapSection.astro';
   <!-- ===== WHO WE SERVE — Three sector cards ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">Who We Serve</p>
+      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Who We Serve</p>
       <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05] mb-14">Purpose for <em>everyone.</em></h2>
 
       <div class="grid md:grid-cols-3 gap-4">
@@ -246,7 +241,7 @@ import MapSection from '../components/MapSection.astro';
   <section class="relative py-20 md:py-28 bg-warm-white overflow-hidden">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-14">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-4">In Action</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">In Action</p>
         <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">
           Igniting change <em>everywhere.</em>
         </h2>
@@ -274,7 +269,7 @@ import MapSection from '../components/MapSection.astro';
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div>
-          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">Our Story</p>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Our Story</p>
           <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.1]">
             Born from a conviction that <em>every person</em> has a unique purpose.
           </h2>

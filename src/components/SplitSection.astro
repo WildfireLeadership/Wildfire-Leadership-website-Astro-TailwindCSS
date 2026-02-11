@@ -33,7 +33,7 @@ const bgClass = bg === 'warm-white' ? 'bg-warm-white' : bg === 'cream' ? 'bg-cre
       <!-- Text -->
       <div class:list={[imagePosition === 'left' && "lg:direction-ltr"]}>
         {label && (
-          <p class="reveal text-[11px] uppercase tracking-[0.3em] text-ember mb-6">{label}</p>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">{label}</p>
         )}
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]" set:html={title} />
         <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">{description}</p>
