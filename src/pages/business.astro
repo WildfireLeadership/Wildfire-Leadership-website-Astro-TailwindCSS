@@ -1,48 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import SplitSection from '../components/SplitSection.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Ignite Business" description="Wildfire Leadership partners with business teams, government leaders, sports organizations, and creative industries to unleash potential.">
+<BaseLayout title="Ignite Business" description="Wildfire Leadership partners with businesses and organizations to develop purpose-driven leaders, build thriving teams, and drive lasting results through coaching, workshops, and proven frameworks.">
 
-  <!-- ===== HERO — Dark hero with real business image ===== -->
+  <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
     image="/images/business-hero.jpg"
     imageAlt="Wildfire Leadership business workshop"
     title='Ignite<br/><em>Business</em>'
-    subtitle="We partner with business teams, government leaders, sports organizations, and creative industries."
+    subtitle="Leadership coaching, development workshops, and team building that help your people uncover purpose and unleash their potential."
   />
 
-  <!-- ===== MAIN MESSAGE ===== -->
-  <section class="relative py-28 md:py-40 bg-white">
+  <!-- ===== THE PROBLEM ===== -->
+  <section class="relative py-28 md:py-40 bg-charcoal">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-4xl">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">The Challenge</p>
-        <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3rem] text-charcoal leading-[1.2]">
-          The success of your business depends on you. You and your team can avoid feeling stuck, overwhelmed, and lacking vision.
-        </p>
-      </div>
-    </div>
-  </section>
+      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember text-center mb-12">The Problem</p>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        <TestimonialCard
-          quote="Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture and unleashed renewed purpose for my team."
-          name="Mike Remer"
-          title="Global Client Manager, Hewlett Packard"
-        />
-        <TestimonialCard
-          quote="Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
-          name="Bryan Keller"
-          title="CEO, Keller Logistics"
-        />
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
+        <div class="reveal text-center md:text-right">
+          <p class="font-display text-7xl md:text-8xl lg:text-9xl text-ember leading-none">20%</p>
+          <p class="text-white/70 text-base md:text-lg mt-3">of employees feel connected to <strong class="text-white">a clear purpose at work.</strong></p>
+          <p class="text-white/30 text-xs mt-2">Gallup, 2023</p>
+        </div>
+        <div class="reveal reveal-d1 text-center md:text-left">
+          <p class="font-display text-7xl md:text-8xl lg:text-9xl text-ember leading-none">50%</p>
+          <p class="text-white/70 text-base md:text-lg mt-3">of employees report <strong class="text-white">stress and confusion about their role.</strong></p>
+          <p class="text-white/30 text-xs mt-2">Ipsos, 2022</p>
+        </div>
+      </div>
+
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <p class="font-display text-xl md:text-2xl text-white/90 leading-relaxed">
+          The success of your business depends on your people. They don't have to feel stuck, overwhelmed, or lacking vision.
+        </p>
       </div>
     </div>
   </section>
@@ -69,86 +63,291 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== WHAT'S INSIDE ===== -->
-  <SplitSection
-    label="What's Inside"
-    title='Flexible &<br/><em>Customizable</em>'
-    description="Wildfire Leadership offers flexible implementation models to meet the unique needs of your business or organization. Whether you're looking to enhance leadership, team engagement, or cultural transformation, Ignite Business can seamlessly integrate into your operations."
-    image="/images/education-students.jpg"
-    imageAlt="Wildfire Leadership in action"
-    imagePosition="right"
-    bg="white"
-    link={{ text: "Get started", href: "/contact" }}
-  />
+  <!-- ===== CASE STUDY: FLATROCK BRIDGE GROUP ===== -->
+  <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
 
-  <!-- ===== OUTCOMES ===== -->
-  <section class="relative py-24 md:py-32 bg-cream">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Outcomes</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          What You Can <em>Expect</em>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Case Study</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3.5rem] text-white leading-[1.1]">
+          Flatrock Bridge Group:<br/><em class="text-ember">A Model for Success</em>
         </h2>
+        <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          Wildfire's leadership development transformed both frontline and executive teams — equipping them with tools for clarity, communication, and ownership.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        {[
-          {
-            number: "01",
-            heading: "Expand Their Vision",
-            desc: "Over 40,000 individuals have gained clarity in purpose after completing the Mission Portrait.",
-          },
-          {
-            number: "02",
-            heading: "Build Resilience",
-            desc: "87% report greater clarity and confidence through challenges.",
-          },
-          {
-            number: "03",
-            heading: "Grow into Purpose-Driven Leaders",
-            desc: "92% have developed a personalized roadmap for growth.",
-          },
-        ].map((item, i) => (
-          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
-            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
-            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
-            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+      <!-- Before / After -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+        <div class="reveal rounded-xl overflow-hidden">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+            <p class="font-display text-5xl md:text-6xl text-white">16%</p>
+            <p class="text-sm text-white/60 mt-2">felt connected to the company's mission and values</p>
           </div>
-        ))}
+          <div class="bg-ember p-6 md:p-8 text-center">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+            <p class="font-display text-5xl md:text-6xl text-white">89%</p>
+            <p class="text-sm text-white/80 mt-2">reported a renewed sense of purpose and alignment</p>
+          </div>
+        </div>
+        <div class="reveal reveal-d1 rounded-xl overflow-hidden">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+            <p class="font-display text-5xl md:text-6xl text-white">11%</p>
+            <p class="text-sm text-white/60 mt-2">had a clear personal leadership growth plan</p>
+          </div>
+          <div class="bg-ember p-6 md:p-8 text-center">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+            <p class="font-display text-5xl md:text-6xl text-white">76%</p>
+            <p class="text-sm text-white/80 mt-2">built a defined personal leadership growth plan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Impact Stats -->
+      <div class="max-w-4xl mx-auto mb-12">
+        <div class="grid sm:grid-cols-3 gap-6">
+          {[
+            { stat: "35%", label: "Employee Retention", desc: "Reducing costly turnover" },
+            { stat: "42%", label: "Revenue Growth", desc: "Annual increase" },
+            { stat: "56%", label: "Profitability", desc: "Improvement in margins" },
+          ].map((item, i) => (
+            <div class:list={["reveal bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-8 text-center", `reveal-d${i + 1}`]}>
+              <p class="font-display text-4xl md:text-5xl text-ember leading-none mb-2">{item.stat}</p>
+              <p class="text-white font-medium text-sm mb-1">{item.label}</p>
+              <p class="text-white/40 text-xs">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="reveal max-w-3xl mx-auto mb-8">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 md:p-10">
+          <svg class="w-8 h-8 text-ember/40 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-6">
+            Before Wildfire, we struggled to align our leaders with a unified vision. Now, from the field to senior leadership, everyone understands our purpose — and lives it daily.
+          </p>
+          <div>
+            <p class="text-white font-medium text-sm">Leslie Meyer</p>
+            <p class="text-white/40 text-xs">President, Flatrock Bridge Group</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Source -->
+      <p class="reveal text-center text-white/25 text-xs max-w-2xl mx-auto">
+        Based on internal survey and performance data from Flatrock Bridge Group, 2022–2024. Wildfire Leadership engagement.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== HOW WE WORK WITH BUSINESSES ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">How We Work With Businesses</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Two Paths. <em>One Goal.</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          Every engagement is built on two proprietary tools — the <a href="/mission-portrait" class="text-ember hover:underline">Mission Portrait</a> and the <a href="/seven-igniters" class="text-ember hover:underline">7 Igniters</a> — supported by over 20 proven assessments and resources. Here's how most organizations get started.
+        </p>
+      </div>
+
+      <!-- ── OUR TOOLS ── -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20 md:mb-28">
+        <a href="/mission-portrait" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait framework diagram showing Core Values, Vision, Mission, Passage, and ID components" class="w-full" />
+          <div class="p-6 md:p-8">
+            <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait</h3>
+            <p class="text-stone text-sm leading-relaxed mb-3">
+              A visual guide that maps core values, vision, and mission — built for individuals, departments, or the entire organization.
+            </p>
+            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+          </div>
+        </a>
+        <a href="/seven-igniters" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" class="w-full" />
+          <div class="p-6 md:p-8">
+            <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters</h3>
+            <p class="text-stone text-sm leading-relaxed mb-3">
+              The primary coaching framework for business — seven stages of growth supported by over 20 proven tools and assessments.
+            </p>
+            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- ── PATH 1: COACHING & WORKSHOPS ── -->
+      <div class="mb-20 md:mb-28">
+        <div class="reveal flex items-center gap-4 mb-8">
+          <span class="font-display text-5xl md:text-6xl text-ember/20 leading-none">01</span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-1">Recommended Starting Point</p>
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1]">Coaching & Workshops</h3>
+          </div>
+        </div>
+
+        <p class="reveal text-stone text-base leading-relaxed max-w-3xl mb-10">
+          Most organizations begin here. Wildfire coaches your leaders using the 7 Igniters framework and delivers hands-on workshops that build alignment, accountability, and trust across your team.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10">
+            <h4 class="text-lg font-medium text-charcoal mb-3">Leadership Coaching</h4>
+            <p class="text-stone text-sm leading-relaxed mb-4">
+              Personalized, strategic coaching sessions designed to help leaders gain clarity, build alignment, and drive results.
+            </p>
+            <div class="space-y-2">
+              {[
+                { label: "Individual Coaching", detail: "4 sessions, 60 minutes each" },
+                { label: "Strategic Coaching for Key Leaders", detail: "2x/month, 6–12 month commitment" },
+                { label: "Leadership Ignited: Cohort Style", detail: "1–2x/month, cohorts of 10, min. 4 months" },
+              ].map((tier) => (
+                <div class="bg-warm-white rounded-lg p-3">
+                  <p class="text-xs font-medium text-charcoal">{tier.label}</p>
+                  <p class="text-xs text-stone mt-0.5">{tier.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="reveal reveal-d1 bg-white rounded-xl border border-sand/50 p-8 md:p-10">
+            <h4 class="text-lg font-medium text-charcoal mb-3">Development Workshops</h4>
+            <p class="text-stone text-sm leading-relaxed mb-4">
+              Hands-on sessions that equip your team with practical tools for collaboration, accountability, and trust.
+            </p>
+            <div class="space-y-1.5">
+              {[
+                "Working Genius",
+                "Working Genius Deep Dive",
+                "Mission Portrait",
+                "5 Levels of Leadership",
+                "Mastering Crucial Conversations",
+                "Extreme Ownership",
+                "5 Dysfunctions of a Team",
+                "7 Igniters Roadmap",
+                "DISC Leadership Essentials",
+              ].map((session) => (
+                <p class="text-xs text-stone flex items-start gap-2">
+                  <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
+                  {session}
+                </p>
+              ))}
+            </div>
+            <div class="mt-4 bg-ember/5 rounded-lg p-3 border border-ember/10">
+              <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait + Working Genius combo workshop</p>
+            </div>
+            <p class="text-xs text-stone/60 italic mt-4">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
+          </div>
+
+          <div class="reveal reveal-d2 bg-white rounded-xl border border-sand/50 p-8 md:p-10">
+            <h4 class="text-lg font-medium text-charcoal mb-3">Team Building Series</h4>
+            <p class="text-stone text-sm leading-relaxed mb-4">
+              Six 90-minute sessions that guide teams through Working Styles & Team Mapping — uncovering strengths, mastering working styles, and building high-performing teams.
+            </p>
+            <div class="bg-warm-white rounded-lg p-4">
+              <p class="text-xs font-medium text-charcoal mb-1">What teams walk away with:</p>
+              <ul class="space-y-1">
+                {[
+                  "Aligned skills with team dynamics",
+                  "Enhanced cross-team collaboration",
+                  "Practical strategies for trust & accountability",
+                ].map((item) => (
+                  <li class="text-xs text-stone flex items-start gap-2">
+                    <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PATH 2: ORGANIZATION-WIDE IMPLEMENTATION ── -->
+      <div>
+        <div class="reveal flex items-center gap-4 mb-8">
+          <span class="font-display text-5xl md:text-6xl text-ember/20 leading-none">02</span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-1">Scale Across Your Organization</p>
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1]">Organization-Wide Implementation</h3>
+          </div>
+        </div>
+
+        <p class="reveal text-stone text-base leading-relaxed max-w-3xl mb-10">
+          Ready to embed Wildfire into your company culture? Organizations like Keller Logistics and Flatrock Bridge Group have licensed the full curriculum — certifying internal facilitators and making the Mission Portrait a permanent part of how they operate.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          {[
+            {
+              step: "Step 1",
+              heading: "Administrator Workshop",
+              desc: "A hands-on session that gives select leaders firsthand experience with the Mission Portrait and frameworks — helping them lead with clarity before introducing the tools to their teams.",
+            },
+            {
+              step: "Step 2",
+              heading: "Certified Facilitators",
+              desc: "Certify internal leaders to deliver Wildfire content across departments. Facilitators guide employees through purpose-driven growth, collaboration, and engagement using our signature tools.",
+            },
+            {
+              step: "Step 3",
+              heading: "Annual Licensing",
+              desc: "Access digital and physical curriculum resources year-round. Includes leadership development sessions, planning tools, and everything needed to embed the content into company rhythms.",
+            },
+          ].map((item, i) => (
+            <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+              <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">{item.step}</p>
+              <h4 class="text-lg font-medium text-charcoal mb-3">{item.heading}</h4>
+              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Keller Proof -->
+        <div class="reveal bg-cream rounded-2xl border border-sand/50 p-8 md:p-10">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6 text-center">See It in Action — Keller Logistics</p>
+          <p class="font-display text-xl md:text-2xl text-charcoal leading-snug max-w-2xl mx-auto text-center mb-8">
+            Keller Logistics completed the Mission Portrait as a company and etched it into their conference room doors — a daily reminder of shared vision and purpose that every employee walks through.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait overlaid on aerial view of their facility" class="w-full rounded-xl shadow-lg" />
+            <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait etched into the glass doors of their main conference room" class="w-full rounded-xl shadow-lg" />
+          </div>
+        </div>
+
+        <div class="reveal mt-8 max-w-3xl mx-auto">
+          <div class="bg-white rounded-xl border border-sand/50 p-6 md:p-8 text-center">
+            <p class="text-sm text-stone leading-relaxed">
+              Need a flexible option? A fully digitized, plug-and-play version of the Mission Portrait is available for businesses that need a low-facilitation path. Includes video-based delivery and digital workbooks.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal mt-10 text-center">
+          <a href="/contact?interest=business-licensing" class="inline-flex items-center gap-2 bg-ember text-white font-medium text-sm px-8 py-3.5 rounded-full hover:bg-ember/90 transition-colors duration-300">
+            Learn About Licensing
+            <span>&rarr;</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== DOWNLOAD RESOURCES ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Resources</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Download &<br/><em>Learn More</em>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {[
-          { label: "Ignite Business Overview", href: "/downloads/Ignite-Business-Overview.pdf" },
-          { label: "Ignite Business Implementation", href: "/downloads/Ignite-Business-Implementation.pdf" },
-          { label: "Leadership & Team Development", href: "/downloads/Leadership-Team-Development-Series.pdf" },
-        ].map((res, i) => (
-          <a
-            href={res.href}
-            target="_blank"
-            download
-            class:list={["reveal group flex items-center gap-4 p-6 rounded-xl border border-sand/50 bg-white hover:shadow-lg hover:shadow-charcoal/5 hover:-translate-y-1 transition-all duration-400", `reveal-d${i + 1}`]}
-          >
-            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center group-hover:bg-ember/20 transition-colors duration-300">
-              <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <span class="text-[11px] uppercase tracking-[0.2em] font-medium text-charcoal group-hover:text-ember transition-colors duration-300">{res.label}</span>
-          </a>
-        ))}
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-16 md:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <div class="reveal text-center">
+        <svg class="w-8 h-8 text-ember/30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        <p class="font-display text-xl md:text-2xl text-charcoal leading-relaxed italic mb-6">
+          Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture and unleashed renewed purpose for my team.
+        </p>
+        <p class="text-charcoal font-medium text-sm">Mike Remer</p>
+        <p class="text-stone text-xs">Global Client Manager, Hewlett Packard</p>
       </div>
     </div>
   </section>
@@ -157,7 +356,8 @@ import CallToAction from '../components/CallToAction.astro';
   <CallToAction
     title='Ignite your<br/><em class="ember-gradient">organization.</em>'
     image="/images/business-hero.jpg"
-    buttonText="Schedule a Team Workshop"
+    buttonText="Schedule a Consultation"
+    buttonHref="/contact?interest=business"
   />
 
 </BaseLayout>
