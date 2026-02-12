@@ -116,12 +116,11 @@ import CallToAction from '../components/CallToAction.astro';
           </div>
           <p class="text-sm text-stone mb-8">One-time purchase</p>
 
-          <ul class="space-y-4 mb-10 flex-1">
+          <ul class="space-y-4 mb-8 flex-1">
             {[
               "Electronic PDF workbook",
               "Step-by-step 7 Igniters curriculum",
               "Goal-setting and action planning tools",
-              "Flexible for Individual / Marriage / Family / Organization",
             ].map((item) => (
               <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
                 <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +131,18 @@ import CallToAction from '../components/CallToAction.astro';
             ))}
           </ul>
 
-          <a href="/contact?interest=7-igniters" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
+          <div class="mb-6" data-pricing-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
+            <div class="flex flex-wrap gap-2">
+              {["Student", "Individual", "Marriage", "Family", "Organization"].map((option) => (
+                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase()}>
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <a href="/contact?interest=7-igniters&type=self-guided" data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
             Get Started
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -148,13 +158,12 @@ import CallToAction from '../components/CallToAction.astro';
           </div>
           <p class="text-sm text-stone mb-8">Per session</p>
 
-          <ul class="space-y-4 mb-10 flex-1">
+          <ul class="space-y-4 mb-8 flex-1">
             {[
               "60-minute virtual session with Certified Facilitator",
               "All materials included",
               "Electronic PDF workbook",
               "Personalized coaching through the 7 Igniters",
-              "Flexible for Individual / Marriage / Family / Organization",
             ].map((item) => (
               <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
                 <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +174,18 @@ import CallToAction from '../components/CallToAction.astro';
             ))}
           </ul>
 
-          <a href="/contact?interest=7-igniters" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          <div class="mb-6" data-pricing-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
+            <div class="flex flex-wrap gap-2">
+              {["Student", "Individual", "Marriage", "Family", "Organization"].map((option) => (
+                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase()}>
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <a href="/contact?interest=7-igniters&type=facilitated" data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
             Book Now
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -193,3 +213,28 @@ import CallToAction from '../components/CallToAction.astro';
   />
 
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-pricing-selector]').forEach((selector) => {
+    const card = selector.closest('.flex.flex-col');
+    const link = card?.querySelector('[data-cta-link]');
+    const pills = selector.querySelectorAll('.pricing-pill');
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pills.forEach((p) => {
+          p.classList.remove('bg-ember', 'text-white', 'border-ember');
+          p.classList.add('border-sand/80', 'text-stone');
+        });
+        pill.classList.add('bg-ember', 'text-white', 'border-ember');
+        pill.classList.remove('border-sand/80', 'text-stone');
+
+        if (link) {
+          const url = new URL(link.href);
+          url.searchParams.set('for', pill.dataset.value);
+          link.href = url.toString();
+        }
+      });
+    });
+  });
+</script>
