@@ -4,6 +4,12 @@ import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import StatCounter from '../components/StatCounter.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
+
+const selfGuidedUrl = checkoutUrl(stripeLinks.sevenIgniters.selfGuided, '7-igniters', 'self-guided');
+const facilitatedUrl = checkoutUrl(stripeLinks.sevenIgniters.facilitated, '7-igniters', 'facilitated');
+const selfGuidedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.selfGuided);
+const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilitated);
 ---
 
 <BaseLayout title="The 7 Igniters" description="A proven seven-step framework from purpose to potential. Each stage of your journey ignites something within you.">
@@ -131,36 +137,14 @@ import CallToAction from '../components/CallToAction.astro';
             ))}
           </ul>
 
-          <div class="mb-4" data-pricing-selector>
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
-            <div class="flex flex-wrap gap-2">
-              {["Student", "Individual", "Marriage", "Family", "Organization"].map((option) => (
-                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase()}>
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div class="mb-6 flex items-center gap-4" data-qty-selector>
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50">Qty</p>
-            <div class="inline-flex items-center border border-sand/80 rounded-full">
-              <button type="button" data-qty-minus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M5 12h14"/></svg>
-              </button>
-              <span data-qty-value class="w-8 text-center text-sm font-medium text-charcoal">1</span>
-              <button type="button" data-qty-plus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 5v14M5 12h14"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <a href="/contact?interest=7-igniters&type=self-guided" data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
-            Get Started
+          <a href={selfGuidedUrl} target={selfGuidedIsStripe ? "_blank" : undefined} rel={selfGuidedIsStripe ? "noopener noreferrer" : undefined} class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
+            {selfGuidedIsStripe ? "Purchase Now" : "Get Started"}
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
+          {selfGuidedIsStripe && <p class="text-xs text-stone text-center mt-3">You'll select quantity and audience at checkout</p>}
+          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-2 transition-colors duration-300">Have questions? Contact us</a>
         </div>
 
         <!-- Facilitated -->
@@ -187,36 +171,14 @@ import CallToAction from '../components/CallToAction.astro';
             ))}
           </ul>
 
-          <div class="mb-4" data-pricing-selector>
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
-            <div class="flex flex-wrap gap-2">
-              {["Student", "Individual", "Marriage", "Family", "Organization"].map((option) => (
-                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase()}>
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div class="mb-6 flex items-center gap-4" data-qty-selector>
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50">Qty</p>
-            <div class="inline-flex items-center border border-sand/80 rounded-full">
-              <button type="button" data-qty-minus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M5 12h14"/></svg>
-              </button>
-              <span data-qty-value class="w-8 text-center text-sm font-medium text-charcoal">1</span>
-              <button type="button" data-qty-plus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 5v14M5 12h14"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <a href="/contact?interest=7-igniters&type=facilitated" data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
-            Book Now
+          <a href={facilitatedUrl} target={facilitatedIsStripe ? "_blank" : undefined} rel={facilitatedIsStripe ? "noopener noreferrer" : undefined} class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+            {facilitatedIsStripe ? "Book & Pay" : "Book Now"}
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
+          {facilitatedIsStripe && <p class="text-xs text-stone text-center mt-3">You'll select quantity and audience at checkout</p>}
+          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-2 transition-colors duration-300">Have questions? Contact us</a>
         </div>
       </div>
     </div>
@@ -239,53 +201,3 @@ import CallToAction from '../components/CallToAction.astro';
   />
 
 </BaseLayout>
-
-<script>
-  document.querySelectorAll('[data-pricing-selector]').forEach((selector) => {
-    const card = selector.closest('.flex.flex-col');
-    const link = card?.querySelector('[data-cta-link]');
-    const pills = selector.querySelectorAll('.pricing-pill');
-
-    pills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        pills.forEach((p) => {
-          p.classList.remove('bg-ember', 'text-white', 'border-ember');
-          p.classList.add('border-sand/80', 'text-stone');
-        });
-        pill.classList.add('bg-ember', 'text-white', 'border-ember');
-        pill.classList.remove('border-sand/80', 'text-stone');
-
-        if (link) {
-          const url = new URL(link.href);
-          url.searchParams.set('for', pill.dataset.value);
-          link.href = url.toString();
-        }
-      });
-    });
-  });
-
-  document.querySelectorAll('[data-qty-selector]').forEach((selector) => {
-    const card = selector.closest('.flex.flex-col');
-    const link = card?.querySelector('[data-cta-link]');
-    const display = selector.querySelector('[data-qty-value]');
-    const minus = selector.querySelector('[data-qty-minus]');
-    const plus = selector.querySelector('[data-qty-plus]');
-    let qty = 1;
-
-    function update() {
-      display.textContent = qty;
-      if (link) {
-        const url = new URL(link.href);
-        if (qty > 1) {
-          url.searchParams.set('qty', qty);
-        } else {
-          url.searchParams.delete('qty');
-        }
-        link.href = url.toString();
-      }
-    }
-
-    minus?.addEventListener('click', () => { if (qty > 1) { qty--; update(); } });
-    plus?.addEventListener('click', () => { if (qty < 99) { qty++; update(); } });
-  });
-</script>

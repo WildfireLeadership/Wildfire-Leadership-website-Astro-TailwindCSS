@@ -30,15 +30,15 @@ import CallToAction from '../components/CallToAction.astro';
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal reveal-d2 space-y-8">
 
           <!-- Interest radio group -->
-          <fieldset>
+          <fieldset id="interest-fieldset">
             <legend class="text-sm font-medium text-charcoal mb-4">I'm interested in...</legend>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+            <div id="interest-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
                 { label: "Ignite Students (K-12)", param: "ignite-k12" },
                 { label: "Ignite Higher Ed", param: "ignite-higher-ed" },
                 { label: "Business & Team Workshop", param: "business" },
                 { label: "Faith & Community Workshop", param: "faith" },
-                { label: "Mission Portrait (Individual/Family)", param: "mission-portrait" },
                 { label: "Facilitator Certification", param: "facilitator" },
                 { label: "Leadership Development", param: "leadership" },
                 { label: "Coaching", param: "coaching" },
@@ -198,8 +198,6 @@ import CallToAction from '../components/CallToAction.astro';
     const radio = document.querySelector(`input[name="interest"][data-interest="${param}"]`) as HTMLInputElement;
     if (radio) {
       radio.checked = true;
-      radio.dispatchEvent(new Event('change', { bubbles: true }));
-      radio.closest('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
 </script>
