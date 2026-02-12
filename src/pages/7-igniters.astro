@@ -96,6 +96,86 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Choose Your Path</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Two ways to ignite<br/><em>your potential.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Self-Guided -->
+        <div class="reveal bg-warm-white rounded-2xl border border-sand/50 p-10 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-ember text-white text-[11px] uppercase tracking-[0.2em] font-medium px-4 py-1.5 rounded-bl-xl">Most Popular</div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Self-Guided</p>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-display text-5xl text-charcoal">$35</span>
+          </div>
+          <p class="text-sm text-stone mb-8">One-time purchase</p>
+
+          <ul class="space-y-4 mb-10 flex-1">
+            {[
+              "Electronic PDF workbook",
+              "Step-by-step 7 Igniters curriculum",
+              "Goal-setting and action planning tools",
+              "Flexible for Individual / Marriage / Family / Organization",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
+                <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a href="/contact?interest=7-igniters" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
+            Get Started
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Facilitated -->
+        <div class="reveal reveal-d1 bg-warm-white rounded-2xl border border-sand/50 p-10 flex flex-col">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Facilitated</p>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-display text-5xl text-charcoal">$299</span>
+          </div>
+          <p class="text-sm text-stone mb-8">Per session</p>
+
+          <ul class="space-y-4 mb-10 flex-1">
+            {[
+              "60-minute virtual session with Certified Facilitator",
+              "All materials included",
+              "Electronic PDF workbook",
+              "Personalized coaching through the 7 Igniters",
+              "Flexible for Individual / Marriage / Family / Organization",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
+                <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a href="/contact?interest=7-igniters" class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+            Book Now
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== STATS ===== -->
   <StatCounter
     bg="cream"

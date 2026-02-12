@@ -40,11 +40,11 @@ import CallToAction from '../components/CallToAction.astro';
 
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <!-- Self-Guided -->
-        <div class="reveal bg-white rounded-2xl border border-sand/50 p-10 flex flex-col">
+        <div class="reveal bg-white rounded-2xl border border-sand/50 p-10 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-ember text-white text-[11px] uppercase tracking-[0.2em] font-medium px-4 py-1.5 rounded-bl-xl">Most Popular</div>
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Self-Guided</p>
           <div class="flex items-baseline gap-3 mb-2">
             <span class="font-display text-5xl text-charcoal">$35</span>
-            <span class="text-stone line-through text-lg">$50</span>
           </div>
           <p class="text-sm text-stone mb-8">One-time purchase</p>
 
@@ -53,6 +53,7 @@ import CallToAction from '../components/CallToAction.astro';
               "Electronic PDF workbook",
               "Step-by-step guidance",
               "Customized digital Mission Portrait",
+              "Flexible for Individual / Marriage / Family / Organization",
             ].map((item) => (
               <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
                 <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,8 +73,7 @@ import CallToAction from '../components/CallToAction.astro';
         </div>
 
         <!-- Facilitated -->
-        <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-10 flex flex-col relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-ember text-white text-[11px] uppercase tracking-[0.2em] font-medium px-4 py-1.5 rounded-bl-xl">Most Popular</div>
+        <div class="reveal reveal-d1 bg-white rounded-2xl border border-sand/50 p-10 flex flex-col">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Facilitated</p>
           <div class="flex items-baseline gap-3 mb-2">
             <span class="font-display text-5xl text-charcoal">$299</span>
@@ -86,7 +86,7 @@ import CallToAction from '../components/CallToAction.astro';
               "All materials included",
               "Electronic PDF workbook",
               "Customized digital Mission Portrait",
-              "Flexible for Individual / Marriage / Family",
+              "Flexible for Individual / Marriage / Family / Organization",
             ].map((item) => (
               <li class="flex items-start gap-3 text-sm text-charcoal/80 leading-relaxed">
                 <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
