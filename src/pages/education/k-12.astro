@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
 import CallToAction from '../../components/CallToAction.astro';
 ---
 
@@ -16,58 +15,6 @@ import CallToAction from '../../components/CallToAction.astro';
     subtitle="Helping 7th–12th graders discover purpose, build direction, and re-engage — with measurable results across 40,000+ students."
   />
 
-  <!-- ===== PROOF: BEFORE / AFTER ===== -->
-  <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
-
-    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-12 md:mb-16">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Measured Results</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1]">
-          From Uncertainty <em class="text-ember">to Purpose</em>
-        </h2>
-        <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-          Here's what happened when Tinora Schools implemented Ignite Students across their district.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
-        <div class="reveal rounded-xl overflow-hidden">
-          <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
-            <p class="font-display text-5xl md:text-6xl text-white">13%</p>
-            <p class="text-sm text-white/60 mt-2">understood their purpose</p>
-            <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
-          </div>
-          <div class="bg-ember p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
-            <p class="font-display text-5xl md:text-6xl text-white">94%</p>
-            <p class="text-sm text-white/80 mt-2">clarity and understanding of purpose</p>
-            <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
-          </div>
-        </div>
-        <div class="reveal reveal-d1 rounded-xl overflow-hidden">
-          <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
-            <p class="font-display text-5xl md:text-6xl text-white">17%</p>
-            <p class="text-sm text-white/60 mt-2">had clarity of direction</p>
-            <p class="text-[10px] text-white/30 mt-1">Gallup-Strada, 2017</p>
-          </div>
-          <div class="bg-ember p-6 md:p-8 text-center">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
-            <p class="font-display text-5xl md:text-6xl text-white">80%</p>
-            <p class="text-sm text-white/80 mt-2">clarity of direction and a defined roadmap</p>
-            <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="reveal text-center text-white/25 text-xs max-w-2xl mx-auto">
-        Based on internal survey data from Tinora Schools, Defiance County, Ohio. Wildfire Leadership engagement.
-      </p>
-    </div>
-  </section>
-
   <!-- ===== STUDENT STORIES ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
@@ -81,8 +28,7 @@ import CallToAction from '../../components/CallToAction.astro';
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <!-- Students who were struggling -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Struggling to show up</p>
           <h3 class="font-display text-xl text-charcoal mb-3">Isaac</h3>
@@ -99,7 +45,7 @@ import CallToAction from '../../components/CallToAction.astro';
           </p>
         </div>
 
-        <div class="reveal reveal-d2 bg-warm-white rounded-xl border border-sand/50 p-8">
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Rapid transformation</p>
           <h3 class="font-display text-xl text-charcoal mb-3">Hennesy</h3>
           <p class="text-stone text-sm leading-relaxed">
@@ -107,28 +53,11 @@ import CallToAction from '../../components/CallToAction.astro';
           </p>
         </div>
 
-        <!-- Students who were "fine" but lacking direction -->
-        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8">
+        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-stone/60 mb-4">Solid student, missing direction</p>
           <h3 class="font-display text-xl text-charcoal mb-3">Emma</h3>
           <p class="text-stone text-sm leading-relaxed">
             Emma had good grades and a good family — but was quietly lacking purpose and clarity. After discovering her Mission Portrait, she started excelling at a level no one expected.
-          </p>
-        </div>
-
-        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-stone/60 mb-4">Solid student, missing motivation</p>
-          <h3 class="font-display text-xl text-charcoal mb-3">Maysa</h3>
-          <p class="text-stone text-sm leading-relaxed">
-            Maysa was doing fine academically but was coasting — lacking the motivation and direction to push further. Once she understood her purpose, she excelled at the highest level.
-          </p>
-        </div>
-
-        <div class="reveal reveal-d2 bg-warm-white rounded-xl border border-sand/50 p-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-stone/60 mb-4">Solid student, missing clarity</p>
-          <h3 class="font-display text-xl text-charcoal mb-3">Josiah</h3>
-          <p class="text-stone text-sm leading-relaxed">
-            Josiah had the work ethic but lacked clarity on where to aim it. Once he understood his purpose and worked through the 7 Igniters, everything clicked — and he excelled.
           </p>
         </div>
       </div>
@@ -136,7 +65,7 @@ import CallToAction from '../../components/CallToAction.astro';
   </section>
 
   <!-- ===== TRUSTED BY ===== -->
-  <section class="relative py-16 md:py-20 bg-warm-white border-t border-sand/30">
+  <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by schools across the country</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
@@ -155,63 +84,120 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== WHAT STUDENTS & EDUCATORS ARE SAYING ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <!-- Student voices first -->
-      <div class="mb-16">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">From Students</p>
+  <!-- ===== CASE STUDY: TINORA SCHOOLS ===== -->
+  <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Case Study — District-Wide Implementation</p>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl lg:text-[3.5rem] text-white leading-[1.1]">
+          Tinora Schools
+        </h2>
+        <p class="reveal reveal-d2 font-display text-xl md:text-2xl text-ember mt-4">From Uncertainty to Purpose Across an Entire District</p>
+        <p class="reveal text-white/60 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Tinora implemented Ignite Students across their entire district — from professional development through senior capstone. Here's the model and the results.
+        </p>
+      </div>
+
+      <!-- The Results — Before/After Stats -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">The Results</p>
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="reveal bg-white rounded-xl border border-sand/50 p-6 md:p-8">
-            <svg class="w-6 h-6 text-ember/30 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-            <p class="text-charcoal text-sm leading-relaxed italic mb-4">
-              Ignite Students helped me discover my purpose and stay focused on being fearless and courageous. My Mission Portrait reminds me every day that I have meaning and a mission to lead, support, and encourage others.
-            </p>
-            <p class="text-charcoal text-sm font-medium">Reaghan</p>
-            <p class="text-stone text-xs">8th Grade Ignite Students Participant</p>
+          <div class="reveal rounded-xl overflow-hidden">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">13%</p>
+              <p class="text-sm text-white/60 mt-2">understood their purpose</p>
+              <p class="text-[10px] text-white/30 mt-1">Lifeway Research, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">94%</p>
+              <p class="text-sm text-white/80 mt-2">clarity and understanding of purpose</p>
+              <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
+            </div>
           </div>
-          <div class="reveal reveal-d1 bg-white rounded-xl border border-sand/50 p-6 md:p-8">
-            <svg class="w-6 h-6 text-ember/30 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-            <p class="text-charcoal text-sm leading-relaxed italic mb-4">
-              Ignite Students helped me express myself better, understand my value, and completely changed my perspective. It transformed my outlook and made me realize what I have to offer.
-            </p>
-            <p class="text-charcoal text-sm font-medium">Victor</p>
-            <p class="text-stone text-xs">High School Ignite Students Participant</p>
+          <div class="reveal reveal-d1 rounded-xl overflow-hidden">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Before</p>
+              <p class="font-display text-5xl md:text-6xl text-white">17%</p>
+              <p class="text-sm text-white/60 mt-2">had clarity of direction</p>
+              <p class="text-[10px] text-white/30 mt-1">Gallup-Strada, 2017</p>
+            </div>
+            <div class="bg-ember p-6 md:p-8 text-center">
+              <p class="text-[11px] uppercase tracking-[0.3em] text-white/70 mb-3">After Ignite</p>
+              <p class="font-display text-5xl md:text-6xl text-white">80%</p>
+              <p class="text-sm text-white/80 mt-2">clarity of direction and a defined roadmap</p>
+              <p class="text-[10px] text-white/50 mt-1">Tinora Schools internal reporting</p>
+            </div>
           </div>
+        </div>
+        <p class="reveal text-center text-white/25 text-xs mt-6 max-w-2xl mx-auto">
+          Based on internal survey data from Tinora Schools, Defiance County, Ohio. Wildfire Leadership engagement.
+        </p>
+      </div>
+
+      <!-- How They Implemented -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-6">How They Implemented</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { label: "Professional Development", desc: "School leadership participated in Wildfire Leadership training, building buy-in for a shared vision of transformative leadership." },
+            { label: "Certified Teacher Facilitators", desc: "Teachers earned certification as facilitators, seamlessly integrating the framework into daily classroom activities." },
+            { label: "8th-Grade Curriculum", desc: "All 8th-grade students participate in the program, building a foundation in self-discovery and leadership." },
+            { label: "Senior Capstone Experience", desc: "Seniors complete a capstone centered on the Mission Portrait and 7 Igniters, equipping them for life after graduation." },
+          ].map((item) => (
+            <div class="reveal bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-5">
+              <h4 class="text-sm font-medium text-ember mb-2">{item.label}</h4>
+              <p class="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Educator voices -->
-      <div>
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">From Educators</p>
+      <!-- From Tinora Educators & Students -->
+      <div class="max-w-5xl mx-auto">
+        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-6">From Tinora Educators & Students</p>
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="reveal bg-white rounded-xl border border-sand/50 p-6 md:p-8">
-            <p class="text-charcoal text-sm leading-relaxed italic mb-4">
-              This curriculum is a must for students to learn the process of goal realization. It fosters a culture of purpose, reflection, and growth.
-            </p>
-            <p class="text-charcoal text-sm font-medium">Bob Morton</p>
-            <p class="text-stone text-xs">Superintendent, Defiance City Schools</p>
-          </div>
-          <div class="reveal reveal-d1 bg-white rounded-xl border border-sand/50 p-6 md:p-8">
-            <p class="text-charcoal text-sm leading-relaxed italic mb-4">
+          <div class="reveal bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+            <p class="text-white/80 text-sm leading-relaxed italic mb-4">
               The culture of our school has transformed — we're not just preparing students academically, but equipping them with purpose and vision for their future.
             </p>
-            <p class="text-charcoal text-sm font-medium">Principal Alex Nafziger</p>
-            <p class="text-stone text-xs">Tinora High School</p>
+            <p class="text-white font-medium text-sm">Principal Alex Nafziger</p>
+            <p class="text-white/40 text-xs">Tinora High School</p>
           </div>
-          <div class="reveal reveal-d2 bg-white rounded-xl border border-sand/50 p-6 md:p-8">
-            <p class="text-charcoal text-sm leading-relaxed italic mb-4">
+          <div class="reveal reveal-d1 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+            <p class="text-white/80 text-sm leading-relaxed italic mb-4">
               This program is more than a "5-year plan." It goes deeper and truly engages students in determining their value and worth in today's world.
             </p>
-            <p class="text-charcoal text-sm font-medium">Mrs. Profera</p>
-            <p class="text-stone text-xs">Teacher, Tinora High School</p>
+            <p class="text-white font-medium text-sm">Mrs. Profera</p>
+            <p class="text-white/40 text-xs">Teacher, Tinora High School</p>
+          </div>
+          <div class="reveal reveal-d2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+            <p class="text-white/80 text-sm leading-relaxed italic mb-4">
+              Ignite Students helped me discover my purpose and stay focused on being fearless and courageous. My Mission Portrait reminds me every day that I have meaning and a mission to lead, support, and encourage others.
+            </p>
+            <p class="text-white font-medium text-sm">Reaghan</p>
+            <p class="text-white/40 text-xs">8th Grade Ignite Students Participant</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== OUR APPROACH ===== -->
+  <!-- ===== ENDORSEMENT ===== -->
+  <section class="relative py-16 md:py-20 bg-warm-white">
+    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+      <p class="reveal text-charcoal text-base md:text-lg leading-relaxed italic">
+        "This curriculum is a must for students to learn the process of goal realization. It fosters a culture of purpose, reflection, and growth."
+      </p>
+      <p class="reveal text-charcoal text-sm font-medium mt-4">Bob Morton</p>
+      <p class="reveal text-stone text-xs">Superintendent, Defiance City Schools</p>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-12 md:mb-16">
@@ -270,39 +256,8 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== CASE STUDY: TINORA ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Case Study</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Tinora Schools: <em>How They Did It</em>
-        </h2>
-        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-          Tinora implemented Ignite across their entire district — from professional development through senior capstone. Here's the model.
-        </p>
-      </div>
-
-      <div class="max-w-4xl mx-auto">
-        <div class="grid sm:grid-cols-2 gap-4">
-          {[
-            { label: "Professional Development", desc: "School leadership participated in Wildfire Leadership training, building buy-in for a shared vision of transformative leadership." },
-            { label: "Certified Teacher Facilitators", desc: "Teachers earned certification as facilitators, seamlessly integrating the framework into daily classroom activities." },
-            { label: "8th-Grade Curriculum", desc: "All 8th-grade students participate in the program, building a foundation in self-discovery and leadership." },
-            { label: "Senior Capstone Experience", desc: "Seniors complete a capstone centered on the Mission Portrait and 7 Igniters, equipping them for life after graduation." },
-          ].map((item) => (
-            <div class="reveal bg-warm-white rounded-lg border border-sand/50 p-5">
-              <h4 class="text-sm font-medium text-ember mb-1">{item.label}</h4>
-              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== IMPLEMENTATION ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
+  <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
         <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Getting Started</p>
@@ -315,21 +270,21 @@ import CallToAction from '../../components/CallToAction.astro';
         {[
           {
             number: "01",
-            heading: "Experience It Yourself",
-            desc: "School administrators participate in a hands-on workshop — experiencing the Mission Portrait and 7 Igniters firsthand so you can lead the vision with clarity and conviction.",
+            heading: "Administrator Workshop",
+            desc: "School administrators participate in a hands-on workshop — experiencing the Mission Portrait and Working Genius firsthand so you can lead the vision with clarity and conviction.",
           },
           {
             number: "02",
-            heading: "Certify Your Facilitators",
-            desc: "Train and certify your teachers to lead Ignite Students in classrooms and small groups. They'll be fully equipped with tools, lesson plans, and ongoing support.",
+            heading: "Certified Facilitators (In-House Training)",
+            desc: "Train and certify your teachers to lead Ignite Students across classrooms and grade levels. They'll be fully equipped with tools, lesson plans, and ongoing support.",
           },
           {
             number: "03",
-            heading: "Launch & Sustain",
+            heading: "Annual Licensing",
             desc: "Annual licensing gives your school access to digital and physical curriculum resources, ensuring the program grows with your students year after year.",
           },
         ].map((item, i) => (
-          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
             <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
             <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
             <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
@@ -337,12 +292,54 @@ import CallToAction from '../../components/CallToAction.astro';
         ))}
       </div>
 
-      <div class="reveal mt-10 max-w-3xl mx-auto">
-        <div class="bg-cream rounded-xl border border-sand/50 p-6 md:p-8 text-center">
-          <p class="text-sm text-stone leading-relaxed">
-            Need a flexible option? A fully digitized, plug-and-play version is available with video-based delivery and student-facing digital workbooks — perfect for schools that need a low-facilitation path to get started.
-          </p>
+      <div class="reveal mt-12 max-w-4xl mx-auto">
+        <div class="bg-charcoal rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-ember/10 to-transparent"></div>
+          <div class="relative z-10">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Less Prep, More Impact</p>
+            <h3 class="font-display text-2xl md:text-3xl text-white leading-[1.15] mb-4">
+              Plug-and-Play <em class="text-ember">Digital Option</em>
+            </h3>
+            <p class="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">
+              A fully digitized version with video-based delivery and student-facing digital workbooks — no extra prep for teachers. Perfect for schools that want to get started fast.
+            </p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEE IT IN ACTION ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">See It in Action</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Watch the <em>short clips.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { title: "Who We Are", desc: "A short intro to Wildfire Leadership and our mission.", url: "https://drive.google.com/file/d/10z8d5yvQ8Ky04N68mf6nfGdsgYCpWPCb/view", thumb: "/images/education-students.jpg" },
+          { title: "What's a Mission Portrait?", desc: "See how students discover and articulate their purpose.", url: "https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/view?usp=sharing", thumb: "/images/lifestyle.jpg" },
+          { title: "The 7 Igniters Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://vimeo.com/1151621096?fl=pl&fe=sh", thumb: "/images/students-mission-portraits.jpg" },
+        ].map((video, i) => (
+          <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
+            <div class="relative aspect-video overflow-hidden">
+              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
+                <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg class="w-6 h-6 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-base font-medium text-charcoal group-hover:text-ember transition-colors duration-300 mb-1">{video.title}</h3>
+              <p class="text-sm text-stone leading-relaxed">{video.desc}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

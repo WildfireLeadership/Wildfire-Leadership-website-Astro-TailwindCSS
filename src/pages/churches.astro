@@ -90,7 +90,7 @@ import CallToAction from '../components/CallToAction.astro';
 
       <div class="reveal mt-12 text-center">
         <a
-          href="/contact"
+          href="/contact?interest=faith"
           class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-charcoal/90 hover:shadow-lg transition-all duration-400 hover:scale-[1.02]"
         >
           Request Workshop Info
@@ -209,7 +209,7 @@ import CallToAction from '../components/CallToAction.astro';
           </p>
           <div class="reveal reveal-d3 mt-8">
             <a
-              href="/contact"
+              href="/contact?interest=faith"
               class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400"
             >
               Request license info
@@ -243,7 +243,7 @@ import CallToAction from '../components/CallToAction.astro';
   </section>
 
   <!-- ===== CTA ===== -->
-  <CallToAction title='Ignite your<br/><em class="ember-gradient">faith community.</em>' buttonText="Start a Small Group" />
+  <CallToAction title='Ignite your<br/><em class="ember-gradient">faith community.</em>' buttonText="Start a Small Group" buttonHref="/contact?interest=faith" />
 
 </BaseLayout>
 

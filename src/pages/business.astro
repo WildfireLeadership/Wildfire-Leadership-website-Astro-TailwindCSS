@@ -285,24 +285,24 @@ import CallToAction from '../components/CallToAction.astro';
         <div class="grid md:grid-cols-3 gap-6 mb-12">
           {[
             {
-              step: "Step 1",
+              step: "01",
               heading: "Administrator Workshop",
-              desc: "A hands-on session that gives select leaders firsthand experience with the Mission Portrait and frameworks — helping them lead with clarity before introducing the tools to their teams.",
+              desc: "A hands-on session that gives select leaders firsthand experience with the Mission Portrait and Working Genius — helping them lead with clarity before introducing the tools to their teams.",
             },
             {
-              step: "Step 2",
-              heading: "Certified Facilitators",
+              step: "02",
+              heading: "Certified Facilitators (In-House Training)",
               desc: "Certify internal leaders to deliver Wildfire content across departments. Facilitators guide employees through purpose-driven growth, collaboration, and engagement using our signature tools.",
             },
             {
-              step: "Step 3",
+              step: "03",
               heading: "Annual Licensing",
               desc: "Access digital and physical curriculum resources year-round. Includes leadership development sessions, planning tools, and everything needed to embed the content into company rhythms.",
             },
           ].map((item, i) => (
             <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
-              <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">{item.step}</p>
-              <h4 class="text-lg font-medium text-charcoal mb-3">{item.heading}</h4>
+              <p class="font-display text-4xl text-ember/80 mb-4">{item.step}</p>
+              <h4 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h4>
               <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}

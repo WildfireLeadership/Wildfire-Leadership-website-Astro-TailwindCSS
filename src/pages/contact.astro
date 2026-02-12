@@ -34,20 +34,19 @@ import CallToAction from '../components/CallToAction.astro';
             <legend class="text-sm font-medium text-charcoal mb-4">I'm interested in...</legend>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
-                "Mission Portrait",
-                "Working Genius Workshop",
-                "Becoming A Facilitator",
-                "Leadership Development",
-                "Coaching",
-                "Keynote Speeches",
-                "Mission Portrait Workshop",
-                "Small Group Curriculum",
-                "IGNITE Retreats",
+                { label: "Ignite Students (K-12)", param: "ignite-k12" },
+                { label: "Ignite Higher Ed", param: "ignite-higher-ed" },
+                { label: "Business & Team Workshop", param: "business" },
+                { label: "Faith & Community Workshop", param: "faith" },
+                { label: "Mission Portrait (Individual/Family)", param: "mission-portrait" },
+                { label: "Facilitator Certification", param: "facilitator" },
+                { label: "Leadership Development", param: "leadership" },
+                { label: "Coaching", param: "coaching" },
               ].map((option) => (
                 <label class="group relative flex items-center gap-3 px-4 py-3 rounded-xl border border-sand/80 bg-white cursor-pointer hover:border-ember/40 transition-colors duration-300 has-[input:checked]:border-ember has-[input:checked]:bg-ember/5">
-                  <input type="radio" name="interest" value={option} class="peer sr-only" />
+                  <input type="radio" name="interest" value={option.label} data-interest={option.param} class="peer sr-only" />
                   <span class="w-4 h-4 shrink-0 rounded-full border-2 border-sand peer-checked:border-ember peer-checked:bg-ember relative transition-colors duration-200 after:content-[''] after:absolute after:inset-[3px] after:rounded-full after:bg-white after:opacity-0 peer-checked:after:opacity-100"></span>
-                  <span class="text-sm text-stone peer-checked:text-charcoal transition-colors duration-200">{option}</span>
+                  <span class="text-sm text-stone peer-checked:text-charcoal transition-colors duration-200">{option.label}</span>
                 </label>
               ))}
             </div>
@@ -192,5 +191,17 @@ import CallToAction from '../components/CallToAction.astro';
     title='Start your<br/><em class="ember-gradient">journey today.</em>'
     description="Take the first step toward discovering your mission and unlocking your full potential."
   />
+
+<script>
+  const param = new URLSearchParams(window.location.search).get('interest');
+  if (param) {
+    const radio = document.querySelector(`input[name="interest"][data-interest="${param}"]`) as HTMLInputElement;
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+      radio.closest('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+</script>
 
 </BaseLayout>
