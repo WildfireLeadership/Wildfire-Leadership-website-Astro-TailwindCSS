@@ -137,14 +137,24 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
             ))}
           </ul>
 
-          <a href={selfGuidedUrl} target={selfGuidedIsStripe ? "_blank" : undefined} rel={selfGuidedIsStripe ? "noopener noreferrer" : undefined} class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
+          <div class="mb-6" data-pricing-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
+            <div class="flex flex-wrap gap-2">
+              {["Student", "Individual", "Marriage/Family", "Organization"].map((option) => (
+                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase().replace('/', '-')}>
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <a href={selfGuidedUrl} target={selfGuidedIsStripe ? "_blank" : undefined} rel={selfGuidedIsStripe ? "noopener noreferrer" : undefined} data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-all duration-400 hover:shadow-lg hover:shadow-charcoal/5">
             {selfGuidedIsStripe ? "Purchase Now" : "Get Started"}
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          {selfGuidedIsStripe && <p class="text-xs text-stone text-center mt-3">You'll select quantity and audience at checkout</p>}
-          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-2 transition-colors duration-300">Have questions? Contact us</a>
+          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-3 transition-colors duration-300">Have questions? Contact us</a>
         </div>
 
         <!-- Facilitated -->
@@ -171,14 +181,24 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
             ))}
           </ul>
 
-          <a href={facilitatedUrl} target={facilitatedIsStripe ? "_blank" : undefined} rel={facilitatedIsStripe ? "noopener noreferrer" : undefined} class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          <div class="mb-6" data-pricing-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
+            <div class="flex flex-wrap gap-2">
+              {["Student", "Individual", "Marriage/Family", "Organization"].map((option) => (
+                <button type="button" class="pricing-pill px-3 py-1.5 rounded-full text-xs font-medium border border-sand/80 text-stone hover:border-ember hover:text-ember transition-all duration-300 cursor-pointer" data-value={option.toLowerCase().replace('/', '-')}>
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <a href={facilitatedUrl} target={facilitatedIsStripe ? "_blank" : undefined} rel={facilitatedIsStripe ? "noopener noreferrer" : undefined} data-cta-link class="group inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
             {facilitatedIsStripe ? "Book & Pay" : "Book Now"}
             <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          {facilitatedIsStripe && <p class="text-xs text-stone text-center mt-3">You'll select quantity and audience at checkout</p>}
-          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-2 transition-colors duration-300">Have questions? Contact us</a>
+          <a href="/contact" class="text-xs text-stone hover:text-ember text-center mt-3 transition-colors duration-300">Have questions? Contact us</a>
         </div>
       </div>
     </div>
@@ -201,3 +221,28 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
   />
 
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-pricing-selector]').forEach((selector) => {
+    const card = selector.closest('.flex.flex-col');
+    const link = card?.querySelector('[data-cta-link]') as HTMLAnchorElement | null;
+    const pills = selector.querySelectorAll('.pricing-pill');
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pills.forEach((p) => {
+          p.classList.remove('bg-ember', 'text-white', 'border-ember');
+          p.classList.add('border-sand/80', 'text-stone');
+        });
+        pill.classList.add('bg-ember', 'text-white', 'border-ember');
+        pill.classList.remove('border-sand/80', 'text-stone');
+
+        if (link) {
+          const url = new URL(link.href);
+          url.searchParams.set('for', (pill as HTMLElement).dataset.value || '');
+          link.href = url.toString();
+        }
+      });
+    });
+  });
+</script>
