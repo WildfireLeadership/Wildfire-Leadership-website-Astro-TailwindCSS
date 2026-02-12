@@ -69,7 +69,7 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
             ))}
           </ul>
 
-          <div class="mb-6" data-pricing-selector>
+          <div class="mb-4" data-pricing-selector>
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
             <div class="flex flex-wrap gap-2">
               {["Student", "Individual", "Marriage/Family", "Organization"].map((option) => (
@@ -77,6 +77,19 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
                   {option}
                 </button>
               ))}
+            </div>
+          </div>
+
+          <div class="mb-6 flex items-center gap-4" data-qty-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50">Qty</p>
+            <div class="inline-flex items-center border border-sand/80 rounded-full">
+              <button type="button" data-qty-minus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M5 12h14"/></svg>
+              </button>
+              <span data-qty-value class="w-8 text-center text-sm font-medium text-charcoal">1</span>
+              <button type="button" data-qty-plus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 5v14M5 12h14"/></svg>
+              </button>
             </div>
           </div>
 
@@ -113,7 +126,7 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
             ))}
           </ul>
 
-          <div class="mb-6" data-pricing-selector>
+          <div class="mb-4" data-pricing-selector>
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-3">This is for my...</p>
             <div class="flex flex-wrap gap-2">
               {["Student", "Individual", "Marriage/Family", "Organization"].map((option) => (
@@ -121,6 +134,19 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
                   {option}
                 </button>
               ))}
+            </div>
+          </div>
+
+          <div class="mb-6 flex items-center gap-4" data-qty-selector>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50">Qty</p>
+            <div class="inline-flex items-center border border-sand/80 rounded-full">
+              <button type="button" data-qty-minus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M5 12h14"/></svg>
+              </button>
+              <span data-qty-value class="w-8 text-center text-sm font-medium text-charcoal">1</span>
+              <button type="button" data-qty-plus class="w-8 h-8 flex items-center justify-center text-stone hover:text-ember transition-colors duration-300 cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M12 5v14M5 12h14"/></svg>
+              </button>
             </div>
           </div>
 
@@ -204,5 +230,30 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
         }
       });
     });
+  });
+
+  document.querySelectorAll('[data-qty-selector]').forEach((selector) => {
+    const card = selector.closest('.flex.flex-col');
+    const link = card?.querySelector('[data-cta-link]') as HTMLAnchorElement | null;
+    const display = selector.querySelector('[data-qty-value]');
+    const minus = selector.querySelector('[data-qty-minus]');
+    const plus = selector.querySelector('[data-qty-plus]');
+    let qty = 1;
+
+    function update() {
+      if (display) display.textContent = String(qty);
+      if (link) {
+        const url = new URL(link.href);
+        if (qty > 1) {
+          url.searchParams.set('qty', String(qty));
+        } else {
+          url.searchParams.delete('qty');
+        }
+        link.href = url.toString();
+      }
+    }
+
+    minus?.addEventListener('click', () => { if (qty > 1) { qty--; update(); } });
+    plus?.addEventListener('click', () => { if (qty < 99) { qty++; update(); } });
   });
 </script>
