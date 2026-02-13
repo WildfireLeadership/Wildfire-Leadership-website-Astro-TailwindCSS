@@ -54,9 +54,9 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
       <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
         <!-- Step 1: Discover -->
         <div class="reveal text-center">
-          <div class="w-14 h-14 rounded-2xl bg-ember/8 flex items-center justify-center mx-auto mb-6">
-            <svg class="w-6 h-6 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+          <div class="w-16 h-16 rounded-2xl bg-ember/10 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-ember" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
             </svg>
           </div>
           <p class="text-[11px] font-mono text-ember tracking-wider mb-3">01</p>
@@ -66,10 +66,9 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
 
         <!-- Step 2: Develop -->
         <div class="reveal reveal-d1 text-center">
-          <div class="w-14 h-14 rounded-2xl bg-ember/8 flex items-center justify-center mx-auto mb-6">
-            <svg class="w-6 h-6 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
+          <div class="w-16 h-16 rounded-2xl bg-ember/10 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-ember" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
             </svg>
           </div>
           <p class="text-[11px] font-mono text-ember tracking-wider mb-3">02</p>
@@ -79,14 +78,14 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
 
         <!-- Step 3: Deploy -->
         <div class="reveal reveal-d2 text-center">
-          <div class="w-14 h-14 rounded-2xl bg-ember/8 flex items-center justify-center mx-auto mb-6">
-            <svg class="w-6 h-6 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+          <div class="w-16 h-16 rounded-2xl bg-ember/10 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-ember" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
             </svg>
           </div>
           <p class="text-[11px] font-mono text-ember tracking-wider mb-3">03</p>
           <h3 class="font-display text-2xl text-charcoal mb-3">Deploy</h3>
-          <p class="text-sm text-stone leading-relaxed">Live it out through coaching, curriculum integration, and leadership development.</p>
+          <p class="text-sm text-stone leading-relaxed">Live it out — whether through coaching, curriculum integration, or leadership development.</p>
         </div>
       </div>
     </div>
