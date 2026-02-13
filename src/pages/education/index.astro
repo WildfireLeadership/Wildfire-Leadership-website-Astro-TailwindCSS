@@ -74,12 +74,12 @@ import CallToAction from '../../components/CallToAction.astro';
           { src: "/images/school-logo-allen-east.jpg", alt: "Allen East Schools" },
 
           { src: "/images/school-logo-1.png", alt: "Southeastern University" },
-          { src: "/images/school-logo-8.png", alt: "Bowling Green State University", scale: 1.3 },
-          { src: "/images/school-logo-2.png", alt: "Northwest State Community College", scale: 1.4 },
-          { src: "/images/school-logo-4.png", alt: "Defiance College", scale: 1.3 },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College" },
           { src: "/images/school-logo-hocking.png", alt: "Hocking College" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 w-28 md:h-18 md:w-36 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" style={logo.scale ? `transform: scale(${logo.scale})` : undefined} />
+          <img src={logo.src} alt={logo.alt} class="h-16 w-32 md:h-20 md:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -141,6 +141,44 @@ import CallToAction from '../../components/CallToAction.astro';
           },
         ].map((item, i) => (
           <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT EDUCATORS CAN EXPECT ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">For Educators</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          What Educators Can <em>Expect</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            number: "01",
+            heading: "Ready-to-Use Curriculum",
+            desc: "Structured lesson plans, digital workbooks, and video-based delivery — designed so educators can focus on teaching, not prepping.",
+          },
+          {
+            number: "02",
+            heading: "Professional Development",
+            desc: "Hands-on training that helps educators discover their own purpose first — so they can lead students with authenticity and conviction.",
+          },
+          {
+            number: "03",
+            heading: "Measurable Outcomes",
+            desc: "Proven tools backed by real data — track student engagement, clarity, and growth with confidence.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
             <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
             <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
             <p class="text-stone text-sm leading-relaxed">{item.desc}</p>

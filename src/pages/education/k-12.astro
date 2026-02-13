@@ -12,7 +12,7 @@ import CallToAction from '../../components/CallToAction.astro';
     image="/images/students-mission-portraits.jpg"
     imageAlt="Students holding their completed Mission Portraits"
     title='Ignite<br/><em>Students K-12</em>'
-    subtitle="Helping 7th–12th graders discover purpose, build direction, and re-engage — with measurable results across 40,000+ students."
+    subtitle="Helping K-12 students discover purpose, build direction,<br/>and re-engage — with measurable results across 40,000+ students."
   />
 
   <!-- ===== STUDENT STORIES ===== -->
@@ -54,7 +54,7 @@ import CallToAction from '../../components/CallToAction.astro';
         </div>
 
         <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-stone/60 mb-4">Solid student, missing direction</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Solid student, missing direction</p>
           <h3 class="font-display text-xl text-charcoal mb-3">Emma</h3>
           <p class="text-stone text-sm leading-relaxed">
             Emma had good grades and a good family — but was quietly lacking purpose and clarity. After discovering her Mission Portrait, she started excelling at a level no one expected.
@@ -78,7 +78,7 @@ import CallToAction from '../../components/CallToAction.astro';
           { src: "/images/school-logo-patrick-henry.png", alt: "Patrick Henry Local Schools" },
           { src: "/images/school-logo-allen-east.jpg", alt: "Allen East Schools" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 w-28 md:h-18 md:w-36 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+          <img src={logo.src} alt={logo.alt} class="h-16 w-32 md:h-20 md:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -102,7 +102,7 @@ import CallToAction from '../../components/CallToAction.astro';
 
       <!-- The Results — Before/After Stats -->
       <div class="max-w-4xl mx-auto mb-16">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">The Results</p>
+        <p class="reveal text-sm font-semibold uppercase tracking-[0.3em] text-ember mb-8">The Results</p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="reveal rounded-xl overflow-hidden">
             <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 text-center">
@@ -140,7 +140,7 @@ import CallToAction from '../../components/CallToAction.astro';
 
       <!-- How They Implemented -->
       <div class="max-w-5xl mx-auto mb-16">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-6">How They Implemented</p>
+        <p class="reveal text-sm font-semibold uppercase tracking-[0.3em] text-ember mb-6">How They Implemented</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { label: "Professional Development", desc: "School leadership participated in Wildfire Leadership training, building buy-in for a shared vision of transformative leadership." },
@@ -158,7 +158,7 @@ import CallToAction from '../../components/CallToAction.astro';
 
       <!-- From Tinora Educators & Students -->
       <div class="max-w-5xl mx-auto">
-        <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/30 mb-6">From Tinora Educators & Students</p>
+        <p class="reveal text-sm font-semibold uppercase tracking-[0.3em] text-ember mb-6">From Tinora Educators & Students</p>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="reveal bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
             <p class="text-white/80 text-sm leading-relaxed italic mb-4">
@@ -211,21 +211,25 @@ import CallToAction from '../../components/CallToAction.astro';
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
-        <a href="https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/preview" target="_blank" rel="noopener noreferrer" class="reveal group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait framework diagram" class="w-full" />
-          <div class="p-6 md:p-8">
+        <a href="https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/preview" target="_blank" rel="noopener noreferrer" class="reveal group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300 flex flex-col">
+          <div class="aspect-[4/3] flex items-center justify-center p-4 bg-warm-white">
+            <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait framework diagram" class="max-w-full max-h-full object-contain" />
+          </div>
+          <div class="p-6 md:p-8 flex-1 flex flex-col">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait</h3>
-            <p class="text-stone text-sm leading-relaxed mb-3">
+            <p class="text-stone text-sm leading-relaxed mb-3 flex-1">
               A personalized visual guide that helps students articulate who they are, what they value, and where they're headed.
             </p>
             <p class="text-ember text-sm font-medium group-hover:underline">Watch overview &rarr;</p>
           </div>
         </a>
-        <a href="https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0" target="_blank" rel="noopener noreferrer" class="reveal reveal-d1 group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters framework" class="w-full" />
-          <div class="p-6 md:p-8">
+        <a href="https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0" target="_blank" rel="noopener noreferrer" class="reveal reveal-d1 group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300 flex flex-col">
+          <div class="aspect-[4/3] flex items-center justify-center p-4 bg-warm-white">
+            <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters framework" class="max-w-full max-h-full object-contain" />
+          </div>
+          <div class="p-6 md:p-8 flex-1 flex flex-col">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters</h3>
-            <p class="text-stone text-sm leading-relaxed mb-3">
+            <p class="text-stone text-sm leading-relaxed mb-3 flex-1">
               Seven stages guiding students through self-discovery, goal-setting, career exploration, and action planning.
             </p>
             <p class="text-ember text-sm font-medium group-hover:underline">Watch overview &rarr;</p>
@@ -246,23 +250,6 @@ import CallToAction from '../../components/CallToAction.astro';
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ember mb-1">Formats</p>
           <p class="text-sm text-charcoal font-medium">Print, digital, or video-based</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HEAR FROM A STUDENT ===== -->
-  <section class="relative py-20 md:py-28 bg-warm-white">
-    <div class="max-w-[900px] mx-auto px-5 md:px-8">
-      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember text-center mb-8">Hear From a Student</p>
-      <div class="reveal reveal-d1 relative aspect-video rounded-2xl overflow-hidden shadow-lg shadow-charcoal/10">
-        <iframe
-          src="https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0"
-          title="Student testimonial — Maysa on how Ignite Students helped her"
-          class="absolute inset-0 w-full h-full"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
       </div>
     </div>
   </section>
@@ -317,6 +304,18 @@ import CallToAction from '../../components/CallToAction.astro';
           </div>
         </div>
       </div>
+
+      <div class="reveal text-center mt-12">
+        <a
+          href="/contact?interest=ignite-k12"
+          class="group inline-flex items-center gap-3 bg-charcoal text-white rounded-full px-8 py-4 text-sm font-medium tracking-wide hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20"
+        >
+          Bring Ignite to Your School
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -330,11 +329,12 @@ import CallToAction from '../../components/CallToAction.astro';
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { title: "Who We Are", desc: "A short intro to Wildfire Leadership and our mission.", url: "https://drive.google.com/file/d/10z8d5yvQ8Ky04N68mf6nfGdsgYCpWPCb/preview", thumb: "/images/education-students.jpg" },
           { title: "What's a Mission Portrait?", desc: "See how students discover and articulate their purpose.", url: "https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/preview", thumb: "/images/lifestyle.jpg" },
           { title: "The 7 Igniters Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/students-mission-portraits.jpg" },
+          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/education-students.jpg" },
         ].map((video, i) => (
           <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
             <div class="relative aspect-video overflow-hidden">
