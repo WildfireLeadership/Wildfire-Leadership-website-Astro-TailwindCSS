@@ -5,14 +5,14 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Ignite Faith" description="Purpose-driven, faith-based tools and curriculum for churches and faith communities — from leadership workshops to church-wide implementation.">
+<BaseLayout title="Faith & Community" description="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations — from leadership workshops to organization-wide implementation.">
 
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
     image="/images/hero-main.jpg"
-    title='Ignite<br/><em>Faith</em>'
-    subtitle="Purpose-driven, faith-based tools and curriculum for churches and faith communities."
+    title='Faith &<br/><em>Community</em>'
+    subtitle="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations."
   />
 
   <!-- ===== INTRO ===== -->
@@ -21,10 +21,10 @@ import CallToAction from '../components/CallToAction.astro';
       <div class="max-w-3xl mx-auto text-center">
         <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Welcome</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
-          Equipping Churches to<br/><em>Lead with Purpose</em>
+          Equipping Communities to<br/><em>Lead with Purpose</em>
         </h2>
         <p class="reveal reveal-d2 text-lg md:text-xl text-stone leading-relaxed">
-          We partner with churches and faith communities to help leaders, families, and congregations discover their God-given purpose. All of our curriculum is <strong class="text-charcoal">faith-based</strong> and available digitally — designed to integrate into the life of your church.
+          We partner with churches, non-profits, and community organizations to help leaders, families, and teams discover their God-given purpose. All of our curriculum is <strong class="text-charcoal">faith-based</strong> and available digitally — designed to integrate into the life of your organization.
         </p>
       </div>
     </div>
@@ -34,9 +34,9 @@ import CallToAction from '../components/CallToAction.astro';
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Church-Wide Implementation</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Organization-Wide Implementation</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          How We Partner with <em>Your Church</em>
+          How We Partner with <em>Your Organization</em>
         </h2>
       </div>
 
@@ -45,7 +45,7 @@ import CallToAction from '../components/CallToAction.astro';
           {
             step: "01",
             title: "Administrator Workshop",
-            desc: "We start with your leadership team — casting vision, aligning on purpose, and equipping administrators with the frameworks they'll champion across your church.",
+            desc: "We start with your leadership team — casting vision, aligning on purpose, and equipping administrators with the frameworks they'll champion across your organization.",
           },
           {
             step: "02",
@@ -54,8 +54,8 @@ import CallToAction from '../components/CallToAction.astro';
           },
           {
             step: "03",
-            title: "Church-Wide Rollout",
-            desc: "Your certified team rolls out Mission Portrait, 7 Igniters, and our customized discipleship curriculum across your congregation, small groups, and teams.",
+            title: "Organization-Wide Rollout",
+            desc: "Your certified team rolls out Mission Portrait, 7 Igniters, and our customized discipleship curriculum across your congregation, small groups, teams, and community.",
           },
         ].map((item, i) => (
           <div class:list={["reveal text-center", `reveal-d${i + 1}`]}>
@@ -136,7 +136,7 @@ import CallToAction from '../components/CallToAction.astro';
           <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Marriage</p>
           <h3 class="text-xl font-medium text-charcoal mb-4">INVEST Marriage</h3>
           <p class="text-stone text-sm leading-relaxed mb-5">
-            Strengthen marriages across your church through our INVEST Marriage curriculum — an 8-week small group series — plus Couples Mission Portrait workshops and marriage coaching.
+            Strengthen marriages across your community through our INVEST Marriage curriculum — an 8-week small group series — plus Couples Mission Portrait workshops and marriage coaching.
           </p>
           <a href="/invest-marriage" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
             Learn more about INVEST
@@ -174,7 +174,7 @@ import CallToAction from '../components/CallToAction.astro';
           Faith-Based <em>Curriculum</em>
         </h2>
         <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
-          All of our curriculum is rooted in faith, offered digitally, and designed for small groups, Sunday school classes, or church-wide campaigns. The 7 Igniters features a <strong class="text-charcoal">customized discipleship curriculum</strong> built specifically for the church.
+          All of our curriculum is rooted in faith, offered digitally, and designed for small groups, classes, or organization-wide campaigns. The 7 Igniters features a <strong class="text-charcoal">customized discipleship curriculum</strong> built specifically for faith communities.
         </p>
       </div>
 
@@ -233,12 +233,12 @@ import CallToAction from '../components/CallToAction.astro';
           },
           {
             title: "The App",
-            desc: "Daily tools for mental transformation, available on iOS and Android. Churches are onboarding their congregations through the app for ongoing growth.",
+            desc: "Daily tools for mental transformation, available on iOS and Android. Churches and organizations are onboarding their communities through the app for ongoing growth.",
             icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 18a1 1 0 110-2 1 1 0 010 2zm4-4H8V5h8v11z"/></svg>`,
           },
           {
             title: "Online Study",
-            desc: "A guided study experience ideal for small groups, Sunday school classes, or churchwide campaigns. Bring Flip the Script to your entire community.",
+            desc: "A guided study experience ideal for small groups, classes, or organization-wide campaigns. Bring Flip the Script to your entire community.",
             icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 8h12v2H6v-2zm2 4h8v2H8v-2z"/></svg>`,
           },
         ].map((item, i) => (
@@ -271,15 +271,15 @@ import CallToAction from '../components/CallToAction.astro';
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <TestimonialCard
         variant="large"
-        quote="We brought Wildfire into our church expecting a workshop. What we got was a movement. Our staff discovered their purpose, our small groups came alive, and families are having conversations they've never had before. It changed the culture of our church."
-        name="Senior Pastor"
+        quote="We brought Wildfire into our organization expecting a workshop. What we got was a movement. Our team discovered their purpose, our small groups came alive, and families are having conversations they've never had before. It changed our culture from the inside out."
+        name="Community Leader"
         title="Placeholder — update with real quote"
       />
     </div>
   </section>
 
   <!-- ===== CTA ===== -->
-  <CallToAction title='Ignite your<br/><em class="ember-gradient">faith community.</em>' buttonText="Schedule a Consultation" buttonHref="/contact?interest=faith" />
+  <CallToAction title='Ignite your<br/><em class="ember-gradient">community.</em>' buttonText="Schedule a Consultation" buttonHref="/contact?interest=faith" />
 
 </BaseLayout>
 
