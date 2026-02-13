@@ -11,12 +11,12 @@
 
 export const stripeLinks = {
   missionPortrait: {
-    selfGuided: "",   // e.g. "https://buy.stripe.com/abc123"
-    facilitated: "",  // e.g. "https://buy.stripe.com/def456"
+    selfGuided: "https://buy.stripe.com/aFacN44WD7ht4EC0Mc2880b",
+    facilitated: "https://buy.stripe.com/dRm3cubl159l3Ay52s2880c",
   },
   sevenIgniters: {
-    selfGuided: "",   // e.g. "https://buy.stripe.com/ghi789"
-    facilitated: "",  // e.g. "https://buy.stripe.com/jkl012"
+    selfGuided: "https://buy.stripe.com/9B6aEWfBh8lxefc0Mc2880d",
+    facilitated: "https://buy.stripe.com/00w6oG1Kr45h2wu2Uk2880e",
   },
 } as const;
 
