@@ -27,7 +27,11 @@ import CallToAction from '../components/CallToAction.astro';
           </h2>
         </div>
 
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal reveal-d2 space-y-8">
+        <form action="https://formsubmit.co/info@wildfireleadership.com" method="POST" class="reveal reveal-d2 space-y-8">
+          <input type="hidden" name="_subject" value="New inquiry from Wildfire Leadership website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_next" value="https://wildfireleadership.com/contact?sent=true">
 
           <!-- Interest radio group -->
           <fieldset id="interest-fieldset">
@@ -193,11 +197,32 @@ import CallToAction from '../components/CallToAction.astro';
   />
 
 <script>
-  const param = new URLSearchParams(window.location.search).get('interest');
-  if (param) {
-    const radio = document.querySelector(`input[name="interest"][data-interest="${param}"]`) as HTMLInputElement;
+  const params = new URLSearchParams(window.location.search);
+
+  // Pre-select interest radio if ?interest= param exists
+  const interest = params.get('interest');
+  if (interest) {
+    const radio = document.querySelector(`input[name="interest"][data-interest="${interest}"]`) as HTMLInputElement;
     if (radio) {
       radio.checked = true;
+    }
+  }
+
+  // Show success message if redirected back after form submission
+  if (params.get('sent') === 'true') {
+    const form = document.querySelector('form');
+    if (form) {
+      form.innerHTML = `
+        <div class="text-center py-12">
+          <div class="w-16 h-16 rounded-full bg-ember/10 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-charcoal mb-3">Message sent!</h3>
+          <p class="text-stone">Thank you for reaching out. We'll get back to you soon.</p>
+        </div>
+      `;
     }
   }
 </script>
