@@ -240,10 +240,61 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
     ]}
   />
 
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              q: "How is this different from the Mission Portrait?",
+              a: "The Mission Portrait helps you discover your purpose — it's Step 1. The 7 Igniters builds on that discovery with a complete action plan that takes you from clarity to implementation across all areas of life.",
+            },
+            {
+              q: "Do I need a Mission Portrait first?",
+              a: "The Mission Portrait is the foundation of the 7 Igniters journey — it's Igniter #1 (Uncover Your Purpose). If you've already completed one, you're ready for the full framework.",
+            },
+            {
+              q: "How long does the 7 Igniters take?",
+              a: "The self-guided workbook takes about 1 hour. The facilitated option is a focused 60-minute virtual session with a Certified Facilitator who coaches you through all seven steps.",
+            },
+            {
+              q: "Is this for individuals or teams?",
+              a: "Both. Individuals use it for personal growth and career clarity. Organizations use it for team alignment, leadership development, and culture building.",
+            },
+            {
+              q: "Is this faith-based?",
+              a: "We offer both faith-based and secular versions. Public schools, colleges, and businesses use the non-faith version. Churches and faith communities use the faith-based version. The framework works in any setting.",
+            },
+          ].map((faq, i) => (
+            <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>
+                <svg class="w-5 h-5 text-stone flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p class="pb-6 text-sm text-stone leading-relaxed -mt-1">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CTA CLOSER ===== -->
   <CallToAction
     title='Ready to ignite<br/><em class="ember-gradient">your potential?</em>'
     description="Take the first step on a proven path from purpose to potential."
+    buttonText="Choose Your Path"
+    buttonHref="#pricing"
   />
 
 </BaseLayout>

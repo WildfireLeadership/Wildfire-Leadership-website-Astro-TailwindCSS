@@ -197,10 +197,61 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              q: "How long does the Mission Portrait take?",
+              a: "The self-guided workbook takes about 1 hour. The facilitated option is a focused 60-minute virtual session with a Certified Facilitator who guides you through the process.",
+            },
+            {
+              q: "Is this faith-based?",
+              a: "We offer both faith-based and secular versions of our curriculum. Public schools, colleges, and businesses all use the non-faith version. Churches and faith communities use the faith-based version. The tools work in any setting.",
+            },
+            {
+              q: "What do I receive when I'm done?",
+              a: "A customized, visual Mission Portrait — a one-page graphic that captures your purpose, values, and vision. You also keep the full PDF workbook as a resource.",
+            },
+            {
+              q: "Who is this for?",
+              a: "Students, individuals, couples, families, and organizations. The Mission Portrait works at every level — from personal discovery to team alignment.",
+            },
+            {
+              q: "Can I do this with my team or organization?",
+              a: "Absolutely. We offer group facilitation, annual site licensing for schools, and organizational rollouts. Contact us for team pricing and implementation details.",
+            },
+          ].map((faq, i) => (
+            <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>
+                <svg class="w-5 h-5 text-stone flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p class="pb-6 text-sm text-stone leading-relaxed -mt-1">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CTA CLOSER ===== -->
   <CallToAction
     title='Your purpose is<br/><em class="ember-gradient">waiting.</em>'
     description="Take the first step toward discovering your mission and creating your personalized Mission Portrait."
+    buttonText="Get Your Portrait"
+    buttonHref="#pricing"
   />
 
 </BaseLayout>

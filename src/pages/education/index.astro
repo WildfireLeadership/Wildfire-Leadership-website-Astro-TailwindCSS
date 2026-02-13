@@ -185,15 +185,21 @@ import CallToAction from '../../components/CallToAction.astro';
           </div>
         ))}
       </div>
+
+      <div class="reveal mt-12 max-w-2xl mx-auto text-center">
+        <p class="text-sm text-stone leading-relaxed">
+          <strong class="text-charcoal">Typical timeline:</strong> Half-day administrator workshop, two 90-minute facilitator certification sessions, then launch with your students. Most schools are up and running within 6–8 weeks.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">K–12 Education</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Superintendent</p>
           <TestimonialCard
             quote="This curriculum is a must for every student. It fosters a culture of purpose, reflection, and growth — the impact across our schools has been transformative."
             name="Bob Morton"
@@ -201,7 +207,15 @@ import CallToAction from '../../components/CallToAction.astro';
           />
         </div>
         <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Higher Education</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Teacher</p>
+          <TestimonialCard
+            quote="This program is more than a '5-year plan.' It goes deeper and truly engages students in determining their value and worth in today's world."
+            name="Mrs. Profera"
+            title="Teacher, Tinora High School"
+          />
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">College President</p>
           <TestimonialCard
             quote="Our students come to us searching for direction. Wildfire's curriculum gives them something most programs miss — real clarity on their purpose and a vision for their future."
             name="Dr. Todd Hernandez"
@@ -217,6 +231,7 @@ import CallToAction from '../../components/CallToAction.astro';
     title='Ignite your<br/><em class="ember-gradient">students.</em>'
     image="/images/education-students.jpg"
     buttonText="Bring Ignite to Your School"
+    buttonHref="/contact?interest=ignite-k12"
   />
 
 </BaseLayout>
