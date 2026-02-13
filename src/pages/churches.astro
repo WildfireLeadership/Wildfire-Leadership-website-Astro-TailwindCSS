@@ -99,7 +99,7 @@ import CallToAction from '../components/CallToAction.astro';
           <p class="text-stone text-sm leading-relaxed mb-5">
             Equip your leadership team with proven tools and frameworks — from Working Genius and Working Genius Deep Dives to 5 Levels of Leadership workshops and ongoing leadership coaching.
           </p>
-          <ul class="space-y-2">
+          <ul class="space-y-2 mb-6">
             {["Working Genius Workshop", "Working Genius Deep Dive", "5 Levels of Leadership Workshop", "Leadership Team Coaching"].map(item => (
               <li class="flex items-center gap-2.5 text-sm text-stone">
                 <span class="w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
@@ -107,6 +107,12 @@ import CallToAction from '../components/CallToAction.astro';
               </li>
             ))}
           </ul>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
 
         <!-- Family -->
@@ -116,7 +122,13 @@ import CallToAction from '../components/CallToAction.astro';
           <p class="text-stone text-sm leading-relaxed mb-5">
             Bring families together to discover their shared values, dreams, and purpose. Each family leaves with a personalized Mission Portrait — a visual legacy they can live by every day.
           </p>
-          <p class="text-[12px] uppercase tracking-[0.15em] text-stone">2-hour workshop</p>
+          <p class="text-[12px] uppercase tracking-[0.15em] text-stone mb-6">2-hour workshop</p>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
 
         <!-- Marriage -->
