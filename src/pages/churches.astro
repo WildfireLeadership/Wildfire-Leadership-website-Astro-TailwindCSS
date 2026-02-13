@@ -35,7 +35,7 @@ import CallToAction from '../components/CallToAction.astro';
           {[
             { label: "I'm an individual", desc: "Mission Portrait Design + Coaching", link: "#workshops" },
             { label: "We're a couple", desc: "Couples Mission Portrait or INVEST Marriage", link: "#workshops" },
-            { label: "I lead a small group", desc: "Small Group Curriculum (MP, 7 Igniters, or INVEST)", link: "#curriculum" },
+            { label: "I lead a small group", desc: "Small Group Curriculum (MP, 7 Igniters, INVEST, or Flip the Script)", link: "#curriculum" },
             { label: "I'm a pastor or leader", desc: "Church-Wide Site License + Staff Training", link: "#site-license" },
           ].map((item, i) => (
             <a href={item.link} class:list={["reveal group block bg-warm-white rounded-xl border border-sand/50 p-6 hover:border-ember/30 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 no-underline", i > 0 && `reveal-d${i}`]}>
@@ -183,7 +183,7 @@ import CallToAction from '../components/CallToAction.astro';
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 gap-6">
         {[
           {
             title: "Mission Portrait Small Group Curriculum",
@@ -200,6 +200,11 @@ import CallToAction from '../components/CallToAction.astro';
             subtitle: "8-week series",
             desc: "An eight-week journey for couples to invest in their marriage through purpose, communication, and shared vision.",
           },
+          {
+            title: "Flip the Script Small Group Study",
+            subtitle: "Book + App + Online Study",
+            desc: "A powerful study helping participants take negative thoughts captive and replace them with truth — available as a book, app, or guided online experience.",
+          },
         ].map((curr, i) => (
           <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
             <h3 class="text-lg font-medium text-charcoal mb-2">{curr.title}</h3>
@@ -209,6 +214,61 @@ import CallToAction from '../components/CallToAction.astro';
             <p class="text-stone text-sm leading-relaxed">{curr.desc}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLIP THE SCRIPT ===== -->
+  <section class="relative py-24 md:py-32 bg-charcoal">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Featured</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+          Flip the <em class="ember-gradient">Script</em>
+        </h2>
+        <p class="reveal reveal-d2 text-lg md:text-xl text-white/70 leading-relaxed">
+          Every day, we face thoughts that discourage, distract, and distort truth. Flip the Script helps people take those thoughts captive and replace them with truth — reframing their mind, renewing their heart, and living in freedom.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            title: "The Book",
+            desc: "A practical, Scripture-rooted guide to overcoming the negative narratives that hold you back. Perfect for individual reading or group study.",
+            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 12h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>`,
+          },
+          {
+            title: "The App",
+            desc: "Daily tools for mental transformation, available on iOS and Android. Churches are onboarding their congregations through the app for ongoing growth.",
+            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 18a1 1 0 110-2 1 1 0 010 2zm4-4H8V5h8v11z"/></svg>`,
+          },
+          {
+            title: "Online Study",
+            desc: "A guided study experience ideal for small groups, Sunday school classes, or churchwide campaigns. Bring Flip the Script to your entire community.",
+            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 8h12v2H6v-2zm2 4h8v2H8v-2z"/></svg>`,
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white/5 border border-white/10 rounded-xl p-8 text-center", `reveal-d${i + 1}`]}>
+            <div class="w-12 h-12 rounded-full bg-ember/20 mx-auto mb-5 flex items-center justify-center text-ember" set:html={item.icon} />
+            <h3 class="text-lg font-medium text-white mb-3">{item.title}</h3>
+            <p class="text-sm text-white/60 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-12 text-center">
+        <a
+          href="https://getflipthescript.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal bg-white hover:shadow-xl transition-all duration-400 hover:scale-[1.02]"
+        >
+          Learn more at getflipthescript.com
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
