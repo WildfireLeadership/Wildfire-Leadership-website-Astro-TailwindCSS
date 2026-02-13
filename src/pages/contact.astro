@@ -191,7 +191,7 @@ import CallToAction from '../components/CallToAction.astro';
 
   // Pre-select interest radio if ?interest= param exists
   const interest = params.get('interest');
-  if (interest) {
+  if (interest && /^[a-z0-9-]+$/.test(interest)) {
     const radio = document.querySelector(`input[name="interest"][data-interest="${interest}"]`) as HTMLInputElement;
     if (radio) {
       radio.checked = true;
