@@ -103,19 +103,23 @@ const allLinks = navGroups.flatMap(g => g.items);
     </div>
   </nav>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-white z-[9999]">
-    <div class="px-5 h-16 flex justify-between items-center border-b border-sand/50">
+</header>
+
+<!-- Mobile menu (outside header to avoid z-index stacking context issues on iOS) -->
+<div id="mobile-menu-portal" class="hidden lg:hidden fixed inset-0 z-[9999]" style="isolation: isolate;">
+  <div class="absolute inset-0 bg-white"></div>
+  <div class="relative h-full flex flex-col">
+    <div class="px-5 h-16 flex justify-between items-center border-b border-sand/50 bg-white">
       <a href="/">
         <img src="/images/logo-dark.png" alt="Wildfire Leadership" class="h-14 w-auto" />
       </a>
-      <button id="mobile-close-btn" class="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors rounded-lg hover:bg-warm-white" aria-label="Close menu">
+      <button id="mobile-close-btn-portal" class="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors rounded-lg hover:bg-warm-white" aria-label="Close menu">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
-    <div class="overflow-y-auto max-h-[calc(100vh-64px)] px-5 py-6">
+    <div class="overflow-y-auto flex-1 px-5 py-6 bg-white">
       <a href="/" class:list={["block py-3 font-display text-2xl transition-colors border-b border-sand/30", currentPath === '/' ? "text-ember" : "text-charcoal/80 hover:text-charcoal"]}>
         Home
       </a>
@@ -142,12 +146,12 @@ const allLinks = navGroups.flatMap(g => g.items);
       </div>
     </div>
   </div>
-</header>
+</div>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
-  const closeBtn = document.getElementById('mobile-close-btn');
-  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('mobile-close-btn-portal');
+  const menu = document.getElementById('mobile-menu-portal');
   const header = document.getElementById('site-header');
   const logoWhite = document.getElementById('header-logo-white');
   const logoDark = document.getElementById('header-logo-dark');
