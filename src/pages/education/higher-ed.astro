@@ -103,13 +103,13 @@ import CallToAction from '../../components/CallToAction.astro';
       <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by colleges and universities</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
-          { src: "/images/school-logo-1.png", alt: "Southeastern University" },
-          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
-          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
-          { src: "/images/school-logo-4.png", alt: "Defiance College" },
-          { src: "/images/school-logo-hocking.png", alt: "Hocking College" },
+          { src: "/images/school-logo-1.png", alt: "Southeastern University", class: "h-16 w-32 md:h-20 md:w-40" },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University", class: "h-16 w-32 md:h-20 md:w-40" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College", class: "h-20 w-40 md:h-26 md:w-52" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College", class: "h-20 w-40 md:h-26 md:w-52" },
+          { src: "/images/school-logo-hocking.png", alt: "Hocking College", class: "h-16 w-32 md:h-20 md:w-40" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-16 w-32 md:h-20 md:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+          <img src={logo.src} alt={logo.alt} class:list={[logo.class, "object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"]} />
         ))}
       </div>
     </div>

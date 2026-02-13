@@ -48,6 +48,7 @@ import CallToAction from '../components/CallToAction.astro';
                 { label: "Facilitator Certification", param: "facilitator" },
                 { label: "Leadership Development", param: "leadership" },
                 { label: "Coaching", param: "coaching" },
+                { label: "Keynote Speaking", param: "speaking" },
               ].map((option) => (
                 <label class="group relative flex items-center gap-3 px-4 py-3 rounded-xl border border-sand/80 bg-white cursor-pointer hover:border-ember/40 transition-colors duration-300 has-[input:checked]:border-ember has-[input:checked]:bg-ember/5">
                   <input type="radio" name="interest" value={option.label} data-interest={option.param} class="peer sr-only" />
