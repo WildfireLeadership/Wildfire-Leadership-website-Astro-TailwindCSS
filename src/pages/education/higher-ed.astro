@@ -104,12 +104,12 @@ import CallToAction from '../../components/CallToAction.astro';
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
           { src: "/images/school-logo-1.png", alt: "Southeastern University" },
-          { src: "/images/school-logo-8.png", alt: "Bowling Green State University", scale: 1.3 },
-          { src: "/images/school-logo-2.png", alt: "Northwest State Community College", scale: 1.4 },
-          { src: "/images/school-logo-4.png", alt: "Defiance College", scale: 1.3 },
+          { src: "/images/school-logo-8.png", alt: "Bowling Green State University" },
+          { src: "/images/school-logo-2.png", alt: "Northwest State Community College" },
+          { src: "/images/school-logo-4.png", alt: "Defiance College" },
           { src: "/images/school-logo-hocking.png", alt: "Hocking College" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 w-28 md:h-18 md:w-36 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" style={logo.scale ? `transform: scale(${logo.scale})` : undefined} />
+          <img src={logo.src} alt={logo.alt} class="h-16 w-32 md:h-20 md:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -162,7 +162,7 @@ import CallToAction from '../../components/CallToAction.astro';
         </div>
         <div class="bg-white rounded-lg border border-sand/50 p-4">
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ember mb-1">Formats</p>
-          <p class="text-sm text-charcoal font-medium">Print, digital, or video-based</p>
+          <p class="text-sm text-charcoal font-medium">Print or digital</p>
         </div>
       </div>
     </div>
