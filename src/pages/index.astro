@@ -4,6 +4,7 @@ import StatCounter from '../components/StatCounter.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import MapSection from '../components/MapSection.astro';
+import PortraitLightbox from '../components/PortraitLightbox.astro';
 ---
 
 <BaseLayout title="Uncover Purpose. Unleash Potential">
@@ -146,17 +147,13 @@ import MapSection from '../components/MapSection.astro';
           </a>
         </div>
       </div>
-      <div class="reveal-scale grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-        {[
-          { src: "/images/portrait-coleen-full.png", name: "Brenda", location: "" },
-          { src: "/images/portrait-zeb-full.png", name: "Zeb", location: "Mainstop" },
-          { src: "/images/portrait-sarah-full.png", name: "Sarah", location: "Keller" },
-          { src: "/images/portrait-ryan-full.png", name: "Ryan", location: "Napoleon" },
-        ].map((portrait) => (
-          <div class="relative aspect-[3/4] rounded-xl overflow-hidden">
-            <img src={portrait.src} alt="Mission Portrait example" class="absolute inset-0 w-full h-full object-cover" />
-          </div>
-        ))}
+      <div class="reveal-scale">
+        <PortraitLightbox portraits={[
+          { src: "/images/portrait-coleen-full.png", name: "Brenda" },
+          { src: "/images/portrait-zeb-full.png", name: "Zeb" },
+          { src: "/images/portrait-sarah-full.png", name: "Sarah" },
+          { src: "/images/portrait-ryan-full.png", name: "Ryan" },
+        ]} />
       </div>
     </div>
   </section>

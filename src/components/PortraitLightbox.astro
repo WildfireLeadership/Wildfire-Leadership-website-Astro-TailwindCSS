@@ -1,0 +1,77 @@
+---
+/**
+ * PortraitLightbox — clickable portrait grid with fullscreen lightbox overlay.
+ * Drop this into any page that shows Mission Portrait gallery images.
+ */
+interface Portrait {
+  src: string;
+  name: string;
+  location?: string;
+}
+
+interface Props {
+  portraits: Portrait[];
+}
+
+const { portraits } = Astro.props;
+---
+
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+  {portraits.map((portrait) => (
+    <button type="button" class="relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer group portrait-trigger" data-lightbox-src={portrait.src}>
+      <img src={portrait.src} alt={`${portrait.name}'s Mission Portrait`} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors duration-300"></div>
+    </button>
+  ))}
+</div>
+
+<!-- Lightbox overlay -->
+<div id="portrait-lightbox" class="fixed inset-0 z-[100] items-center justify-center bg-charcoal/90 backdrop-blur-sm cursor-pointer" style="display:none;">
+  <button type="button" id="lightbox-close" class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300 cursor-pointer" aria-label="Close">
+    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Mission Portrait" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
+</div>
+
+<script>
+  const lightbox = document.getElementById('portrait-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.portrait-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = (trigger as HTMLElement).dataset.lightboxSrc;
+      if (src) openLightbox(src);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
