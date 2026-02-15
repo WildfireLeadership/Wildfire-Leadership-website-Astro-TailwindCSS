@@ -1,54 +1,155 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import SplitSection from '../components/SplitSection.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="INVEST Marriage" description="Build a thriving, God-centered marriage. An 8-week curriculum to reignite connection, strengthen communication, and dream together as a couple.">
+<BaseLayout title="INVEST Marriage — Build a Thriving, God-Centered Marriage" description="An 8-week guided curriculum to reignite connection, strengthen communication, and dream together. Everything you need for $60 per couple.">
 
-  <!-- ===== HERO — Dark cinematic ===== -->
-  <PageHero
-    variant="dark"
-    image="/images/hero-main.jpg"
-    title='Build a Thriving,<br/><em>God-Centered Marriage</em>'
-    subtitle="Ready to reignite connection, strengthen communication, and dream together as a couple?"
-  />
+  <!-- ===== HERO — Branded product hero with couple photo ===== -->
+  <section class="relative flex items-end overflow-hidden h-[85vh] min-h-[550px]">
+    <div class="absolute inset-0">
+      <img
+        src="/images/invest-marriage-screenshot1.png"
+        alt="Happy couple embracing"
+        class="absolute inset-0 w-full h-full object-cover object-top"
+        style="animation: heroZoom 20s ease-in-out infinite alternate;"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/90 via-charcoal-deep/40 to-charcoal-deep/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-charcoal-deep/30 via-transparent to-transparent"></div>
+    </div>
 
-  <!-- ===== TOOLS — White bg, 2x2 grid ===== -->
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8 pb-16 md:pb-24 w-full">
+      <h1 class="reveal font-display text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tight text-white">
+        Build a Thriving,<br/><em>God-Centered Marriage</em>
+      </h1>
+      <p class="reveal reveal-d1 mt-6 text-lg md:text-xl text-white/70 max-w-xl leading-relaxed">
+        8 weeks to deeper connection, stronger communication, and a shared vision for your future.
+      </p>
+      <div class="reveal reveal-d2 mt-8">
+        <a
+          href="/contact"
+          class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal bg-white hover:shadow-xl hover:shadow-white/15 transition-all duration-400 hover:scale-[1.02]"
+        >
+          Start Your Journey
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 reveal reveal-d5">
+      <div class="w-px h-8 bg-gradient-to-b from-transparent to-white/30 animate-pulse"></div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL 1 — Social proof right away ===== -->
+  <section class="relative py-20 md:py-28 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="The INVEST Marriage curriculum has been a game-changer for our church. It's practical, engaging, and easy to implement, making it simple for small group leaders to pour into marriages."
+        name="Katie Walters"
+        title="Marriage Ministry Pastor, Seacoast Church, South Carolina"
+      />
+    </div>
+  </section>
+
+  <!-- ===== PAIN POINTS — Emotional connection ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Sound Familiar?</p>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+        You didn't get married<br/>to <em>drift apart.</em>
+      </h2>
+      <div class="reveal reveal-d2 mt-10 space-y-5 text-base md:text-lg text-stone leading-relaxed max-w-2xl mx-auto">
+        <p>Communication feels harder than it used to. Life is busy and your marriage gets whatever energy is left at the end of the day.</p>
+        <p>You know things could be better &mdash; deeper, more connected, more intentional &mdash; but where do you even start?</p>
+      </div>
+      <div class="reveal reveal-d3 mt-10">
+        <p class="font-display text-xl md:text-2xl text-charcoal leading-snug">
+          You're not alone. And your marriage<br class="hidden md:block"/> is <em>absolutely</em> worth fighting for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE SOLUTION — What is INVEST Marriage ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Text -->
+        <div>
+          <img
+            src="/images/invest-marriage-logo-color.png"
+            alt="INVEST Marriage"
+            class="reveal w-64 md:w-80 mb-8"
+          />
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            A proven path back<br/>to <em>each other.</em>
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            INVEST Marriage is a practical, video-guided 8-week curriculum designed for couples at any stage &mdash; whether you're engaged, newlyweds, or decades in. Facilitated in small groups, it creates a safe space to reconnect, communicate honestly, and dream together about your future.
+          </p>
+          <p class="reveal reveal-d3 mt-4 text-base md:text-lg text-stone leading-relaxed">
+            No counseling degree required. No awkward role-playing. Just real tools that lead to real transformation.
+          </p>
+          <div class="reveal reveal-d4 mt-8">
+            <a href="/contact" class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400">
+              Get started today
+              <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="reveal reveal-d2 relative aspect-[4/3] rounded-xl overflow-hidden group">
+          <img
+            src="/images/invest-marriage-screenshot2.png"
+            alt="Couple enjoying time together"
+            class="absolute inset-0 w-full h-full object-cover img-hover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT'S INSIDE — 4 tools with outcome-focused copy ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">The Curriculum</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">What's Inside</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          What's <em>Included</em>
+          Four tools that change<br/><em>everything.</em>
         </h2>
         <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone max-w-2xl mx-auto leading-relaxed">
-          Four proven tools designed to help couples build a stronger, more intentional marriage.
+          Each session builds on the last, guiding you through a journey from individual clarity to shared vision.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
         {[
           {
-            title: "Mission Portrait",
-            desc: "Define your individual vision and purpose.",
+            title: "Mission Portrait™",
+            desc: "Get crystal clear on who you are as an individual — your values, your purpose, your God-given design. Because a stronger you means a stronger us.",
             icon: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z",
           },
           {
-            title: "Proper Portions Tool",
-            desc: "Set boundaries and protect your priorities.",
+            title: "Proper Portions",
+            desc: "Stop letting the urgent crowd out the important. Learn to set boundaries that protect your marriage, your family, and your sanity.",
             icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3",
           },
           {
             title: "DREAM Map",
-            desc: "Dream together and create a unified plan.",
+            desc: "Dream together again. Build a shared vision for your future and create a real, actionable plan to get there — as a team.",
             icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
           },
           {
-            title: "Grace Place Tool",
-            desc: "Foster grace-filled, trust-building communication.",
+            title: "Grace Place",
+            desc: "Replace defensiveness with grace. Build a trust-filled space where honest, vulnerable conversations become the norm — not the exception.",
             icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
           },
         ].map((tool, i) => (
@@ -66,56 +167,80 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== PROGRAM DETAILS — Warm-white bg, split layout ===== -->
-  <SplitSection
-    label="Program Details"
-    title='8 weeks to a<br/><em>stronger marriage.</em>'
-    description="Designed for engaged or married couples at any stage, the INVEST Marriage curriculum is facilitated by small group leaders and creates a safe, practical space to grow together. Pricing starts at $80 per couple, with a group discount of $70 per couple for groups of 5 or more."
-    image="/images/invest-marriage-screenshot1.png"
-    imageAlt="INVEST Marriage curriculum screenshot"
-    imagePosition="right"
-    bg="warm-white"
-    link={{ text: "Start your group today", href: "/contact" }}
-  />
+  <!-- ===== PRICING — Clean, single price, value stack ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-2xl mx-auto px-5 md:px-8 text-center">
+      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">One Simple Price</p>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+        Everything you need.<br/><em>Nothing you don't.</em>
+      </h2>
 
-  <!-- ===== TESTIMONIAL 1 — Cream bg ===== -->
-  <section class="relative py-24 md:py-32 bg-cream">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <TestimonialCard
-        variant="large"
-        quote="The INVEST Marriage curriculum has been a game-changer for our church. It's practical, engaging, and easy to implement, making it simple for small group leaders to pour into marriages."
-        name="Katie Walters"
-        title="Marriage Ministry Pastor, Seacoast Church, South Carolina"
-      />
+      <div class="reveal reveal-d2 mt-12 p-8 md:p-12 rounded-2xl bg-white border border-sand/50 shadow-sm">
+        <p class="font-display text-6xl md:text-7xl text-charcoal">$60</p>
+        <p class="mt-2 text-stone text-sm tracking-wide">per couple</p>
+
+        <div class="mt-8 space-y-3 text-left max-w-sm mx-auto">
+          {[
+            "Two printed workbooks",
+            "Personalized Mission Portrait™ for each spouse",
+            "8 video-guided sessions",
+            "Complete facilitator guide & resources",
+            "Lifetime digital access",
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ember flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-charcoal">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10">
+          <a
+            href="/contact"
+            class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-ember hover:bg-ember-light hover:shadow-xl hover:shadow-ember/15 transition-all duration-400 hover:scale-[1.02]"
+          >
+            Get Started Today
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-stone">10% of all proceeds support Ignite Academy</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FACILITATOR STEPS — White bg ===== -->
+  <!-- ===== HOW IT WORKS — 3 simple steps ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Get Started</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">How It Works</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Become a Facilitator in<br/><em>3 Simple Steps</em>
+          Leading a group has<br/><em>never been easier.</em>
         </h2>
+        <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone max-w-2xl mx-auto leading-relaxed">
+          No experience necessary. The videos do the teaching &mdash; you just press play and facilitate the conversation.
+        </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
           {
             num: "01",
-            title: "Sign Up & Get Your Materials",
-            desc: "$80 per couple includes facilitator videos, workbooks, and a personalized Mission Portrait for each participant.",
+            title: "Sign Up",
+            desc: "Purchase your materials and get instant access to everything you need — workbooks, videos, and facilitator guides.",
           },
           {
             num: "02",
-            title: "Watch the Facilitator Videos",
-            desc: "Simple, easy-to-follow training that requires no prior experience. You'll feel confident and prepared from day one.",
+            title: "Gather Your Group",
+            desc: "Invite couples to join. Meet anywhere — a living room, a coffee shop, your church. All you need is a screen and a conversation.",
           },
           {
             num: "03",
-            title: "Gather & Grow",
-            desc: "Meet anywhere — a living room, coffee shop, or church. Follow the session guide and watch marriages transform.",
+            title: "Press Play & Grow",
+            desc: "Follow the session guide, watch the video, and let the tools do the heavy lifting. Watch marriages transform week after week.",
           },
         ].map((step, i) => (
           <div class:list={["reveal group p-8 md:p-10 rounded-2xl bg-white border border-sand/50 hover:border-ember/30 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-400", `reveal-d${i + 1}`]}>
@@ -128,8 +253,8 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== TESTIMONIAL 2 — Warm-white bg ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
+  <!-- ===== TESTIMONIAL 2 ===== -->
+  <section class="relative py-20 md:py-28 bg-cream">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <TestimonialCard
         variant="large"
@@ -142,7 +267,8 @@ import CallToAction from '../components/CallToAction.astro';
 
   <!-- ===== CTA CLOSER ===== -->
   <CallToAction
-    title='Invest in your<br/><em class="ember-gradient">marriage.</em>'
+    image="/images/invest-marriage-screenshot2.png"
+    title='Your marriage is<br/><em class="ember-gradient">worth it.</em>'
     description="Start your 8-week journey toward a thriving, God-centered marriage today."
     buttonText="Get Started"
   />

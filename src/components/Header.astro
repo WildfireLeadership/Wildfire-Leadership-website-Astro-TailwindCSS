@@ -20,8 +20,8 @@ const navGroups = [
   {
     label: 'Our Tools',
     items: [
-      { href: '/mission-portrait', label: 'Mission Portrait' },
-      { href: '/7-igniters', label: 'The 7 Igniters' },
+      { href: '/mission-portrait', label: 'Mission Portrait™' },
+      { href: '/7-igniters', label: 'The 7 Igniters™' },
       { href: '/invest-marriage', label: 'INVEST Marriage' },
     ],
   },
@@ -41,7 +41,7 @@ const allLinks = navGroups.flatMap(g => g.items);
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
   <nav class="max-w-[1400px] mx-auto px-5 md:px-8 h-20 md:h-24 flex items-center justify-between">
     <!-- Left: Logo -->
-    <a href="/" class="relative z-10 flex items-center shrink-0">
+    <a href="/" class="relative z-10 shrink-0">
       <img
         src="/images/logo-white.png"
         alt="Wildfire Leadership"
@@ -54,6 +54,7 @@ const allLinks = navGroups.flatMap(g => g.items);
         class="h-16 md:h-20 w-auto hidden"
         id="header-logo-dark"
       />
+      <span class="logo-tm absolute" style="right: 1px; bottom: 5px;">™</span>
     </a>
 
     <!-- Center: Desktop nav with dropdowns -->
@@ -110,8 +111,9 @@ const allLinks = navGroups.flatMap(g => g.items);
   <div class="absolute inset-0 bg-white"></div>
   <div class="relative h-full flex flex-col">
     <div class="px-5 h-16 flex justify-between items-center border-b border-sand/50 bg-white">
-      <a href="/">
+      <a href="/" class="relative inline-block">
         <img src="/images/logo-dark.png" alt="Wildfire Leadership" class="h-14 w-auto" />
+        <span class="absolute text-[7px] text-charcoal/40 leading-none" style="right: 1px; bottom: 5px;">™</span>
       </a>
       <button id="mobile-close-btn-portal" class="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors rounded-lg hover:bg-warm-white" aria-label="Close menu">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,6 +199,21 @@ const allLinks = navGroups.flatMap(g => g.items);
 </script>
 
 <style>
+  /* Logo TM mark */
+  .logo-tm {
+    font-size: 7px;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    margin-left: -0.125rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .header-scrolled .logo-tm {
+    color: rgba(26, 26, 23, 0.4) !important;
+  }
+  :global(.header-light) .logo-tm {
+    color: rgba(26, 26, 23, 0.4) !important;
+  }
+
   /* Default: transparent header for hero pages */
   #site-header .nav-link {
     color: rgba(255, 255, 255, 0.85);

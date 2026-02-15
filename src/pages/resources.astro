@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Resources & Next Steps" description="Discover coaching services, workshops, and practical tools from Wildfire Leadership to help you thrive.">
+<BaseLayout title="Resources — Books, Tools & More" description="Explore books, journals, apps, and practical tools from Bill & Stephanie Lammers to help you lead yourself well, strengthen your faith, and thrive.">
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>
@@ -13,99 +13,258 @@ import CallToAction from '../components/CallToAction.astro';
   <PageHero
     variant="light"
     title='Resources &<br/><em>Next Steps</em>'
-    subtitle="Discover coaching services, workshops, and practical tools to help you thrive."
+    subtitle="Books, journals, apps, and practical tools to help you lead yourself well and thrive."
   />
 
-  <!-- ===== BOOKS SECTION — Warm-white bg ===== -->
+  <!-- ===== FEATURED — Flip the Script ===== -->
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="mb-16">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Library</p>
-        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Books</h2>
-      </div>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image -->
+        <div class="reveal relative rounded-xl overflow-hidden group">
+          <img
+            src="/images/fts-book.png"
+            alt="Flip the Script book by Bill Lammers"
+            class="w-full rounded-xl img-hover"
+          />
+        </div>
 
-      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
-
-        <!-- Book 1: Wildfire Daily Journal -->
-        <div class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
-          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-ember/5 rounded-full blur-[60px]"></div>
-            <div class="relative text-center px-8">
-              <div class="w-16 h-16 mx-auto rounded-xl bg-ember/10 flex items-center justify-center mb-4">
-                <svg class="w-7 h-7 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>
-              </div>
-              <p class="font-display text-xl text-charcoal">Wildfire Daily Journal</p>
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-display text-2xl text-charcoal mb-3">Wildfire Daily Journal</h3>
-            <p class="text-sm text-stone leading-relaxed mb-6">
-              A powerful tool to ignite intentional living, gratitude, and purpose every day.
-            </p>
-            <a href="#" class="group/link inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+        <!-- Text -->
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">New Release</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Flip the Script.<br/><em>Set Your Mind Free.</em>
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            What if the thoughts holding you back aren't even true? In <strong class="text-charcoal">Flip the Script</strong>, Bill Lammers reveals how to break free from the lies and negative narratives that keep you stuck &mdash; and replace them with the truth God says about you.
+          </p>
+          <p class="reveal reveal-d3 mt-4 text-base md:text-lg text-stone leading-relaxed">
+            Part framework, part field guide, this book will change the way you think about the way you think.
+          </p>
+          <div class="reveal reveal-d4 mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://www.amazon.com/Flip-Script-Your-Mind-Free/dp/B0FSWW55X1"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-white bg-ember hover:bg-ember-light hover:shadow-xl hover:shadow-ember/15 transition-all duration-400 hover:scale-[1.02]"
+            >
               Order on Amazon
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+            <a
+              href="https://www.getflipthescript.com"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400"
+            >
+              Learn more
+              <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKS — Grid with real covers ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="mb-16">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Library</p>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">Books & <em>Journals</em></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+
+        <!-- Book 1: Flip the Script -->
+        <a href="https://www.amazon.com/Flip-Script-Your-Mind-Free/dp/B0FSWW55X1" target="_blank" rel="noopener" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
+          <div class="aspect-[3/4] bg-gradient-to-br from-[#f5f3f0] to-[#eae7e2] flex items-center justify-center p-10 relative overflow-hidden">
+            <img
+              src="/images/fts-book-3d.jpg"
+              alt="Flip the Script by Bill Lammers"
+              class="relative max-h-full object-contain drop-shadow-xl group-hover:scale-[1.03] transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl text-charcoal mb-1">Flip the Script</h3>
+            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
+            <p class="text-sm text-stone leading-relaxed mb-6">
+              Break free from the lies and negative thoughts holding you back. Transform your mind with God's truth.
+            </p>
+            <span class="group/link inline-flex items-center gap-2 text-sm font-medium text-ember">
+              Order on Amazon
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </span>
+          </div>
+        </a>
 
         <!-- Book 2: Discovering Joy in Your Lane -->
-        <div class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
-          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-amber/5 rounded-full blur-[60px]"></div>
-            <div class="relative text-center px-8">
-              <div class="w-16 h-16 mx-auto rounded-xl bg-amber/10 flex items-center justify-center mb-4">
-                <svg class="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>
-              </div>
-              <p class="font-display text-xl text-charcoal">Discovering Joy<br/>in Your Lane</p>
-            </div>
+        <a href="https://a.co/d/eUG8v9t" target="_blank" rel="noopener" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
+          <div class="aspect-[3/4] bg-gradient-to-br from-[#fdf5f3] to-[#f8ece8] flex items-center justify-center p-10 relative overflow-hidden">
+            <img
+              src="/images/discovering-joy-book.jpg"
+              alt="Discovering Joy In Your Lane by Stephanie Lammers"
+              class="relative max-h-full object-contain drop-shadow-xl group-hover:scale-[1.03] transition-transform duration-500 rounded-sm"
+            />
           </div>
           <div class="p-8">
             <h3 class="font-display text-2xl text-charcoal mb-1">Discovering Joy in Your Lane</h3>
             <p class="text-[13px] text-stone mb-3">by Stephanie Lammers</p>
             <p class="text-sm text-stone leading-relaxed mb-6">
-              A guide to finding joy and fulfillment in the path God designed for you.
+              A guide to finding joy and fulfillment in the unique path God designed for you. Each chapter includes reflection steppingstones for personal growth.
             </p>
-            <a href="#" class="group/link inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            <span class="group/link inline-flex items-center gap-2 text-sm font-medium text-ember">
               Order on Amazon
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Book 3: Wildfire Daily Journal -->
+        <a href="https://a.co/d/eUG8v9t" target="_blank" rel="noopener" class="reveal reveal-d2 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
+          <div class="aspect-[3/4] bg-gradient-to-br from-[#f0eee9] to-[#e5e2dc] flex items-center justify-center p-6 relative overflow-hidden">
+            <img
+              src="/images/wildfire-daily-journal.jpg"
+              alt="Wildfire Daily Journal"
+              class="relative w-full h-full object-cover rounded-lg drop-shadow-xl group-hover:scale-[1.03] transition-transform duration-500"
+            />
+          </div>
+          <div class="p-8">
+            <h3 class="font-display text-2xl text-charcoal mb-1">Wildfire Daily Journal</h3>
+            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
+            <p class="text-sm text-stone leading-relaxed mb-6">
+              A daily tool for intentional living. Lead yourself well and live out your dreams through guided reflection, gratitude, and purpose.
+            </p>
+            <span class="group/link inline-flex items-center gap-2 text-sm font-medium text-ember">
+              Order on Amazon
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="reveal mt-8 text-center text-sm text-stone">
+        10% of all book proceeds support <strong class="text-charcoal">Ignite Academy</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== DIGITAL TOOLS — FTS App ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Text -->
+        <div class="lg:order-1">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Digital Tools</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            The fts. App
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            Flip the Script isn't just a book &mdash; it's a daily practice. The <strong class="text-charcoal">fts. app</strong> uses AI to match your specific struggles with biblical truth and Scripture-based affirmations, giving you a personalized tool to renew your mind anytime, anywhere.
+          </p>
+          <p class="reveal reveal-d3 mt-4 text-base md:text-lg text-stone leading-relaxed">
+            Available on iOS and Android.
+          </p>
+          <div class="reveal reveal-d4 mt-8">
+            <a
+              href="https://www.getflipthescript.com/app"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-charcoal/80 hover:shadow-xl transition-all duration-400 hover:scale-[1.02]"
+            >
+              Download the App
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </a>
           </div>
         </div>
 
-        <!-- Book 3: Flip the Script -->
-        <div class="reveal reveal-d2 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 relative">
-          <!-- Coming Soon badge -->
-          <div class="absolute top-5 right-5 z-10 px-3 py-1 rounded-full bg-ember text-white text-[11px] font-medium tracking-wide uppercase">
-            Coming Soon
-          </div>
-          <div class="aspect-[3/4] bg-gradient-to-br from-cream via-warm-white to-sand/40 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-ember/5 rounded-full blur-[60px]"></div>
-            <div class="relative text-center px-8">
-              <div class="w-16 h-16 mx-auto rounded-xl bg-ember/10 flex items-center justify-center mb-4">
-                <svg class="w-7 h-7 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>
-              </div>
-              <p class="font-display text-xl text-charcoal">Flip the Script</p>
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-display text-2xl text-charcoal mb-1">Flip the Script</h3>
-            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
-            <p class="text-sm text-stone leading-relaxed">
-              Learn to transform lies and negative thoughts into empowering truths. Coming 2025.
-            </p>
-          </div>
+        <!-- Image -->
+        <div class="reveal reveal-d2 relative flex justify-center lg:order-2">
+          <img
+            src="/images/fts-app-mockup.png"
+            alt="Flip the Script app on iPhone"
+            class="w-64 md:w-72 drop-shadow-2xl"
+          />
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MORE FROM WILDFIRE — Cross-links ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Keep Going</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          More from <em>Wildfire</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
+
+        <!-- INVEST Marriage -->
+        <a href="/invest-marriage" class="reveal group p-8 md:p-10 rounded-2xl bg-white border border-sand/50 hover:border-ember/30 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-400 block">
+          <div class="w-12 h-12 rounded-xl bg-ember/10 flex items-center justify-center mb-5 group-hover:bg-ember/20 transition-colors duration-300">
+            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl md:text-2xl text-charcoal mb-2">INVEST Marriage</h3>
+          <p class="text-sm text-stone leading-relaxed mb-4">An 8-week curriculum to build a thriving, God-centered marriage. $60/couple.</p>
+          <span class="inline-flex items-center gap-2 text-sm font-medium text-ember">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
+        </a>
+
+        <!-- Mission Portrait™ -->
+        <a href="/mission-portrait" class="reveal reveal-d1 group p-8 md:p-10 rounded-2xl bg-white border border-sand/50 hover:border-ember/30 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-400 block">
+          <div class="w-12 h-12 rounded-xl bg-ember/10 flex items-center justify-center mb-5 group-hover:bg-ember/20 transition-colors duration-300">
+            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl md:text-2xl text-charcoal mb-2">Mission Portrait™</h3>
+          <p class="text-sm text-stone leading-relaxed mb-4">Discover your unique purpose, values, and God-given design through our flagship assessment.</p>
+          <span class="inline-flex items-center gap-2 text-sm font-medium text-ember">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
+        </a>
+
+        <!-- FTS Online Study -->
+        <a href="https://www.getflipthescript.com/book" target="_blank" rel="noopener" class="reveal reveal-d2 group p-8 md:p-10 rounded-2xl bg-white border border-sand/50 hover:border-ember/30 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-400 block">
+          <div class="w-12 h-12 rounded-xl bg-ember/10 flex items-center justify-center mb-5 group-hover:bg-ember/20 transition-colors duration-300">
+            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl md:text-2xl text-charcoal mb-2">FTS Online Study</h3>
+          <p class="text-sm text-stone leading-relaxed mb-4">An interactive online study guide for individuals and groups to go deeper with Flip the Script.</p>
+          <span class="inline-flex items-center gap-2 text-sm font-medium text-ember">
+            Learn more
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </span>
+        </a>
 
       </div>
     </div>
@@ -114,9 +273,9 @@ import CallToAction from '../components/CallToAction.astro';
   <!-- ===== CTA CLOSER ===== -->
   <CallToAction
     title='Ready to<br/><em class="ember-gradient">go deeper?</em>'
-    description="Explore our tools, connect with a facilitator, or start your journey toward discovering your unique purpose."
-    buttonText="Explore Our Tools"
-    buttonHref="/mission-portrait"
+    description="Whether it's a book, an app, or a full coaching engagement — we have tools to meet you where you are."
+    buttonText="Get in Touch"
+    buttonHref="/contact"
   />
 
 </BaseLayout>

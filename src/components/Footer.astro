@@ -7,12 +7,13 @@ const currentYear = new Date().getFullYear();
     <!-- Top: Logo + links -->
     <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-16">
       <div class="max-w-xs">
-        <a href="/" class="block">
+        <a href="/" class="relative inline-block">
           <img
             src="/images/logo-dark.png"
             alt="Wildfire Leadership"
             class="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
           />
+          <span class="absolute text-[7px] text-stone leading-none" style="right: 1px; bottom: 3px;">™</span>
         </a>
         <p class="mt-6 text-sm text-stone leading-relaxed">
           Practical, visual tools proven to help individuals, families, and organizations uncover purpose and unleash potential.
@@ -38,8 +39,8 @@ const currentYear = new Date().getFullYear();
           <h3 class="text-[11px] uppercase tracking-[0.2em] text-stone mb-5 font-medium">Our Tools</h3>
           <ul class="space-y-3">
             {[
-              { href: "/mission-portrait", label: "Mission Portrait" },
-              { href: "/7-igniters", label: "7 Igniters" },
+              { href: "/mission-portrait", label: "Mission Portrait™" },
+              { href: "/7-igniters", label: "7 Igniters™" },
               { href: "/invest-marriage", label: "INVEST Marriage" },
             ].map((link) => (
               <li>
