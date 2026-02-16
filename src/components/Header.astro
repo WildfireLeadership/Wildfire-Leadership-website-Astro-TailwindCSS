@@ -194,6 +194,11 @@ const allLinks = navGroups.flatMap(g => g.items);
     updateLogo();
   });
 
+  // Watch for header-light class being added by page scripts
+  if (header) {
+    new MutationObserver(() => updateLogo()).observe(header, { attributes: true, attributeFilter: ['class'] });
+  }
+
   // Initial logo state
   updateLogo();
 </script>

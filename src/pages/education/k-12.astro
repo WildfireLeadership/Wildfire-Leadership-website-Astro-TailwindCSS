@@ -341,6 +341,51 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              q: "Is this faith-based?",
+              a: "We offer both faith-based and non-faith-based versions of our curriculum. Public schools use the non-faith-based version. Churches and faith communities use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
+            },
+            {
+              q: "How does this fit into our existing curriculum?",
+              a: "Ignite Students is designed to integrate seamlessly — whether as a standalone advisory program, a capstone course, or embedded into existing career-readiness and SEL frameworks. We provide lesson plans, digital workbooks, and a plug-and-play digital option for minimal teacher prep.",
+            },
+            {
+              q: "What grade levels does this work for?",
+              a: "The program is designed for grades 6–12. Most schools implement it in 8th grade or as a senior capstone, but it's flexible enough to work across middle and high school depending on your goals.",
+            },
+            {
+              q: "How do teachers get certified?",
+              a: "Two 90-minute certification sessions equip your teachers to lead Ignite Students across classrooms and grade levels. They leave fully certified with tools, lesson plans, and ongoing support.",
+            },
+          ].map((faq, i) => (
+            <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>
+                <svg class="w-5 h-5 text-stone flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p class="pb-6 text-sm text-stone leading-relaxed -mt-1">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Bring Ignite to<br/><em class="ember-gradient">your school.</em>'

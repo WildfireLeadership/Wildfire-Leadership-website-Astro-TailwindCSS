@@ -154,23 +154,6 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== HEAR FROM A STUDENT ===== -->
-  <section class="relative py-20 md:py-28 bg-white">
-    <div class="max-w-[900px] mx-auto px-5 md:px-8">
-      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember text-center mb-8">Hear From a Student</p>
-      <div class="reveal reveal-d1 relative aspect-video rounded-2xl overflow-hidden shadow-lg shadow-charcoal/10">
-        <iframe
-          src="https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0"
-          title="Student testimonial — Maysa on how Ignite Students helped her"
-          class="absolute inset-0 w-full h-full"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== CASE STUDY: NORTHWEST STATE COMMUNITY COLLEGE ===== -->
   <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
     <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
@@ -478,11 +461,12 @@ import CallToAction from '../../components/CallToAction.astro';
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
           { title: "Who We Are", desc: "A short intro to Wildfire Leadership and our mission.", url: "https://drive.google.com/file/d/10z8d5yvQ8Ky04N68mf6nfGdsgYCpWPCb/preview", thumb: "/images/higher-ed-workshop.jpg" },
           { title: "What's a Mission Portrait™?", desc: "See how students discover and articulate their purpose.", url: "https://drive.google.com/file/d/15z2LgCE0ohWdy_btvX-I2O1DbBg5NlEU/preview", thumb: "/images/lifestyle.jpg" },
           { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/education-students.jpg" },
+          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/education-higher.jpeg" },
         ].map((video, i) => (
           <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
             <div class="relative aspect-video overflow-hidden">
@@ -499,6 +483,51 @@ import CallToAction from '../../components/CallToAction.astro';
             </div>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              q: "Is this faith-based?",
+              a: "We offer both faith-based and non-faith-based versions of our curriculum. Public colleges and universities use the non-faith-based version. Faith-based institutions use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
+            },
+            {
+              q: "How does this integrate into existing programs?",
+              a: "Ignite integrates seamlessly into orientation, first-year experience courses, career services programming, student success initiatives, or as a standalone workshop series. We provide curriculum materials, digital workbooks, and a plug-and-play digital option for minimal faculty prep.",
+            },
+            {
+              q: "How do faculty and staff get certified?",
+              a: "Two 90-minute certification sessions equip faculty and staff to lead students across classrooms, courses, and campus programs — fully certified with Mission Portrait™ and Working Genius tools plus ongoing support.",
+            },
+            {
+              q: "Can this work at a community college?",
+              a: "Absolutely. Northwest State Community College and Hocking College are both community colleges that have seen transformative results — from improved retention to increased enrollment in departments where the framework was implemented.",
+            },
+          ].map((faq, i) => (
+            <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>
+                <svg class="w-5 h-5 text-stone flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p class="pb-6 text-sm text-stone leading-relaxed -mt-1">{faq.a}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>

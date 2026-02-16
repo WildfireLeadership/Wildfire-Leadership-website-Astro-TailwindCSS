@@ -81,7 +81,7 @@ import CallToAction from '../components/CallToAction.astro';
       <div class="grid md:grid-cols-3 gap-5 md:gap-6">
 
         <!-- Book 1: Flip the Script -->
-        <a href="https://www.amazon.com/Flip-Script-Your-Mind-Free/dp/B0FSWW55X1" target="_blank" rel="noopener" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
+        <div class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
           <div class="aspect-[3/4] bg-gradient-to-br from-[#f5f3f0] to-[#eae7e2] flex items-center justify-center p-10 relative overflow-hidden">
             <img
               src="/images/fts-book-3d.jpg"
@@ -91,18 +91,23 @@ import CallToAction from '../components/CallToAction.astro';
           </div>
           <div class="p-8">
             <h3 class="font-display text-2xl text-charcoal mb-1">Flip the Script</h3>
-            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
+            <p class="text-[13px] text-stone mb-2">by Bill Lammers</p>
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              <a href="https://a.co/d/bFX3ZT3" target="_blank" rel="noopener" class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full hover:bg-ember/15 transition-colors duration-200">Book</a>
+              <a href="https://www.getflipthescript.com/app" target="_blank" rel="noopener" class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full hover:bg-ember/15 transition-colors duration-200">App</a>
+              <a href="https://www.getflipthescript.com/book" target="_blank" rel="noopener" class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full hover:bg-ember/15 transition-colors duration-200">Online Study</a>
+            </div>
             <p class="text-sm text-stone leading-relaxed mb-6">
               Break free from the lies and negative thoughts holding you back. Transform your mind with God's truth.
             </p>
-            <span class="group/link inline-flex items-center gap-2 text-sm font-medium text-ember">
+            <a href="https://a.co/d/bFX3ZT3" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-ember-light transition-colors duration-300">
               Order on Amazon
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
-            </span>
+            </a>
           </div>
-        </a>
+        </div>
 
         <!-- Book 2: Discovering Joy in Your Lane -->
         <a href="https://a.co/d/eUG8v9t" target="_blank" rel="noopener" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
@@ -115,7 +120,11 @@ import CallToAction from '../components/CallToAction.astro';
           </div>
           <div class="p-8">
             <h3 class="font-display text-2xl text-charcoal mb-1">Discovering Joy in Your Lane</h3>
-            <p class="text-[13px] text-stone mb-3">by Stephanie Lammers</p>
+            <p class="text-[13px] text-stone mb-2">by Stephanie Lammers</p>
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              <span class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full">Book</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full">Reflection Guide</span>
+            </div>
             <p class="text-sm text-stone leading-relaxed mb-6">
               A guide to finding joy and fulfillment in the unique path God designed for you. Each chapter includes reflection steppingstones for personal growth.
             </p>
@@ -139,7 +148,11 @@ import CallToAction from '../components/CallToAction.astro';
           </div>
           <div class="p-8">
             <h3 class="font-display text-2xl text-charcoal mb-1">Wildfire Daily Journal</h3>
-            <p class="text-[13px] text-stone mb-3">by Bill Lammers</p>
+            <p class="text-[13px] text-stone mb-2">by Bill Lammers</p>
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              <span class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full">Journal</span>
+              <span class="text-[10px] uppercase tracking-wider font-medium text-ember bg-ember/8 px-2 py-0.5 rounded-full">Daily Devotional</span>
+            </div>
             <p class="text-sm text-stone leading-relaxed mb-6">
               A daily tool for intentional living. Lead yourself well and live out your dreams through guided reflection, gratitude, and purpose.
             </p>
