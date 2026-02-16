@@ -22,16 +22,16 @@ import CallToAction from '../components/CallToAction.astro';
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-6 md:gap-8">
         {[
           { src: "/images/church-logo-seacoast.webp", alt: "Seacoast Church" },
-          { src: "/images/church-logo-seu.webp", alt: "Southeastern University" },
-          { src: "/images/church-logo-xperience.webp", alt: "Xperience Church" },
+          { src: "/images/church-logo-seu.webp", alt: "Southeastern University", dark: true },
+          { src: "/images/church-logo-xperience.webp", alt: "Xperience Church", dark: true },
           { src: "/images/church-logo-newlife.webp", alt: "New Life Church" },
           { src: "/images/church-logo-jicc.png", alt: "James Island Christian Church" },
           { src: "/images/church-logo-freedom.png", alt: "Freedom Church" },
           { src: "/images/church-logo-glccg.png", alt: "Great Lakes Conference Churches of God" },
-          { src: "/images/church-logo-faith.png", alt: "Faith Church" },
+          { src: "/images/church-logo-faith.png", alt: "Faith Church", dark: true },
           { src: "/images/church-logo-churchcreek.jpeg", alt: "The Retreat at Church Creek" },
         ].map((logo) => (
-          <div class="bg-white rounded-xl p-4 flex items-center justify-center h-20 w-28 md:h-22 md:w-32 hover:shadow-lg hover:shadow-white/10 transition-all duration-300">
+          <div class:list={["rounded-xl p-4 flex items-center justify-center h-20 w-28 md:h-22 md:w-32 hover:shadow-lg transition-all duration-300", logo.dark ? "bg-charcoal hover:shadow-white/10" : "bg-white hover:shadow-white/10"]}>
             <img src={logo.src} alt={logo.alt} class="max-h-12 md:max-h-14 w-auto object-contain" />
           </div>
         ))}
