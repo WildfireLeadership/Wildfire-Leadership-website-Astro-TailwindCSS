@@ -44,7 +44,7 @@ import CallToAction from '../components/CallToAction.astro';
   <!-- ===== TRUSTED BY ===== -->
   <section class="relative py-16 md:py-20 bg-white border-t border-sand/30">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by leading organizations</p>
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Some of the organizations we partner with</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
           { src: "/images/client-logo-2.jpg", alt: "Hewlett Packard" },
@@ -57,7 +57,7 @@ import CallToAction from '../components/CallToAction.astro';
           { src: "/images/client-logo-8.jpg", alt: "Coastal Creek Design" },
           { src: "/images/client-logo-9.jpg", alt: "Vistage" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -195,7 +195,7 @@ import CallToAction from '../components/CallToAction.astro';
           Most organizations begin here. Wildfire coaches your leaders using the 7 Igniters™ framework and delivers hands-on workshops that build alignment, accountability, and trust across your team.
         </p>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 gap-6">
           <div class="reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10">
             <h4 class="text-lg font-medium text-charcoal mb-3">Leadership Coaching</h4>
             <p class="text-stone text-sm leading-relaxed mb-4">
@@ -222,7 +222,7 @@ import CallToAction from '../components/CallToAction.astro';
             </p>
             <div class="space-y-1.5">
               {[
-                "Working Genius",
+                "Working Genius Overview",
                 "Working Genius Deep Dive",
                 "Mission Portrait™",
                 "5 Levels of Leadership",
@@ -239,31 +239,9 @@ import CallToAction from '../components/CallToAction.astro';
               ))}
             </div>
             <div class="mt-4 bg-ember/5 rounded-lg p-3 border border-ember/10">
-              <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo workshop</p>
+              <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
             </div>
             <p class="text-xs text-stone/60 italic mt-4">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
-          </div>
-
-          <div class="reveal reveal-d2 bg-white rounded-xl border border-sand/50 p-8 md:p-10">
-            <h4 class="text-lg font-medium text-charcoal mb-3">Team Building Series</h4>
-            <p class="text-stone text-sm leading-relaxed mb-4">
-              Six 90-minute sessions that guide teams through Working Styles & Team Mapping — uncovering strengths, mastering working styles, and building high-performing teams.
-            </p>
-            <div class="bg-warm-white rounded-lg p-4">
-              <p class="text-xs font-medium text-charcoal mb-1">What teams walk away with:</p>
-              <ul class="space-y-1">
-                {[
-                  "Aligned skills with team dynamics",
-                  "Enhanced cross-team collaboration",
-                  "Practical strategies for trust & accountability",
-                ].map((item) => (
-                  <li class="text-xs text-stone flex items-start gap-2">
-                    <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
 
@@ -381,16 +359,36 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== TESTIMONIAL ===== -->
-  <section class="relative py-16 md:py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-5 md:px-8">
-      <div class="reveal text-center">
-        <svg class="w-8 h-8 text-ember/30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="font-display text-xl md:text-2xl text-charcoal leading-relaxed italic mb-6">
-          Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture and unleashed renewed purpose for my team.
-        </p>
-        <p class="text-charcoal font-medium text-sm">Mike Remer</p>
-        <p class="text-stone text-xs">Global Client Manager, Hewlett Packard</p>
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          {
+            quote: "Wildfire Leadership provided my organization with a renewed, laser focus on our mission, vision, and culture — and unleashed renewed purpose for my team.",
+            name: "Mike Remer",
+            title: "Global Client Manager, Hewlett Packard",
+          },
+          {
+            quote: "Wildfire helped our team gain clarity and alignment. The coaching is practical and gives us tools we actually use every day.",
+            name: "Rob Herron",
+            title: "Owner, Herron's Amish Furniture",
+          },
+          {
+            quote: "Wildfire delivers workshops that are engaging, actionable, and tailored to our team. Their approach strengthens communication across departments and drives real alignment — a valuable investment in our people and our company.",
+            name: "Amy Bains",
+            title: "Human Resources, Herron's Amish Furniture",
+          },
+        ].map((t, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 flex flex-col", i > 0 && `reveal-d${i}`]}>
+            <svg class="w-7 h-7 text-ember/25 mb-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <p class="text-charcoal text-sm leading-relaxed italic flex-1 mb-5">{t.quote}</p>
+            <div>
+              <p class="text-charcoal font-medium text-sm">{t.name}</p>
+              <p class="text-stone text-xs">{t.title}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -436,27 +434,6 @@ import CallToAction from '../components/CallToAction.astro';
           <h3 class="font-display text-xl text-charcoal mb-3">Works at Every Level</h3>
           <p class="text-sm text-stone leading-relaxed">Individual, departmental, and organizational — the same framework scales from a single employee's clarity session to a company-wide culture transformation, supported by 20+ proven assessments.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== KEYNOTE SPEAKING ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Speaking</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-6">
-          Keynote <em>Speaking</em>
-        </h2>
-        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed mb-8">
-          Bill and Stephanie Lammers are available for keynote speaking engagements — sharing the frameworks, tools, and stories behind Wildfire Leadership with audiences across business, education, and faith communities.
-        </p>
-        <a href="/contact?interest=business" class="reveal reveal-d3 group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-          Request speaking info
-          <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
       </div>
     </div>
   </section>
