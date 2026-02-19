@@ -227,7 +227,7 @@ import CallToAction from '../components/CallToAction.astro';
           <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Speaking</p>
           <h3 class="text-xl font-medium text-charcoal mb-4">Keynote Speaking</h3>
           <p class="text-stone text-sm leading-relaxed mb-5">
-            Bill and Stephanie Lammers are available for keynote speaking engagements — sharing the frameworks, tools, and stories behind Wildfire Leadership, Flip the Script, and INVEST Marriage.
+            Bill and Stephanie Lammers are available for keynote speaking at church conferences, retreats, network gatherings, and special events — sharing the frameworks, tools, and stories behind Wildfire Leadership, Flip the Script, and INVEST Marriage.
           </p>
           <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
             Request speaking info
@@ -286,9 +286,9 @@ import CallToAction from '../components/CallToAction.astro';
             { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Family Mission Portrait" },
             { src: "/images/family-mp-pitts.jpeg", alt: "The Pitts Family Mission Portrait" },
           ].map((portrait, i) => (
-            <div class:list={["reveal rounded-xl overflow-hidden border border-white/10", `reveal-d${i + 1}`]}>
-              <img src={portrait.src} alt={portrait.alt} class="w-full h-auto" />
-            </div>
+            <button type="button" class:list={["reveal portrait-trigger rounded-xl overflow-hidden border border-white/10 cursor-pointer group", `reveal-d${i + 1}`]} data-lightbox-src={portrait.src}>
+              <img src={portrait.src} alt={portrait.alt} class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+            </button>
           ))}
           <div class="reveal reveal-d2 text-center">
             <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-white transition-colors duration-300">
@@ -302,6 +302,16 @@ import CallToAction from '../components/CallToAction.astro';
       </div>
     </div>
   </section>
+
+  <!-- Lightbox overlay -->
+  <div id="portrait-lightbox" class="fixed inset-0 z-[100] items-center justify-center bg-charcoal/90 backdrop-blur-sm cursor-pointer" style="display:none;">
+    <button type="button" id="lightbox-close" class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300 cursor-pointer" aria-label="Close">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Mission Portrait™" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
+  </div>
 
   <!-- ===== FAITH-BASED CURRICULUM ===== -->
   <section id="curriculum" class="relative py-24 md:py-32 bg-cream">
@@ -417,3 +427,44 @@ import CallToAction from '../components/CallToAction.astro';
     background-clip: text;
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('portrait-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.portrait-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = (trigger as HTMLElement).dataset.lightboxSrc;
+      if (src) openLightbox(src);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

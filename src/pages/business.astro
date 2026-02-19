@@ -298,12 +298,17 @@ import CallToAction from '../components/CallToAction.astro';
         <!-- Keller Proof -->
         <div class="reveal bg-cream rounded-2xl border border-sand/50 p-8 md:p-10">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6 text-center">See It in Action — Keller Logistics</p>
-          <p class="font-display text-xl md:text-2xl text-charcoal leading-snug max-w-2xl mx-auto text-center mb-8">
+          <p class="font-display text-xl md:text-2xl text-charcoal leading-snug max-w-2xl mx-auto text-center mb-4">
             Keller Logistics completed the Mission Portrait™ as a company and etched it into their conference room doors — a daily reminder of shared vision and purpose that every employee walks through.
           </p>
+          <p class="text-stone text-sm text-center mb-8">Click either portrait to view it full size.</p>
           <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full rounded-xl shadow-lg" />
-            <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full rounded-xl shadow-lg" />
+            <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-aerial.jpg">
+              <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full group-hover:scale-105 transition-transform duration-500" />
+            </button>
+            <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-office.jpg">
+              <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full group-hover:scale-105 transition-transform duration-500" />
+            </button>
           </div>
           <div class="max-w-2xl mx-auto text-center">
             <p class="text-charcoal text-base md:text-lg leading-relaxed italic">
@@ -446,4 +451,55 @@ import CallToAction from '../components/CallToAction.astro';
     buttonHref="/contact?interest=business"
   />
 
+  <!-- Lightbox overlay -->
+  <div id="portrait-lightbox" class="fixed inset-0 z-[100] items-center justify-center bg-charcoal/90 backdrop-blur-sm cursor-pointer" style="display:none;">
+    <button type="button" id="lightbox-close" class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300 cursor-pointer" aria-label="Close">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Mission Portrait™" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
+  </div>
+
 </BaseLayout>
+
+<script>
+  const lightbox = document.getElementById('portrait-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.portrait-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = (trigger as HTMLElement).dataset.lightboxSrc;
+      if (src) openLightbox(src);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
