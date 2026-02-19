@@ -115,6 +115,43 @@ import CallToAction from '../../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== SEE IT IN ACTION ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">See It in Action</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Watch the <em>short clips.</em>
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: "See the Transformation in Student Success", desc: "Morris Morrison — nationally recognized speaker — on how purpose drives motivation, engagement, and achievement.", url: "https://player.vimeo.com/video/1165547755?h=f17596330c&title=0&byline=0&portrait=0", thumb: "/images/morris-morrison.jpg" },
+          { title: "What's a Mission Portrait™?", desc: "An overview of what the Mission Portrait is and why it matters for students.", url: "https://player.vimeo.com/video/1166391178?title=0&byline=0&portrait=0", thumb: "/images/higher-ed-workshop.jpg" },
+          { title: "How the Mission Portrait™ Works", desc: "A walkthrough of the Mission Portrait process and how students experience it.", url: "https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0", thumb: "/images/lifestyle.jpg" },
+          { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/education-students.jpg" },
+          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/maysa-testimonial.jpg" },
+        ].map((video, i) => (
+          <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
+            <div class="relative aspect-video overflow-hidden">
+              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
+                <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg class="w-6 h-6 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-base font-medium text-charcoal group-hover:text-ember transition-colors duration-300 mb-1">{video.title}</h3>
+              <p class="text-sm text-stone leading-relaxed">{video.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ===== HOW IT WORKS ===== -->
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
@@ -447,43 +484,6 @@ import CallToAction from '../../components/CallToAction.astro';
             </p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SEE IT IN ACTION ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">See It in Action</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Watch the <em>short clips.</em>
-        </h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          { title: "Purpose-Driven Campus Culture", desc: "Morris Morrison — nationally recognized speaker — on how Ignite reshapes student engagement at the university level.", url: "https://player.vimeo.com/video/1165547755?h=f17596330c&title=0&byline=0&portrait=0", thumb: "/images/morris-morrison.jpg" },
-          { title: "Who We Are", desc: "A short intro to Wildfire Leadership and our mission.", url: "https://player.vimeo.com/video/1166391178?title=0&byline=0&portrait=0", thumb: "/images/higher-ed-workshop.jpg" },
-          { title: "What's a Mission Portrait™?", desc: "See how students discover and articulate their purpose.", url: "https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0", thumb: "/images/lifestyle.jpg" },
-          { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/education-students.jpg" },
-          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/maysa-testimonial.jpg" },
-        ].map((video, i) => (
-          <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
-            <div class="relative aspect-video overflow-hidden">
-              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <svg class="w-6 h-6 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-base font-medium text-charcoal group-hover:text-ember transition-colors duration-300 mb-1">{video.title}</h3>
-              <p class="text-sm text-stone leading-relaxed">{video.desc}</p>
-            </div>
-          </a>
-        ))}
       </div>
     </div>
   </section>

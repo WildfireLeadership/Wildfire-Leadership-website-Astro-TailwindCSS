@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Family Mission Portrait™" description="Discover your family's shared values, vision, and mission through a personalized Mission Portrait™ — a visual legacy your family or marriage can live by every day.">
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/family-mp-lammers.jpeg"
+    imageAlt="Example of a Family Mission Portrait"
+    title='Family<br/><em>Mission Portrait™</em>'
+    subtitle="A personalized visual legacy that captures your family's shared values, vision, and mission — for families and couples at every stage of life."
+  />
+
+  <!-- ===== WHAT IS IT ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">The Experience</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-6">
+            What is a Family<br/><em>Mission Portrait™?</em>
+          </h2>
+          <div class="reveal reveal-d2 space-y-4 text-stone text-base leading-relaxed">
+            <p>
+              A Family Mission Portrait™ is a guided experience where your family or marriage comes together to discover and articulate who you are, what you value, and what your shared mission is.
+            </p>
+            <p>
+              Through a facilitated 2-hour workshop, your family or couple will identify your core values, define your vision, and craft a mission statement — all captured in a personalized, visual Mission Portrait™ that becomes a daily reminder of what you stand for together.
+            </p>
+            <p>
+              It's more than an exercise — it's a legacy. Families and couples hang their Mission Portrait in their home as a compass that guides decisions, strengthens unity, and keeps everyone anchored to what matters most.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework — Core Values, Vision, Mission, and ID" class="w-full rounded-2xl" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO TESTIMONIAL ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">From a Family Who Did It</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Hear what it meant <em>to their family.</em>
+        </h2>
+      </div>
+
+      <div class="reveal max-w-3xl mx-auto">
+        <div class="rounded-2xl overflow-hidden border border-sand/50 shadow-lg">
+          <video
+            controls
+            preload="metadata"
+            class="w-full aspect-video bg-charcoal"
+            poster="/images/family-mp-pitts.jpeg"
+          >
+            <source src="/videos/family-testimonial.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="text-stone text-sm text-center mt-4">The Pitts Family — Belize</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REAL FAMILY EXAMPLES ===== -->
+  <section class="relative py-24 md:py-32 bg-charcoal overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Real Families. Real Portraits.</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1]">
+          Every portrait is <em class="text-ember">uniquely yours.</em>
+        </h2>
+        <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          No two families or marriages are the same — and neither are their Mission Portraits. Each one reflects the values, vision, and mission that make you who you are together. Click any portrait to view it full size.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          { src: "/images/family-mp-lammers.jpeg", alt: "The Lammers Family Mission Portrait" },
+          { src: "/images/family-mp-pitts.jpeg", alt: "The Pitts Family Mission Portrait" },
+          { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Family Mission Portrait" },
+        ].map((portrait, i) => (
+          <button type="button" class:list={["reveal rounded-xl overflow-hidden border border-white/10 hover:border-ember/30 transition-all duration-300 cursor-pointer group portrait-trigger", `reveal-d${i + 1}`]} data-lightbox-src={portrait.src}>
+            <img src={portrait.src} alt={portrait.alt} class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div id="portrait-lightbox" class="fixed inset-0 z-[100] items-center justify-center bg-charcoal/90 backdrop-blur-sm cursor-pointer" style="display:none;">
+    <button type="button" id="lightbox-close" class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300 cursor-pointer" aria-label="Close">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Mission Portrait™" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
+  </div>
+
+  <!-- ===== WHAT YOU LEAVE WITH ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">What You Leave With</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          More than a workshop. <em>A legacy.</em>
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            number: "01",
+            heading: "Shared Core Values",
+            desc: "Your family or marriage identifies the values that define who you are together — the foundation everything else is built on.",
+          },
+          {
+            number: "02",
+            heading: "A Clear Vision",
+            desc: "A shared picture of the impact you want to make together — your 'why' that gives direction and purpose.",
+          },
+          {
+            number: "03",
+            heading: "A Shared Mission",
+            desc: "A statement that captures how you live out your values and vision together — your daily compass.",
+          },
+          {
+            number: "04",
+            heading: "Your Mission Portrait™",
+            desc: "A personalized, visual portrait you can frame and hang in your home — a daily reminder of who you are and what you stand for.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-lg font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">How It Works</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Simple. Meaningful. <em>Lasting.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          {
+            number: "01",
+            heading: "Gather Together",
+            desc: "Attend a 2-hour facilitated workshop — designed for families and couples of all sizes and stages. All materials are provided.",
+          },
+          {
+            number: "02",
+            heading: "Discover Together",
+            desc: "Through guided conversation, you uncover your shared values, vision, and mission — things you may have never put into words before.",
+          },
+          {
+            number: "03",
+            heading: "Receive Your Portrait",
+            desc: "Walk away with a personalized, custom-designed Mission Portrait™ — ready to frame and display in your home.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.number}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          {[
+            {
+              q: "Who is this for?",
+              a: "Any family or couple — whether you're newlyweds, parents with young kids, a family with teenagers, or empty nesters looking to reconnect around shared purpose. It's designed for every stage of life.",
+            },
+            {
+              q: "Can couples do this?",
+              a: "Absolutely. A Couples Mission Portrait™ is one of the most powerful things you can do for your marriage — defining your shared values, vision, and mission together. Many couples do this as a standalone experience or alongside a family workshop.",
+            },
+            {
+              q: "How long does the workshop take?",
+              a: "The workshop is a 2-hour facilitated experience. Everything you need is provided — just bring your family or come as a couple.",
+            },
+            {
+              q: "What do we leave with?",
+              a: "Every family or couple leaves with a personalized, custom-designed Mission Portrait™ — a visual portrait that captures your core values, vision, and mission. It's designed to be framed and displayed in your home as a daily reminder.",
+            },
+            {
+              q: "How do we sign up?",
+              a: "Contact us to learn about upcoming workshops in your area, or to schedule a private workshop for your church, small group, or community.",
+            },
+          ].map((faq, i) => (
+            <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
+              <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>
+                <svg class="w-5 h-5 text-stone flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p class="pb-6 text-sm text-stone leading-relaxed -mt-1">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction
+    title='Create your family&apos;s<br/><em class="ember-gradient">legacy.</em>'
+    image="/images/family-mp-hopson.jpeg"
+    buttonText="Get Started"
+    buttonHref="/contact?interest=family-mission-portrait"
+  />
+
+</BaseLayout>
+
+<script>
+  const lightbox = document.getElementById('portrait-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.portrait-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = (trigger as HTMLElement).dataset.lightboxSrc;
+      if (src) openLightbox(src);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

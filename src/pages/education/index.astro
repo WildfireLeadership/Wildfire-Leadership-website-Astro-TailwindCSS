@@ -33,6 +33,9 @@ import CallToAction from '../../components/CallToAction.astro';
             image: "/images/students-mission-portraits.jpg",
             href: "/education/k-12",
             cta: "Explore K-12 Program",
+            videos: [
+              { label: "Hear the Impact on Student Engagement", url: "https://player.vimeo.com/video/1165547792?h=aafe0d4b42&title=0&byline=0&portrait=0" },
+            ],
           },
           {
             title: "Ignite Higher Education",
@@ -40,6 +43,9 @@ import CallToAction from '../../components/CallToAction.astro';
             image: "/images/education-higher.jpeg",
             href: "/education/higher-ed",
             cta: "Explore Higher Ed Program",
+            videos: [
+              { label: "See the Transformation in Student Success", url: "https://player.vimeo.com/video/1165547755?h=f17596330c&title=0&byline=0&portrait=0" },
+            ],
           },
         ].map((program, i) => (
           <div class:list={["reveal group rounded-2xl overflow-hidden border border-sand/50 bg-white card-glow lift", `reveal-d${i + 1}`]}>
@@ -49,7 +55,20 @@ import CallToAction from '../../components/CallToAction.astro';
             </div>
             <div class="relative z-10 p-8 md:p-10">
               <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">{program.title}</h3>
-              <p class="text-stone text-base leading-relaxed mb-8">{program.desc}</p>
+              <p class="text-stone text-base leading-relaxed mb-6">{program.desc}</p>
+              <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
+                {program.videos.map((video) => (
+                  <a
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-sm font-medium text-ember hover:text-charcoal transition-colors duration-300"
+                  >
+                    <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    {video.label}
+                  </a>
+                ))}
+              </div>
               <a
                 href={program.href}
                 class="group/link inline-flex items-center gap-3 bg-charcoal text-white rounded-full px-6 py-3 text-sm font-medium tracking-wide hover:bg-ember transition-colors duration-400"
