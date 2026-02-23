@@ -37,77 +37,46 @@ import CallToAction from '../components/CallToAction.astro';
           <h3 class="text-[11px] uppercase tracking-[0.2em] text-stone font-medium">Leadership Development</h3>
         </div>
 
-        <div class="space-y-5">
-          <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-              <h3 class="font-display text-2xl md:text-3xl text-charcoal">Working Genius + Mission Portrait™</h3>
-              <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">3 hours</span>
-            </div>
-            <p class="text-base text-stone leading-relaxed mb-4">
-              Our most popular team workshop. Equips leaders with the Working Genius assessment and a personalized Mission Portrait™ — the foundation for alignment, communication, and shared purpose.
-            </p>
-            <p class="text-xs text-ember font-medium mb-6">Most recommended starting point for leadership teams</p>
-            <a href="/contact?interest=workshops" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-              Request info
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+        <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+            <h3 class="font-display text-2xl md:text-3xl text-charcoal">Leadership Development Workshops</h3>
           </div>
-
-          <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-              <h3 class="font-display text-2xl md:text-3xl text-charcoal">Mission Portrait™ + 7 Igniters™</h3>
-              <span class="shrink-0 inline-flex items-center px-4 py-1.5 rounded-full bg-cream text-[13px] font-medium text-stone">3 hours</span>
-            </div>
-            <p class="text-base text-stone leading-relaxed mb-6">
-              Go deeper. Craft a personalized Mission Portrait™, then walk through the 7 Igniters™ framework to turn clarity into a concrete action plan.
-            </p>
-            <a href="/contact?interest=workshops" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-              Request info
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+          <p class="text-base text-stone leading-relaxed mb-6">
+            Hands-on sessions available for any leadership team — across business, education, faith, and community organizations. Each workshop equips your team with practical tools for collaboration, accountability, and trust.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 mb-8">
+            {[
+              "Working Genius Overview",
+              "Working Genius Deep Dive",
+              "Mission Portrait™",
+              "5 Levels of Leadership",
+              "Mastering Crucial Conversations",
+              "Extreme Ownership",
+              "5 Dysfunctions of a Team",
+              "7 Igniters™ Roadmap",
+              "DISC Leadership Essentials",
+            ].map((session) => (
+              <p class="text-sm text-stone flex items-start gap-2">
+                <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
+                {session}
+              </p>
+            ))}
           </div>
-
-          <!-- Development Workshops -->
-          <div class="reveal bg-white rounded-xl border border-sand/50 border-l-4 border-l-ember p-8 md:p-10 hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-              <h3 class="font-display text-2xl md:text-3xl text-charcoal">Development Workshops</h3>
+          <div class="space-y-3 mb-6">
+            <div class="bg-ember/5 rounded-lg p-4 border border-ember/10">
+              <p class="text-sm text-charcoal"><strong class="text-ember">Recommended combo:</strong> Working Genius + Mission Portrait™ — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
             </div>
-            <p class="text-base text-stone leading-relaxed mb-6">
-              Hands-on sessions available for any leadership team — across business, education, faith, and community organizations. Each workshop equips your team with practical tools for collaboration, accountability, and trust.
-            </p>
-            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 mb-6">
-              {[
-                "Working Genius Overview",
-                "Working Genius Deep Dive",
-                "Mission Portrait™",
-                "5 Levels of Leadership",
-                "Mastering Crucial Conversations",
-                "Extreme Ownership",
-                "5 Dysfunctions of a Team",
-                "7 Igniters™ Roadmap",
-                "DISC Leadership Essentials",
-              ].map((session) => (
-                <p class="text-sm text-stone flex items-start gap-2">
-                  <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
-                  {session}
-                </p>
-              ))}
+            <div class="bg-ember/5 rounded-lg p-4 border border-ember/10">
+              <p class="text-sm text-charcoal"><strong class="text-ember">Go deeper:</strong> Mission Portrait™ + 7 Igniters™ — craft a personalized Mission Portrait™, then walk through the 7 Igniters™ framework to turn clarity into a concrete action plan.</p>
             </div>
-            <div class="bg-ember/5 rounded-lg p-4 border border-ember/10 mb-6">
-              <p class="text-sm text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
-            </div>
-            <p class="text-xs text-stone/60 italic mb-6">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
-            <a href="/contact?interest=workshops" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-              Request info
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
+          <p class="text-xs text-stone/60 italic mb-6">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
+          <a href="/contact?interest=workshops" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
 
