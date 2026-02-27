@@ -101,10 +101,11 @@ import CallToAction from '../../components/CallToAction.astro';
           { title: "How the Mission Portrait™ Works", desc: "A walkthrough of the Mission Portrait process and how students experience it.", url: "https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0", thumb: "/images/lifestyle.jpg" },
           { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/students-mission-portraits.jpg" },
           { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/maysa-testimonial.jpg" },
+          { title: "Student Testimonial — Josiah", desc: "Hear from Josiah on how Ignite Students helped him discover his purpose.", url: "https://player.vimeo.com/video/1167969928?title=0&byline=0&portrait=0", thumb: "/images/josiah-testimonial.jpg" },
         ].map((video, i) => (
           <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
             <div class="relative aspect-video overflow-hidden">
-              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
                 <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg class="w-6 h-6 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
