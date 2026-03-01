@@ -148,9 +148,9 @@ import CallToAction from '../components/CallToAction.astro';
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">How We Work With Businesses</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Getting Started</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Two Paths. <em>One Goal.</em>
+          How to Bring Ignite <em>to Your Organization</em>
         </h2>
         <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
           Every engagement is built on two proprietary tools — the <a href="/mission-portrait" class="text-ember hover:underline">Mission Portrait™</a> and the <a href="/seven-igniters" class="text-ember hover:underline">7 Igniters™</a> — supported by over 20 proven assessments and resources. Here's how most organizations get started.
@@ -181,158 +181,147 @@ import CallToAction from '../components/CallToAction.astro';
         </a>
       </div>
 
-      <!-- ── PATH 1: COACHING & WORKSHOPS ── -->
-      <div class="mb-20 md:mb-28">
-        <div class="reveal flex items-center gap-4 mb-8">
-          <span class="font-display text-5xl md:text-6xl text-ember/20 leading-none">01</span>
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-1">Recommended Starting Point</p>
-            <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1]">Coaching & Workshops</h3>
+      <!-- ── 3-STEP IMPLEMENTATION ── -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            step: "01",
+            heading: "Leadership Workshop",
+            desc: "A half-day, hands-on session where select leaders experience the Mission Portrait™ and Working Genius firsthand — building clarity and alignment before introducing the tools to their teams.",
+          },
+          {
+            step: "02",
+            heading: "Certify Your Facilitators",
+            desc: "Two 90-minute certification sessions equip internal leaders to deliver Wildfire content across departments — guiding employees through purpose-driven growth using our signature tools.",
+          },
+          {
+            step: "03",
+            heading: "Launch & License",
+            desc: "Annual licensing gives your organization access to all curriculum materials — print and digital — plus leadership development sessions, planning tools, and ongoing support.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.step}</p>
+            <h4 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h4>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <p class="reveal text-stone text-base leading-relaxed max-w-3xl mb-10">
-          Most organizations begin here. Wildfire coaches your leaders using the 7 Igniters™ framework and delivers hands-on workshops that build alignment, accountability, and trust across your team.
+      <!-- Keller Proof -->
+      <div class="reveal bg-cream rounded-2xl border border-sand/50 p-8 md:p-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6 text-center">See It in Action — Keller Logistics</p>
+        <p class="font-display text-xl md:text-2xl text-charcoal leading-snug max-w-2xl mx-auto text-center mb-4">
+          Keller Logistics completed the Mission Portrait™ as a company and etched it into their conference room doors — a daily reminder of shared vision and purpose that every employee walks through.
         </p>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10">
-            <h4 class="text-lg font-medium text-charcoal mb-3">Leadership Coaching</h4>
-            <p class="text-stone text-sm leading-relaxed mb-4">
-              Personalized, strategic coaching sessions designed to help leaders gain clarity, build alignment, and drive results.
-            </p>
-            <div class="space-y-2">
-              {[
-                { label: "Individual Coaching", detail: "4 sessions, 60 minutes each" },
-                { label: "Strategic Coaching for Key Leaders", detail: "2x/month, 6–12 month commitment" },
-                { label: "Leadership Ignited: Cohort Style", detail: "1–2x/month, cohorts of 10, min. 4 months" },
-              ].map((tier) => (
-                <div class="bg-warm-white rounded-lg p-3">
-                  <p class="text-xs font-medium text-charcoal">{tier.label}</p>
-                  <p class="text-xs text-stone mt-0.5">{tier.detail}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div class="reveal reveal-d1 bg-white rounded-xl border border-sand/50 p-8 md:p-10">
-            <h4 class="text-lg font-medium text-charcoal mb-3">Development Workshops</h4>
-            <p class="text-stone text-sm leading-relaxed mb-4">
-              Hands-on sessions that equip your team with practical tools for collaboration, accountability, and trust.
-            </p>
-            <div class="space-y-1.5">
-              {[
-                "Working Genius Overview",
-                "Working Genius Deep Dive",
-                "Mission Portrait™",
-                "5 Levels of Leadership",
-                "Mastering Crucial Conversations",
-                "Extreme Ownership",
-                "5 Dysfunctions of a Team",
-                "7 Igniters™ Roadmap",
-                "DISC Leadership Essentials",
-              ].map((session) => (
-                <p class="text-xs text-stone flex items-start gap-2">
-                  <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
-                  {session}
-                </p>
-              ))}
-            </div>
-            <div class="mt-4 bg-ember/5 rounded-lg p-3 border border-ember/10">
-              <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
-            </div>
-            <p class="text-xs text-stone/60 italic mt-4">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
-          </div>
+        <p class="text-stone text-sm text-center mb-8">Click either portrait to view it full size.</p>
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-aerial.jpg">
+            <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full group-hover:scale-105 transition-transform duration-500" />
+          </button>
+          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-office.jpg">
+            <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full group-hover:scale-105 transition-transform duration-500" />
+          </button>
         </div>
-
-        <div class="reveal mt-10 text-center">
-          <a href="/contact?interest=business" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
-            Contact us for pricing
-            <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="text-charcoal text-base md:text-lg leading-relaxed italic">
+            "Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
+          </p>
+          <p class="text-charcoal font-medium text-sm mt-4">Bryan Keller</p>
+          <p class="text-stone text-xs">CEO, Keller Logistics</p>
         </div>
       </div>
 
-      <!-- ── PATH 2: ORGANIZATION-WIDE IMPLEMENTATION ── -->
-      <div>
-        <div class="reveal flex items-center gap-4 mb-8">
-          <span class="font-display text-5xl md:text-6xl text-ember/20 leading-none">02</span>
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-1">Scale Across Your Organization</p>
-            <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1]">Organization-Wide Implementation</h3>
-          </div>
-        </div>
-
-        <p class="reveal text-stone text-base leading-relaxed max-w-3xl mb-10">
-          Ready to embed Wildfire into your company culture? Organizations like Keller Logistics and Flatrock Bridge Group have licensed the full curriculum — certifying internal facilitators and making the Mission Portrait™ a permanent part of how they operate.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            {
-              step: "01",
-              heading: "Leadership Workshop",
-              desc: "A half-day, hands-on session where select leaders experience the Mission Portrait™ and Working Genius firsthand — building clarity and alignment before introducing the tools to their teams.",
-            },
-            {
-              step: "02",
-              heading: "Certify Your Facilitators",
-              desc: "Two 90-minute certification sessions equip internal leaders to deliver Wildfire content across departments — guiding employees through purpose-driven growth using our signature tools.",
-            },
-            {
-              step: "03",
-              heading: "Launch & License",
-              desc: "Annual licensing gives your organization access to all curriculum materials — print and digital — plus leadership development sessions, planning tools, and ongoing support.",
-            },
-          ].map((item, i) => (
-            <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10", `reveal-d${i + 1}`]}>
-              <p class="font-display text-4xl text-ember/80 mb-4">{item.step}</p>
-              <h4 class="text-xl font-medium text-charcoal mb-3">{item.heading}</h4>
-              <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <!-- Keller Proof -->
-        <div class="reveal bg-cream rounded-2xl border border-sand/50 p-8 md:p-10">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6 text-center">See It in Action — Keller Logistics</p>
-          <p class="font-display text-xl md:text-2xl text-charcoal leading-snug max-w-2xl mx-auto text-center mb-4">
-            Keller Logistics completed the Mission Portrait™ as a company and etched it into their conference room doors — a daily reminder of shared vision and purpose that every employee walks through.
+      <div class="reveal mt-8 max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl border border-sand/50 p-6 md:p-8 text-center">
+          <p class="text-sm text-stone leading-relaxed">
+            Need a flexible option? A fully digitized, plug-and-play version of the Mission Portrait™ is available for businesses that need a low-facilitation path. Includes video-based delivery and digital workbooks.
           </p>
-          <p class="text-stone text-sm text-center mb-8">Click either portrait to view it full size.</p>
-          <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-aerial.jpg">
-              <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full group-hover:scale-105 transition-transform duration-500" />
-            </button>
-            <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-office.jpg">
-              <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full group-hover:scale-105 transition-transform duration-500" />
-            </button>
-          </div>
-          <div class="max-w-2xl mx-auto text-center">
-            <p class="text-charcoal text-base md:text-lg leading-relaxed italic">
-              "Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
-            </p>
-            <p class="text-charcoal font-medium text-sm mt-4">Bryan Keller</p>
-            <p class="text-stone text-xs">CEO, Keller Logistics</p>
+        </div>
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <a href="/contact?interest=business-licensing" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          Bring Ignite to Your Organization
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP DEVELOPMENT WORKSHOPS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Leadership Development</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Workshops & <em>Coaching</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          In addition to organization-wide implementation, we offer standalone leadership development workshops and coaching — perfect for investing in your leaders at any stage.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <h4 class="text-lg font-medium text-charcoal mb-3">Leadership Coaching</h4>
+          <p class="text-stone text-sm leading-relaxed mb-4">
+            Personalized, strategic coaching sessions designed to help leaders gain clarity, build alignment, and drive results.
+          </p>
+          <div class="space-y-2">
+            {[
+              { label: "Individual Coaching", detail: "4 sessions, 60 minutes each" },
+              { label: "Strategic Coaching for Key Leaders", detail: "2x/month, 6–12 month commitment" },
+              { label: "Leadership Ignited: Cohort Style", detail: "1–2x/month, cohorts of 10, min. 4 months" },
+            ].map((tier) => (
+              <div class="bg-white rounded-lg p-3">
+                <p class="text-xs font-medium text-charcoal">{tier.label}</p>
+                <p class="text-xs text-stone mt-0.5">{tier.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div class="reveal mt-8 max-w-3xl mx-auto">
-          <div class="bg-white rounded-xl border border-sand/50 p-6 md:p-8 text-center">
-            <p class="text-sm text-stone leading-relaxed">
-              Need a flexible option? A fully digitized, plug-and-play version of the Mission Portrait™ is available for businesses that need a low-facilitation path. Includes video-based delivery and digital workbooks.
-            </p>
+        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <h4 class="text-lg font-medium text-charcoal mb-3">Development Workshops</h4>
+          <p class="text-stone text-sm leading-relaxed mb-4">
+            Hands-on sessions that equip your team with practical tools for collaboration, accountability, and trust.
+          </p>
+          <div class="space-y-1.5">
+            {[
+              "Working Genius Overview",
+              "Working Genius Deep Dive",
+              "The Advantage — Team Cohesion & Health",
+              "Mission Portrait™",
+              "5 Levels of Leadership",
+              "Mastering Crucial Conversations",
+              "Extreme Ownership",
+              "5 Dysfunctions of a Team",
+              "7 Igniters™ Roadmap",
+              "DISC Leadership Essentials",
+            ].map((session) => (
+              <p class="text-xs text-stone flex items-start gap-2">
+                <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
+                {session}
+              </p>
+            ))}
           </div>
+          <div class="mt-4 bg-ember/5 rounded-lg p-3 border border-ember/10">
+            <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
+          </div>
+          <p class="text-xs text-stone/60 italic mt-4">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
         </div>
+      </div>
 
-        <div class="reveal mt-10 text-center">
-          <a href="/contact?interest=business-licensing" class="inline-flex items-center gap-2 bg-ember text-white font-medium text-sm px-8 py-3.5 rounded-full hover:bg-ember/90 transition-colors duration-300">
-            Learn About Licensing
-            <span>&rarr;</span>
-          </a>
-        </div>
+      <div class="reveal mt-10 text-center">
+        <a href="/contact?interest=business" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          Contact us for pricing
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
