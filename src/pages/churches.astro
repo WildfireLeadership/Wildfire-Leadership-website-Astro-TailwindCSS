@@ -104,119 +104,34 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== 3-STEP IMPLEMENTATION ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Organization-Wide Implementation</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          How We Partner with <em>Your Organization</em>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {[
-          {
-            step: "01",
-            title: "Administrator Workshop",
-            desc: "A half-day, hands-on workshop where your leadership team experiences the Mission Portrait™ and Working Genius firsthand — building clarity and alignment before introducing the tools across your organization.",
-          },
-          {
-            step: "02",
-            title: "Staff Certification",
-            desc: "We certify your staff and key leaders as facilitators, giving them the tools and confidence to lead Mission Portrait™ and 7 Igniters™ experiences on their own.",
-          },
-          {
-            step: "03",
-            title: "Organization-Wide Rollout",
-            desc: "Your certified team rolls out Mission Portrait™, 7 Igniters™, and our customized discipleship curriculum across your congregation, small groups, teams, and community.",
-          },
-        ].map((item, i) => (
-          <div class:list={["reveal text-center", `reveal-d${i + 1}`]}>
-            <p class="font-display text-5xl text-ember/80 mb-4">{item.step}</p>
-            <h3 class="text-xl font-medium text-charcoal mb-3">{item.title}</h3>
-            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="reveal mt-14 text-center">
-        <a
-          href="/contact?interest=faith"
-          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:shadow-xl hover:shadow-charcoal/15 transition-all duration-400 hover:scale-[1.02]"
-        >
-          Start the conversation
-          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WORKSHOPS & EXPERIENCES ===== -->
+  <!-- ===== WAYS WE SERVE YOUR CHURCH ===== -->
   <section id="workshops" class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">What We Offer</p>
+      <div class="text-center mb-6 md:mb-8">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Ways We Serve Your Church</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Workshops & <em>Experiences</em>
+          Start Where <em>You Need It Most</em>
         </h2>
       </div>
+      <p class="reveal reveal-d2 text-stone text-base md:text-lg text-center max-w-2xl mx-auto leading-relaxed mb-16">
+        Each offering stands on its own — pick one, combine a few, or build toward a full rollout. There's no required order.
+      </p>
 
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Leadership Development -->
+        <!-- Students & Young Adults -->
         <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
-          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Leadership Development</p>
-          <h3 class="text-xl font-medium text-charcoal mb-4">Leadership Workshops & Coaching</h3>
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Students & Young Adults</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Purpose & Identity Curriculum</h3>
           <p class="text-stone text-sm leading-relaxed mb-5">
-            Equip your leadership team with the same proven tools and frameworks we bring to businesses and organizations — tailored for your church or faith community.
+            Help your students and young adults discover who they are and where they're headed. Our Mission Portrait™ and 7 Igniters™ curriculum is designed for small groups, classes, and youth ministry — giving the next generation clarity, confidence, and direction.
           </p>
-          <ul class="space-y-2 mb-6">
-            {[
-              "Working Genius Overview",
-              "Working Genius Deep Dive",
-              "The Advantage — Team Cohesion & Health",
-              "Mission Portrait™",
-              "5 Levels of Leadership",
-              "Mastering Crucial Conversations",
-              "Extreme Ownership",
-              "5 Dysfunctions of a Team",
-              "7 Igniters™ Roadmap",
-              "DISC Leadership Essentials",
-              "Leadership Team Coaching",
-            ].map(item => (
-              <li class="flex items-center gap-2.5 text-sm text-stone">
-                <span class="w-1.5 h-1.5 rounded-full bg-ember/60 shrink-0"></span>
-                {item}
-              </li>
-            ))}
-          </ul>
           <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
             Request info
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </div>
-
-        <!-- Family -->
-        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
-          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Family</p>
-          <h3 class="text-xl font-medium text-charcoal mb-4">Family Mission Portrait™ Workshop</h3>
-          <p class="text-stone text-sm leading-relaxed mb-5">
-            Bring families and couples together to discover their shared values, dreams, and purpose. Each family or couple leaves with a personalized Mission Portrait™ — a visual legacy they can live by every day.
-          </p>
-          <p class="text-[12px] uppercase tracking-[0.15em] text-stone mb-6">2-hour workshop</p>
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-charcoal transition-colors duration-400">
-              See examples & learn more
-              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
         </div>
 
         <!-- Marriage -->
@@ -234,12 +149,57 @@ import CallToAction from '../components/CallToAction.astro';
           </a>
         </div>
 
+        <!-- Family -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Family</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Family Mission Portrait™</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Bring families and couples together to discover their shared values, dreams, and purpose. Each family leaves with a personalized Mission Portrait™ — a visual legacy they can live by every day.
+          </p>
+          <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            See examples & learn more
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Congregation Engagement -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Congregation Engagement</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Flip the Script + Echo</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Grow discipleship and keep your congregation engaged all week. The Flip the Script app's Echo feature takes your pastor's Sunday message and creates a 6-day devotional from it — extending the sermon's impact into daily life.
+          </p>
+          <a href="https://getflipthescript.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Learn more
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Leadership Development -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Leadership Development</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Workshops & Coaching</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Equip your church staff and leadership team with proven tools and frameworks — Working Genius, Mission Portrait™, 5 Levels of Leadership, DISC, Crucial Conversations, and more. Includes ongoing team coaching tailored for your church or faith community.
+          </p>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
         <!-- Keynote Speaking -->
-        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
           <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Speaking</p>
           <h3 class="text-xl font-medium text-charcoal mb-4">Keynote Speaking</h3>
           <p class="text-stone text-sm leading-relaxed mb-5">
-            Bill and Stephanie Lammers are available for keynote speaking at church conferences, retreats, network gatherings, and special events — sharing the frameworks, tools, and stories behind Wildfire Leadership, Flip the Script, and INVEST Marriage.
+            Bill and Stephanie Lammers are available for keynotes at church conferences, retreats, and special events — sharing the frameworks, tools, and stories behind Wildfire Leadership and INVEST Marriage.
           </p>
           <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
             Request speaking info
@@ -325,99 +285,51 @@ import CallToAction from '../components/CallToAction.astro';
     <img id="lightbox-img" src="" alt="Mission Portrait™" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
   </div>
 
-  <!-- ===== FAITH-BASED CURRICULUM ===== -->
-  <section id="curriculum" class="relative py-24 md:py-32 bg-cream">
+  <!-- ===== 3-STEP IMPLEMENTATION ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Curriculum</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-6">
-          Faith-Based <em>Curriculum</em>
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Ready to Go Organization-Wide?</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          How We Scale Across <em>Your Organization</em>
         </h2>
-        <p class="reveal reveal-d2 text-base md:text-lg text-stone leading-relaxed">
-          All of our curriculum is rooted in faith, offered digitally, and designed for small groups, classes, or organization-wide campaigns. The 7 Igniters™ features a <strong class="text-charcoal">customized discipleship curriculum</strong> built specifically for faith communities.
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          When you're ready to bring our tools to your entire church or organization, here's the proven path to get there.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         {[
           {
-            title: "Mission Portrait™",
-            subtitle: "Igniting Your Divine Purpose",
-            desc: "Guide participants to uncover their God-given purpose through the Mission Portrait™ framework.",
+            step: "01",
+            title: "Administrator Workshop",
+            desc: "A half-day, hands-on workshop where your leadership team experiences the Mission Portrait™ and Working Genius firsthand — building clarity and alignment before introducing the tools across your organization.",
           },
           {
-            title: "7 Igniters™",
-            subtitle: "Customized Discipleship",
-            desc: "A discipleship curriculum customized for the church — building habits that fuel lasting spiritual and personal growth.",
+            step: "02",
+            title: "Staff Certification",
+            desc: "We certify your staff and key leaders as facilitators, giving them the tools and confidence to lead Mission Portrait™ and 7 Igniters™ experiences on their own.",
           },
           {
-            title: "INVEST Marriage",
-            subtitle: "8-week series",
-            desc: "An eight-week journey for couples to invest in their marriage through purpose, communication, and shared vision.",
-          },
-          {
-            title: "Flip the Script",
-            subtitle: "Book + App + Study",
-            desc: "Take negative thoughts captive and replace them with truth — available as a book, app, or guided online study.",
-          },
-        ].map((curr, i) => (
-          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8", `reveal-d${i + 1}`]}>
-            <h3 class="text-lg font-medium text-charcoal mb-1">{curr.title}</h3>
-            <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">{curr.subtitle}</p>
-            <p class="text-stone text-sm leading-relaxed">{curr.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FLIP THE SCRIPT ===== -->
-  <section id="flip-the-script" class="relative py-24 md:py-32 bg-charcoal">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Featured</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
-          Flip the <em class="ember-gradient">Script</em>
-        </h2>
-        <p class="reveal reveal-d2 text-lg md:text-xl text-white/70 leading-relaxed">
-          Every day, we face thoughts that discourage, distract, and distort truth. Flip the Script helps people take those thoughts captive and replace them with truth — reframing their mind, renewing their heart, and living in freedom.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        {[
-          {
-            title: "The Book",
-            desc: "A practical, Scripture-rooted guide to overcoming the negative narratives that hold you back. Perfect for individual reading or group study.",
-            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 12h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>`,
-          },
-          {
-            title: "The App",
-            desc: "Daily tools for mental transformation, available on iOS and Android. Churches and organizations are onboarding their communities through the app for ongoing growth.",
-            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2H7zm5 18a1 1 0 110-2 1 1 0 010 2zm4-4H8V5h8v11z"/></svg>`,
-          },
-          {
-            title: "Online Study",
-            desc: "A guided study experience ideal for small groups, classes, or organization-wide campaigns. Bring Flip the Script to your entire community.",
-            icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm2 8h12v2H6v-2zm2 4h8v2H8v-2z"/></svg>`,
+            step: "03",
+            title: "Organization-Wide Rollout",
+            desc: "Your certified team rolls out Mission Portrait™, 7 Igniters™, and our customized discipleship curriculum across your congregation, small groups, teams, and community.",
           },
         ].map((item, i) => (
-          <div class:list={["reveal bg-white/5 border border-white/10 rounded-xl p-8 text-center", `reveal-d${i + 1}`]}>
-            <div class="w-12 h-12 rounded-full bg-ember/20 mx-auto mb-5 flex items-center justify-center text-ember" set:html={item.icon} />
-            <h3 class="text-lg font-medium text-white mb-3">{item.title}</h3>
-            <p class="text-sm text-white/60 leading-relaxed">{item.desc}</p>
+          <div class:list={["reveal text-center", `reveal-d${i + 1}`]}>
+            <p class="font-display text-5xl text-ember/80 mb-4">{item.step}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.title}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
 
-      <div class="reveal mt-12 text-center">
+      <div class="reveal mt-14 text-center">
         <a
-          href="https://getflipthescript.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-charcoal bg-white hover:shadow-xl transition-all duration-400 hover:scale-[1.02]"
+          href="/contact?interest=faith"
+          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:shadow-xl hover:shadow-charcoal/15 transition-all duration-400 hover:scale-[1.02]"
         >
-          Learn more at getflipthescript.com
+          Start the conversation
           <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
