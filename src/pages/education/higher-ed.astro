@@ -487,19 +487,30 @@ import CallToAction from '../../components/CallToAction.astro';
         </div>
       </div>
 
-      <div class="reveal mt-8 max-w-3xl mx-auto">
-        <div class="bg-warm-white rounded-xl border border-sand/50 p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <div class="flex-1 text-center sm:text-left">
-            <p class="text-sm text-charcoal font-medium mb-1">Looking for leadership development workshops for your team?</p>
-            <p class="text-xs text-stone leading-relaxed">We offer the same proven workshops we bring to businesses and organizations — tailored for campus leadership teams.</p>
-          </div>
-          <a href="/workshops" class="group inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-charcoal transition-colors duration-300 whitespace-nowrap shrink-0">
-            View workshops
+      <!-- We Also Serve Your Staff -->
+      <div class="reveal mt-16 max-w-4xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6 text-center">We Also Serve Your Staff</p>
+        <p class="text-stone text-sm text-center mb-8 max-w-2xl mx-auto">Beyond student curriculum, we offer leadership development tailored for campus administrators and staff — available as standalone engagements.</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          {[
+            { title: "Leadership Workshop", desc: "A half-day, hands-on session for your leadership team — Working Genius, Mission Portrait™, and more." },
+            { title: "Leadership Coaching", desc: "Ongoing coaching for administrators and key leaders — from 1-on-1 sessions to leadership cohorts." },
+            { title: "Keynote Speaking", desc: "Energize your campus at convocations, faculty retreats, or events with a keynote on purpose-driven leadership." },
+          ].map((card, i) => (
+            <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-6", i > 0 && `reveal-d${i}`]}>
+              <h4 class="text-sm font-medium text-charcoal mb-2">{card.title}</h4>
+              <p class="text-xs text-stone leading-relaxed">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-center mt-6">
+          <a href="/contact?interest=education-leadership" class="group inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-charcoal transition-colors duration-300">
+            Learn more about staff development
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </div>
+        </p>
       </div>
     </div>
   </section>

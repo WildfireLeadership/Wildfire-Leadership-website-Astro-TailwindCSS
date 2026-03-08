@@ -144,22 +144,89 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- ===== HOW WE WORK WITH BUSINESSES ===== -->
+  <!-- ===== WAYS WE SERVE YOUR ORGANIZATION ===== -->
   <section class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Getting Started</p>
+      <div class="text-center mb-6">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">What We Offer</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          How to Bring Ignite <em>to Your Organization</em>
+          Ways We Serve Your Organization
         </h2>
         <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-          Every engagement is built on two proprietary tools — the <a href="/mission-portrait" class="text-ember hover:underline">Mission Portrait™</a> and the <a href="/seven-igniters" class="text-ember hover:underline">7 Igniters™</a> — supported by over 20 proven assessments and resources. Here's how most organizations get started.
+          Every engagement is built on two proprietary tools — the <a href="/mission-portrait" class="text-ember hover:underline">Mission Portrait™</a> and the <a href="/7-igniters" class="text-ember hover:underline">7 Igniters™</a> — supported by over 20 proven assessments and resources.
         </p>
       </div>
+      <p class="reveal reveal-d2 text-center text-sm text-stone/70 italic mb-16 md:mb-20">Each offering stands on its own — pick one, combine a few, or build toward a full rollout. There's no required order.</p>
 
-      <!-- ── OUR TOOLS ── -->
-      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20 md:mb-28">
-        <a href="/mission-portrait" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+      <!-- ── OFFERINGS GRID ── -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        {[
+          {
+            title: "Leadership Workshop",
+            desc: "A half-day, hands-on session where your leaders experience the Mission Portrait™ and Working Genius firsthand — building clarity and alignment across your team.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />`,
+          },
+          {
+            title: "Leadership Coaching",
+            desc: "Personalized, strategic coaching sessions for individuals or teams — from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />`,
+          },
+          {
+            title: "Development Workshops",
+            desc: "Hands-on sessions in Working Genius, DISC, Crucial Conversations, 5 Levels of Leadership, Extreme Ownership, and more — tailored for your team.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />`,
+          },
+          {
+            title: "Employee Purpose & Growth",
+            desc: "Equip your employees with the Mission Portrait™ and 7 Igniters™ — helping them uncover purpose, build a growth plan, and bring their best to your organization.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />`,
+          },
+          {
+            title: "Certify Your Facilitators",
+            desc: "Train internal leaders to deliver Wildfire content across departments — two 90-minute sessions and they're equipped to guide employees through the full curriculum.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />`,
+          },
+          {
+            title: "Keynote Speaking",
+            desc: "Energize your team at conferences, retreats, or company events with a keynote on purpose-driven leadership — practical, inspiring, and tailored to your audience.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />`,
+          },
+        ].map((card, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8", i > 0 && `reveal-d${Math.min(i, 2)}`]}>
+            <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <Fragment set:html={card.icon} />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-charcoal mb-3">{card.title}</h3>
+            <p class="text-sm text-stone leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal text-center">
+        <a href="/contact?interest=business" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          Schedule a Consultation
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR TOOLS ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Our Tools</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Built on Proven <em>Frameworks</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <a href="/mission-portrait" class="reveal group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
           <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework diagram showing Core Values, Vision, Mission, Passage, and ID components" class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait™</h3>
@@ -169,7 +236,7 @@ import CallToAction from '../components/CallToAction.astro';
             <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
           </div>
         </a>
-        <a href="/7-igniters" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+        <a href="/7-igniters" class="reveal reveal-d1 group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
           <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters™ framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters™</h3>
@@ -179,6 +246,21 @@ import CallToAction from '../components/CallToAction.astro';
             <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== READY TO GO ORGANIZATION-WIDE? ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Full Implementation</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Ready to Go <em>Organization-Wide?</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          For organizations that want to embed purpose-driven leadership into their culture, here's how most companies roll it out.
+        </p>
       </div>
 
       <!-- ── 3-STEP IMPLEMENTATION ── -->
@@ -243,81 +325,6 @@ import CallToAction from '../components/CallToAction.astro';
       <div class="reveal mt-10 text-center">
         <a href="/contact?interest=business-licensing" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
           Bring Ignite to Your Organization
-          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LEADERSHIP DEVELOPMENT WORKSHOPS ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
-    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
-      <div class="text-center mb-16 md:mb-20">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Leadership Development</p>
-        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Workshops & <em>Coaching</em>
-        </h2>
-        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-          In addition to organization-wide implementation, we offer standalone leadership development workshops and coaching — perfect for investing in your leaders at any stage.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
-          <h4 class="text-lg font-medium text-charcoal mb-3">Leadership Coaching</h4>
-          <p class="text-stone text-sm leading-relaxed mb-4">
-            Personalized, strategic coaching sessions designed to help leaders gain clarity, build alignment, and drive results.
-          </p>
-          <div class="space-y-2">
-            {[
-              { label: "Individual Coaching", detail: "4 sessions, 60 minutes each" },
-              { label: "Strategic Coaching for Key Leaders", detail: "2x/month, 6–12 month commitment" },
-              { label: "Leadership Ignited: Cohort Style", detail: "1–2x/month, cohorts of 10, min. 4 months" },
-            ].map((tier) => (
-              <div class="bg-white rounded-lg p-3">
-                <p class="text-xs font-medium text-charcoal">{tier.label}</p>
-                <p class="text-xs text-stone mt-0.5">{tier.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div class="reveal reveal-d1 bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
-          <h4 class="text-lg font-medium text-charcoal mb-3">Development Workshops</h4>
-          <p class="text-stone text-sm leading-relaxed mb-4">
-            Hands-on sessions that equip your team with practical tools for collaboration, accountability, and trust.
-          </p>
-          <div class="space-y-1.5">
-            {[
-              "Working Genius Overview",
-              "Working Genius Deep Dive",
-              "The Advantage — Team Cohesion & Health",
-              "Mission Portrait™",
-              "5 Levels of Leadership",
-              "Mastering Crucial Conversations",
-              "Extreme Ownership",
-              "5 Dysfunctions of a Team",
-              "7 Igniters™ Roadmap",
-              "DISC Leadership Essentials",
-            ].map((session) => (
-              <p class="text-xs text-stone flex items-start gap-2">
-                <span class="text-ember mt-0.5 flex-shrink-0">&bull;</span>
-                {session}
-              </p>
-            ))}
-          </div>
-          <div class="mt-4 bg-ember/5 rounded-lg p-3 border border-ember/10">
-            <p class="text-xs text-charcoal"><strong class="text-ember">Most recommended:</strong> Mission Portrait™ + Working Genius combo — a team building series that uncovers strengths, builds alignment, and creates high-performing teams.</p>
-          </div>
-          <p class="text-xs text-stone/60 italic mt-4">Not sure which workshops fit your team? We'll recommend the right combination during your consultation.</p>
-        </div>
-      </div>
-
-      <div class="reveal mt-10 text-center">
-        <a href="/contact?interest=business" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
-          Contact us for pricing
           <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
