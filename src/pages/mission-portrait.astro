@@ -32,8 +32,65 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
     imageAlt="Mission Portrait™ example graphic"
     imagePosition="right"
     bg="white"
-    link={{ text: "See how it works", href: "#pricing" }}
+    link={{ text: "See how it works", href: "#how-it-works" }}
   />
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">How It Works</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Four steps to your <em>Mission Portrait™</em>
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+        {[
+          {
+            step: "01",
+            title: "Discover Your Core Values",
+            desc: "Identify the values that define who you are — the foundation everything else is built on.",
+          },
+          {
+            step: "02",
+            title: "Define Your Vision & Mission",
+            desc: "Articulate your purpose and the impact you want to make — your personal 'why' brought into focus.",
+          },
+          {
+            step: "03",
+            title: "Build Your Portrait",
+            desc: "Your answers become a custom, visual one-page portrait — a daily reminder of who you are and where you're headed.",
+          },
+          {
+            step: "04",
+            title: "Live It Daily",
+            desc: "Display it, revisit it, and let it guide your decisions. Your Mission Portrait becomes your compass.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal text-center", i > 0 && `reveal-d${i}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{item.step}</p>
+            <h3 class="text-lg font-medium text-charcoal mb-3">{item.title}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Video -->
+      <div class="reveal max-w-3xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl shadow-charcoal/10 aspect-video">
+          <iframe
+            src="https://player.vimeo.com/video/1165231016?title=0&byline=0&portrait=0"
+            class="absolute inset-0 w-full h-full"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="text-center text-sm text-stone mt-4">Watch how a Mission Portrait comes to life.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== PRICING — Warm-white bg ===== -->
   <section id="pricing" class="relative py-24 md:py-32 bg-warm-white">
