@@ -26,16 +26,16 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
   <SplitSection
     label="The Framework"
     title='From purpose<br/>to <em>potential.</em>'
-    description="Each stage of your journey ignites something within you that unleashes your potential. The 7 Igniters™ curriculum brings action to your Mission Portrait™ to ensure you live out your potential!"
+    description="The 7 Igniters™ is a proven curriculum that turns your Mission Portrait™ into action. Seven stages guide you from self-discovery through goal-setting, assessments, and team building — so your purpose doesn't stay on paper."
     image="/images/7-igniters-diagram.png"
     imageAlt="The 7 Igniters™ framework diagram"
     imagePosition="right"
     bg="white"
-    link={{ text: "Get started today", href: "/contact" }}
+    link={{ text: "Explore the 7 steps", href: "#the-journey" }}
   />
 
   <!-- ===== THE 7 IGNITERS LIST — Warm-white bg ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
+  <section id="the-journey" class="relative py-24 md:py-32 bg-warm-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-16 md:mb-20">
@@ -98,6 +98,30 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-12">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">See It in Action</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Watch the <em>framework.</em>
+        </h2>
+      </div>
+      <div class="reveal max-w-3xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl shadow-charcoal/10 aspect-video">
+          <iframe
+            src="https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0"
+            class="absolute inset-0 w-full h-full"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="text-center text-sm text-stone mt-4">See how the 7 Igniters™ guides people from self-discovery to action.</p>
       </div>
     </div>
   </section>
@@ -271,7 +295,7 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.sevenIgniters.facilit
             },
             {
               q: "Is this faith-based?",
-              a: "We offer both faith-based and non-faith-based versions. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version. The framework works beautifully in any setting.",
+              a: "We offer both faith-based and non-faith-based versions. The framework works beautifully in any setting — public schools, colleges, businesses, churches, and faith communities.",
             },
           ].map((faq, i) => (
             <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
