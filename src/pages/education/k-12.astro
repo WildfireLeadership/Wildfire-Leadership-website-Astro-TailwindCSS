@@ -9,7 +9,7 @@ import CallToAction from '../../components/CallToAction.astro';
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
-    image="/images/students-mission-portraits.jpg"
+    image="/images/students-portraits-excited.jpg"
     imageAlt="Students holding their completed Mission Portrait™s"
     title='Ignite<br/><em>Students K-12</em>'
     subtitle="Helping K-12 students discover purpose, build direction, and re-engage — with measurable results across 40,000+ students."
@@ -102,6 +102,7 @@ import CallToAction from '../../components/CallToAction.astro';
           { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0", thumb: "/images/students-mission-portraits.jpg" },
           { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0", thumb: "/images/maysa-testimonial.jpg" },
           { title: "Student Testimonial — Josiah", desc: "Hear from Josiah on how Ignite Students helped him discover his purpose.", url: "https://player.vimeo.com/video/1167969928?title=0&byline=0&portrait=0", thumb: "/images/josiah-testimonial.jpg" },
+          { title: "Students Share the Impact", desc: "Short clips from students on how the Mission Portrait™ and 7 Igniters™ changed their perspective.", url: "https://player.vimeo.com/video/1179978600?title=0&byline=0&portrait=0", thumb: "/images/students-portraits-excited.jpg" },
         ].map((video, i) => (
           <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
             <div class="relative aspect-video overflow-hidden">
