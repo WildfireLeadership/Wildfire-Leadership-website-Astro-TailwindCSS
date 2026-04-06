@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Faith & Community" description="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations — from leadership workshops to organization-wide implementation.">
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="dark"
+    image="/images/hero-main.jpg"
+    title='Faith &<br/><em>Community</em>'
+    subtitle="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations."
+  />
+
+  <!-- ===== PARTNERS ===== -->
+  <section class="relative py-16 md:py-20 bg-charcoal-deep border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <p class="reveal text-[11px] uppercase tracking-[0.3em] text-white/40 text-center mb-10">Some of the organizations we partner with</p>
+      <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-6 md:gap-8">
+        {[
+          { src: "/images/church-logo-seacoast.webp", alt: "Seacoast Church" },
+          { src: "/images/church-logo-seu.webp", alt: "Southeastern University", dark: true },
+          { src: "/images/church-logo-xperience.webp", alt: "Xperience Church", dark: true },
+          { src: "/images/church-logo-newlife.webp", alt: "New Life Church" },
+          { src: "/images/church-logo-jicc.png", alt: "James Island Christian Church" },
+          { src: "/images/church-logo-freedom.png", alt: "Freedom Church" },
+          { src: "/images/church-logo-glccg.png", alt: "Great Lakes Conference Churches of God" },
+          { src: "/images/church-logo-faith.png", alt: "Faith Church", dark: true },
+          { src: "/images/church-logo-churchcreek.jpeg", alt: "The Retreat at Church Creek" },
+        ].map((logo) => (
+          <div class:list={["rounded-xl p-4 flex items-center justify-center h-20 w-28 md:h-22 md:w-32 hover:shadow-lg transition-all duration-300", logo.dark ? "bg-charcoal hover:shadow-white/10" : "bg-white hover:shadow-white/10"]}>
+            <img src={logo.src} alt={logo.alt} class="max-h-12 md:max-h-14 w-auto object-contain" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Welcome</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-8">
+          Equipping Communities to<br/><em>Lead with Purpose</em>
+        </h2>
+        <p class="reveal reveal-d2 text-lg md:text-xl text-stone leading-relaxed">
+          We partner with churches, non-profits, and community organizations to help leaders, families, and teams discover their God-given purpose. All of our curriculum is faith-based and available digitally — designed to integrate into the life of your organization.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="I had the opportunity to go through the Mission Portrait — one of Wildfire's core tools — and it brought fresh clarity to my purpose and vision. Now I'm seeing that same impact across students, families, and marriages. I haven't seen anything quite like it."
+        name="Greg Surratt"
+        title="Co-Founder, ARC"
+      />
+    </div>
+  </section>
+
+  <!-- ===== OUR TOOLS ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Our Tools</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Two Tools. <em>One Transformation.</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Every engagement is built on two proprietary, faith-based frameworks designed to help your people uncover purpose and unleash potential.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <a href="/mission-portrait" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework diagram" class="w-full" />
+          <div class="p-6 md:p-8">
+            <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait™</h3>
+            <p class="text-stone text-sm leading-relaxed mb-3">
+              A personalized visual guide that helps individuals, couples, and families articulate their God-given purpose, values, and vision.
+            </p>
+            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+          </div>
+        </a>
+        <a href="/7-igniters" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
+          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters™ framework" class="w-full" />
+          <div class="p-6 md:p-8">
+            <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters™</h3>
+            <p class="text-stone text-sm leading-relaxed mb-3">
+              A customized discipleship and leadership curriculum that guides your people through seven stages of purpose-driven growth.
+            </p>
+            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WAYS WE SERVE YOUR CHURCH ===== -->
+  <section id="workshops" class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-6 md:mb-8">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Ways We Serve Your Organization</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Start Where <em>You Need It Most</em>
+        </h2>
+      </div>
+      <p class="reveal reveal-d2 text-stone text-base md:text-lg text-center max-w-2xl mx-auto leading-relaxed mb-16">
+        Each offering stands on its own — pick one, combine a few, or build toward a full rollout. There's no required order.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Students & Young Adults -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Students & Young Adults</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Purpose, Identity & Leadership Curriculum</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Help your students and young adults discover who they are, where they're headed, and how to lead from that place. Our Mission Portrait™ and 7 Igniters™ curriculum is designed for small groups, classes, and youth ministry — building personal leadership, clarity, and confidence in the next generation.
+          </p>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Marriage -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Marriage</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">INVEST Marriage</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Strengthen marriages across your community through our INVEST Marriage curriculum — an 8-week small group series — plus Couples Mission Portrait™ workshops and marriage coaching.
+          </p>
+          <a href="/invest-marriage" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Learn more about INVEST
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Family -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Family</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Family Mission Portrait™</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Bring families and couples together to discover their shared values, dreams, and purpose. Each family leaves with a personalized Mission Portrait™ — a visual legacy they can live by every day.
+          </p>
+          <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            See examples & learn more
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Congregation Engagement -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Congregation Engagement</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Flip the Script + Echo</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Grow discipleship and keep your congregation engaged all week. The Flip the Script app's Echo feature takes your pastor's Sunday message and creates a 6-day devotional from it — extending the sermon's impact into daily life.
+          </p>
+          <a href="https://getflipthescript.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Learn more
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Leadership Development -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Leadership Development</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Workshops & Coaching</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Equip your leadership team with proven tools and frameworks — Working Genius, Mission Portrait™, 5 Levels of Leadership, DISC, Crucial Conversations, and more. Includes ongoing team coaching tailored for your church, nonprofit, or organization.
+          </p>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Keynote Speaking -->
+        <div class="reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10">
+          <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Speaking</p>
+          <h3 class="text-xl font-medium text-charcoal mb-4">Keynote Speaking</h3>
+          <p class="text-stone text-sm leading-relaxed mb-5">
+            Bill and Stephanie Lammers are available for keynotes at church conferences, retreats, and special events — sharing the frameworks, tools, and stories behind Wildfire Leadership and INVEST Marriage.
+          </p>
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+            Request speaking info
+            <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="reveal mt-12 text-center">
+        <a href="/contact?interest=faith" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400 hover:shadow-lg hover:shadow-ember/20">
+          Contact us for pricing
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAMILY MISSION PORTRAIT SHOWCASE ===== -->
+  <section class="relative py-24 md:py-32 bg-charcoal overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <!-- Left: Content + Video -->
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Family Mission Portrait™</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+            What does a family<br/><em class="text-ember">Mission Portrait™</em> look like?
+          </h2>
+          <p class="reveal reveal-d2 text-white/60 text-base leading-relaxed mb-8">
+            Every family's portrait is uniquely theirs — capturing the values, vision, and mission that define who they are together. It's a visual legacy families frame and hang in their home as a daily reminder.
+          </p>
+
+          <!-- Video Testimonial -->
+          <div class="reveal rounded-xl overflow-hidden border border-white/10 mb-6">
+            <video
+              controls
+              preload="metadata"
+              class="w-full aspect-video bg-charcoal-deep"
+              poster="/images/family-mp-pitts.jpeg"
+            >
+              <source src="/videos/family-testimonial.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <p class="reveal text-white/40 text-xs">The Pitts Family — Belize</p>
+        </div>
+
+        <!-- Right: Example Portraits -->
+        <div class="space-y-6">
+          {[
+            { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Family Mission Portrait" },
+            { src: "/images/family-mp-pitts.jpeg", alt: "The Pitts Family Mission Portrait" },
+          ].map((portrait, i) => (
+            <button type="button" class:list={["reveal portrait-trigger rounded-xl overflow-hidden border border-white/10 cursor-pointer group", `reveal-d${i + 1}`]} data-lightbox-src={portrait.src}>
+              <img src={portrait.src} alt={portrait.alt} class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+            </button>
+          ))}
+          <div class="reveal reveal-d2 text-center">
+            <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-ember hover:text-white transition-colors duration-300">
+              Learn more about Family Mission Portraits
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox overlay -->
+  <div id="portrait-lightbox" class="fixed inset-0 z-[100] items-center justify-center bg-charcoal/90 backdrop-blur-sm cursor-pointer" style="display:none;">
+    <button type="button" id="lightbox-close" class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300 cursor-pointer" aria-label="Close">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Mission Portrait™" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl" />
+  </div>
+
+  <!-- ===== 3-STEP IMPLEMENTATION ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Ready to Scale?</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          How We Scale Across <em>Your Organization</em>
+        </h2>
+        <p class="reveal reveal-d2 text-stone text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Whether it's your young adults, a specific team, or your entire organization — here's the proven path to roll out our tools at any level.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {[
+          {
+            step: "01",
+            title: "Administrator Workshop",
+            desc: "A half-day, hands-on workshop where your leadership team experiences the Mission Portrait™ and Working Genius firsthand — building clarity and alignment before introducing the tools across your organization.",
+          },
+          {
+            step: "02",
+            title: "Staff Certification",
+            desc: "We certify your staff and key leaders as facilitators, giving them the tools and confidence to lead Mission Portrait™ and 7 Igniters™ experiences on their own.",
+          },
+          {
+            step: "03",
+            title: "Launch & Rollout",
+            desc: "Roll out Mission Portrait™, 7 Igniters™, and our customized curriculum across your young adults, small groups, couples ministry, teams, or entire organization.",
+          },
+        ].map((item, i) => (
+          <div class:list={["reveal text-center", `reveal-d${i + 1}`]}>
+            <p class="font-display text-5xl text-ember/80 mb-4">{item.step}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{item.title}</h3>
+            <p class="text-stone text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-14 text-center">
+        <a
+          href="/contact?interest=faith"
+          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:shadow-xl hover:shadow-charcoal/15 transition-all duration-400 hover:scale-[1.02]"
+        >
+          Start the conversation
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <CallToAction title='Ignite your<br/><em class="ember-gradient">community.</em>' buttonText="Schedule a Consultation" buttonHref="/contact?interest=faith" />
+
+</BaseLayout>
+
+<style>
+  .ember-gradient {
+    background: linear-gradient(135deg, #f04a18 0%, #E03500 40%, #d4a04a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('portrait-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.portrait-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const src = (trigger as HTMLElement).dataset.lightboxSrc;
+      if (src) openLightbox(src);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

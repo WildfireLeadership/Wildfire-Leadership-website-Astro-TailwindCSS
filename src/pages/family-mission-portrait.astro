@@ -4,15 +4,15 @@ import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Family Mission Portrait™" description="Discover your family's shared values, vision, and mission through a personalized Mission Portrait™ — a visual legacy your family or marriage can live by every day.">
+<BaseLayout title="Marriage & Family Mission Portrait™" description="Discover your shared purpose as a couple or family through a personalized Mission Portrait™ — a visual legacy your marriage or family can live by every day.">
 
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
     image="/images/family-mp-lammers.jpeg"
     imageAlt="Example of a Family Mission Portrait"
-    title='Family<br/><em>Mission Portrait™</em>'
-    subtitle="A personalized visual legacy that captures your family's shared values, vision, and mission — for families and couples at every stage of life."
+    title='Marriage & Family<br/><em>Mission Portrait™</em>'
+    subtitle="A personalized visual legacy that captures your shared purpose, values, and vision — for married couples and families at every stage of life."
   />
 
   <!-- ===== WHAT IS IT ===== -->
@@ -22,7 +22,7 @@ import CallToAction from '../components/CallToAction.astro';
         <div>
           <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">The Experience</p>
           <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1] mb-6">
-            What is a Family<br/><em>Mission Portrait™?</em>
+            What is a Marriage & Family<br/><em>Mission Portrait™?</em>
           </h2>
           <div class="reveal reveal-d2 space-y-4 text-stone text-base leading-relaxed">
             <p>
@@ -81,15 +81,15 @@ import CallToAction from '../components/CallToAction.astro';
           Every portrait is <em class="text-ember">uniquely yours.</em>
         </h2>
         <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-          No two families or marriages are the same — and neither are their Mission Portraits. Each one reflects the values, vision, and mission that make you who you are together. Click any portrait to view it full size.
+          No two marriages or families are the same — and neither are their Mission Portraits. Each one reflects the shared purpose, values, and vision that make you who you are together. Click any portrait to view it full size.
         </p>
       </div>
 
       <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
-          { src: "/images/family-mp-lammers.jpeg", alt: "The Lammers Family Mission Portrait" },
+          { src: "/images/family-mp-lammers.jpeg", alt: "The Lammers Marriage Mission Portrait" },
           { src: "/images/family-mp-pitts.jpeg", alt: "The Pitts Family Mission Portrait" },
-          { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Family Mission Portrait" },
+          { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Marriage Mission Portrait" },
         ].map((portrait, i) => (
           <button type="button" class:list={["reveal rounded-xl overflow-hidden border border-white/10 hover:border-ember/30 transition-all duration-300 cursor-pointer group portrait-trigger", `reveal-d${i + 1}`]} data-lightbox-src={portrait.src}>
             <img src={portrait.src} alt={portrait.alt} class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
@@ -190,6 +190,69 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
+  <!-- ===== BRING IT TO YOUR ORGANIZATION ===== -->
+  <section class="relative py-24 md:py-32 bg-charcoal overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Scale Across Your Organization</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1]">
+          Bring the Marriage & Family Mission Portrait™<br/><em class="text-ember">to your community.</em>
+        </h2>
+        <p class="reveal reveal-d2 text-white/60 text-base md:text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          Whether you're a church, nonprofit, ministry, or community organization — locally or internationally — the Marriage & Family Mission Portrait is built to scale through your existing leadership structure.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          {
+            num: "01",
+            title: "Mission Portrait Workshop for Leaders",
+            desc: "Your leadership team goes through the Mission Portrait firsthand — via live workshop or Zoom. You can't lead what you haven't lived. This creates the clarity, ownership, and conviction to champion it across your organization.",
+          },
+          {
+            num: "02",
+            title: "Certify Your Facilitators",
+            desc: "We train and certify the leaders you choose to equip — showing them how to facilitate the Mission Portrait with excellence, guide meaningful discussion, and lead couples and families through the process with confidence.",
+          },
+          {
+            num: "03",
+            title: "License & Launch",
+            desc: "An annual license or pilot MOU gives your organization access to all curriculum, workbooks, videos, and ongoing support. Your certified leaders begin facilitating across small groups, ministries, or regions — scaling as far as your network reaches.",
+          },
+        ].map((step, i) => (
+          <div class:list={["reveal bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 md:p-10", `reveal-d${i + 1}`]}>
+            <span class="font-display text-5xl text-ember/40">{step.num}</span>
+            <h3 class="mt-4 font-display text-xl md:text-2xl text-white leading-[1.2] mb-3">{step.title}</h3>
+            <p class="text-sm text-white/60 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- International Note -->
+      <div class="reveal mt-12 max-w-3xl mx-auto rounded-xl bg-white/5 border border-white/10 p-8 text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-3">International Organizations Welcome</p>
+        <p class="text-white/60 text-sm leading-relaxed">
+          We partner with organizations around the world. All curriculum, workbooks, and videos can be translated into your language, and our automation tools can be adapted to support your context — making the Mission Portrait experience natural and accessible for every couple and family you serve.
+        </p>
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <a
+          href="/contact?interest=marriage-family-portrait-organization"
+          class="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-wide text-white bg-ember hover:bg-ember-light hover:shadow-xl hover:shadow-ember/15 transition-all duration-400 hover:scale-[1.02]"
+        >
+          Partner With Us
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FAQ ===== -->
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
@@ -205,11 +268,11 @@ import CallToAction from '../components/CallToAction.astro';
           {[
             {
               q: "Who is this for?",
-              a: "Any family or couple — whether you're newlyweds, parents with young kids, a family with teenagers, or empty nesters looking to reconnect around shared purpose. It's designed for every stage of life.",
+              a: "Any married couple or family — whether you're newlyweds discovering your shared purpose, parents with young kids, a family with teenagers, or empty nesters looking to reconnect. It's designed for every stage of marriage and family life.",
             },
             {
-              q: "Can couples do this?",
-              a: "Absolutely. A Couples Mission Portrait™ is one of the most powerful things you can do for your marriage — defining your shared values, vision, and mission together. Many couples do this as a standalone experience or alongside a family workshop.",
+              q: "Can this be done as a couple without kids?",
+              a: "Absolutely. A Marriage Mission Portrait™ is one of the most powerful things you can do for your relationship — defining your shared purpose, values, and vision together. Many couples do this as a standalone experience, and it's the foundation of what organizations use when scaling across their couples ministry.",
             },
             {
               q: "How long does the workshop take?",
@@ -241,7 +304,7 @@ import CallToAction from '../components/CallToAction.astro';
 
   <!-- ===== CTA ===== -->
   <CallToAction
-    title='Create your family&apos;s<br/><em class="ember-gradient">legacy.</em>'
+    title='Create your shared<br/><em class="ember-gradient">legacy.</em>'
     image="/images/family-mp-hopson.jpeg"
     buttonText="Get Started"
     buttonHref="/contact?interest=family-mission-portrait"
