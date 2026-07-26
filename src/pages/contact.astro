@@ -30,10 +30,10 @@ import CallToAction from '../components/CallToAction.astro';
         </div>
 
         <form action="https://formsubmit.co/info@wildfireleadership.com" method="POST" class="reveal reveal-d2 space-y-8">
-          <input type="hidden" name="_subject" value="New inquiry from Wildfire Leadership website">
+          <input id="form-subject" type="hidden" name="_subject" value="New inquiry from Wildfire Leadership website">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_next" value="https://wildfire-leadership.vercel.app/contact?sent=true">
+          <input type="hidden" name="_next" value="https://wildfireleadership.com/contact?sent=true">
 
           <!-- Interest radio group -->
           <fieldset id="interest-fieldset">
@@ -43,6 +43,8 @@ import CallToAction from '../components/CallToAction.astro';
               {[
                 { label: "Ignite Students (K-12)", param: "ignite-k12" },
                 { label: "Ignite Higher Ed", param: "ignite-higher-ed" },
+                { label: "INVEST Marriage — Couples", param: "invest-marriage-couple" },
+                { label: "INVEST Marriage — Organizations", param: "invest-marriage-organization" },
                 { label: "Business & Team Workshop", param: "business" },
                 { label: "Faith & Community Workshop", param: "faith" },
                 { label: "Facilitator Certification", param: "facilitator" },
@@ -58,6 +60,60 @@ import CallToAction from '../components/CallToAction.astro';
               ))}
             </div>
           </fieldset>
+
+          <!-- Additional details shown for INVEST Marriage inquiries -->
+          <div id="invest-fields" class="hidden rounded-2xl bg-warm-white border border-sand/70 p-6 md:p-8 space-y-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ember mb-2">INVEST Marriage details</p>
+              <p class="text-sm text-stone">A few details will help Tiffany recommend the right format and next step.</p>
+            </div>
+
+            <div>
+              <label for="organization" class="block text-sm font-medium text-charcoal mb-2">Church or organization</label>
+              <input
+                type="text"
+                id="organization"
+                name="organization"
+                class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors"
+                placeholder="Organization name, if applicable"
+              />
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="couple-count" class="block text-sm font-medium text-charcoal mb-2">Estimated number of couples</label>
+                <select id="couple-count" name="estimated_couples" class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors">
+                  <option value="">Not sure yet</option>
+                  <option value="1 couple">1 couple</option>
+                  <option value="2–5 couples">2–5 couples</option>
+                  <option value="6–12 couples">6–12 couples</option>
+                  <option value="13–25 couples">13–25 couples</option>
+                  <option value="26–50 couples">26–50 couples</option>
+                  <option value="50+ couples">50+ couples</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="invest-format" class="block text-sm font-medium text-charcoal mb-2">Preferred format</label>
+                <select id="invest-format" name="preferred_format" class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors">
+                  <option value="">Help me choose</option>
+                  <option value="Digital / print your own">Digital / print your own — $39</option>
+                  <option value="Professionally printed">Professionally printed — $49 + shipping</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="timeline" class="block text-sm font-medium text-charcoal mb-2">When are you hoping to begin?</label>
+              <input
+                type="text"
+                id="timeline"
+                name="desired_timeline"
+                class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors"
+                placeholder="For example: fall small groups, January, or still exploring"
+              />
+            </div>
+          </div>
 
           <!-- Name -->
           <div>
@@ -192,11 +248,37 @@ import CallToAction from '../components/CallToAction.astro';
 
   // Pre-select interest radio if ?interest= param exists
   const interest = params.get('interest');
+  const investFields = document.getElementById('invest-fields');
+  const formSubject = document.getElementById('form-subject') as HTMLInputElement | null;
+  const formatSelect = document.getElementById('invest-format') as HTMLSelectElement | null;
+
+  const updateInvestFields = (selectedInterest = '') => {
+    const isInvest = selectedInterest.startsWith('invest-marriage');
+    investFields?.classList.toggle('hidden', !isInvest);
+    if (formSubject) {
+      formSubject.value = isInvest
+        ? 'New INVEST Marriage inquiry from Wildfire Leadership website'
+        : 'New inquiry from Wildfire Leadership website';
+    }
+  };
+
   if (interest && /^[a-z0-9-]+$/.test(interest)) {
     const radio = document.querySelector(`input[name="interest"][data-interest="${interest}"]`) as HTMLInputElement;
     if (radio) {
       radio.checked = true;
+      updateInvestFields(interest);
     }
+  }
+
+  document.querySelectorAll<HTMLInputElement>('input[name="interest"]').forEach((radio) => {
+    radio.addEventListener('change', () => updateInvestFields(radio.dataset.interest || ''));
+  });
+
+  const requestedFormat = params.get('format');
+  if (formatSelect && requestedFormat === 'digital') {
+    formatSelect.value = 'Digital / print your own';
+  } else if (formatSelect && requestedFormat === 'printed') {
+    formatSelect.value = 'Professionally printed';
   }
 
   // Show success message if redirected back after form submission
