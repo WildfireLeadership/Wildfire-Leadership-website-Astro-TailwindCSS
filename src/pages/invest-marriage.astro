@@ -84,7 +84,7 @@ const sessions = [
           <div class="reveal reveal-d4 mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-stone">
             <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>8 guided sessions</span>
             <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>Digital or printed workbooks</span>
-            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>Easy to facilitate</span>
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>Plug-and-play facilitator videos</span>
           </div>
         </div>
 
@@ -200,6 +200,55 @@ const sessions = [
     </div>
   </section>
 
+  <!-- ===== PLUG-AND-PLAY FACILITATION ===== -->
+  <section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.28em] text-ember mb-5">Made for facilitators</p>
+          <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-charcoal leading-[1.05]">
+            The videos do the teaching.<br/><em>You guide the conversation.</em>
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            Every session is designed to be plug-and-play. Facilitators receive a teaching video and a clear session guide, so they can lead meaningful discussion without becoming a marriage expert or building a lesson from scratch.
+          </p>
+          <div class="reveal reveal-d3 mt-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm text-charcoal border border-sand/70">
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-ember/10 text-ember">✓</span>
+            No counseling degree or teaching experience required
+          </div>
+        </div>
+
+        <div class="grid gap-4">
+          {[
+            {
+              num: "01",
+              title: "Open the Session Guide",
+              desc: "Know the purpose, flow, discussion prompts, and materials for the session before your group arrives.",
+            },
+            {
+              num: "02",
+              title: "Press Play",
+              desc: "A facilitator video delivers the core teaching for each session with consistency and clarity.",
+            },
+            {
+              num: "03",
+              title: "Guide the Conversation",
+              desc: "Use the provided prompts and workbook activities to help couples apply the tools to their own marriage.",
+            },
+          ].map((step, i) => (
+            <div class:list={["reveal flex gap-5 rounded-2xl bg-white border border-sand/60 p-6 md:p-7", `reveal-d${i + 1}`]}>
+              <span class="font-display text-3xl text-ember/40 leading-none">{step.num}</span>
+              <div>
+                <h3 class="font-display text-xl md:text-2xl text-charcoal">{step.title}</h3>
+                <p class="mt-2 text-sm text-stone leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== PRICING & FLEXIBLE DELIVERY ===== -->
   <section class="py-24 md:py-32 bg-white">
     <div class="max-w-[1200px] mx-auto px-5 md:px-8">
@@ -225,10 +274,10 @@ const sessions = [
             Digital workbook access with permission to print your own materials locally—ideal for flexible timelines, distributed groups, and international partners.
           </p>
           <ul class="mt-6 space-y-3 text-sm text-charcoal">
-            <li class="flex gap-3"><span class="text-ember">✓</span><span>Eight guided video sessions</span></li>
+            <li class="flex gap-3"><span class="text-ember">✓</span><span>Facilitator video for every session</span></li>
             <li class="flex gap-3"><span class="text-ember">✓</span><span>Interactive digital workbook materials</span></li>
             <li class="flex gap-3"><span class="text-ember">✓</span><span>DISC, Mission Portrait™, and practical tools</span></li>
-            <li class="flex gap-3"><span class="text-ember">✓</span><span>Facilitator resources for group leaders</span></li>
+            <li class="flex gap-3"><span class="text-ember">✓</span><span>Plug-and-play session guides and prompts</span></li>
           </ul>
           <a href="/contact?interest=invest-marriage-organization&format=digital" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-6 py-3.5 text-sm font-medium text-white hover:bg-ember transition-colors">
             Request Digital Details <span aria-hidden="true">→</span>
@@ -292,7 +341,7 @@ const sessions = [
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ember">For churches & organizations</p>
           <h3 class="mt-4 font-display text-3xl text-white">Create a culture of thriving marriages.</h3>
           <p class="mt-4 text-sm md:text-base text-white/60 leading-relaxed">
-            Equip facilitators, launch groups, and scale INVEST across a church, nonprofit, veteran community, region, or partner network.
+            Equip facilitators with plug-and-play videos and session guides, launch groups, and scale INVEST across a church, nonprofit, veteran community, region, or partner network.
           </p>
           <a href="/contact?interest=invest-marriage-organization" class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-white hover:text-ember transition-colors">
             Bring INVEST to your community <span aria-hidden="true">→</span>
