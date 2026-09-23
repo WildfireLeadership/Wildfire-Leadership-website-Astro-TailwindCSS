@@ -1,0 +1,26 @@
+---
+const steps = [
+  { number: '01', title: 'Create your Mission Portrait™', description: 'Discover your values, strengths, and purpose. Capture them in a visual reminder of who you are and the difference you want to make.', outcome: 'Leave with your personal mission in focus.', href: '/mission-portrait#pricing', action: 'Start Step 1' },
+  { number: '02', title: 'Work through the 7 Igniters™', description: 'Bring your Mission Portrait into the framework. Clarify your dreams, identify what matters now, and turn your purpose into an actionable roadmap.', outcome: 'Leave with a clear plan for moving forward.', href: '/7-igniters#pricing', action: 'Continue to Step 2' },
+  { number: '03', title: 'Put your purpose into practice', description: 'Choose one action from your roadmap. Set a date, share it with someone who will encourage you, and make time to review your progress.', outcome: 'Build a rhythm of action, reflection, and growth.', href: '/7-igniters#put-it-into-practice', action: 'Take your next step' },
+];
+---
+<section id="start-here" class="py-20 md:py-28 bg-warm-white scroll-mt-24" aria-labelledby="journey-title">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-ember mb-4">Start here</p>
+    <h2 id="journey-title" class="font-display text-4xl md:text-5xl text-charcoal">Your purpose. <em>Your next step.</em></h2>
+    <p class="text-lg text-charcoal/80 max-w-2xl mt-5 mb-10">You don’t have to figure it all out at once. Start with your Mission Portrait, then follow the steps below. Already have your portrait? Begin with Step 2.</p>
+    <ol class="grid lg:grid-cols-3 gap-5">
+      {steps.map(step => (
+        <li class="bg-white border border-sand rounded-2xl p-7 md:p-9 flex flex-col">
+          <p class="text-sm font-semibold tracking-[0.15em] text-ember mb-5">STEP {step.number}</p>
+          <h3 class="font-display text-3xl mb-4">{step.title}</h3>
+          <p class="text-base text-charcoal/80 leading-relaxed">{step.description}</p>
+          <p class="text-base font-medium mt-5 mb-7">{step.outcome}</p>
+          <a href={step.href} class="mt-auto inline-flex self-start px-6 py-3 rounded-full bg-charcoal text-white text-sm font-medium hover:bg-ember transition-colors">{step.action}</a>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-8 text-base text-charcoal/80">Ready to help others take these steps? <a href="/facilitators" class="underline underline-offset-4 hover:text-ember">Explore ways to facilitate.</a> Want guidance along the way? <a href="/workshops" class="underline underline-offset-4 hover:text-ember">Find a workshop.</a></p>
+  </div>
+</section>

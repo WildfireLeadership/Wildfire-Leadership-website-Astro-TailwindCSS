@@ -288,3 +288,7 @@ body::before {
     animation: none;
   }
 }
+
+/* Keep journey anchors clear of the fixed header and keyboard focus visible. */
+#pricing { scroll-margin-top: 7rem; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--color-ember); outline-offset: 5px; }

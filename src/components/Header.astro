@@ -27,6 +27,7 @@ const navGroups = [
   {
     label: 'Get Started',
     items: [
+      { href: '/#start-here', label: 'Start Here: Your Journey' },
       { href: '/facilitators', label: 'Certification' },
       { href: '/workshops', label: 'Workshops' },
       { href: '/resources', label: 'Resources' },
@@ -66,7 +67,7 @@ const allLinks = navGroups.flatMap(g => g.items);
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible group-focus-within/nav:opacity-100 group-focus-within/nav:visible transition-all duration-300">
             <div class="bg-white rounded-xl shadow-xl shadow-charcoal/8 border border-sand/60 py-2 min-w-[220px]">
               {group.items.map((item) => (
                 <a
