@@ -36,6 +36,9 @@ const navGroups = [
 ];
 
 const allLinks = navGroups.flatMap(g => g.items);
+
+// INVEST Marriage has its own site; the nav links straight to it.
+const investUrl = 'https://invest.wildfireleadership.com';
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
@@ -61,7 +64,7 @@ const allLinks = navGroups.flatMap(g => g.items);
     <div class="hidden lg:flex items-center gap-1">
       {navGroups.map((group) => (
         <div class="relative group/nav">
-          <button class="nav-link flex items-center gap-1 px-4 py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 rounded-lg hover:bg-charcoal/5">
+          <button class="nav-link flex items-center gap-1 px-3 xl:px-4 py-2 whitespace-nowrap text-[13px] font-medium tracking-wide transition-colors duration-300 rounded-lg hover:bg-charcoal/5">
             {group.label}
             <svg class="w-3.5 h-3.5 opacity-50 transition-transform duration-300 group-hover/nav:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -86,6 +89,9 @@ const allLinks = navGroups.flatMap(g => g.items);
           </div>
         </div>
       ))}
+      <a href={investUrl} class="nav-link px-3 xl:px-4 py-2 whitespace-nowrap text-[13px] font-medium tracking-wide transition-colors duration-300 rounded-lg hover:bg-charcoal/5">
+        INVEST Marriage
+      </a>
     </div>
 
     <!-- Right: CTA + Mobile burger -->
@@ -124,6 +130,9 @@ const allLinks = navGroups.flatMap(g => g.items);
     <div class="overflow-y-auto flex-1 px-5 py-6 bg-white">
       <a href="/" class:list={["block py-3 font-display text-2xl transition-colors border-b border-sand/30", currentPath === '/' ? "text-ember" : "text-charcoal/80 hover:text-charcoal"]}>
         Home
+      </a>
+      <a href={investUrl} class="block py-3 font-display text-2xl transition-colors border-b border-sand/30 text-charcoal/80 hover:text-charcoal">
+        INVEST Marriage
       </a>
       {navGroups.map((group) => (
         <div class="mt-6">
