@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/invest-marriage", "destination": "https://invest.wildfireleadership.com/", "statusCode": 301 },
+    { "source": "/invest-marriage/", "destination": "https://invest.wildfireleadership.com/", "statusCode": 301 },
+    { "source": "/churches", "destination": "/faith-community", "statusCode": 301 },
+    { "source": "/churches/", "destination": "/faith-community", "statusCode": 301 }
+  ]
+}
