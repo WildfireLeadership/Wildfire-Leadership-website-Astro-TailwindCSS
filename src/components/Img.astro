@@ -1,0 +1,56 @@
+---
+/**
+ * A page image through astro:assets: AVIF and WebP sources, a JPEG (or PNG)
+ * fallback, explicit width and height, lazy and async by default.
+ *
+ * Give either `widths` + `sizes` (the CSS box sets the width) or `width`
+ * (shown at one CSS width; 1x and 2x files). Class, style, id and data-*
+ * go on the <img>, so existing CSS and scripts keep working. The <picture>
+ * wrapper uses display: contents, so the <img> lays out exactly as it did
+ * without it (flex item, percentage heights).
+ *
+ * priority: the page's LCP image (eager, fetchpriority high).
+ * eager: above the fold on every screen but not the LCP (header logo).
+ */
+import type { ImageMetadata } from 'astro';
+import type { HTMLAttributes } from 'astro/types';
+import { densitySources, responsiveSources, type ImageKind } from '../lib/images';
+
+type Props = Omit<HTMLAttributes<'img'>, 'src' | 'srcset' | 'sizes' | 'width' | 'height' | 'loading' | 'decoding'> & {
+  src: ImageMetadata;
+  alt: string;
+  widths?: number[];
+  sizes?: string;
+  width?: number;
+  kind?: ImageKind;
+  alpha?: boolean;
+  priority?: boolean;
+  eager?: boolean;
+};
+
+const { src, alt, widths, sizes, width, kind = 'photo', alpha = false, priority = false, eager = false, ...attrs } = Astro.props;
+
+if (!width && !(widths && sizes)) {
+  throw new Error(`Img: give widths and sizes, or width (alt: ${alt})`);
+}
+
+const s = width
+  ? await densitySources(src, width, kind, alpha)
+  : await responsiveSources(src, widths!, kind, alpha);
+const sourceSizes = width ? undefined : sizes;
+---
+
+<picture class="contents">
+  <source type="image/avif" srcset={s.avif} sizes={sourceSizes} />
+  <source type="image/webp" srcset={s.webp} sizes={sourceSizes} />
+  <img
+    src={s.fallback}
+    width={s.width}
+    height={s.height}
+    alt={alt}
+    loading={priority || eager ? 'eager' : 'lazy'}
+    decoding={priority ? undefined : 'async'}
+    fetchpriority={priority ? 'high' : undefined}
+    {...attrs}
+  />
+</picture>
