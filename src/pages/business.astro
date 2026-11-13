@@ -2,9 +2,34 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, provider } from '../data/site';
+
+const path = '/business/';
+const jsonLd = {
+  '@type': 'Service',
+  '@id': `${abs(path)}#service`,
+  name: 'Ignite Business',
+  serviceType: 'Leadership development for businesses and organizations',
+  url: abs(path),
+  description: 'Leadership coaching, development workshops, and team building that help your people uncover purpose and unleash their potential, built on the Mission Portrait™ and the 7 Igniters™.',
+  provider,
+  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Ways We Serve Your Organization', itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Leadership Workshop', description: 'A half-day, hands-on session where your leaders experience the Mission Portrait™ and Working Genius firsthand.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Leadership Coaching', description: 'Personalized, strategic coaching sessions for individuals or teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Development Workshops', description: 'Hands-on sessions in Working Genius, DISC, Crucial Conversations, 5 Levels of Leadership, Extreme Ownership, and more, tailored for your team.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Employee Purpose & Growth', description: 'Equip your employees with the Mission Portrait™ and 7 Igniters™ to uncover purpose and build a growth plan.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Certify Your Facilitators', description: 'Train internal leaders to deliver Wildfire content across departments in two 90-minute sessions.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Keynote Speaking', description: 'A keynote on purpose-driven leadership for conferences, retreats, or company events.', provider } },
+    ] },
+};
 ---
 
-<BaseLayout title="Ignite Business" description="Wildfire Leadership partners with businesses and organizations to develop purpose-driven leaders, build thriving teams, and drive lasting results through coaching, workshops, and proven frameworks.">
+<BaseLayout
+  title="Ignite Business"
+  description="Wildfire Leadership partners with businesses and organizations to develop purpose-driven leaders, build thriving teams, and drive lasting results through coaching, workshops, and proven frameworks."
+  breadcrumbs={[{ name: 'Business & Organizations', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO ===== -->
   <PageHero

@@ -2,9 +2,32 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, provider } from '../data/site';
+
+const path = '/facilitators/';
+const course = (name: string, description: string) => ({ '@type': 'Course', name, description, provider });
+const jsonLd = {
+  '@type': 'Course',
+  '@id': `${abs(path)}#course`,
+  name: 'Wildfire Leadership Facilitator Certification',
+  url: abs(path),
+  description: 'A 90-minute Wildfire Leadership training workshop to become certified as a facilitator and share the tools and frameworks with others. Certified facilitators join a network of more than 70.',
+  provider,
+  educationalCredentialAwarded: 'Certified Wildfire Facilitator',
+  hasPart: [
+    course('Mission Portrait™ Certification', 'Guide individuals and groups through the Mission Portrait™ process.'),
+    course('7 Igniters™ Certification', 'Coach individuals through stages that create a roadmap to live their Mission Portrait™ and accomplish their dreams.'),
+    course('Assessment Certification', 'Lead individuals and teams through Working Genius, DISC, 5 Levels of Leadership, Ideal Team Player, and 5 Dysfunctions.'),
+  ],
+};
 ---
 
-<BaseLayout title="Become a Certified Facilitator" description="Enroll in a Wildfire Leadership training workshop to become a certified facilitator and share impactful tools and frameworks with others.">
+<BaseLayout
+  title="Become a Certified Facilitator"
+  description="Enroll in a Wildfire Leadership training workshop to become a certified facilitator and share impactful tools and frameworks with others."
+  breadcrumbs={[{ name: 'Certification', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>

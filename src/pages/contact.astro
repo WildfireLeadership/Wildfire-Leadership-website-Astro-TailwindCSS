@@ -2,9 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, ids } from '../data/site';
 ---
 
-<BaseLayout title="Get in Touch" description="Contact Wildfire Leadership to start your journey — whether individual, family, business, faith & community, or leadership development.">
+<BaseLayout
+  title="Get in Touch"
+  description="Contact Wildfire Leadership to start your journey — whether individual, family, business, faith & community, or leadership development."
+  breadcrumbs={[{ name: 'Contact', path: '/contact/' }]}
+  jsonLd={{ '@type': 'ContactPage', '@id': `${abs('/contact/')}#page`, url: abs('/contact/'), name: 'Contact Wildfire Leadership', about: { '@id': ids.organization }, isPartOf: { '@id': ids.website } }}
+>
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>

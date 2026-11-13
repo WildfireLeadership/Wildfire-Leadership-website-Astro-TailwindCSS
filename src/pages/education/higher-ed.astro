@@ -2,9 +2,49 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CallToAction from '../../components/CallToAction.astro';
+import { abs, faqPage, provider } from '../../data/site';
+
+const faqs = [
+  {
+    q: "Is this faith-based?",
+    a: "We offer both faith-based and non-faith-based versions of our curriculum. Public colleges and universities use the non-faith-based version. Faith-based institutions use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
+  },
+  {
+    q: "How does this integrate into existing programs?",
+    a: "Ignite integrates seamlessly into orientation, first-year experience courses, career services programming, student success initiatives, or as a standalone workshop series. We provide curriculum materials, digital workbooks, and a plug-and-play digital option for minimal faculty prep.",
+  },
+  {
+    q: "How do faculty and staff get certified?",
+    a: "Two 90-minute certification sessions equip faculty and staff to lead students across classrooms, courses, and campus programs — fully certified with Mission Portrait™ and Working Genius tools plus ongoing support.",
+  },
+  {
+    q: "Can this work at a community college?",
+    a: "Absolutely. Northwest State Community College and Hocking College are both community colleges that have seen transformative results — from improved retention to increased enrollment in departments where the framework was implemented.",
+  },
+];
+
+const path = '/education/higher-ed/';
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Ignite Higher Ed',
+    serviceType: 'Purpose and career-clarity curriculum for colleges and universities',
+    url: abs(path),
+    description: 'Helps college students uncover who they are, gain clarity on their direction, and step confidently into their future, using the Mission Portrait™ and the 7 Igniters™. Available in non-faith-based and faith-based versions.',
+    provider,
+    audience: { '@type': 'EducationalAudience', educationalRole: 'student' },
+  },
+  faqPage(path, faqs),
+];
 ---
 
-<BaseLayout title="Ignite Higher Education" description="A purpose-driven framework that helps college students uncover who they are, gain clarity on their direction, and step confidently into their future.">
+<BaseLayout
+  title="Ignite Higher Education"
+  description="A purpose-driven framework that helps college students uncover who they are, gain clarity on their direction, and step confidently into their future."
+  breadcrumbs={[{ name: 'Education', path: '/education/' }, { name: 'Ignite Higher Ed', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO ===== -->
   <PageHero
@@ -527,24 +567,7 @@ import CallToAction from '../../components/CallToAction.astro';
         </div>
 
         <div class="space-y-0">
-          {[
-            {
-              q: "Is this faith-based?",
-              a: "We offer both faith-based and non-faith-based versions of our curriculum. Public colleges and universities use the non-faith-based version. Faith-based institutions use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
-            },
-            {
-              q: "How does this integrate into existing programs?",
-              a: "Ignite integrates seamlessly into orientation, first-year experience courses, career services programming, student success initiatives, or as a standalone workshop series. We provide curriculum materials, digital workbooks, and a plug-and-play digital option for minimal faculty prep.",
-            },
-            {
-              q: "How do faculty and staff get certified?",
-              a: "Two 90-minute certification sessions equip faculty and staff to lead students across classrooms, courses, and campus programs — fully certified with Mission Portrait™ and Working Genius tools plus ongoing support.",
-            },
-            {
-              q: "Can this work at a community college?",
-              a: "Absolutely. Northwest State Community College and Hocking College are both community colleges that have seen transformative results — from improved retention to increased enrollment in departments where the framework was implemented.",
-            },
-          ].map((faq, i) => (
+          {faqs.map((faq, i) => (
             <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
               <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>

@@ -6,14 +6,77 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import PortraitLightbox from '../components/PortraitLightbox.astro';
 import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
+import { abs, faqPage, provider } from '../data/site';
 
 const selfGuidedUrl = checkoutUrl(stripeLinks.missionPortrait.selfGuided, 'mission-portrait', 'self-guided');
 const facilitatedUrl = checkoutUrl(stripeLinks.missionPortrait.facilitated, 'mission-portrait', 'facilitated');
 const selfGuidedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.selfGuided);
 const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facilitated);
+
+const faqs = [
+  {
+    q: "How long does the Mission Portrait™ take?",
+    a: "The self-guided workbook takes about 1 hour. The facilitated option is a focused 60-minute virtual session with a Certified Facilitator who guides you through the process.",
+  },
+  {
+    q: "Is this faith-based?",
+    a: "We offer both faith-based and non-faith-based versions of our curriculum. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version. The tools work beautifully in any setting.",
+  },
+  {
+    q: "What do I receive when I'm done?",
+    a: "A customized, visual Mission Portrait™ — a one-page graphic that captures your purpose, values, and vision. You also keep the full PDF workbook as a resource.",
+  },
+  {
+    q: "Who is this for?",
+    a: "Students, individuals, couples, families, and organizations. The Mission Portrait™ works at every level — from personal discovery to team alignment.",
+  },
+  {
+    q: "Can I do this with my team or organization?",
+    a: "Absolutely. We offer group facilitation, annual site licensing for schools, and organizational rollouts. Contact us for team pricing and implementation details.",
+  },
+];
+
+const path = '/mission-portrait/';
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Mission Portrait™',
+    serviceType: 'Purpose discovery',
+    url: abs(path),
+    image: abs('/images/mission-portrait-what.png'),
+    description: 'A custom-tailored, one-page visual guide to your core values, vision, and mission: a daily reminder of who you are and the difference you want to make.',
+    provider,
+    audience: { '@type': 'Audience', audienceType: 'Students, individuals, couples, families, and organizations' },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Self-Guided',
+        price: '35',
+        priceCurrency: 'USD',
+        description: 'One-time purchase: electronic PDF workbook, step-by-step guidance, and a customized digital Mission Portrait™.',
+        url: abs(`${path}#pricing`),
+      },
+      {
+        '@type': 'Offer',
+        name: 'Facilitated',
+        price: '299',
+        priceCurrency: 'USD',
+        description: 'Per session: 60-minute virtual session with a Certified Facilitator, all materials included, electronic PDF workbook, and a customized digital Mission Portrait™.',
+        url: abs(`${path}#pricing`),
+      },
+    ],
+  },
+  faqPage(path, faqs),
+];
 ---
 
-<BaseLayout title="Mission Portrait™" description="A customized visual daily reminder of who you are and your mission. Discover your purpose with Wildfire Leadership's Mission Portrait™.">
+<BaseLayout
+  title="Mission Portrait™"
+  description="A customized visual daily reminder of who you are and your mission. Discover your purpose with Wildfire Leadership's Mission Portrait™."
+  breadcrumbs={[{ name: 'Mission Portrait™', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO — Dark cinematic ===== -->
   <PageHero
@@ -24,6 +87,7 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
   >
     <a href="#pricing" class="inline-flex mt-7 px-7 py-4 rounded-full bg-ember text-white font-medium hover:bg-charcoal transition-colors">Choose your Mission Portrait option</a>
   </PageHero>
+
 
   <!-- ===== WHAT IS A MISSION PORTRAIT — White bg, split layout ===== -->
   <SplitSection
@@ -268,28 +332,7 @@ const facilitatedIsStripe = isStripeConfigured(stripeLinks.missionPortrait.facil
         </div>
 
         <div class="space-y-0">
-          {[
-            {
-              q: "How long does the Mission Portrait™ take?",
-              a: "The self-guided workbook takes about 1 hour. The facilitated option is a focused 60-minute virtual session with a Certified Facilitator who guides you through the process.",
-            },
-            {
-              q: "Is this faith-based?",
-              a: "We offer both faith-based and non-faith-based versions of our curriculum. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version. The tools work beautifully in any setting.",
-            },
-            {
-              q: "What do I receive when I'm done?",
-              a: "A customized, visual Mission Portrait™ — a one-page graphic that captures your purpose, values, and vision. You also keep the full PDF workbook as a resource.",
-            },
-            {
-              q: "Who is this for?",
-              a: "Students, individuals, couples, families, and organizations. The Mission Portrait™ works at every level — from personal discovery to team alignment.",
-            },
-            {
-              q: "Can I do this with my team or organization?",
-              a: "Absolutely. We offer group facilitation, annual site licensing for schools, and organizational rollouts. Contact us for team pricing and implementation details.",
-            },
-          ].map((faq, i) => (
+          {faqs.map((faq, i) => (
             <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
               <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>

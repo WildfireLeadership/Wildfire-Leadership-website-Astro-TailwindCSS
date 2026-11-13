@@ -2,9 +2,57 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, faqPage, provider } from '../data/site';
+
+const faqs = [
+  {
+    q: "Who is this for?",
+    a: "Any married couple or family — whether you're newlyweds discovering your shared purpose, parents with young kids, a family with teenagers, or empty nesters looking to reconnect. It's designed for every stage of marriage and family life.",
+  },
+  {
+    q: "Can this be done as a couple without kids?",
+    a: "Absolutely. A Marriage Mission Portrait™ is one of the most powerful things you can do for your relationship — defining your shared purpose, values, and vision together. Many couples do this as a standalone experience, and it's the foundation of what organizations use when scaling across their couples ministry.",
+  },
+  {
+    q: "How long does the workshop take?",
+    a: "The workshop is a 2-hour facilitated experience. Everything you need is provided — just bring your family or come as a couple.",
+  },
+  {
+    q: "What do we leave with?",
+    a: "Every family or couple leaves with a personalized, custom-designed Mission Portrait™ — a visual portrait that captures your core values, vision, and mission. It's designed to be framed and displayed in your home as a daily reminder.",
+  },
+  {
+    q: "How do we sign up?",
+    a: "If your church, nonprofit, or community organization is hosting a workshop, they'll provide a registration link. If you'd like to bring a Family Mission Portrait™ workshop to your organization or community — whether locally or internationally — contact us to get started.",
+  },
+];
+
+const path = '/family-mission-portrait/';
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Marriage & Family Mission Portrait™',
+    serviceType: 'Marriage and family purpose workshop',
+    url: abs(path),
+    description: 'A guided experience where a family or married couple identifies its core values, defines a shared vision, and crafts a mission statement, captured in a personalized, visual Mission Portrait™. Offered as a 2-hour facilitated workshop.',
+    provider,
+    audience: { '@type': 'Audience', audienceType: 'Married couples and families' },
+    offers: [
+      { '@type': 'Offer', name: 'Self-guided workbook', price: '35', priceCurrency: 'USD', url: abs('/mission-portrait/#pricing') },
+      { '@type': 'Offer', name: 'Facilitated 1-on-1 session', price: '299', priceCurrency: 'USD', url: abs('/mission-portrait/#pricing') },
+    ],
+  },
+  faqPage(path, faqs),
+];
 ---
 
-<BaseLayout title="Marriage & Family Mission Portrait™" description="Discover your shared purpose as a couple or family through a personalized Mission Portrait™ — a visual legacy your marriage or family can live by every day.">
+<BaseLayout
+  title="Marriage & Family Mission Portrait™"
+  description="Discover your shared purpose as a couple or family through a personalized Mission Portrait™ — a visual legacy your marriage or family can live by every day."
+  breadcrumbs={[{ name: 'Marriage & Family Mission Portrait™', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO ===== -->
   <PageHero
@@ -305,28 +353,7 @@ import CallToAction from '../components/CallToAction.astro';
         </div>
 
         <div class="space-y-0">
-          {[
-            {
-              q: "Who is this for?",
-              a: "Any married couple or family — whether you're newlyweds discovering your shared purpose, parents with young kids, a family with teenagers, or empty nesters looking to reconnect. It's designed for every stage of marriage and family life.",
-            },
-            {
-              q: "Can this be done as a couple without kids?",
-              a: "Absolutely. A Marriage Mission Portrait™ is one of the most powerful things you can do for your relationship — defining your shared purpose, values, and vision together. Many couples do this as a standalone experience, and it's the foundation of what organizations use when scaling across their couples ministry.",
-            },
-            {
-              q: "How long does the workshop take?",
-              a: "The workshop is a 2-hour facilitated experience. Everything you need is provided — just bring your family or come as a couple.",
-            },
-            {
-              q: "What do we leave with?",
-              a: "Every family or couple leaves with a personalized, custom-designed Mission Portrait™ — a visual portrait that captures your core values, vision, and mission. It's designed to be framed and displayed in your home as a daily reminder.",
-            },
-            {
-              q: "How do we sign up?",
-              a: "If your church, nonprofit, or community organization is hosting a workshop, they'll provide a registration link. If you'd like to bring a Family Mission Portrait™ workshop to your organization or community — whether locally or internationally — contact us to get started.",
-            },
-          ].map((faq, i) => (
+          {faqs.map((faq, i) => (
             <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
               <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>

@@ -2,9 +2,35 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, provider, INVEST_URL } from '../data/site';
+
+const path = '/workshops/';
+const offer = (name: string, description: string, extra: Record<string, unknown> = {}) => ({
+  '@type': 'Offer',
+  itemOffered: { '@type': 'Service', name, description, provider, ...extra },
+});
+const jsonLd = {
+  '@type': 'OfferCatalog',
+  '@id': `${abs(path)}#catalog`,
+  name: 'Workshops & Experiences',
+  url: abs(path),
+  itemListElement: [
+    offer('Leadership Development Workshops', 'Hands-on sessions for any leadership team: Working Genius, The Advantage, Mission Portrait™, 5 Levels of Leadership, Mastering Crucial Conversations, Extreme Ownership, 5 Dysfunctions of a Team, 7 Igniters™ Roadmap, and DISC Leadership Essentials.'),
+    offer('Individual Mission Portrait™ + Coaching', 'A 60-minute, one-on-one session with a Certified Facilitator who coaches you through the Mission Portrait™ process.'),
+    offer('Couples Mission Portrait™ + Coaching', 'A 90-minute session to define your individual and shared purpose as a couple.'),
+    offer('Family Mission Portrait™ Workshop', 'A 2-hour workshop to discover shared family values, dreams, and purpose.'),
+    offer('INVEST Marriage', 'An 8-week, Christ-centered marriage journey created by Bill and Stephanie Lammers.', { url: INVEST_URL }),
+    offer('Keynote Speaking', 'Bill and Stephanie Lammers speak across business, education, and faith communities.'),
+  ],
+};
 ---
 
-<BaseLayout title="Workshops & Experiences" description="Transform your team, marriage, or personal journey through hands-on Wildfire Leadership workshop experiences.">
+<BaseLayout
+  title="Workshops & Experiences"
+  description="Transform your team, marriage, or personal journey through hands-on Wildfire Leadership workshop experiences."
+  breadcrumbs={[{ name: 'Workshops & Experiences', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>

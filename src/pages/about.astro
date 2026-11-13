@@ -3,9 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, ids } from '../data/site';
 ---
 
-<BaseLayout title="Our Story" description="Learn about Wildfire Leadership's mission to help individuals and organizations discover their purpose and unleash their potential.">
+<BaseLayout
+  title="Our Story"
+  description="Learn about Wildfire Leadership's mission to help individuals and organizations discover their purpose and unleash their potential."
+  breadcrumbs={[{ name: 'Our Story', path: '/about/' }]}
+  jsonLd={{ '@type': 'AboutPage', '@id': `${abs('/about/')}#page`, url: abs('/about/'), name: 'Our Story', about: { '@id': ids.organization }, isPartOf: { '@id': ids.website } }}
+>
 
   <!-- ===== HERO — Dark hero with real image ===== -->
   <PageHero

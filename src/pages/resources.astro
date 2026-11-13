@@ -2,9 +2,42 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, ids } from '../data/site';
+
+const jsonLd = [
+  {
+    '@type': 'Book',
+    name: 'Flip the Script: Set Your Mind Free',
+    author: { '@id': ids.bill, '@type': 'Person', name: 'Bill Lammers' },
+    url: 'https://www.amazon.com/Flip-Script-Your-Mind-Free/dp/B0FSWW55X1',
+    image: abs('/images/fts-book.png'),
+    description: 'How to break free from the lies and negative narratives that keep you stuck, and replace them with the truth God says about you. Part framework, part field guide.',
+  },
+  {
+    '@type': 'Book',
+    name: 'Discovering Joy in Your Lane',
+    author: { '@id': ids.stephanie, '@type': 'Person', name: 'Stephanie Lammers' },
+    url: 'https://a.co/d/eUG8v9t',
+    image: abs('/images/discovering-joy-book.jpg'),
+    description: 'A guide to finding joy and fulfillment in the unique path God designed for you. Each chapter includes reflection steppingstones for personal growth.',
+  },
+  {
+    '@type': 'Book',
+    name: 'Wildfire Daily Journal',
+    author: { '@id': ids.bill, '@type': 'Person', name: 'Bill Lammers' },
+    url: 'https://www.amazon.com/Wildfire-Daily-Journal-Gratitude-Priorities/dp/B07Y4K73MW',
+    image: abs('/images/wildfire-daily-journal.jpg'),
+    description: 'A daily tool for intentional living through guided reflection, gratitude, and purpose.',
+  },
+];
 ---
 
-<BaseLayout title="Resources — Books, Tools & More" description="Explore books, journals, apps, and practical tools from Bill & Stephanie Lammers to help you lead yourself well, strengthen your faith, and thrive.">
+<BaseLayout
+  title="Resources — Books, Tools & More"
+  description="Explore books, journals, apps, and practical tools from Bill & Stephanie Lammers to help you lead yourself well, strengthen your faith, and thrive."
+  breadcrumbs={[{ name: 'Resources', path: '/resources/' }]}
+  jsonLd={jsonLd}
+>
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>

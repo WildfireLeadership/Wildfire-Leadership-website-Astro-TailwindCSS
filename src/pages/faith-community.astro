@@ -3,14 +3,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, provider } from '../data/site';
+
+const path = '/faith-community/';
+const jsonLd = {
+  '@type': 'Service',
+  '@id': `${abs(path)}#service`,
+  name: 'Faith & Community',
+  serviceType: 'Faith-based purpose and leadership tools for churches and nonprofits',
+  url: abs(path),
+  description: 'Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations, available digitally.',
+  provider,
+  audience: { '@type': 'Audience', audienceType: 'Churches, nonprofits, and community organizations' },
+  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Ways We Serve Your Organization', itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Purpose, Identity & Leadership Curriculum', description: 'Mission Portrait™ and 7 Igniters™ curriculum for students and young adults, designed for small groups, classes, and youth ministry.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'INVEST Marriage', description: 'A Christ-centered marriage journey for couples and small groups, created by Bill and Stephanie Lammers.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Marriage & Family Mission Portrait™', description: 'Helps married couples and families discover their shared purpose, values, and vision.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Flip the Script + Echo', description: "The Flip the Script app's Echo feature turns a pastor's Sunday message into a 6-day devotional.", provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Workshops & Coaching', description: 'Working Genius, Mission Portrait™, 5 Levels of Leadership, DISC, Crucial Conversations, and more, with ongoing team coaching for your church, nonprofit, or organization.', provider } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Keynote Speaking', description: 'Bill and Stephanie Lammers speak at conferences, retreats, and special events.', provider } },
+    ] },
+};
 ---
 
-<BaseLayout title="Faith & Community" description="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations — from leadership workshops to organization-wide implementation.">
+<BaseLayout
+  title="Faith & Community"
+  description="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations — from leadership workshops to organization-wide implementation."
+  breadcrumbs={[{ name: 'Faith & Community', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
     image="/images/hero-main.jpg"
+    imageAlt="Wildfire Leadership workshop"
     title='Faith &<br/><em>Community</em>'
     subtitle="Purpose-driven, faith-based tools and curriculum for churches, non-profits, and community organizations."
   />

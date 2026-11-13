@@ -5,7 +5,11 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 import CallToAction from '../../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Ignite Education" description="Wildfire Leadership provides purpose-driven tools that transform students into confident leaders.">
+<BaseLayout
+  title="Ignite Education"
+  description="Wildfire Leadership provides purpose-driven tools that transform students into confident leaders."
+  breadcrumbs={[{ name: 'Education', path: '/education/' }]}
+>
 
   <!-- ===== HERO — Dark hero with real education image ===== -->
   <PageHero

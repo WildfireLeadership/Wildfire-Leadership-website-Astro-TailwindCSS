@@ -2,9 +2,49 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CallToAction from '../../components/CallToAction.astro';
+import { abs, faqPage, provider } from '../../data/site';
+
+const faqs = [
+  {
+    q: "How does this fit into our existing curriculum?",
+    a: "Ignite Students is designed to integrate seamlessly — whether as a standalone advisory program, a capstone course, or embedded into existing career-readiness and SEL frameworks. We provide lesson plans, digital workbooks, and a plug-and-play digital option for minimal teacher prep.",
+  },
+  {
+    q: "What grade levels does this work for?",
+    a: "The program is designed for K–12. Most schools implement it in 8th grade or as a senior capstone, but it's flexible enough to work across elementary, middle, and high school depending on your goals.",
+  },
+  {
+    q: "How do teachers get certified?",
+    a: "Two 90-minute certification sessions equip your teachers to lead Ignite Students across classrooms and grade levels. They leave fully certified with tools, lesson plans, and ongoing support.",
+  },
+  {
+    q: "Is this faith-based?",
+    a: "We offer both faith-based and non-faith-based versions of our curriculum. Public schools use the non-faith-based version. Churches and faith communities use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
+  },
+];
+
+const path = '/education/k-12/';
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Ignite Students K-12',
+    serviceType: 'Purpose and leadership curriculum for K-12 schools',
+    url: abs(path),
+    description: 'Helps K-12 students discover purpose, build direction, and re-engage, using the Mission Portrait™ and the 7 Igniters™. Available in non-faith-based and faith-based versions, with teacher certification and annual licensing.',
+    provider,
+    audience: { '@type': 'EducationalAudience', educationalRole: 'student' },
+  },
+  faqPage(path, faqs),
+];
 ---
 
-<BaseLayout title="Ignite Students K-12" description="A practical K-12 framework that builds clarity, confidence, and direction — helping students discover their purpose before they choose their path.">
+<BaseLayout
+  title="Ignite Students K-12"
+  description="A practical K-12 framework that builds clarity, confidence, and direction — helping students discover their purpose before they choose their path."
+  breadcrumbs={[{ name: 'Education', path: '/education/' }, { name: 'Ignite Students K-12', path }]}
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO ===== -->
   <PageHero
@@ -404,24 +444,7 @@ import CallToAction from '../../components/CallToAction.astro';
         </div>
 
         <div class="space-y-0">
-          {[
-            {
-              q: "How does this fit into our existing curriculum?",
-              a: "Ignite Students is designed to integrate seamlessly — whether as a standalone advisory program, a capstone course, or embedded into existing career-readiness and SEL frameworks. We provide lesson plans, digital workbooks, and a plug-and-play digital option for minimal teacher prep.",
-            },
-            {
-              q: "What grade levels does this work for?",
-              a: "The program is designed for K–12. Most schools implement it in 8th grade or as a senior capstone, but it's flexible enough to work across elementary, middle, and high school depending on your goals.",
-            },
-            {
-              q: "How do teachers get certified?",
-              a: "Two 90-minute certification sessions equip your teachers to lead Ignite Students across classrooms and grade levels. They leave fully certified with tools, lesson plans, and ongoing support.",
-            },
-            {
-              q: "Is this faith-based?",
-              a: "We offer both faith-based and non-faith-based versions of our curriculum. Public schools use the non-faith-based version. Churches and faith communities use the faith-based version. The tools work beautifully in either setting — the framework and outcomes are the same.",
-            },
-          ].map((faq, i) => (
+          {faqs.map((faq, i) => (
             <details class:list={["reveal group border-b border-sand/60 last:border-b-0", i > 0 && `reveal-d${Math.min(i, 4)}`]}>
               <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <h3 class="font-display text-lg md:text-xl text-charcoal group-hover:text-ember transition-colors duration-300">{faq.q}</h3>

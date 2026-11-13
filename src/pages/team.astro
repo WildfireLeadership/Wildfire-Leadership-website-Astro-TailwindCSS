@@ -2,9 +2,65 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import { abs, ids, IGNITE_URL, STEPHANIE_SITE_URL } from '../data/site';
+
+const worksFor = { '@id': ids.organization };
+const igniteAcademy = { '@type': 'NGO', name: 'Ignite Academy', url: IGNITE_URL };
+
+const jsonLd = [
+  {
+    '@type': 'Person',
+    '@id': ids.bill,
+    name: 'Bill Lammers',
+    jobTitle: 'Founder & CEO',
+    worksFor,
+    url: abs('/team/'),
+    image: abs('/images/bill-lammers.jpg'),
+    description: 'Bill Lammers is an entrepreneur, author, and leadership coach with over 25 years of experience developing leaders and strengthening organizations. He is the Founder and CEO of Wildfire Leadership and the Founder of Ignite Academy.',
+    spouse: { '@id': ids.stephanie },
+    affiliation: igniteAcademy,
+    hasCredential: [
+      "Dual master's degrees (MBA + Organizational Leadership)",
+      'Engineering degree',
+      'Patrick Lencioni CapaPro member',
+      'Certified John Maxwell coach',
+    ].map((name) => ({ '@type': 'EducationalOccupationalCredential', name })),
+    knowsAbout: ['Leadership coaching', 'Leadership development', 'Organizational development'],
+  },
+  {
+    '@type': 'Person',
+    '@id': ids.stephanie,
+    name: 'Stephanie Lammers',
+    jobTitle: 'Co-Founder, Speaker & Author',
+    worksFor,
+    url: abs('/team/'),
+    image: abs('/images/stephanie-lammers.jpg'),
+    sameAs: [STEPHANIE_SITE_URL],
+    description: 'Stephanie Lammers is a keynote speaker, author, and executive coach known for equipping leaders, couples, and families to thrive with clarity and purpose. She is the Co-Founder of Wildfire Leadership and Ignite Academy.',
+    spouse: { '@id': ids.bill },
+    affiliation: igniteAcademy,
+    hasCredential: [
+      'Certified Patrick Lencioni CapaPro member',
+    ].map((name) => ({ '@type': 'EducationalOccupationalCredential', name })),
+    knowsAbout: ['Executive coaching', 'Keynote speaking', 'Marriage and family'],
+  },
+  {
+    '@type': 'Person',
+    '@id': ids.tiffany,
+    name: 'Tiffany Rodriguez',
+    jobTitle: 'Operations & Administrative Director',
+    worksFor,
+    url: abs('/team/'),
+  },
+];
 ---
 
-<BaseLayout title="Our Team" description="Meet the team behind Wildfire Leadership — passionate about helping you uncover purpose and unleash potential.">
+<BaseLayout
+  title="Our Team"
+  description="Meet the team behind Wildfire Leadership — passionate about helping you uncover purpose and unleash potential."
+  breadcrumbs={[{ name: 'Our Team', path: '/team/' }]}
+  jsonLd={jsonLd}
+>
 
   <!-- Force header-light for light hero -->
   <script>document.getElementById('site-header')?.classList.add('header-light');</script>
@@ -17,7 +73,7 @@ import CallToAction from '../components/CallToAction.astro';
   />
 
   <!-- ===== BILL LAMMERS — White bg ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
+  <section id="bill-lammers" class="relative py-24 md:py-32 bg-white scroll-mt-24">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Text -->
@@ -87,7 +143,7 @@ import CallToAction from '../components/CallToAction.astro';
   </section>
 
   <!-- ===== STEPHANIE LAMMERS — Warm-white bg, reversed ===== -->
-  <section class="relative py-24 md:py-32 bg-warm-white">
+  <section id="stephanie-lammers" class="relative py-24 md:py-32 bg-warm-white scroll-mt-24">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Image (LEFT on desktop) -->
@@ -173,7 +229,7 @@ import CallToAction from '../components/CallToAction.astro';
   </section>
 
   <!-- ===== TIFFANY RODRIGUEZ — White bg ===== -->
-  <section class="relative py-24 md:py-32 bg-white">
+  <section id="tiffany-rodriguez" class="relative py-24 md:py-32 bg-white scroll-mt-24">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="max-w-3xl mx-auto text-center">
         <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Operations & Administrative Director</p>
