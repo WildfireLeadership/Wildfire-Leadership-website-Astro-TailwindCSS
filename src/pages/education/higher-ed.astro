@@ -3,6 +3,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CallToAction from '../../components/CallToAction.astro';
 import { abs, faqPage, provider } from '../../data/site';
+import Img from '../../components/Img.astro';
+import { coverSizes } from '../../lib/images';
+import educationHigher from '../../assets/images/education-higher.jpeg';
+import studentsMissionPortraits from '../../assets/images/students-mission-portraits.jpg';
+import missionPortraitGraphic from '../../assets/images/mission-portrait-graphic.png';
+import sevenIgnitersDiagram from '../../assets/images/7-igniters-diagram.png';
+import morrisMorrison from '../../assets/images/morris-morrison.jpg';
+import higherEdWorkshop from '../../assets/images/higher-ed-workshop.jpg';
+import lifestyle from '../../assets/images/lifestyle.jpg';
+import educationStudents from '../../assets/images/education-students.jpg';
+import maysaTestimonial from '../../assets/images/maysa-testimonial.jpg';
+import emmaTestimonial from '../../assets/images/emma-testimonial.jpg';
+import schoolLogo1 from '../../assets/images/school-logo-1.png';
+import schoolLogo2 from '../../assets/images/school-logo-2.png';
+import schoolLogo4 from '../../assets/images/school-logo-4.png';
+import schoolLogo8 from '../../assets/images/school-logo-8.png';
+import schoolLogoHocking from '../../assets/images/school-logo-hocking.png';
 
 const faqs = [
   {
@@ -40,6 +57,7 @@ const jsonLd = [
 ---
 
 <BaseLayout
+  heroImage={educationHigher}
   title="Ignite Higher Education"
   description="A purpose-driven framework that helps college students uncover who they are, gain clarity on their direction, and step confidently into their future."
   breadcrumbs={[{ name: 'Education', path: '/education/' }, { name: 'Ignite Higher Ed', path }]}
@@ -49,7 +67,7 @@ const jsonLd = [
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
-    image="/images/education-higher.jpeg"
+    image={educationHigher}
     imageAlt="College students in a Wildfire Leadership session"
     title='Ignite<br/><em>Higher Ed</em>'
     subtitle="Helping college students uncover who they are, gain clarity on their direction, and step confidently into their future — with measurable results across 50,000+ students."
@@ -143,13 +161,13 @@ const jsonLd = [
       <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Trusted by colleges and universities</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
-          { src: "/images/school-logo-1.png", alt: "Southeastern University", class: "h-16 w-32 md:h-20 md:w-40" },
-          { src: "/images/school-logo-8.png", alt: "Bowling Green State University", class: "h-16 w-32 md:h-20 md:w-40" },
-          { src: "/images/school-logo-2.png", alt: "Northwest State Community College", class: "h-20 w-40 md:h-26 md:w-52" },
-          { src: "/images/school-logo-4.png", alt: "Defiance College", class: "h-20 w-40 md:h-26 md:w-52" },
-          { src: "/images/school-logo-hocking.png", alt: "Hocking College", class: "h-16 w-32 md:h-20 md:w-40" },
+          { src: schoolLogo1, w: 80, alt: "Southeastern University", class: "h-16 w-32 md:h-20 md:w-40" },
+          { src: schoolLogo8, w: 80, alt: "Bowling Green State University", class: "h-16 w-32 md:h-20 md:w-40" },
+          { src: schoolLogo2, w: 104, alt: "Northwest State Community College", class: "h-20 w-40 md:h-26 md:w-52" },
+          { src: schoolLogo4, w: 104, alt: "Defiance College", class: "h-20 w-40 md:h-26 md:w-52" },
+          { src: schoolLogoHocking, w: 130, alpha: true, alt: "Hocking College", class: "h-16 w-32 md:h-20 md:w-40" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class:list={[logo.class, "object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"]} />
+          <Img src={logo.src} alt={logo.alt} width={logo.w} kind="graphic" alpha={logo.alpha} class:list={[logo.class, "object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"]} />
         ))}
       </div>
     </div>
@@ -167,16 +185,16 @@ const jsonLd = [
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { title: "See the Transformation in Student Success", desc: "Morris Morrison — nationally recognized speaker — on how purpose drives motivation, engagement, and achievement.", url: "https://player.vimeo.com/video/1165547755?h=f17596330c&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/morris-morrison.jpg" },
-          { title: "What's a Mission Portrait™?", desc: "An overview of what the Mission Portrait is and why it matters for students.", url: "https://player.vimeo.com/video/1166391178?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/higher-ed-workshop.jpg" },
-          { title: "How the Mission Portrait™ Works", desc: "A walkthrough of the Mission Portrait process and how students experience it.", url: "https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/lifestyle.jpg" },
-          { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/education-students.jpg" },
-          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/maysa-testimonial.jpg" },
-          { title: "Student Testimonial — Emma", desc: "Hear from Emma on how Ignite helped her gain clarity and direction.", url: "https://player.vimeo.com/video/1167969792?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: "/images/emma-testimonial.jpg" },
+          { title: "See the Transformation in Student Success", desc: "Morris Morrison — nationally recognized speaker — on how purpose drives motivation, engagement, and achievement.", url: "https://player.vimeo.com/video/1165547755?h=f17596330c&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: morrisMorrison },
+          { title: "What's a Mission Portrait™?", desc: "An overview of what the Mission Portrait is and why it matters for students.", url: "https://player.vimeo.com/video/1166391178?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: higherEdWorkshop },
+          { title: "How the Mission Portrait™ Works", desc: "A walkthrough of the Mission Portrait process and how students experience it.", url: "https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: lifestyle },
+          { title: "The 7 Igniters™ Framework", desc: "The curriculum that guides students from self-discovery to action.", url: "https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: educationStudents },
+          { title: "Student Testimonial", desc: "Hear from Maysa on how Ignite Students helped her.", url: "https://player.vimeo.com/video/1163802453?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: maysaTestimonial },
+          { title: "Student Testimonial — Emma", desc: "Hear from Emma on how Ignite helped her gain clarity and direction.", url: "https://player.vimeo.com/video/1167969792?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1", thumb: emmaTestimonial },
         ].map((video, i) => (
           <a href={video.url} target="_blank" rel="noopener noreferrer" class:list={["reveal group rounded-xl overflow-hidden border border-sand/50 bg-white hover:border-ember/30 transition-colors duration-300", `reveal-d${i + 1}`]}>
             <div class="relative aspect-video overflow-hidden">
-              <img src={video.thumb} alt={video.title} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              <Img src={video.thumb} alt={video.title} widths={[400, 640, 860]} sizes={coverSizes(video.thumb, 16 / 9, [['(min-width: 1400px)', 429, 'px'], ['(min-width: 1024px)', 31, 'vw'], ['(min-width: 640px)', 46, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
                 <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <svg class="w-6 h-6 text-ember ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -208,7 +226,7 @@ const jsonLd = [
 
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
         <a href="https://player.vimeo.com/video/1166391250?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1" target="_blank" rel="noopener noreferrer" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework diagram" class="w-full" />
+          <Img src={missionPortraitGraphic} alt="Mission Portrait™ framework diagram" widths={[440, 660, 880]} sizes="(min-width: 920px) 436px, (min-width: 768px) 47vw, 100vw" kind="graphic" alpha class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait™</h3>
             <p class="text-stone text-sm leading-relaxed mb-3">
@@ -218,7 +236,7 @@ const jsonLd = [
           </div>
         </a>
         <a href="https://player.vimeo.com/video/1151621096?title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1" target="_blank" rel="noopener noreferrer" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters™ framework" class="w-full" />
+          <Img src={sevenIgnitersDiagram} alt="The 7 Igniters™ framework" widths={[440, 660, 880]} sizes="(min-width: 920px) 436px, (min-width: 768px) 47vw, 100vw" kind="graphic" class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters™</h3>
             <p class="text-stone text-sm leading-relaxed mb-3">
@@ -586,7 +604,7 @@ const jsonLd = [
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Bring Ignite to<br/><em class="ember-gradient">your campus.</em>'
-    image="/images/students-mission-portraits.jpg"
+    image={studentsMissionPortraits}
     buttonText="Bring Ignite to Your Campus"
     buttonHref="/contact?interest=ignite-higher-ed"
   />

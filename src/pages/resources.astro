@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 import { abs, ids } from '../data/site';
+import Img from '../components/Img.astro';
+import { coverSizes } from '../lib/images';
+import ftsBook from '../assets/images/fts-book.png';
+import discoveringJoyBook from '../assets/images/discovering-joy-book.jpg';
+import wildfireDailyJournal from '../assets/images/wildfire-daily-journal.jpg';
+import ftsAppMockup from '../assets/images/fts-app-mockup.png';
 
 const jsonLd = [
   {
@@ -55,9 +61,13 @@ const jsonLd = [
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <!-- Image -->
         <div class="reveal relative rounded-xl overflow-hidden group">
-          <img
-            src="/images/fts-book.png"
+          <Img
+            src={ftsBook}
             alt="Flip the Script book by Bill Lammers"
+            widths={[400, 640, 960, 1200]}
+            sizes="(min-width: 1400px) 628px, (min-width: 1024px) 44vw, 100vw"
+            kind="graphic"
+            priority
             class="w-full rounded-xl img-hover"
           />
         </div>
@@ -116,9 +126,12 @@ const jsonLd = [
         <!-- Book 1: Discovering Joy in Your Lane -->
         <a href="https://a.co/d/eUG8v9t" target="_blank" rel="noopener" class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
           <div class="aspect-[3/4] bg-gradient-to-br from-[#fdf5f3] to-[#f8ece8] flex items-center justify-center p-10 relative overflow-hidden">
-            <img
-              src="/images/discovering-joy-book.jpg"
+            <Img
+              src={discoveringJoyBook}
               alt="Discovering Joy In Your Lane by Stephanie Lammers"
+              widths={[300, 500, 700]}
+              sizes="(min-width: 768px) 330px, 65vw"
+              kind="graphic"
               class="relative max-h-full object-contain drop-shadow-xl group-hover:scale-[1.03] transition-transform duration-500 rounded-sm"
             />
           </div>
@@ -143,9 +156,11 @@ const jsonLd = [
         <!-- Book 2: Wildfire Daily Journal -->
         <a href="https://www.amazon.com/Wildfire-Daily-Journal-Gratitude-Priorities/dp/B07Y4K73MW" target="_blank" rel="noopener" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:shadow-lg hover:shadow-charcoal/5 transition-all duration-500 block">
           <div class="aspect-[3/4] bg-gradient-to-br from-[#f0eee9] to-[#e5e2dc] relative overflow-hidden">
-            <img
-              src="/images/wildfire-daily-journal.jpg"
+            <Img
+              src={wildfireDailyJournal}
               alt="Wildfire Daily Journal"
+              widths={[480, 640, 960, 1280, 1600]}
+              sizes={coverSizes(wildfireDailyJournal, 3 / 4, [['(min-width: 920px)', 436, 'px'], ['(min-width: 768px)', 47, 'vw'], ['', 100, 'vw']])}
               class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
             />
           </div>
@@ -205,9 +220,11 @@ const jsonLd = [
 
         <!-- Image -->
         <div class="reveal reveal-d2 relative flex justify-center lg:order-2">
-          <img
-            src="/images/fts-app-mockup.png"
+          <Img
+            src={ftsAppMockup}
             alt="Flip the Script app on iPhone"
+            width={288}
+            kind="graphic"
             class="w-64 md:w-72 drop-shadow-2xl"
           />
         </div>

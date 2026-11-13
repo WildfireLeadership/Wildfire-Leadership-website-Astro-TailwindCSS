@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 import { abs, faqPage, provider } from '../data/site';
+import Img from '../components/Img.astro';
+import { lightboxSrc, posterSrc } from '../lib/images';
+import familyMpLammers from '../assets/images/family-mp-lammers.jpeg';
+import familyMpPitts from '../assets/images/family-mp-pitts.jpeg';
+import familyMpHopson from '../assets/images/family-mp-hopson.jpeg';
+import missionPortraitGraphic from '../assets/images/mission-portrait-graphic.png';
 
 const faqs = [
   {
@@ -45,9 +51,19 @@ const jsonLd = [
   },
   faqPage(path, faqs),
 ];
+
+const familyPortraits = await Promise.all(
+  [
+    { src: familyMpLammers, alt: "The Lammers Marriage Mission Portrait" },
+    { src: familyMpPitts, alt: "The Pitts Family Mission Portrait" },
+    { src: familyMpHopson, alt: "The Hopson Marriage Mission Portrait" },
+  ].map(async (portrait) => ({ ...portrait, full: await lightboxSrc(portrait.src) })),
+);
+const videoPoster = await posterSrc(familyMpPitts);
 ---
 
 <BaseLayout
+  heroImage={familyMpLammers}
   title="Marriage & Family Mission Portrait™"
   description="Discover your shared purpose as a couple or family through a personalized Mission Portrait™: a visual legacy your marriage or family can live by every day."
   breadcrumbs={[{ name: 'Marriage & Family Mission Portrait™', path }]}
@@ -57,7 +73,7 @@ const jsonLd = [
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
-    image="/images/family-mp-lammers.jpeg"
+    image={familyMpLammers}
     imageAlt="Example of a Family Mission Portrait"
     title='Marriage & Family<br/><em>Mission Portrait™</em>'
     subtitle="A personalized visual legacy that captures your shared purpose, values, and vision — for married couples and families at every stage of life."
@@ -85,7 +101,7 @@ const jsonLd = [
           </div>
         </div>
         <div class="reveal reveal-d1">
-          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework — Core Values, Vision, Mission, and ID" class="w-full rounded-2xl" />
+          <Img src={missionPortraitGraphic} alt="Mission Portrait™ framework — Core Values, Vision, Mission, and ID" widths={[400, 640, 960, 1280]} sizes="(min-width: 1400px) 628px, (min-width: 1024px) 44vw, 100vw" kind="graphic" alpha class="w-full rounded-2xl" />
         </div>
       </div>
     </div>
@@ -107,7 +123,7 @@ const jsonLd = [
             controls
             preload="metadata"
             class="w-full aspect-video bg-charcoal"
-            poster="/images/family-mp-pitts.jpeg"
+            poster={videoPoster}
           >
             <source src="/videos/family-testimonial.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -134,13 +150,9 @@ const jsonLd = [
       </div>
 
       <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {[
-          { src: "/images/family-mp-lammers.jpeg", alt: "The Lammers Marriage Mission Portrait" },
-          { src: "/images/family-mp-pitts.jpeg", alt: "The Pitts Family Mission Portrait" },
-          { src: "/images/family-mp-hopson.jpeg", alt: "The Hopson Marriage Mission Portrait" },
-        ].map((portrait, i) => (
-          <button type="button" class:list={["reveal rounded-xl overflow-hidden border border-white/10 hover:border-ember/30 transition-all duration-300 cursor-pointer group portrait-trigger", `reveal-d${i + 1}`]} data-lightbox-src={portrait.src}>
-            <img src={portrait.src} alt={portrait.alt} class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+        {familyPortraits.map((portrait, i) => (
+          <button type="button" class:list={["reveal rounded-xl overflow-hidden border border-white/10 hover:border-ember/30 transition-all duration-300 cursor-pointer group portrait-trigger", `reveal-d${i + 1}`]} data-lightbox-src={portrait.full}>
+            <Img src={portrait.src} alt={portrait.alt} widths={[320, 480, 640, 960]} sizes="(min-width: 1088px) 325px, (min-width: 640px) 30vw, 100vw" kind="graphic" class="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
           </button>
         ))}
       </div>
@@ -372,7 +384,7 @@ const jsonLd = [
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Create your shared<br/><em class="ember-gradient">legacy.</em>'
-    image="/images/family-mp-hopson.jpeg"
+    image={familyMpHopson}
     buttonText="Get Started"
     buttonHref="/contact?interest=family-mission-portrait"
   />

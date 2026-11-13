@@ -5,6 +5,11 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import FaqList from '../components/FaqList.astro';
 import { abs, EMAIL, faqPage, ids, provider, type Faq } from '../data/site';
+import Img from '../components/Img.astro';
+import { coverSizes } from '../lib/images';
+import billLammers from '../assets/images/bill-lammers.jpg';
+import stephanieLammers from '../assets/images/stephanie-lammers.jpg';
+import businessWorkshopGroup from '../assets/images/business-workshop-group.jpg';
 
 const path = '/leadership-coaching/';
 
@@ -243,7 +248,7 @@ const jsonLd = [
       <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <div class="reveal bg-warm-white rounded-2xl border border-sand/50 overflow-hidden">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="/images/bill-lammers.jpg" alt="Bill Lammers" class="w-full h-full object-cover object-top" />
+            <Img src={billLammers} alt="Bill Lammers" widths={[400, 640, 1000]} sizes={coverSizes(billLammers, 4 / 3, [['(min-width: 1088px)', 500, 'px'], ['(min-width: 768px)', 46, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-8 md:p-10">
             <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Founder &amp; CEO</p>
@@ -255,7 +260,7 @@ const jsonLd = [
         </div>
         <div class="reveal reveal-d1 bg-warm-white rounded-2xl border border-sand/50 overflow-hidden">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="/images/stephanie-lammers.jpg" alt="Stephanie Lammers" class="w-full h-full object-cover object-top" />
+            <Img src={stephanieLammers} alt="Stephanie Lammers" widths={[400, 640, 1000]} sizes={coverSizes(stephanieLammers, 4 / 3, [['(min-width: 1088px)', 500, 'px'], ['(min-width: 768px)', 46, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-8 md:p-10">
             <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Co-Founder, Speaker &amp; Author</p>
@@ -309,7 +314,7 @@ const jsonLd = [
   <CallToAction
     title='Start with a<br/><em class="ember-gradient">conversation.</em>'
     description="Tell us about your goals and your team. We'll recommend the right next step."
-    image="/images/business-workshop-group.jpg"
+    image={businessWorkshopGroup}
     buttonText="Ask about coaching"
     buttonHref="/contact?interest=coaching"
   />

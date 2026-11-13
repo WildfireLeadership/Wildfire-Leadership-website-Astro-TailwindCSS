@@ -7,6 +7,8 @@ import CallToAction from '../components/CallToAction.astro';
 import QuickFacts from '../components/QuickFacts.astro';
 import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
 import { abs, faqPage, provider } from '../data/site';
+import lifestyle from '../assets/images/lifestyle.jpg';
+import sevenIgnitersDiagram from '../assets/images/7-igniters-diagram.png';
 
 const selfGuidedUrl = checkoutUrl(stripeLinks.sevenIgniters.selfGuided, '7-igniters', 'self-guided');
 const facilitatedUrl = checkoutUrl(stripeLinks.sevenIgniters.facilitated, '7-igniters', 'facilitated');
@@ -71,6 +73,7 @@ const jsonLd = [
 ---
 
 <BaseLayout
+  heroImage={lifestyle}
   title="The 7 Igniters™"
   description="The 7 Igniters™ turns your Mission Portrait™ into an action plan in seven stages. Self-guided for $35, or a $299 session with a Certified Facilitator."
   breadcrumbs={[{ name: 'The 7 Igniters™', path }]}
@@ -80,7 +83,7 @@ const jsonLd = [
   <!-- ===== HERO — Dark cinematic ===== -->
   <PageHero
     variant="dark"
-    image="/images/lifestyle.jpg"
+    image={lifestyle}
     title='The 7<br/><em>Igniters</em>'
     subtitle="Step 2: Bring your Mission Portrait to life. Turn your purpose into a clear plan for action."
   >
@@ -107,7 +110,8 @@ const jsonLd = [
     label="The Framework"
     title='From purpose<br/>to <em>potential.</em>'
     description="The 7 Igniters™ is a proven curriculum that turns your Mission Portrait™ into action. Seven stages guide you from self-discovery through goal-setting, assessments, and team building — so your purpose doesn't stay on paper."
-    image="/images/7-igniters-diagram.png"
+    image={sevenIgnitersDiagram}
+    imageKind="graphic"
     imageAlt="The 7 Igniters™ framework diagram"
     imagePosition="right"
     bg="white"

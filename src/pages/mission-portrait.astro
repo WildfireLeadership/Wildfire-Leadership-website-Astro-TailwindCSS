@@ -8,6 +8,12 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
 import QuickFacts from '../components/QuickFacts.astro';
 import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
 import { abs, faqPage, provider } from '../data/site';
+import heroMain from '../assets/images/hero-main.jpg';
+import missionPortraitGraphic from '../assets/images/mission-portrait-graphic.png';
+import portraitColeen from '../assets/images/portrait-coleen-full.png';
+import portraitZeb from '../assets/images/portrait-zeb-full.png';
+import portraitSarah from '../assets/images/portrait-sarah-full.png';
+import portraitRyan from '../assets/images/portrait-ryan-full.png';
 
 const selfGuidedUrl = checkoutUrl(stripeLinks.missionPortrait.selfGuided, 'mission-portrait', 'self-guided');
 const facilitatedUrl = checkoutUrl(stripeLinks.missionPortrait.facilitated, 'mission-portrait', 'facilitated');
@@ -73,6 +79,7 @@ const jsonLd = [
 ---
 
 <BaseLayout
+  heroImage={heroMain}
   title="Mission Portrait™"
   description="A one-page visual guide to your values, vision, and mission. Create your Mission Portrait™ self-guided for $35 or with a Certified Facilitator for $299."
   breadcrumbs={[{ name: 'Mission Portrait™', path }]}
@@ -82,7 +89,7 @@ const jsonLd = [
   <!-- ===== HERO — Dark cinematic ===== -->
   <PageHero
     variant="dark"
-    image="/images/hero-main.jpg"
+    image={heroMain}
     title='Mission<br/><em>Portrait</em>'
     subtitle="Step 1: Uncover your purpose. Create a visual reminder of who you are and the difference you want to make."
   >
@@ -105,7 +112,9 @@ const jsonLd = [
     label="The Tool"
     title='What is a<br/><em>Mission Portrait™?</em>'
     description="A Wildfire innovative tool, the custom-tailored Mission Portrait™ is a daily visual reminder of who you are and your mission. This compass points you toward your purpose of making a difference in other's lives."
-    image="/images/mission-portrait-what.png"
+    image={missionPortraitGraphic}
+    imageKind="graphic"
+    imageAlpha
     imageAlt="Mission Portrait™ example graphic"
     imagePosition="right"
     bg="white"
@@ -310,10 +319,10 @@ const jsonLd = [
       </div>
       <div class="reveal reveal-d2">
         <PortraitLightbox portraits={[
-          { src: "/images/portrait-coleen-full.png", name: "Brenda" },
-          { src: "/images/portrait-zeb-full.png", name: "Zeb" },
-          { src: "/images/portrait-sarah-full.png", name: "Sarah" },
-          { src: "/images/portrait-ryan-full.png", name: "Ryan" },
+          { src: portraitColeen, name: "Brenda" },
+          { src: portraitZeb, name: "Zeb" },
+          { src: portraitSarah, name: "Sarah", alpha: true },
+          { src: portraitRyan, name: "Ryan" },
         ]} />
       </div>
     </div>

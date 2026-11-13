@@ -6,7 +6,22 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import MapSection from '../components/MapSection.astro';
 import PortraitLightbox from '../components/PortraitLightbox.astro';
+import Img from '../components/Img.astro';
 import { abs, ids, provider } from '../data/site';
+import { HERO_WIDTHS, coverSizes, heroSizes } from '../lib/images';
+import heroMain from '../assets/images/hero-main.jpg';
+import missionPortraitGraphic from '../assets/images/mission-portrait-graphic.png';
+import sevenIgnitersGraphic from '../assets/images/7-igniters-graphic.jpg';
+import portraitColeen from '../assets/images/portrait-coleen-full.png';
+import portraitZeb from '../assets/images/portrait-zeb-full.png';
+import portraitSarah from '../assets/images/portrait-sarah-full.png';
+import portraitRyan from '../assets/images/portrait-ryan-full.png';
+import studentsMissionPortraits from '../assets/images/students-mission-portraits.jpg';
+import businessHero from '../assets/images/business-hero.jpg';
+import higherEdWorkshop from '../assets/images/higher-ed-workshop.jpg';
+import faithWorkshop from '../assets/images/faith-workshop.jpg';
+import lifestyle from '../assets/images/lifestyle.jpg';
+import businessWorkshopGroup from '../assets/images/business-workshop-group.jpg';
 
 const service = (name: string, path: string, description: string) => ({
   '@type': 'Offer',
@@ -36,14 +51,19 @@ const jsonLd = {
   fullTitle="Wildfire Leadership | Leadership Coaching & Mission Portrait™"
   description="Wildfire Leadership, founded by Bill and Stephanie Lammers and based in Charleston, South Carolina, offers leadership coaching and the Mission Portrait™."
   jsonLd={jsonLd}
+  heroImage={heroMain}
+  heroVariant="home"
 >
 
   <!-- ===== HERO — Cinematic full-bleed (Porsche-style immersive) ===== -->
   <section class="relative min-h-[760px] md:min-h-[900px] flex items-end overflow-hidden pt-32">
     <div class="absolute inset-0">
-      <img
-        src="/images/hero-main.jpg"
+      <Img
+        src={heroMain}
         alt="Wildfire Leadership"
+        widths={HERO_WIDTHS}
+        sizes={heroSizes(heroMain, 'home')}
+        priority
         class="absolute inset-0 w-full h-full object-cover"
         style="animation: heroZoom 20s ease-in-out infinite alternate;"
       />
@@ -130,7 +150,7 @@ const jsonLd = {
         <!-- Mission Portrait™ -->
         <a href="/mission-portrait" class="group reveal block rounded-2xl overflow-hidden bg-white border border-sand/50 card-glow lift">
           <div class="aspect-[16/9] overflow-hidden relative">
-            <img src="/images/mission-portrait-graphic.png" alt="Mission Portrait™" class="w-full h-full object-cover img-hover" />
+            <Img src={missionPortraitGraphic} alt="Mission Portrait™" widths={[400, 660, 1000, 1320]} sizes={coverSizes(missionPortraitGraphic, 16 / 9, [['(min-width: 1400px)', 658, 'px'], ['(min-width: 768px)', 47, 'vw'], ['', 100, 'vw']])} kind="graphic" alpha class="w-full h-full object-cover img-hover" />
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           <div class="relative z-10 p-8 md:p-10">
@@ -148,7 +168,7 @@ const jsonLd = {
         <!-- 7 Igniters™ -->
         <a href="/7-igniters" class="group reveal reveal-d1 block rounded-2xl overflow-hidden bg-white border border-sand/50 card-glow lift">
           <div class="aspect-[16/9] overflow-hidden relative bg-white">
-            <img src="/images/7-igniters-graphic.jpg" alt="The 7 Igniters™" class="w-full h-full object-contain img-hover" />
+            <Img src={sevenIgnitersGraphic} alt="The 7 Igniters™" widths={[400, 600, 800]} sizes="(min-width: 1400px) 393px, (min-width: 768px) 28vw, 60vw" kind="graphic" class="w-full h-full object-contain img-hover" />
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           <div class="relative z-10 p-8 md:p-10">
@@ -201,10 +221,10 @@ const jsonLd = {
       </div>
       <div class="reveal-scale">
         <PortraitLightbox portraits={[
-          { src: "/images/portrait-coleen-full.png", name: "Brenda" },
-          { src: "/images/portrait-zeb-full.png", name: "Zeb" },
-          { src: "/images/portrait-sarah-full.png", name: "Sarah" },
-          { src: "/images/portrait-ryan-full.png", name: "Ryan" },
+          { src: portraitColeen, name: "Brenda" },
+          { src: portraitZeb, name: "Zeb" },
+          { src: portraitSarah, name: "Sarah", alpha: true },
+          { src: portraitRyan, name: "Ryan" },
         ]} />
       </div>
     </div>
@@ -299,16 +319,16 @@ const jsonLd = {
     <!-- Edge-to-edge scroll gallery (Porsche-style) -->
     <div class="scroll-gallery px-5 md:px-8 reveal reveal-d2">
       {[
-        { src: "/images/students-mission-portraits.jpg", alt: "Students proudly holding their Mission Portrait™s" },
-        { src: "/images/business-hero.jpg", alt: "Business workshop" },
-        { src: "/images/higher-ed-workshop.jpg", alt: "College students working on Mission Portrait™s" },
-        { src: "/images/hero.jpg", alt: "Wildfire Leadership event" },
-        { src: "/images/faith-workshop.jpg", alt: "Community workshop participants" },
-        { src: "/images/lifestyle.jpg", alt: "Mission Portrait™ workbook" },
-        { src: "/images/business-workshop-group.jpg", alt: "Business team in a Wildfire Mission Portrait™ workshop" },
+        { src: studentsMissionPortraits, alt: "Students proudly holding their Mission Portrait™s" },
+        { src: businessHero, alt: "Business workshop" },
+        { src: higherEdWorkshop, alt: "College students working on Mission Portrait™s" },
+        { src: heroMain, alt: "Wildfire Leadership event" },
+        { src: faithWorkshop, alt: "Community workshop participants" },
+        { src: lifestyle, alt: "Mission Portrait™ workbook" },
+        { src: businessWorkshopGroup, alt: "Business team in a Wildfire Mission Portrait™ workshop" },
       ].map((img) => (
         <div class="w-[320px] md:w-[420px] aspect-[4/3] rounded-xl overflow-hidden group">
-          <img src={img.src} alt={img.alt} class="w-full h-full object-cover img-hover" />
+          <Img src={img.src} alt={img.alt} widths={[360, 480, 640, 960, 1280]} sizes={coverSizes(img.src, 4 / 3, [['(min-width: 768px)', 420, 'px'], ['', 320, 'px']])} class="w-full h-full object-cover img-hover" />
         </div>
       ))}
     </div>
@@ -327,7 +347,7 @@ const jsonLd = {
   <CallToAction
     title='Ready to ignite<br/><em class="ember-gradient">your journey?</em>'
     description="Take the first step toward discovering your mission and unlocking your full potential."
-    image="/images/hero-cta.jpg"
+    image={lifestyle}
     buttonText="Start with your Mission Portrait"
     buttonHref="/mission-portrait#pricing"
   />

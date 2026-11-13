@@ -1,8 +1,13 @@
 ---
+import type { ImageMetadata } from 'astro';
+import Img from './Img.astro';
+import { HERO_WIDTHS, heroSizes } from '../lib/images';
+
 interface Props {
   title: string;
   subtitle?: string;
-  image?: string;
+  /** The page's LCP image: also pass it to BaseLayout as heroImage so it is preloaded. */
+  image?: ImageMetadata;
   imageAlt?: string;
   /** 'dark' = image with light text overlay, 'light' = clean text on white bg */
   variant?: 'dark' | 'light';
@@ -23,9 +28,12 @@ const {
 {variant === 'dark' && image ? (
   <section class:list={["relative flex items-end overflow-hidden", fullHeight ? "h-screen" : "h-[70vh] min-h-[500px]"]}>
     <div class="absolute inset-0">
-      <img
+      <Img
         src={image}
         alt={imageAlt}
+        widths={HERO_WIDTHS}
+        sizes={heroSizes(image, 'page')}
+        priority
         class="absolute inset-0 w-full h-full object-cover"
         style="animation: heroZoom 20s ease-in-out infinite alternate;"
       />

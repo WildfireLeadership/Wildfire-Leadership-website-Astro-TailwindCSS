@@ -3,6 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 import { abs, provider } from '../data/site';
+import Img from '../components/Img.astro';
+import { lightboxSrc } from '../lib/images';
+import businessHero from '../assets/images/business-hero.jpg';
+import businessWorkshopClose from '../assets/images/business-workshop-close.jpg';
+import missionPortraitGraphic from '../assets/images/mission-portrait-graphic.png';
+import sevenIgnitersDiagram from '../assets/images/7-igniters-diagram.png';
+import kellerAerial from '../assets/images/keller-portrait-aerial.jpg';
+import kellerOffice from '../assets/images/keller-portrait-office.jpg';
+import clientLogo1 from '../assets/images/client-logo-1.jpg';
+import clientLogo2 from '../assets/images/client-logo-2.jpg';
+import clientLogo3 from '../assets/images/client-logo-3.jpg';
+import clientLogo4 from '../assets/images/client-logo-4.jpg';
+import clientLogo5 from '../assets/images/client-logo-5.jpg';
+import clientLogo6 from '../assets/images/client-logo-6.jpg';
+import clientLogo7 from '../assets/images/client-logo-7.jpg';
+import clientLogo8 from '../assets/images/client-logo-8.jpg';
+import clientLogo9 from '../assets/images/client-logo-9.jpg';
 
 const path = '/business/';
 const jsonLd = {
@@ -22,9 +39,13 @@ const jsonLd = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Keynote Speaking', description: 'A keynote on purpose-driven leadership for conferences, retreats, or company events.', provider } },
     ] },
 };
+
+const kellerAerialFull = await lightboxSrc(kellerAerial);
+const kellerOfficeFull = await lightboxSrc(kellerOffice);
 ---
 
 <BaseLayout
+  heroImage={businessHero}
   title="Ignite Business: Leadership Development"
   description="Leadership coaching, workshops, keynotes, and facilitator certification that help businesses build purpose-driven leaders and aligned teams."
   breadcrumbs={[{ name: 'Business & Organizations', path }]}
@@ -34,7 +55,7 @@ const jsonLd = {
   <!-- ===== HERO ===== -->
   <PageHero
     variant="dark"
-    image="/images/business-hero.jpg"
+    image={businessHero}
     imageAlt="Wildfire Leadership business workshop"
     title='Ignite<br/><em>Business</em>'
     subtitle="Leadership coaching, development workshops, and team building that help your people uncover purpose and unleash their potential."
@@ -72,17 +93,17 @@ const jsonLd = {
       <p class="reveal text-[11px] uppercase tracking-[0.3em] text-stone text-center mb-10">Some of the organizations we partner with</p>
       <div class="reveal reveal-d1 flex flex-wrap justify-center items-center gap-8 md:gap-12">
         {[
-          { src: "/images/client-logo-2.jpg", alt: "Hewlett Packard" },
-          { src: "/images/client-logo-1.jpg", alt: "Keller Logistics" },
-          { src: "/images/client-logo-5.jpg", alt: "Flatrock Bridge Group" },
-          { src: "/images/client-logo-7.jpg", alt: "Elevated Coastal Productions" },
-          { src: "/images/client-logo-3.jpg", alt: "Get Me Pallets" },
-          { src: "/images/client-logo-4.jpg", alt: "Tap Culture Coffee" },
-          { src: "/images/client-logo-6.jpg", alt: "Herron's Amish Furniture" },
-          { src: "/images/client-logo-8.jpg", alt: "Coastal Creek Design" },
-          { src: "/images/client-logo-9.jpg", alt: "Vistage" },
+          { src: clientLogo2, alt: "Hewlett Packard" },
+          { src: clientLogo1, alt: "Keller Logistics" },
+          { src: clientLogo5, alt: "Flatrock Bridge Group" },
+          { src: clientLogo7, alt: "Elevated Coastal Productions" },
+          { src: clientLogo3, alt: "Get Me Pallets" },
+          { src: clientLogo4, alt: "Tap Culture Coffee" },
+          { src: clientLogo6, alt: "Herron's Amish Furniture" },
+          { src: clientLogo8, alt: "Coastal Creek Design" },
+          { src: clientLogo9, alt: "Vistage" },
         ].map((logo) => (
-          <img src={logo.src} alt={logo.alt} class="h-14 md:h-16 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity duration-300" />
+          <Img src={logo.src} alt={logo.alt} width={64} kind="graphic" class="h-14 md:h-16 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity duration-300" />
         ))}
       </div>
     </div>
@@ -252,7 +273,7 @@ const jsonLd = {
 
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <a href="/mission-portrait" class="reveal group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/mission-portrait-diagram.png" alt="Mission Portrait™ framework diagram showing Core Values, Vision, Mission, Passage, and ID components" class="w-full" />
+          <Img src={missionPortraitGraphic} alt="Mission Portrait™ framework diagram showing Core Values, Vision, Mission, Passage, and ID components" widths={[440, 660, 880]} sizes="(min-width: 920px) 436px, (min-width: 768px) 47vw, 100vw" kind="graphic" alpha class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">Mission Portrait™</h3>
             <p class="text-stone text-sm leading-relaxed mb-3">
@@ -262,7 +283,7 @@ const jsonLd = {
           </div>
         </a>
         <a href="/7-igniters" class="reveal reveal-d1 group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
-          <img src="/images/7-igniters-diagram.png" alt="The 7 Igniters™ framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" class="w-full" />
+          <Img src={sevenIgnitersDiagram} alt="The 7 Igniters™ framework: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, Unleash Potential" widths={[440, 660, 880]} sizes="(min-width: 920px) 436px, (min-width: 768px) 47vw, 100vw" kind="graphic" class="w-full" />
           <div class="p-6 md:p-8">
             <h3 class="font-display text-xl text-charcoal leading-[1.1] mb-2">The 7 Igniters™</h3>
             <p class="text-stone text-sm leading-relaxed mb-3">
@@ -323,11 +344,11 @@ const jsonLd = {
         </p>
         <p class="text-stone text-sm text-center mb-8">Click either portrait to view it full size.</p>
         <div class="grid md:grid-cols-2 gap-6 mb-8">
-          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-aerial.jpg">
-            <img src="/images/keller-portrait-aerial.jpg" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full group-hover:scale-105 transition-transform duration-500" />
+          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src={kellerAerialFull}>
+            <Img src={kellerAerial} widths={[400, 640, 960, 1240]} sizes="(min-width: 1400px) 615px, (min-width: 768px) 45vw, 100vw" kind="graphic" alt="Keller Logistics company Mission Portrait™ overlaid on aerial view of their facility" class="w-full group-hover:scale-105 transition-transform duration-500" />
           </button>
-          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src="/images/keller-portrait-office.jpg">
-            <img src="/images/keller-portrait-office.jpg" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full group-hover:scale-105 transition-transform duration-500" />
+          <button type="button" class="portrait-trigger rounded-xl overflow-hidden shadow-lg cursor-pointer group" data-lightbox-src={kellerOfficeFull}>
+            <Img src={kellerOffice} widths={[400, 640, 960, 1240]} sizes="(min-width: 1400px) 615px, (min-width: 768px) 45vw, 100vw" kind="graphic" alt="Keller Logistics Mission Portrait™ etched into the glass doors of their main conference room" class="w-full group-hover:scale-105 transition-transform duration-500" />
           </button>
         </div>
         <div class="max-w-2xl mx-auto text-center">
@@ -467,7 +488,7 @@ const jsonLd = {
   <!-- ===== CTA ===== -->
   <CallToAction
     title='Ignite your<br/><em class="ember-gradient">organization.</em>'
-    image="/images/business-workshop-close.jpg"
+    image={businessWorkshopClose}
     buttonText="Schedule a Consultation"
     buttonHref="/contact?interest=business"
   />

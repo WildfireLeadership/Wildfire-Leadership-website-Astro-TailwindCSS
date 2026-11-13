@@ -1,4 +1,8 @@
 ---
+import Img from './Img.astro';
+import logoWhite from '../assets/images/logo-white.png';
+import logoDark from '../assets/images/logo-dark.png';
+
 const currentPath = Astro.url.pathname;
 
 const navGroups = [
@@ -47,15 +51,23 @@ const investUrl = 'https://invest.wildfireleadership.com';
   <nav class="max-w-[1400px] mx-auto px-5 md:px-8 h-20 md:h-24 flex items-center justify-between">
     <!-- Left: Logo -->
     <a href="/" class="relative z-10 shrink-0">
-      <img
-        src="/images/logo-white.png"
+      <Img
+        src={logoWhite}
         alt="Wildfire Leadership"
+        width={230}
+        kind="graphic"
+        alpha
+        eager
         class="h-16 md:h-20 w-auto"
         id="header-logo-white"
       />
-      <img
-        src="/images/logo-dark.png"
+      <Img
+        src={logoDark}
         alt="Wildfire Leadership"
+        width={230}
+        kind="graphic"
+        alpha
+        eager
         class="h-16 md:h-20 w-auto hidden"
         id="header-logo-dark"
       />
@@ -120,7 +132,7 @@ const investUrl = 'https://invest.wildfireleadership.com';
   <div class="relative h-full flex flex-col">
     <div class="px-5 h-16 flex justify-between items-center border-b border-sand/50 bg-white">
       <a href="/" class="relative inline-block">
-        <img src="/images/logo-dark.png" alt="Wildfire Leadership" class="h-14 w-auto" />
+        <Img src={logoDark} alt="Wildfire Leadership" width={230} kind="graphic" alpha class="h-14 w-auto" />
         <span class="absolute text-[7px] text-charcoal/40 leading-none" style="right: 1px; bottom: 5px;">™</span>
       </a>
       <button id="mobile-close-btn-portal" class="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors rounded-lg hover:bg-warm-white" aria-label="Close menu">

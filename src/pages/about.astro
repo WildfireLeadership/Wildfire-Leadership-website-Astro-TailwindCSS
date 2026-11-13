@@ -4,6 +4,8 @@ import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import CallToAction from '../components/CallToAction.astro';
 import { abs, EMAIL, ids } from '../data/site';
+import heroMain from '../assets/images/hero-main.jpg';
+import lifestyle from '../assets/images/lifestyle.jpg';
 
 const facts = [
   { term: 'Who we are', detail: 'Wildfire Leadership (Wildfire Leadership, LLC) helps individuals, families, and organizations uncover purpose and unleash potential through practical, visual tools and proven frameworks.' },
@@ -19,6 +21,7 @@ const facts = [
 ---
 
 <BaseLayout
+  heroImage={heroMain}
   title="Our Story"
   description="Wildfire Leadership, based in Charleston, South Carolina, was founded by Bill and Stephanie Lammers to help people uncover purpose and unleash potential."
   breadcrumbs={[{ name: 'Our Story', path: '/about/' }]}
@@ -28,7 +31,7 @@ const facts = [
   <!-- ===== HERO — Dark hero with real image ===== -->
   <PageHero
     variant="dark"
-    image="/images/hero-main.jpg"
+    image={heroMain}
     imageAlt="Wildfire Leadership team"
     title='Our <em>Story</em>'
     subtitle="Wildfire Leadership exists to help ignite your journey — equipping you with practical, visual, and straightforward tools proven to unleash your potential."
@@ -93,7 +96,7 @@ const facts = [
     label="Our Mission"
     title='Ignite your journey to<br/><em>discover purpose.</em>'
     description="We know what it's like to search for direction — in your career, your family, your organization. Wildfire Leadership exists to help you find it. With over 50,000 Mission Portraits completed across education, business, churches, and families, we equip people with practical, visual tools that make purpose clear and actionable."
-    image="/images/hero-cta.jpg"
+    image={lifestyle}
     imageAlt="Wildfire Leadership mission"
     imagePosition="right"
     bg="warm-white"
