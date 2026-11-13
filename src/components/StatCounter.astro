@@ -25,7 +25,7 @@ const labelClass = bg === 'dark' ? 'text-white/50' : 'text-stone';
             data-count={stat.value}
             data-suffix={stat.suffix || ''}
           >
-            0{stat.suffix || ''}
+            {stat.value.toLocaleString('en-US')}{stat.suffix || ''}
           </p>
           <p class:list={["mt-3 text-[13px] leading-relaxed whitespace-pre-line", labelClass]}>{stat.label}</p>
         </div>

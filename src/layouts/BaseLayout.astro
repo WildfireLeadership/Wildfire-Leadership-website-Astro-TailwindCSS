@@ -104,29 +104,38 @@ const structuredData = {
       );
       document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach((el) => observer.observe(el));
 
-      // Counters
-      document.querySelectorAll('[data-count]').forEach((el) => {
+      // Counters. The HTML already holds the final number, so crawlers, visitors
+      // without JavaScript and visitors who prefer reduced motion read the real
+      // value. Otherwise reset to 0 here (the row is still hidden by .reveal)
+      // and count up once the counter scrolls into view.
+      const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+      if (counters.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const format = (n: number, suffix: string) => n.toLocaleString('en-US') + suffix;
         const counterObs = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
-              const target = parseInt((entry.target as HTMLElement).dataset.count || '0');
-              const suffix = (entry.target as HTMLElement).dataset.suffix || '';
+              const el = entry.target as HTMLElement;
+              counterObs.unobserve(el);
+              const target = parseInt(el.dataset.count || '0', 10);
+              const suffix = el.dataset.suffix || '';
               const start = performance.now();
               const animate = (now: number) => {
                 const p = Math.min((now - start) / 2000, 1);
                 const eased = 1 - Math.pow(1 - p, 4);
-                (entry.target as HTMLElement).textContent = Math.floor(eased * target).toLocaleString() + suffix;
+                el.textContent = format(Math.floor(eased * target), suffix);
                 if (p < 1) requestAnimationFrame(animate);
               };
               requestAnimationFrame(animate);
-              counterObs.unobserve(entry.target);
             });
           },
           { threshold: 0.5 }
         );
-        counterObs.observe(el);
-      });
+        counters.forEach((el) => {
+          el.textContent = format(0, el.dataset.suffix || '');
+          counterObs.observe(el);
+        });
+      }
     </script>
   </body>
 </html>
