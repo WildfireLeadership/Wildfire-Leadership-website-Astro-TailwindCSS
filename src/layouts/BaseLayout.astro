@@ -52,7 +52,7 @@ const structuredData = {
     {noindex && <meta name="robots" content="noindex" />}
 
     <!-- Canonical -->
-    <link rel="canonical" href={canonicalURL.href} />
+    {!noindex && <link rel="canonical" href={canonicalURL.href} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
