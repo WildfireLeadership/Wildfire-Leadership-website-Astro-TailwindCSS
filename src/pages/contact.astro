@@ -33,6 +33,9 @@ import { abs, ids } from '../data/site';
           <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
             We'd love to <em>hear from you.</em>
           </h2>
+          <p class="contact-direct reveal reveal-d2 mt-6 max-w-xl mx-auto text-base md:text-lg text-stone leading-relaxed">
+            Email <a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a> or use the form below. We respond within 24 business hours.
+          </p>
         </div>
 
         <form action="https://formsubmit.co/info@wildfireleadership.com" method="POST" class="reveal reveal-d2 space-y-8">
@@ -327,3 +330,14 @@ import { abs, ids } from '../data/site';
 </script>
 
 </BaseLayout>
+
+<style>
+  .contact-direct a {
+    color: var(--color-ember);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .contact-direct a:hover {
+    color: var(--color-charcoal);
+  }
+</style>
