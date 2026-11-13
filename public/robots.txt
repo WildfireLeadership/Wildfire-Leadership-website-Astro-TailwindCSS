@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wildfireleadership.com/sitemap-index.xml
+# AI search and answer engines are welcome to read this site.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.wildfireleadership.com/sitemap-index.xml
