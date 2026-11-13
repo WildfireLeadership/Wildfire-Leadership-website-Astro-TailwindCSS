@@ -61,14 +61,6 @@ export const organization = {
     addressRegion: 'SC',
     addressCountry: 'US',
   },
-  areaServed: [
-    {
-      '@type': 'City',
-      name: 'Charleston',
-      containedInPlace: { '@type': 'State', name: 'South Carolina' },
-    },
-    { '@type': 'Country', name: 'United States' },
-  ],
   sameAs: [INSTAGRAM_URL],
   founder: [
     { '@type': 'Person', '@id': ids.bill, name: 'Bill Lammers' },
