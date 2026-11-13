@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '@vercel/analytics/astro';
 import { organization, website, breadcrumbList, type Crumb } from '../data/site';
+import type { ImageMetadata } from 'astro';
+import { heroPreload } from '../lib/images';
 
 interface Props {
   title: string;
@@ -16,6 +18,10 @@ interface Props {
   /** Extra JSON-LD nodes for this page (Service, FAQPage, Person...). */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  /** The hero image (the LCP element), preloaded with the same sources the hero uses. */
+  heroImage?: ImageMetadata;
+  /** 'home' for the homepage hero, 'page' for PageHero. */
+  heroVariant?: 'home' | 'page';
 }
 
 const {
@@ -26,7 +32,11 @@ const {
   breadcrumbs,
   jsonLd = [],
   noindex = false,
+  heroImage,
+  heroVariant = 'page',
 } = Astro.props;
+
+const preload = heroImage ? await heroPreload(heroImage, heroVariant) : null;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
@@ -73,6 +83,10 @@ const structuredData = {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+
+    {preload && (
+      <link rel="preload" as="image" type="image/avif" imagesrcset={preload.srcset} imagesizes={preload.sizes} fetchpriority="high" />
+    )}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
