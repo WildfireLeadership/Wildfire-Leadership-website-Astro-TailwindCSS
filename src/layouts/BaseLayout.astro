@@ -36,6 +36,8 @@ const {
   heroVariant = 'page',
 } = Astro.props;
 
+const FONTS_CSS = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap';
+
 const preload = heroImage ? await heroPreload(heroImage, heroVariant) : null;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -91,7 +93,10 @@ const structuredData = {
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Loaded without blocking first paint: text shows in the fallback font until the
+         web fonts arrive, which display=swap already allows. -->
+    <link rel="preload" as="style" href={FONTS_CSS} onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href={FONTS_CSS} /></noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
