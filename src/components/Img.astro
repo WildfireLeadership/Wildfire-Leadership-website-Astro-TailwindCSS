@@ -7,7 +7,8 @@
  * (shown at one CSS width; 1x and 2x files). Class, style, id and data-*
  * go on the <img>, so existing CSS and scripts keep working. The <picture>
  * wrapper uses display: contents, so the <img> lays out exactly as it did
- * without it (flex item, percentage heights).
+ * without it (flex item, percentage heights); the <source> elements are
+ * display: none so they do not become empty flex or grid items.
  *
  * priority: the page's LCP image (eager, fetchpriority high).
  * eager: above the fold on every screen but not the LCP (header logo).
@@ -41,8 +42,8 @@ const sourceSizes = width ? undefined : sizes;
 ---
 
 <picture class="contents">
-  <source type="image/avif" srcset={s.avif} sizes={sourceSizes} />
-  <source type="image/webp" srcset={s.webp} sizes={sourceSizes} />
+  <source type="image/avif" srcset={s.avif} sizes={sourceSizes} class="hidden" />
+  <source type="image/webp" srcset={s.webp} sizes={sourceSizes} class="hidden" />
   <img
     src={s.fallback}
     width={s.width}
