@@ -5,6 +5,7 @@ import SplitSection from '../components/SplitSection.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import PortraitLightbox from '../components/PortraitLightbox.astro';
+import QuickFacts from '../components/QuickFacts.astro';
 import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
 import { abs, faqPage, provider } from '../data/site';
 
@@ -73,7 +74,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Mission Portrait™"
-  description="A customized visual daily reminder of who you are and your mission. Discover your purpose with Wildfire Leadership's Mission Portrait™."
+  description="A one-page visual guide to your values, vision, and mission. Create your Mission Portrait™ self-guided for $35 or with a Certified Facilitator for $299."
   breadcrumbs={[{ name: 'Mission Portrait™', path }]}
   jsonLd={jsonLd}
 >
@@ -88,6 +89,16 @@ const jsonLd = [
     <a href="#pricing" class="inline-flex mt-7 px-7 py-4 rounded-full bg-ember text-white font-medium hover:bg-charcoal transition-colors">Choose your Mission Portrait option</a>
   </PageHero>
 
+  <QuickFacts
+    label="Mission Portrait™ at a Glance"
+    facts={[
+      { term: 'What it is', detail: 'A one-page visual guide to your core values, vision, and mission. A Wildfire Leadership tool.' },
+      { term: "Who it's for", detail: 'Students, individuals, couples, families, and organizations.' },
+      { term: 'What you get', detail: 'A customized digital Mission Portrait™, plus the full PDF workbook to keep.' },
+      { term: 'What it costs', detail: '$35 self-guided (one-time purchase), or $299 for a session with a Certified Facilitator.' },
+      { term: 'How long it takes', detail: 'About 1 hour self-guided, or a focused 60-minute virtual session.' },
+    ]}
+  />
 
   <!-- ===== WHAT IS A MISSION PORTRAIT — White bg, split layout ===== -->
   <SplitSection

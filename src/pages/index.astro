@@ -6,9 +6,37 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import MapSection from '../components/MapSection.astro';
 import PortraitLightbox from '../components/PortraitLightbox.astro';
+import { abs, ids, provider } from '../data/site';
+
+const service = (name: string, path: string, description: string) => ({
+  '@type': 'Offer',
+  itemOffered: { '@type': 'Service', name, description, url: abs(path), provider },
+});
+
+// Merges into the Organization node: what Wildfire offers, as this page states it.
+const jsonLd = {
+  '@id': ids.organization,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Wildfire Leadership tools and services',
+    itemListElement: [
+      service('Mission Portrait™', '/mission-portrait/', 'A customized visual daily reminder of your personal mission and purpose. $35 self-guided, or $299 with a Certified Facilitator.'),
+      service('The 7 Igniters™', '/7-igniters/', 'A proven seven-step framework from purpose to potential.'),
+      service('Leadership coaching', '/leadership-coaching/', 'Personalized coaching for individuals and teams.'),
+      service('Workshops', '/workshops/', 'Hands-on leadership, team, marriage, and family workshops.'),
+      service('Keynote speaking', '/workshops/', 'Keynotes by Bill and Stephanie Lammers.'),
+      service('Facilitator certification', '/facilitators/', 'Training to become a certified Wildfire facilitator.'),
+    ],
+  },
+};
 ---
 
-<BaseLayout title="Uncover Purpose. Unleash Potential">
+<BaseLayout
+  title="Uncover Purpose. Unleash Potential"
+  fullTitle="Wildfire Leadership | Leadership Coaching, Charleston SC"
+  description="Charleston, SC-based Wildfire Leadership, founded by Bill and Stephanie Lammers, offers leadership coaching, workshops, keynotes, and the Mission Portrait™."
+  jsonLd={jsonLd}
+>
 
   <!-- ===== HERO — Cinematic full-bleed (Porsche-style immersive) ===== -->
   <section class="relative min-h-[760px] md:min-h-[900px] flex items-end overflow-hidden pt-32">
@@ -24,6 +52,7 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
     </div>
 
     <div class="relative max-w-[1400px] mx-auto px-5 md:px-8 pb-20 md:pb-28 w-full">
+      <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-white/70 mb-6">Wildfire Leadership · Charleston, South Carolina</p>
       <h1 class="font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.9] tracking-tight text-white">
         <span class="block reveal">Uncover</span>
         <span class="block reveal reveal-d1"><em class="ember-gradient">Purpose.</em></span>
@@ -80,6 +109,9 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
         <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">What We Do</p>
         <p class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-[3.5rem] text-charcoal leading-[1.2]">
           We help individuals, families, and organizations <em class="text-ember">uncover purpose</em> and <em class="text-ember">unleash potential</em> through proprietary, visual tools and proven frameworks.
+        </p>
+        <p class="what-we-do reveal reveal-d2 mt-10 text-base md:text-lg text-stone leading-relaxed max-w-3xl">
+          Founded by Bill and Stephanie Lammers and based in Charleston, South Carolina, Wildfire Leadership offers <a href="/leadership-coaching">leadership coaching</a>, <a href="/workshops">workshops</a>, keynote speaking, and <a href="/facilitators">facilitator certification</a> for schools, businesses, churches, and families. Start with a <a href="/mission-portrait#pricing">Mission Portrait™</a>: $35 self-guided, or $299 with a Certified Facilitator. <a href="/about">Read our story</a>.
         </p>
       </div>
     </div>
@@ -301,3 +333,15 @@ import PortraitLightbox from '../components/PortraitLightbox.astro';
   />
 
 </BaseLayout>
+
+<style>
+  .what-we-do a {
+    color: var(--color-charcoal);
+    text-decoration: underline;
+    text-decoration-color: rgba(224, 53, 0, 0.5);
+    text-underline-offset: 4px;
+  }
+  .what-we-do a:hover {
+    color: var(--color-ember);
+  }
+</style>

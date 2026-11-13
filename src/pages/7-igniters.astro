@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import StatCounter from '../components/StatCounter.astro';
 import CallToAction from '../components/CallToAction.astro';
+import QuickFacts from '../components/QuickFacts.astro';
 import { stripeLinks, checkoutUrl, isStripeConfigured } from '../data/stripe';
 import { abs, faqPage, provider } from '../data/site';
 
@@ -71,7 +72,7 @@ const jsonLd = [
 
 <BaseLayout
   title="The 7 Igniters™"
-  description="A proven seven-step framework from purpose to potential. Each stage of your journey ignites something within you."
+  description="The 7 Igniters™ turns your Mission Portrait™ into an action plan in seven stages. Self-guided for $35, or a $299 session with a Certified Facilitator."
   breadcrumbs={[{ name: 'The 7 Igniters™', path }]}
   jsonLd={jsonLd}
 >
@@ -85,6 +86,17 @@ const jsonLd = [
   >
     <a href="#pricing" class="inline-flex mt-7 px-7 py-4 rounded-full bg-ember text-white font-medium hover:bg-charcoal transition-colors">Choose your 7 Igniters option</a>
   </PageHero>
+
+  <QuickFacts
+    label="The 7 Igniters™ at a Glance"
+    facts={[
+      { term: 'What it is', detail: 'A seven-stage framework that turns your Mission Portrait™ into an action plan. A Wildfire Leadership tool.' },
+      { term: "Who it's for", detail: 'Individuals, for personal growth and career clarity, and teams, for alignment and leadership development.' },
+      { term: 'What you get', detail: 'A PDF workbook with goal-setting and action planning tools, or personalized coaching in a facilitated session.' },
+      { term: 'What it costs', detail: '$35 self-guided (one-time purchase), or $299 for a session with a Certified Facilitator.' },
+      { term: 'How long it takes', detail: 'About 1 hour self-guided, or a focused 60-minute virtual session.' },
+    ]}
+  />
 
   <div class="bg-warm-white py-6 px-5 text-center text-base">
     Already have a Mission Portrait™? Bring it with you. Starting fresh? <a href="/mission-portrait#pricing" class="underline underline-offset-4 hover:text-ember">Complete Step 1 first.</a>

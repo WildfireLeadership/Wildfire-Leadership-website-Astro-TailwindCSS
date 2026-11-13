@@ -1,0 +1,27 @@
+---
+/**
+ * A short "at a glance" strip for the top of a product page: what it is, who
+ * it is for, what you get, what it costs, how long it takes. Use only facts the
+ * same page states further down.
+ */
+interface Props {
+  label?: string;
+  facts: { term: string; detail: string }[];
+}
+
+const { label = 'At a Glance', facts } = Astro.props;
+---
+
+<section class="relative py-14 md:py-20 bg-white border-b border-sand/60">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+    <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-8">{label}</p>
+    <dl class="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-8">
+      {facts.map((f, i) => (
+        <div class:list={["reveal border-t border-sand/70 pt-5", `reveal-d${Math.min(i + 1, 5)}`]}>
+          <dt class="text-[11px] uppercase tracking-[0.2em] text-stone font-medium mb-2">{f.term}</dt>
+          <dd class="text-base text-charcoal/80 leading-relaxed">{f.detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

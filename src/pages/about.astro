@@ -3,12 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
 import CallToAction from '../components/CallToAction.astro';
-import { abs, ids } from '../data/site';
+import { abs, EMAIL, ids } from '../data/site';
+
+const facts = [
+  { term: 'Who we are', detail: 'Wildfire Leadership (Wildfire Leadership, LLC) helps individuals, families, and organizations uncover purpose and unleash potential through practical, visual tools and proven frameworks.' },
+  { term: 'Based in', detail: 'Charleston, South Carolina.' },
+  { term: 'Founded by', detail: 'Bill Lammers, Founder &amp; CEO, and Stephanie Lammers, Co-Founder. <a href="/team">Meet the team</a>.' },
+  { term: 'Our tools', detail: 'The <a href="/mission-portrait">Mission Portrait™</a> and <a href="/7-igniters">the 7 Igniters™</a>, supported by over 20 proven assessments such as Working Genius and DISC.' },
+  { term: 'Who we serve', detail: 'Schools (K-12 and higher education), businesses and organizations, churches, nonprofits, and community organizations, and individuals, couples, and families.' },
+  { term: 'What we offer', detail: '<a href="/leadership-coaching">Leadership coaching</a>, <a href="/workshops">workshops</a>, keynote speaking, <a href="/facilitators">facilitator certification</a>, curriculum licensing, and <a href="https://invest.wildfireleadership.com">INVEST Marriage</a>.' },
+  { term: 'Our reach', detail: 'More than 50,000 Mission Portraits completed and more than 70 certified facilitators, with a presence in 32 states and 13 countries.' },
+  { term: 'Giving back', detail: '10% of all proceeds support <a href="https://www.theigniteacademy.org/">Ignite Academy</a>, a 501(c)(3) Bill and Stephanie founded.' },
+  { term: 'Contact', detail: `<a href="mailto:${EMAIL}">${EMAIL}</a> or the <a href="/contact">contact form</a>.` },
+];
 ---
 
 <BaseLayout
   title="Our Story"
-  description="Learn about Wildfire Leadership's mission to help individuals and organizations discover their purpose and unleash their potential."
+  description="Wildfire Leadership, based in Charleston, South Carolina, was founded by Bill and Stephanie Lammers to help people uncover purpose and unleash potential."
   breadcrumbs={[{ name: 'Our Story', path: '/about/' }]}
   jsonLd={{ '@type': 'AboutPage', '@id': `${abs('/about/')}#page`, url: abs('/about/'), name: 'Our Story', about: { '@id': ids.organization }, isPartOf: { '@id': ids.website } }}
 >
@@ -21,6 +33,28 @@ import { abs, ids } from '../data/site';
     title='Our <em>Story</em>'
     subtitle="Wildfire Leadership exists to help ignite your journey — equipping you with practical, visual, and straightforward tools proven to unleash your potential."
   />
+
+  <!-- ===== AT A GLANCE ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-3 gap-12 lg:gap-20">
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">At a Glance</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Wildfire, <em>in short.</em>
+          </h2>
+        </div>
+        <dl class="about-facts lg:col-span-2 divide-y divide-sand/70 border-y border-sand/70">
+          {facts.map((f, i) => (
+            <div class:list={["reveal grid sm:grid-cols-3 gap-2 sm:gap-8 py-6", `reveal-d${Math.min(i + 1, 5)}`]}>
+              <dt class="text-[11px] uppercase tracking-[0.2em] text-stone font-medium pt-1">{f.term}</dt>
+              <dd class="sm:col-span-2 text-base text-charcoal/80 leading-relaxed" set:html={f.detail} />
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== VIDEO SECTION — White bg ===== -->
   <section class="relative py-24 md:py-32 bg-white">
@@ -132,3 +166,14 @@ import { abs, ids } from '../data/site';
   />
 
 </BaseLayout>
+
+<style>
+  .about-facts :global(a) {
+    color: var(--color-ember);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .about-facts :global(a:hover) {
+    color: var(--color-charcoal);
+  }
+</style>
