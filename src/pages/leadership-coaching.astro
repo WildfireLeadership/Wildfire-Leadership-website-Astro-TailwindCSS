@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+import FaqList from '../components/FaqList.astro';
+import { abs, EMAIL, faqPage, ids, organization, provider, type Faq } from '../data/site';
+
+const path = '/leadership-coaching/';
+
+const facts = [
+  { term: 'What it is', detail: 'Personalized, strategic coaching sessions for individuals or teams.' },
+  { term: 'Formats', detail: '1-on-1 executive coaching, leadership cohorts of up to 10 leaders, and ongoing team coaching for businesses, schools, churches, and nonprofits.' },
+  { term: 'Built on', detail: 'The Mission Portrait™ and the 7 Igniters™, supported by over 20 proven tools and assessments, including Working Genius, DISC, 5 Levels of Leadership, and Crucial Conversations.' },
+  { term: 'Who leads it', detail: 'Wildfire Leadership was founded by Bill Lammers, a leadership coach with over 25 years of experience, and Stephanie Lammers, an executive coach. Facilitated sessions are led by a Certified Facilitator from our network of more than 70.' },
+  { term: 'Where', detail: 'Wildfire Leadership is based in Charleston, South Carolina. A facilitated session is a 60-minute virtual session, and leadership team experiences can be held as a live workshop or on Zoom.' },
+  { term: 'Cost', detail: 'A facilitated Mission Portrait™ or 7 Igniters™ session is $299, with all materials included. For ongoing coaching and cohorts, contact us for pricing.' },
+];
+
+const audiences = [
+  {
+    label: 'Business',
+    title: 'Executives and leadership teams',
+    desc: '1-on-1 executive coaching or a leadership cohort of up to 10 leaders. Flatrock Bridge Group has partnered with Wildfire for more than six years.',
+    href: '/business',
+    cta: 'Leadership development for business',
+  },
+  {
+    label: 'Education',
+    title: 'School and college leaders',
+    desc: 'Ongoing coaching for administrators and key leaders, from 1-on-1 sessions to leadership cohorts.',
+    href: '/education',
+    cta: 'Ignite Education',
+  },
+  {
+    label: 'Faith & Community',
+    title: 'Church and ministry leaders',
+    desc: 'Leadership workshops with ongoing team coaching tailored for your church, nonprofit, or organization, using faith-based versions of our tools.',
+    href: '/faith-community',
+    cta: 'Faith & Community',
+  },
+  {
+    label: 'Individuals',
+    title: 'Mission Portrait™ + Coaching',
+    desc: 'A one-on-one, 60-minute session with a Certified Facilitator. Leave with a personalized visual guide to your purpose, values, and vision.',
+    href: '/mission-portrait#pricing',
+    cta: 'See options and pricing',
+  },
+  {
+    label: 'Couples',
+    title: 'Couples Mission Portrait™ + Coaching',
+    desc: 'Ninety minutes to define your individual and shared purpose as a couple, and a foundation for dreaming together.',
+    href: '/workshops',
+    cta: 'Workshops & experiences',
+  },
+  {
+    label: 'Teams',
+    title: 'Leadership workshops',
+    desc: 'Hands-on sessions in Working Genius, The Advantage, DISC, Crucial Conversations, Extreme Ownership, and more.',
+    href: '/workshops',
+    cta: 'See all workshops',
+  },
+];
+
+const steps = [
+  { num: '01', title: 'Uncover your purpose', desc: 'Start with your Mission Portrait™: your core values, vision, and mission on one visual page.', href: '/mission-portrait', link: 'Mission Portrait™' },
+  { num: '02', title: 'Build the plan', desc: 'The 7 Igniters™ is our primary coaching framework: seven stages that turn clarity into goals, priorities, and a roadmap.', href: '/7-igniters', link: 'The 7 Igniters™' },
+  { num: '03', title: 'Put it into practice', desc: 'Choose one action, set a date, share it with someone who will check in, and review your progress each week.', href: '/7-igniters#put-it-into-practice', link: 'Step 3' },
+];
+
+const faqs: Faq[] = [
+  {
+    q: 'What does Wildfire Leadership coaching include?',
+    a: 'Personalized, strategic coaching sessions for individuals or teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders. Coaching is built on the Mission Portrait™ and the 7 Igniters™, supported by over 20 proven tools and assessments.',
+  },
+  {
+    q: 'How much does leadership coaching cost?',
+    a: 'A facilitated Mission Portrait™ or 7 Igniters™ session with a Certified Facilitator is $299 for 60 minutes, with all materials included. For ongoing coaching, cohorts, and team coaching, <a href="/contact?interest=coaching">contact us for pricing</a>.',
+  },
+  {
+    q: 'Where is Wildfire Leadership based, and is coaching online?',
+    a: 'Wildfire Leadership is based in Charleston, South Carolina. Facilitated sessions are 60-minute virtual sessions, and leadership team experiences can be held as a live workshop or on Zoom.',
+  },
+  {
+    q: 'Do you coach church and ministry leaders?',
+    a: 'Yes. Leadership workshops for churches, nonprofits, and ministries include ongoing team coaching, using faith-based versions of our tools. See <a href="/faith-community">Faith &amp; Community</a>.',
+  },
+  {
+    q: 'Is the coaching faith-based?',
+    a: 'We offer both faith-based and non-faith-based versions of our tools. Businesses, public schools, and colleges use the non-faith-based version. Churches and faith communities use the faith-based version.',
+  },
+  {
+    q: 'Who are the coaches?',
+    a: 'Wildfire Leadership was founded by Bill Lammers, a leadership coach and certified John Maxwell coach, and Stephanie Lammers, an executive coach and keynote speaker. Facilitated sessions are led by a Certified Facilitator from our network of more than 70. <a href="/team">Meet the team</a>.',
+  },
+  {
+    q: 'How do I get started?',
+    a: `Tell us about your goals through the <a href="/contact?interest=coaching">contact form</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>. We respond within 24 business hours.`,
+  },
+];
+
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Leadership coaching',
+    serviceType: 'Leadership coaching',
+    url: abs(path),
+    description: 'Personalized, strategic coaching sessions for individuals or teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders, built on the Mission Portrait™ and the 7 Igniters™.',
+    provider,
+    areaServed: organization.areaServed,
+    audience: [
+      { '@type': 'Audience', audienceType: 'Executives and leadership teams' },
+      { '@type': 'Audience', audienceType: 'School and college leaders' },
+      { '@type': 'Audience', audienceType: 'Church and ministry leaders' },
+      { '@type': 'Audience', audienceType: 'Individuals and couples' },
+    ],
+    offers: {
+      '@type': 'Offer',
+      name: 'Facilitated session (60 minutes, virtual)',
+      price: '299',
+      priceCurrency: 'USD',
+      url: abs('/mission-portrait/#pricing'),
+    },
+    brand: { '@id': ids.organization },
+  },
+  faqPage(path, faqs),
+];
+---
+
+<BaseLayout
+  title="Leadership Coaching, Charleston SC"
+  description="Leadership coaching from Charleston, SC-based Wildfire Leadership: 1-on-1 executive coaching and leadership cohorts of up to 10, built on the Mission Portrait™."
+  ogImage="/images/business-workshop-group.jpg"
+  breadcrumbs={[{ name: 'Leadership Coaching', path }]}
+  jsonLd={jsonLd}
+>
+
+  <!-- Force header-light for light hero -->
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="light"
+    title='Leadership<br/><em>Coaching</em>'
+    subtitle="Personalized coaching for leaders and teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders. Built on the Mission Portrait™ and the 7 Igniters™, from our home base in Charleston, South Carolina."
+  >
+    <div class="reveal reveal-d3 flex flex-wrap gap-4 mt-10">
+      <a href="/contact?interest=coaching" class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400">
+        Ask about coaching
+        <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a href="#how-it-works" class="inline-flex items-center px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-charcoal border border-charcoal/20 hover:border-ember hover:text-ember transition-colors duration-400">
+        See how it works
+      </a>
+    </div>
+  </PageHero>
+
+  <!-- ===== AT A GLANCE ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-3 gap-12 lg:gap-20">
+        <div>
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">At a Glance</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Coaching, <em>in short.</em>
+          </h2>
+          <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
+            Wildfire coaching helps leaders get clear on their purpose, then turn it into a plan their team can see and live.
+          </p>
+        </div>
+        <dl class="lg:col-span-2 divide-y divide-sand/70 border-y border-sand/70">
+          {facts.map((f, i) => (
+            <div class:list={["reveal grid sm:grid-cols-3 gap-2 sm:gap-8 py-6", `reveal-d${Math.min(i + 1, 5)}`]}>
+              <dt class="text-[11px] uppercase tracking-[0.2em] text-stone font-medium pt-1">{f.term}</dt>
+              <dd class="sm:col-span-2 text-base text-charcoal/80 leading-relaxed">{f.detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO IT'S FOR ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Who It's For</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Coaching for <em>every kind of leader.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {audiences.map((a, i) => (
+          <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 md:p-10 flex flex-col", `reveal-d${(i % 3) + 1}`]}>
+            <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">{a.label}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-4">{a.title}</h3>
+            <p class="text-stone text-sm leading-relaxed mb-6 flex-1">{a.desc}</p>
+            <a href={a.href} class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+              {a.cta}
+              <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="relative py-24 md:py-32 bg-warm-white scroll-mt-24">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16 md:mb-20">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">How It Works</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          From clarity <em>to action.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {steps.map((s, i) => (
+          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8 md:p-10 flex flex-col", `reveal-d${i + 1}`]}>
+            <p class="font-display text-4xl text-ember/80 mb-4">{s.num}</p>
+            <h3 class="text-xl font-medium text-charcoal mb-3">{s.title}</h3>
+            <p class="text-stone text-sm leading-relaxed mb-6 flex-1">{s.desc}</p>
+            <a href={s.href} class="text-ember text-sm font-medium hover:underline">{s.link} &rarr;</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YOUR COACHES ===== -->
+  <section class="relative py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="text-center mb-16">
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Your Coaches</p>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+          Led by Bill &amp; <em>Stephanie Lammers.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="reveal bg-warm-white rounded-2xl border border-sand/50 overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="/images/bill-lammers.jpg" alt="Bill Lammers" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-8 md:p-10">
+            <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Founder &amp; CEO</p>
+            <h3 class="font-display text-3xl text-charcoal mb-4">Bill Lammers</h3>
+            <p class="text-stone text-sm leading-relaxed">
+              Entrepreneur, author, and leadership coach with over 25 years of experience developing leaders and strengthening organizations, including leading inside Fortune 500 companies. Certified John Maxwell coach and Patrick Lencioni CapaPro member.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-d1 bg-warm-white rounded-2xl border border-sand/50 overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="/images/stephanie-lammers.jpg" alt="Stephanie Lammers" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="p-8 md:p-10">
+            <p class="text-[12px] uppercase tracking-[0.15em] text-ember mb-3">Co-Founder, Speaker &amp; Author</p>
+            <h3 class="font-display text-3xl text-charcoal mb-4">Stephanie Lammers</h3>
+            <p class="text-stone text-sm leading-relaxed">
+              Keynote speaker, author, and executive coach who equips leaders, couples, and families to thrive with clarity and purpose. Over 20 years in healthcare and human relations. Certified Patrick Lencioni CapaPro member.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <a href="/team" class="group inline-flex items-center gap-3 text-sm font-medium tracking-wide text-charcoal border-b border-charcoal/30 pb-1 hover:border-ember hover:text-ember transition-colors duration-400">
+          Meet the whole team
+          <svg class="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="relative py-20 md:py-28 bg-cream">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <TestimonialCard
+        variant="large"
+        quote="Wildfire helped our team gain clarity and alignment. The coaching is practical and gives us tools we actually use every day."
+        name="Rob Herron"
+        title="Owner, Herron's Amish Furniture"
+      />
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="relative py-24 md:py-32 bg-warm-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">Common Questions</p>
+          <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
+            Frequently <em>asked.</em>
+          </h2>
+        </div>
+        <FaqList faqs={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Start with a<br/><em class="ember-gradient">conversation.</em>'
+    description="Tell us about your goals and your team. We'll recommend the right next step."
+    image="/images/business-workshop-group.jpg"
+    buttonText="Ask about coaching"
+    buttonHref="/contact?interest=coaching"
+  />
+
+</BaseLayout>

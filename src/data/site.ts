@@ -3,7 +3,10 @@
  * data (JSON-LD) and llms.txt repeat. Every value here is already stated
  * somewhere on the public site. Do not add a fact (address, phone, prices,
  * ratings) unless the site says it on a page a visitor can see.
-
+ *
+ * Location: Will confirmed on 2026-11-12 that Bill and Stephanie are based in
+ * Charleston, South Carolina. City and state only: no street address, no
+ * claim of in-person meetings, no service radius until the family confirms.
  *
  * The production host is www.wildfireleadership.com (the bare domain
  * redirects there). It comes from `site` in astro.config.mjs.
@@ -20,6 +23,9 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/wildfireleadership/';
 export const INVEST_URL = 'https://invest.wildfireleadership.com';
 export const IGNITE_URL = 'https://www.theigniteacademy.org/';
 export const STEPHANIE_SITE_URL = 'https://www.stephanielammers.com/';
+
+/** Shown in the footer, About, Contact and the homepage intro. */
+export const BASED_IN = 'Charleston, South Carolina';
 
 /** Stable identifiers so every page describes the same entities. */
 export const ids = {
@@ -49,6 +55,20 @@ export const organization = {
   description: ORG_DESCRIPTION,
   slogan: 'Uncover Purpose. Unleash Potential.',
   email: EMAIL,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Charleston',
+    addressRegion: 'SC',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Charleston',
+      containedInPlace: { '@type': 'State', name: 'South Carolina' },
+    },
+    { '@type': 'Country', name: 'United States' },
+  ],
   sameAs: [INSTAGRAM_URL],
   founder: [
     { '@type': 'Person', '@id': ids.bill, name: 'Bill Lammers' },

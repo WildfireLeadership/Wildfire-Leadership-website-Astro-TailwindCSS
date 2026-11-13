@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CallToAction from '../components/CallToAction.astro';
+import FaqList from '../components/FaqList.astro';
+import { EMAIL, INSTAGRAM_URL, INVEST_URL, IGNITE_URL, faqPage, type Faq } from '../data/site';
+
+const path = '/faq/';
+
+const groups: { id: string; label: string; title: string; faqs: Faq[] }[] = [
+  {
+    id: 'about',
+    label: 'About Wildfire',
+    title: 'Who we <em>are.</em>',
+    faqs: [
+      {
+        q: 'What is Wildfire Leadership?',
+        a: 'Wildfire Leadership, based in Charleston, South Carolina, helps individuals, families, and organizations uncover purpose and unleash potential through practical, visual tools and proven frameworks. Its two proprietary tools are the <a href="/mission-portrait">Mission Portrait™</a> and <a href="/7-igniters">the 7 Igniters™</a>. More than 50,000 Mission Portraits have been completed across education, business, churches, and families.',
+      },
+      {
+        q: 'Who founded Wildfire Leadership?',
+        a: 'Bill and Stephanie Lammers. Bill is Founder and CEO: an entrepreneur, author, and leadership coach with over 25 years of experience developing leaders. Stephanie is Co-Founder: a keynote speaker, author, and executive coach. Tiffany Rodriguez is Operations and Administrative Director. <a href="/team">Meet the team</a>.',
+      },
+      {
+        q: 'Who does Wildfire Leadership serve?',
+        a: 'Schools (<a href="/education/k-12">K-12</a> and <a href="/education/higher-ed">higher education</a>), <a href="/business">businesses and organizations</a>, and <a href="/faith-community">churches, nonprofits, and community organizations</a>, as well as individuals, couples, and families.',
+      },
+      {
+        q: 'Is Wildfire Leadership faith-based?',
+        a: 'We offer both faith-based and non-faith-based versions of our curriculum. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version. INVEST Marriage is a Christ-centered marriage journey.',
+      },
+      {
+        q: 'Where is Wildfire Leadership based?',
+        a: 'Wildfire Leadership is based in Charleston, South Carolina. It has a presence in 32 states and 13 countries across 6 continents, with a network of more than 70 certified facilitators. Facilitated sessions are virtual, and all curriculum can be translated for international organizations.',
+      },
+    ],
+  },
+  {
+    id: 'coaching',
+    label: 'Coaching, Workshops & Speaking',
+    title: 'How we <em>work with you.</em>',
+    faqs: [
+      {
+        q: 'Does Wildfire Leadership offer leadership coaching?',
+        a: 'Yes. Personalized, strategic coaching for individuals or teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders. See <a href="/leadership-coaching">Leadership Coaching</a>.',
+      },
+      {
+        q: 'What workshops do you offer?',
+        a: 'Leadership development workshops in Working Genius, The Advantage, 5 Dysfunctions of a Team, 5 Levels of Leadership, Mastering Crucial Conversations, Extreme Ownership, DISC Leadership Essentials, the Mission Portrait™, and the 7 Igniters™ Roadmap. For couples and families: Couples Mission Portrait™ + Coaching (90 minutes) and the Family Mission Portrait™ Workshop (2 hours). See <a href="/workshops">Workshops</a>.',
+      },
+      {
+        q: 'Do Bill and Stephanie speak at events?',
+        a: 'Yes. Bill and Stephanie Lammers are available for keynote speaking at conferences, retreats, company events, and school in-service days, across business, education, and faith communities. <a href="/contact?interest=speaking">Request speaking info</a>.',
+      },
+      {
+        q: 'Do you work with churches?',
+        a: 'Yes. We partner with churches, nonprofits, and community organizations, including Seacoast Church, James Island Christian Church, New Life Church, and Freedom Church. We offer faith-based curriculum for students and young adults, INVEST Marriage, the Marriage &amp; Family Mission Portrait™, leadership workshops with team coaching, and keynotes. See <a href="/faith-community">Faith &amp; Community</a>.',
+      },
+      {
+        q: 'How do I become a certified facilitator?',
+        a: 'Enroll in a 90-minute Wildfire Leadership training workshop. Certifications cover the Mission Portrait™, the 7 Igniters™, and assessments such as Working Genius and DISC. For organizations, two 90-minute certification sessions equip internal leaders to deliver the curriculum. See <a href="/facilitators">Certification</a>.',
+      },
+    ],
+  },
+  {
+    id: 'pricing',
+    label: 'Tools & Pricing',
+    title: 'What it <em>costs.</em>',
+    faqs: [
+      {
+        q: 'What is a Mission Portrait™?',
+        a: 'A customized, one-page visual guide to your core values, vision, and mission: a daily reminder of who you are and where you are headed. The self-guided workbook takes about an hour. <a href="/mission-portrait">Learn more</a>.',
+      },
+      {
+        q: 'What are the 7 Igniters™?',
+        a: 'A seven-stage framework that turns your Mission Portrait™ into action: Uncover Your Purpose, Discover Your Ideal, Create a Sense of Urgency, Complete Assessments, Identify Order of Priorities, Build Your Team, and Unleash Potential. <a href="/7-igniters">Learn more</a>.',
+      },
+      {
+        q: 'How much does it cost?',
+        a: 'The Mission Portrait™ and the 7 Igniters™ are each $35 self-guided (PDF workbook) or $299 for a facilitated 60-minute virtual session with a Certified Facilitator. For coaching, workshops, keynotes, certification, and organization-wide licensing, <a href="/contact">contact us for pricing</a>.',
+      },
+      {
+        q: 'Can schools and organizations license the curriculum?',
+        a: 'Yes. An annual license gives your organization access to all curriculum materials, print and digital, plus ongoing support. A plug-and-play digital version with video-based delivery is also available. See <a href="/education">Education</a> and <a href="/business">Business</a>.',
+      },
+    ],
+  },
+  {
+    id: 'marriage',
+    label: 'Marriage, Family & Books',
+    title: 'For couples <em>and families.</em>',
+    faqs: [
+      {
+        q: 'Do you offer marriage programs?',
+        a: `Yes. <a href="${INVEST_URL}">INVEST Marriage</a> is an 8-week, Christ-centered marriage journey created by Bill and Stephanie Lammers: know who you are, know who you married, know what you are building together. We also offer Couples Mission Portrait™ + Coaching and the <a href="/family-mission-portrait">Marriage &amp; Family Mission Portrait™</a>.`,
+      },
+      {
+        q: 'What books have Bill and Stephanie written?',
+        a: 'Bill Lammers wrote <em>Flip the Script</em> and the <em>Wildfire Daily Journal</em>, and co-created the Flip the Script app. Stephanie Lammers wrote <em>Discovering Joy in Your Lane</em>. Together they developed the INVEST Marriage curriculum. See <a href="/resources">Resources</a>.',
+      },
+    ],
+  },
+  {
+    id: 'giving',
+    label: 'Company & Contact',
+    title: 'How to <em>reach us.</em>',
+    faqs: [
+      {
+        q: 'Is Wildfire Leadership a nonprofit?',
+        a: `Wildfire Leadership is a company: Wildfire Leadership, LLC. 10% of all proceeds support <a href="${IGNITE_URL}">Ignite Academy</a>, a 501(c)(3) Bill and Stephanie founded to equip students who lack direction with purpose, character, and workforce skills.`,
+      },
+      {
+        q: 'How do I contact Wildfire Leadership?',
+        a: `Use the <a href="/contact">contact form</a>, email <a href="mailto:${EMAIL}">${EMAIL}</a>, or find us on Instagram at <a href="${INSTAGRAM_URL}">@wildfireleadership</a>. We respond within 24 business hours.`,
+      },
+    ],
+  },
+];
+
+const allFaqs = groups.flatMap((g) => g.faqs);
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Plain answers about Charleston, SC-based Wildfire Leadership: who founded it, who it serves, leadership coaching, workshops, pricing, and marriage programs."
+  breadcrumbs={[{ name: 'FAQ', path }]}
+  jsonLd={[faqPage(path, allFaqs)]}
+>
+
+  <!-- Force header-light for light hero -->
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <!-- ===== HERO ===== -->
+  <PageHero
+    variant="light"
+    title='Frequently Asked<br/><em>Questions</em>'
+    subtitle="Plain answers about who we are, what we offer, what it costs, and how to start."
+  >
+    <nav aria-label="FAQ topics" class="reveal reveal-d3 mt-10 flex flex-wrap gap-2">
+      {groups.map((g) => (
+        <a href={`#${g.id}`} class="px-4 py-2 rounded-full border border-sand/80 text-[13px] font-medium text-stone hover:border-ember hover:text-ember transition-colors duration-300">{g.label}</a>
+      ))}
+    </nav>
+  </PageHero>
+
+  {groups.map((g, i) => (
+    <section id={g.id} class:list={["relative py-20 md:py-28 scroll-mt-24", i % 2 === 0 ? "bg-warm-white" : "bg-white"]}>
+      <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+        <div class="max-w-3xl mx-auto">
+          <div class="mb-10">
+            <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-4">{g.label}</p>
+            <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]" set:html={g.title} />
+          </div>
+          <FaqList faqs={g.faqs} />
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ===== CTA CLOSER ===== -->
+  <CallToAction
+    title='Still have a<br/><em class="ember-gradient">question?</em>'
+    description="Ask us directly. We respond within 24 business hours."
+    buttonText="Get in Touch"
+    buttonHref="/contact"
+  />
+
+</BaseLayout>
