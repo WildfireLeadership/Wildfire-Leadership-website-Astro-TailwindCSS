@@ -18,16 +18,20 @@ const groups: { id: string; label: string; title: string; faqs: Faq[] }[] = [
         a: 'Wildfire Leadership, based in Charleston, South Carolina, helps individuals, families, and organizations uncover purpose and unleash potential through practical, visual tools and proven frameworks. Its two proprietary tools are the <a href="/mission-portrait">Mission Portrait™</a> and <a href="/7-igniters">the 7 Igniters™</a>. More than 50,000 Mission Portraits have been completed across education, business, churches, and families.',
       },
       {
+        q: 'Is Wildfire Leadership a nonprofit?',
+        a: `No. Wildfire Leadership is a company (Wildfire Leadership, LLC). 10% of all proceeds support <a href="${IGNITE_URL}">Ignite Academy</a>, a separate 501(c)(3) that Bill and Stephanie founded to equip students who lack direction with purpose, character, and workforce skills.`,
+      },
+      {
+        q: 'Is the curriculum faith-based?',
+        a: 'We offer both faith-based and non-faith-based versions of our curriculum. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version.',
+      },
+      {
         q: 'Who founded Wildfire Leadership?',
         a: 'Bill and Stephanie Lammers. Bill is Founder and CEO: an entrepreneur, author, and leadership coach with over 25 years of experience developing leaders. Stephanie is Co-Founder: a keynote speaker, author, and executive coach. Tiffany Rodriguez is Operations and Administrative Director. <a href="/team">Meet the team</a>.',
       },
       {
         q: 'Who does Wildfire Leadership serve?',
         a: 'Schools (<a href="/education/k-12">K-12</a> and <a href="/education/higher-ed">higher education</a>), <a href="/business">businesses and organizations</a>, and <a href="/faith-community">churches, nonprofits, and community organizations</a>, as well as individuals, couples, and families.',
-      },
-      {
-        q: 'Is Wildfire Leadership faith-based?',
-        a: 'We offer both faith-based and non-faith-based versions of our curriculum. Public schools, colleges, and businesses use the non-faith-based version. Churches and faith communities use the faith-based version. INVEST Marriage is a Christ-centered marriage journey.',
       },
       {
         q: 'Where is Wildfire Leadership based?',
@@ -65,7 +69,7 @@ const groups: { id: string; label: string; title: string; faqs: Faq[] }[] = [
   {
     id: 'pricing',
     label: 'Tools & Pricing',
-    title: 'What it <em>costs.</em>',
+    title: 'Tools <em>and pricing.</em>',
     faqs: [
       {
         q: 'What is a Mission Portrait™?',
@@ -92,7 +96,7 @@ const groups: { id: string; label: string; title: string; faqs: Faq[] }[] = [
     faqs: [
       {
         q: 'Do you offer marriage programs?',
-        a: `Yes. <a href="${INVEST_URL}">INVEST Marriage</a> is an 8-week, Christ-centered marriage journey created by Bill and Stephanie Lammers: know who you are, know who you married, know what you are building together. We also offer Couples Mission Portrait™ + Coaching and the <a href="/family-mission-portrait">Marriage &amp; Family Mission Portrait™</a>.`,
+        a: `Yes. <a href="${INVEST_URL}">INVEST Marriage</a> is an eight-session, Christ-centered marriage journey created by Bill and Stephanie Lammers: know who you are, know who you married, know what you are building together. We also offer Couples Mission Portrait™ + Coaching and the <a href="/family-mission-portrait">Marriage &amp; Family Mission Portrait™</a>.`,
       },
       {
         q: 'What books have Bill and Stephanie written?',
@@ -101,14 +105,10 @@ const groups: { id: string; label: string; title: string; faqs: Faq[] }[] = [
     ],
   },
   {
-    id: 'giving',
-    label: 'Company & Contact',
+    id: 'contact',
+    label: 'Contact',
     title: 'How to <em>reach us.</em>',
     faqs: [
-      {
-        q: 'Is Wildfire Leadership a nonprofit?',
-        a: `Wildfire Leadership is a company: Wildfire Leadership, LLC. 10% of all proceeds support <a href="${IGNITE_URL}">Ignite Academy</a>, a 501(c)(3) Bill and Stephanie founded to equip students who lack direction with purpose, character, and workforce skills.`,
-      },
       {
         q: 'How do I contact Wildfire Leadership?',
         a: `Use the <a href="/contact">contact form</a>, email <a href="mailto:${EMAIL}">${EMAIL}</a>, or find us on Instagram at <a href="${INSTAGRAM_URL}">@wildfireleadership</a>. We respond within 24 business hours.`,
@@ -122,7 +122,7 @@ const allFaqs = groups.flatMap((g) => g.faqs);
 
 <BaseLayout
   title="Frequently Asked Questions"
-  description="Plain answers about Charleston, SC-based Wildfire Leadership: who founded it, who it serves, leadership coaching, workshops, pricing, and marriage programs."
+  description="Answers about Wildfire Leadership: who founded it, who it serves, coaching, workshops, pricing, and marriage programs."
   breadcrumbs={[{ name: 'FAQ', path }]}
   jsonLd={[faqPage(path, allFaqs)]}
 >
