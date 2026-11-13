@@ -4,38 +4,38 @@ import PageHero from '../components/PageHero.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import FaqList from '../components/FaqList.astro';
-import { abs, EMAIL, faqPage, ids, organization, provider, type Faq } from '../data/site';
+import { abs, EMAIL, faqPage, ids, provider, type Faq } from '../data/site';
 
 const path = '/leadership-coaching/';
 
 const facts = [
   { term: 'What it is', detail: 'Personalized, strategic coaching sessions for individuals or teams.' },
-  { term: 'Formats', detail: '1-on-1 executive coaching, leadership cohorts of up to 10 leaders, and ongoing team coaching for businesses, schools, churches, and nonprofits.' },
+  { term: 'Formats', detail: '1-on-1 executive coaching and leadership cohorts of up to 10 leaders. Ongoing coaching for school administrators and key leaders, and ongoing team coaching for churches and nonprofits.' },
   { term: 'Built on', detail: 'The Mission Portrait™ and the 7 Igniters™, supported by over 20 proven tools and assessments, including Working Genius, DISC, 5 Levels of Leadership, and Crucial Conversations.' },
-  { term: 'Who leads it', detail: 'Wildfire Leadership was founded by Bill Lammers, a leadership coach with over 25 years of experience, and Stephanie Lammers, an executive coach. Facilitated sessions are led by a Certified Facilitator from our network of more than 70.' },
-  { term: 'Where', detail: 'Wildfire Leadership is based in Charleston, South Carolina. A facilitated session is a 60-minute virtual session, and leadership team experiences can be held as a live workshop or on Zoom.' },
-  { term: 'Cost', detail: 'A facilitated Mission Portrait™ or 7 Igniters™ session is $299, with all materials included. For ongoing coaching and cohorts, contact us for pricing.' },
+  { term: 'Founded by', detail: 'Bill Lammers, an entrepreneur, author, and leadership coach with over 25 years of experience developing leaders, and Stephanie Lammers, an executive coach and keynote speaker. Facilitated sessions are led by a Certified Facilitator.' },
+  { term: 'Based in', detail: 'Charleston, South Carolina. Facilitated Mission Portrait™ and 7 Igniters™ sessions are 60-minute virtual sessions.' },
+  { term: 'Cost', detail: 'Ongoing coaching, cohorts, and team coaching: contact us for pricing. A 60-minute facilitated Mission Portrait™ or 7 Igniters™ session is $299, all materials included.' },
 ];
 
 const audiences = [
   {
     label: 'Business',
     title: 'Executives and leadership teams',
-    desc: '1-on-1 executive coaching or a leadership cohort of up to 10 leaders. Flatrock Bridge Group has partnered with Wildfire for more than six years.',
+    desc: 'Executive coaching for leaders and their teams. Flatrock Bridge Group has partnered with Wildfire for more than six years.',
     href: '/business',
     cta: 'Leadership development for business',
   },
   {
     label: 'Education',
     title: 'School and college leaders',
-    desc: 'Ongoing coaching for administrators and key leaders, from 1-on-1 sessions to leadership cohorts.',
+    desc: 'Ongoing coaching for administrators and key leaders.',
     href: '/education',
     cta: 'Ignite Education',
   },
   {
     label: 'Faith & Community',
     title: 'Church and ministry leaders',
-    desc: 'Leadership workshops with ongoing team coaching tailored for your church, nonprofit, or organization, using faith-based versions of our tools.',
+    desc: 'Leadership workshops with ongoing team coaching tailored for your church, nonprofit, or organization.',
     href: '/faith-community',
     cta: 'Faith & Community',
   },
@@ -49,7 +49,7 @@ const audiences = [
   {
     label: 'Couples',
     title: 'Couples Mission Portrait™ + Coaching',
-    desc: 'Ninety minutes to define your individual and shared purpose as a couple, and a foundation for dreaming together.',
+    desc: 'A 90-minute session to define your individual and shared purpose as a couple. Leave with personalized Mission Portraits and a foundation for dreaming together.',
     href: '/workshops',
     cta: 'Workshops & experiences',
   },
@@ -64,8 +64,8 @@ const audiences = [
 
 const steps = [
   { num: '01', title: 'Uncover your purpose', desc: 'Start with your Mission Portrait™: your core values, vision, and mission on one visual page.', href: '/mission-portrait', link: 'Mission Portrait™' },
-  { num: '02', title: 'Build the plan', desc: 'The 7 Igniters™ is our primary coaching framework: seven stages that turn clarity into goals, priorities, and a roadmap.', href: '/7-igniters', link: 'The 7 Igniters™' },
-  { num: '03', title: 'Put it into practice', desc: 'Choose one action, set a date, share it with someone who will check in, and review your progress each week.', href: '/7-igniters#put-it-into-practice', link: 'Step 3' },
+  { num: '02', title: 'Build the plan', desc: 'The 7 Igniters™ is our primary coaching framework for business: seven stages that turn clarity into goals, priorities, and a roadmap.', href: '/7-igniters', link: 'The 7 Igniters™' },
+  { num: '03', title: 'Put it into practice', desc: 'Choose one action, set a date, share it with someone who will check in, and review your progress each week.', href: '/7-igniters#put-it-into-practice', link: 'Put it into practice' },
 ];
 
 const faqs: Faq[] = [
@@ -75,11 +75,11 @@ const faqs: Faq[] = [
   },
   {
     q: 'How much does leadership coaching cost?',
-    a: 'A facilitated Mission Portrait™ or 7 Igniters™ session with a Certified Facilitator is $299 for 60 minutes, with all materials included. For ongoing coaching, cohorts, and team coaching, <a href="/contact?interest=coaching">contact us for pricing</a>.',
+    a: '1-on-1 executive coaching, leadership cohorts, and team coaching are priced on request: <a href="/contact?interest=coaching">contact us for pricing</a>. The one fixed-price option is a 60-minute facilitated Mission Portrait™ or 7 Igniters™ session with a Certified Facilitator: $299, all materials included.',
   },
   {
-    q: 'Where is Wildfire Leadership based, and is coaching online?',
-    a: 'Wildfire Leadership is based in Charleston, South Carolina. Facilitated sessions are 60-minute virtual sessions, and leadership team experiences can be held as a live workshop or on Zoom.',
+    q: 'Where is Wildfire Leadership based?',
+    a: 'Charleston, South Carolina. Facilitated Mission Portrait™ and 7 Igniters™ sessions are 60-minute virtual sessions.',
   },
   {
     q: 'Do you coach church and ministry leaders?',
@@ -90,8 +90,8 @@ const faqs: Faq[] = [
     a: 'We offer both faith-based and non-faith-based versions of our tools. Businesses, public schools, and colleges use the non-faith-based version. Churches and faith communities use the faith-based version.',
   },
   {
-    q: 'Who are the coaches?',
-    a: 'Wildfire Leadership was founded by Bill Lammers, a leadership coach and certified John Maxwell coach, and Stephanie Lammers, an executive coach and keynote speaker. Facilitated sessions are led by a Certified Facilitator from our network of more than 70. <a href="/team">Meet the team</a>.',
+    q: "Who is behind Wildfire's coaching?",
+    a: 'Wildfire Leadership was founded by Bill Lammers, a leadership coach and certified John Maxwell coach, and Stephanie Lammers, an executive coach and keynote speaker. Facilitated sessions are led by a Certified Facilitator. <a href="/team">Meet the team</a>.',
   },
   {
     q: 'How do I get started?',
@@ -108,20 +108,12 @@ const jsonLd = [
     url: abs(path),
     description: 'Personalized, strategic coaching sessions for individuals or teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders, built on the Mission Portrait™ and the 7 Igniters™.',
     provider,
-    areaServed: organization.areaServed,
     audience: [
       { '@type': 'Audience', audienceType: 'Executives and leadership teams' },
       { '@type': 'Audience', audienceType: 'School and college leaders' },
       { '@type': 'Audience', audienceType: 'Church and ministry leaders' },
       { '@type': 'Audience', audienceType: 'Individuals and couples' },
     ],
-    offers: {
-      '@type': 'Offer',
-      name: 'Facilitated session (60 minutes, virtual)',
-      price: '299',
-      priceCurrency: 'USD',
-      url: abs('/mission-portrait/#pricing'),
-    },
     brand: { '@id': ids.organization },
   },
   faqPage(path, faqs),
@@ -129,8 +121,9 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Leadership Coaching, Charleston SC"
-  description="Leadership coaching from Charleston, SC-based Wildfire Leadership: 1-on-1 executive coaching and leadership cohorts of up to 10, built on the Mission Portrait™."
+  title="Leadership & Executive Coaching"
+  fullTitle="Leadership & Executive Coaching | Based in Charleston, SC"
+  description="Leadership and executive coaching from Wildfire Leadership, based in Charleston, South Carolina: 1-on-1 coaching and leadership cohorts of up to 10 leaders."
   ogImage="/images/business-workshop-group.jpg"
   breadcrumbs={[{ name: 'Leadership Coaching', path }]}
   jsonLd={jsonLd}
@@ -143,8 +136,11 @@ const jsonLd = [
   <PageHero
     variant="light"
     title='Leadership<br/><em>Coaching</em>'
-    subtitle="Personalized coaching for leaders and teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders. Built on the Mission Portrait™ and the 7 Igniters™, from our home base in Charleston, South Carolina."
+    subtitle="Personalized coaching for leaders and teams, from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders. Built on the Mission Portrait™ and the 7 Igniters™. Based in Charleston, South Carolina."
   >
+    <p class="coaching-start reveal reveal-d2 mt-5 text-base md:text-lg text-charcoal/80 max-w-2xl leading-relaxed">
+      To start, <a href="/contact?interest=coaching">tell us about your goals</a>. Ongoing coaching, cohorts, and team coaching are priced on request. A 60-minute facilitated Mission Portrait™ or 7 Igniters™ session is $299, all materials included.
+    </p>
     <div class="reveal reveal-d3 flex flex-wrap gap-4 mt-10">
       <a href="/contact?interest=coaching" class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-medium tracking-wide text-white bg-charcoal hover:bg-ember transition-all duration-400">
         Ask about coaching
@@ -168,7 +164,7 @@ const jsonLd = [
             Coaching, <em>in short.</em>
           </h2>
           <p class="reveal reveal-d2 mt-6 text-base md:text-lg text-stone leading-relaxed">
-            Wildfire coaching helps leaders get clear on their purpose, then turn it into a plan their team can see and live.
+            Coaching starts with your Mission Portrait™ and builds a plan with the 7 Igniters™.
           </p>
         </div>
         <dl class="lg:col-span-2 divide-y divide-sand/70 border-y border-sand/70">
@@ -189,7 +185,7 @@ const jsonLd = [
       <div class="text-center mb-16">
         <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Who It's For</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
-          Coaching for <em>every kind of leader.</em>
+          Who we <em>coach.</em>
         </h2>
       </div>
 
@@ -238,7 +234,7 @@ const jsonLd = [
   <section class="relative py-24 md:py-32 bg-white">
     <div class="max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16">
-        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Your Coaches</p>
+        <p class="reveal text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">The Founders</p>
         <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.1]">
           Led by Bill &amp; <em>Stephanie Lammers.</em>
         </h2>
@@ -319,3 +315,14 @@ const jsonLd = [
   />
 
 </BaseLayout>
+
+<style>
+  .coaching-start a {
+    color: var(--color-ember);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .coaching-start a:hover {
+    color: var(--color-charcoal);
+  }
+</style>
