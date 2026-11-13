@@ -4,7 +4,6 @@ import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
 import { abs, ids, IGNITE_URL, STEPHANIE_SITE_URL } from '../data/site';
 import Img from '../components/Img.astro';
-import { coverSizes } from '../lib/images';
 import billLammers from '../assets/images/bill-lammers.jpg';
 import stephanieLammers from '../assets/images/stephanie-lammers.jpg';
 import billStephanieTogether from '../assets/images/bill-stephanie-together.jpg';
@@ -140,7 +139,7 @@ const jsonLd = [
         <!-- Image -->
         <div class="reveal reveal-d2 relative">
           <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden">
-            <Img src={billLammers} alt="Bill Lammers" widths={[400, 640, 960, 1200]} sizes={coverSizes(billLammers, 3 / 4, [['(min-width: 1400px)', 628, 'px'], ['(min-width: 1024px)', 44, 'vw'], ['', 100, 'vw']])} priority class="w-full h-full object-cover object-top" />
+            <Img src={billLammers} alt="Bill Lammers" widths={[400, 560, 720, 960, 1200]} sizes="(min-width: 1400px) 628px, (min-width: 1024px) 44vw, calc(100vw - 40px)" priority class="w-full h-full object-cover object-top" />
           </div>
         </div>
       </div>
@@ -154,7 +153,7 @@ const jsonLd = [
         <!-- Image (LEFT on desktop) -->
         <div class="reveal reveal-d1 relative lg:order-1">
           <div class="aspect-[3/4] rounded-xl bg-cream border border-sand/50 overflow-hidden">
-            <Img src={stephanieLammers} alt="Stephanie Lammers" widths={[400, 640, 960, 1200]} sizes={coverSizes(stephanieLammers, 3 / 4, [['(min-width: 1400px)', 628, 'px'], ['(min-width: 1024px)', 44, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover object-top" />
+            <Img src={stephanieLammers} alt="Stephanie Lammers" widths={[400, 560, 720, 960, 1200]} sizes="(min-width: 1400px) 628px, (min-width: 1024px) 44vw, calc(100vw - 40px)" class="w-full h-full object-cover object-top" />
           </div>
         </div>
 
@@ -217,7 +216,7 @@ const jsonLd = [
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div class="reveal">
           <div class="aspect-[4/3] rounded-xl overflow-hidden">
-            <Img src={billStephanieTogether} alt="Bill and Stephanie Lammers presenting together" widths={[400, 640, 960, 1200]} sizes={coverSizes(billStephanieTogether, 4 / 3, [['(min-width: 1400px)', 628, 'px'], ['(min-width: 1024px)', 44, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover" />
+            <Img src={billStephanieTogether} alt="Bill and Stephanie Lammers presenting together" widths={[400, 560, 720, 960, 1200]} sizes="(min-width: 1400px) 628px, (min-width: 1024px) 44vw, calc(100vw - 40px)" class="w-full h-full object-cover" />
           </div>
         </div>
         <div>
