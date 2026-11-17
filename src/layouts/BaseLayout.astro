@@ -18,6 +18,12 @@ interface Props {
   /** Extra JSON-LD nodes for this page (Service, FAQPage, Person...). */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  /**
+   * The footer's "From the Wildfire family" line (INVEST Marriage, Flip the Script).
+   * Pass false on /schools and /colleges: public schools use the non-faith-based
+   * version, so those pages must not show faith or marriage links.
+   */
+  familyLinks?: boolean;
   /** The hero image (the LCP element), preloaded with the same sources the hero uses. */
   heroImage?: ImageMetadata;
   /** 'home' for the homepage hero, 'page' for PageHero. */
@@ -32,6 +38,7 @@ const {
   breadcrumbs,
   jsonLd = [],
   noindex = false,
+  familyLinks = true,
   heroImage,
   heroVariant = 'page',
 } = Astro.props;
@@ -108,7 +115,7 @@ const structuredData = {
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer family={familyLinks} />
     <Analytics />
 
     <script>
