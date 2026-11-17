@@ -16,6 +16,10 @@ import { PRICES, REVIEW, usd, certCost, workbooks } from '../../data/ignite';
 import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
+// Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
+// Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
+import portraitBrenda from '../../assets/images/portrait-coleen-full.png';
+import portraitSarah from '../../assets/images/portrait-sarah-full.png';
 import sevenIgniters from '../../assets/images/7-igniters-diagram.png';
 import logoHocking from '../../assets/images/school-logo-hocking.png';
 import logoNorthwest from '../../assets/images/school-logo-2.png';
@@ -31,8 +35,8 @@ type PageFaq = Faq & { tag?: string; review?: boolean; open?: boolean };
 const faqsAll: PageFaq[] = [
   {
     q: 'Is there religious content?',
-    a: 'Not in the secular edition, which is written for public colleges. A faith-based edition exists for faith-based colleges.',
-    tag: 'Wildfire to confirm: what differs between the two editions, and that a college can review the full secular edition before it signs.',
+    a: 'Not in the non-faith-based version, which is the one public colleges use. A faith-based version exists for faith-based colleges.',
+    tag: 'Wildfire to confirm: what differs between the two versions, and that a college can review the full non-faith-based version before it signs.',
     open: true,
   },
   {
@@ -69,7 +73,7 @@ const jsonLd = [
     serviceType: 'Purpose and career-planning program for colleges',
     url: abs(path),
     description:
-      'A purpose and career-planning program for orientation and the first-year seminar, led by a college’s own faculty and staff, using the Mission Portrait™ and the 7 Igniters™. A secular edition is written for public colleges.',
+      'A purpose and career-planning program for orientation and the first-year seminar, led by a college’s own faculty and staff, using the Mission Portrait™ and the 7 Igniters™. Public colleges use the non-faith-based version.',
     provider,
     audience: { '@type': 'EducationalAudience', educationalRole: 'administrator' },
   },
@@ -79,7 +83,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Ignite Higher Ed for colleges"
-  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a secular edition written for public colleges. See the first-year cost and request a 20-minute call."
+  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a non-faith-based version for public colleges. See the first-year cost and request a 20-minute call."
   breadcrumbs={[{ name: 'Colleges', path }]}
   jsonLd={jsonLd}
   siteHeader={false}
@@ -98,11 +102,14 @@ const jsonLd = [
     <main>
       <section class="hero" aria-labelledby="t">
         <div class="aside l">
-          {REVIEW && <p class="slotcard">Slot: one first-year student's Mission Portrait from the secular edition, shown with permission.</p>}
+          <figure>
+            <Img src={portraitBrenda} alt="Brenda's Mission Portrait over a coral reef: core values optimistic, empathetic, resourceful and nurturing, her ID, mission and vision, and the line Broken crayons still color" width={240} />
+            <figcaption>Brenda's Mission Portrait</figcaption>
+          </figure>
         </div>
         <article class="sheet">
           <h1 id="t">Every first-year student leaves with a plan</h1>
-          <p class="sub">Ignite Higher Ed fits orientation and your first-year seminar, led by your own faculty and staff. The secular edition is written for public colleges.</p>
+          <p class="sub">Ignite Higher Ed fits orientation and your first-year seminar, led by your own faculty and staff. Public colleges use the <span style="white-space:nowrap">non-faith-based version</span>.</p>
           <ul class="facts">
             <li><i class="dia"></i>Faculty and staff certified in two 90-minute sessions</li>
             <li><i class="dia"></i>A first portrait in about 90 minutes</li>
@@ -139,12 +146,16 @@ const jsonLd = [
           <h3 style="margin-top:34px" data-rise>Review it before you call</h3>
           <ul class="review">
             <li data-rise><i class="dia"></i><b>The 7 Igniters roadmap</b><span>One page, the seven steps (shown here)</span></li>
-            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Sample lesson</b><span>Wildfire to add: an orientation session plan from the secular edition</span></li>}
+            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Sample lesson</b><span>Wildfire to add: an orientation session plan from the non-faith-based version</span></li>}
             {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>First-year seminar module</b><span>Wildfire to add: the module outline, week by week</span></li>}
             {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Student data summary</b><span>Wildfire to add: what the digital portrait collects, who sees it, how long it is kept</span></li>}
           </ul>
         </div>
         <div class="stack">
+          <figure class="real" data-rise>
+            <Img src={portraitSarah} alt="Sarah's finished Mission Portrait over a field of daisies: core values family oriented, authentic, loyal and passionate, her ID, mission and vision, and the line There is no courage without vulnerability" widths={[480, 720, 960, 1280]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" alpha />
+            <figcaption>Sarah's Mission Portrait</figcaption>
+          </figure>
           <figure data-rise>
             <Img src={framework} alt="How a Mission Portrait is laid out: core values, an ID or slogan, mission, vision and a passage or quote, shown on an example portrait" widths={[360, 540, 720]} sizes="(min-width: 980px) 30vw, 100vw" kind="graphic" />
             <figcaption>How a Mission Portrait is laid out (an adult's example)</figcaption>
@@ -281,7 +292,7 @@ const jsonLd = [
       </section>
     </main>
 
-    <IgniteAbout program="Ignite Higher Ed" other={{ href: '/schools/', label: 'Ignite Students, for K-12 schools' }} faithLine="Faith-based colleges: ask about the faith-based edition." />
+    <IgniteAbout program="Ignite Higher Ed" other={{ href: '/schools/', label: 'Ignite Students, for K-12 schools' }} faithLine="Faith-based colleges: ask about the faith-based version." />
   </div>
   <IgniteScript />
 </BaseLayout>

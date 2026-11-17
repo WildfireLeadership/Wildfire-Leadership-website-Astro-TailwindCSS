@@ -63,6 +63,7 @@ html{scroll-padding-top:76px}
 .ig h2 + .lede{margin-top:16px}
 .ig .make .stack{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
 .ig .make .stack figure:first-child{grid-row:span 2}
+.ig .make .stack figure.real{grid-column:1/-1;grid-row:auto}
 .ig .make figure{background:#fff;padding:14px}
 .ig .make figure img{width:100%}
 .ig .make figcaption{font-size:14px;color:var(--soft);margin-top:10px}
