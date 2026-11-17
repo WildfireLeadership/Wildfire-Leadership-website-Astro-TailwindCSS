@@ -1,0 +1,25 @@
+---
+/** Who is behind the program, just above the site footer. */
+import Img from '../Img.astro';
+import billStephanie from '../../assets/images/bill-stephanie-together.jpg';
+
+interface Props {
+  program: string;
+  other: { href: string; label: string };
+  faithLine: string;
+}
+const { program, other, faithLine } = Astro.props;
+---
+
+<section class="foot" aria-label={`About ${program}`}>
+  <Img class="founders" src={billStephanie} alt="Bill and Stephanie Lammers" width={220} />
+  <p class="name">{program}</p>
+  <div class="cols">
+    <p>A program of Wildfire Leadership, created by Bill and Stephanie Lammers. {faithLine}</p>
+    <ul>
+      <li><a href="/">Wildfire Leadership</a></li>
+      <li><a href={other.href}>{other.label}</a></li>
+      <li><a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a></li>
+    </ul>
+  </div>
+</section>

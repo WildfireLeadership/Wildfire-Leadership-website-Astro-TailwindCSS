@@ -1,0 +1,111 @@
+---
+/**
+ * The first-year estimator and section entrances for /schools and /colleges.
+ * Prices come from src/data/ignite.ts, the same numbers the page prints.
+ */
+---
+
+<script>
+  import { PRICES, usd, plural, certCost, k12License, workbooks } from '../../data/ignite';
+
+  document.documentElement.classList.add('js');
+  // Never leave content hidden, even if something below fails.
+  setTimeout(() => document.querySelectorAll('.ig [data-rise]').forEach((k) => k.classList.add('in')), 3500);
+
+  const $ = (s: string, r: ParentNode = document) => r.querySelector<HTMLElement>(s);
+  const set = (s: string, v: string) => {
+    const el = $(s);
+    if (el) el.textContent = v;
+  };
+
+  type State = Record<string, number | boolean>;
+  function bind(root: HTMLElement, state: State, limits: Record<string, [number, number]>, render: () => void) {
+    root.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-step]');
+      if (!b) return;
+      const k = b.dataset.key!;
+      const [lo, hi] = limits[k];
+      state[k] = Math.min(hi, Math.max(lo, (state[k] as number) + Number(b.dataset.step)));
+      render();
+    });
+    root.querySelectorAll<HTMLInputElement>('[data-check]').forEach((c) =>
+      c.addEventListener('change', () => {
+        state[c.dataset.check!] = c.checked;
+        render();
+      })
+    );
+    render();
+  }
+
+  const showEstimate = (est: string) => {
+    const f = document.querySelector<HTMLInputElement>('input[name=estimate]');
+    if (f) f.value = est;
+    set('[data-v=estline]', `Your estimate goes with this request: ${est}.`);
+  };
+
+  const k12 = $('[data-planner=k12]');
+  if (k12) {
+    const st = { session: true, teachers: 4, classes: 4 };
+    bind(k12, st, { teachers: [1, 40], classes: [1, 40] }, () => {
+      const c = certCost(st.teachers);
+      const lic = k12License(st.classes);
+      const total = (st.session ? PRICES.session : 0) + c + lic;
+      set('[data-out=teachers]', String(st.teachers));
+      set('[data-out=classes]', String(st.classes));
+      $('[data-row=session]')?.classList.toggle('off', !st.session);
+      set('[data-l=cert]', `Certify ${plural(st.teachers, 'teacher')} in both tools, ${usd(certCost(1))} each`);
+      set('[data-v=cert]', usd(c));
+      set('[data-l=lic]', `Annual license for ${plural(st.classes, 'class', 'classes')}: print, digital and video`);
+      set('[data-v=lic]', usd(lic));
+      set('[data-v=total]', usd(total));
+      set('[data-v=next]', usd(lic));
+      set('[data-v=running]', usd(total));
+      showEstimate(`${usd(total)} first year: ${st.session ? 'leadership session, ' : ''}${plural(st.teachers, 'teacher')}, ${plural(st.classes, 'class', 'classes')}`);
+    });
+  }
+
+  const he = $('[data-planner=he]');
+  if (he) {
+    const st = { session: true, facilitators: 6, students: 600, igniters: false };
+    bind(he, st, { facilitators: [1, 60], students: [50, 12000] }, () => {
+      const w = workbooks(st.students, st.igniters);
+      const c = certCost(st.facilitators);
+      const total = (st.session ? PRICES.session : 0) + c + w.cost;
+      set('[data-out=facilitators]', String(st.facilitators));
+      set('[data-out=students]', st.students.toLocaleString('en-US'));
+      $('[data-row=session]')?.classList.toggle('off', !st.session);
+      set('[data-l=cert]', `Certify ${plural(st.facilitators, 'facilitator')} in both tools, ${usd(certCost(1))} each`);
+      set('[data-v=cert]', usd(c));
+      const billed = w.billed !== st.students ? ` (priced as ${w.billed.toLocaleString('en-US')})` : '';
+      set('[data-l=work]', `${st.students.toLocaleString('en-US')} digital student workbooks at ${usd(w.each)} each, priced by volume${billed}${st.igniters ? ', with the 7 Igniters' : ''}`);
+      set('[data-v=work]', usd(w.cost));
+      set('[data-v=total]', usd(total));
+      set('[data-v=next]', usd(w.cost));
+      set('[data-v=running]', usd(total));
+      showEstimate(`${usd(total)} first year: ${st.session ? 'leadership session, ' : ''}${plural(st.facilitators, 'facilitator')}, ${st.students.toLocaleString('en-US')} students`);
+    });
+  }
+
+  // The reply form: a subject line that names the school, so it stands out in the inbox.
+  const form = document.querySelector<HTMLFormElement>('form[data-school-form]');
+  form?.addEventListener('submit', () => {
+    const subj = form.querySelector<HTMLInputElement>('input[name=_subject]');
+    const org = form.querySelector<HTMLInputElement>('[data-org]')?.value.trim();
+    if (subj && org) subj.value = `${form.dataset.program} inquiry: ${org}`;
+  });
+  if (new URLSearchParams(location.search).get('sent') === 'true') {
+    document.querySelector('[data-sent]')?.removeAttribute('hidden');
+  }
+
+  // Entrances: each part of a section rises in turn, once.
+  const io = new IntersectionObserver(
+    (es) =>
+      es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('[data-rise]').forEach((k, i) => setTimeout(() => k.classList.add('in'), i * 80));
+        io.unobserve(e.target);
+      }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.ig [data-stage]').forEach((s) => io.observe(s));
+</script>

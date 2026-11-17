@@ -1,0 +1,26 @@
+---
+/**
+ * The slim top bar on /schools and /colleges: the Wildfire mark, the program
+ * name, links to this page's sections, and one button. No faith or marriage
+ * links here on purpose: a public school or college sees only its own path.
+ */
+import Img from '../Img.astro';
+import logoWhite from '../../assets/images/logo-white.png';
+
+interface Props {
+  program: string;
+  links: { href: string; label: string }[];
+}
+const { program, links } = Astro.props;
+---
+
+<header class="top">
+  <a class="lockup" href="/">
+    <Img src={logoWhite} alt="Wildfire Leadership home" width={80} kind="graphic" alpha eager />
+    <span>{program}</span>
+  </a>
+  <nav aria-label="On this page">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+  <a class="btn" href="#reply"><span class="long">Request a 20-minute call</span><span class="short">Request a call</span></a>
+</header>

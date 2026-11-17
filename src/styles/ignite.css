@@ -1,0 +1,193 @@
+/* Ignite Students and Ignite Higher Ed pages (/schools, /colleges).
+   Ported from the overnight concept (reports/Ignite marketing audit 2026-11-17/concepts).
+   Every rule is scoped under .ig so nothing leaks into the rest of the site. */
+html{scroll-padding-top:76px}
+.ig{--field:#1e1e1b; --field-2:#2a2925; --paper:#faf8f5; --sand:#ebe5db; --ink:#1a1a17; --soft:#4f4b44; --on-field:#f3efe8; --on-field-soft:#cfc8bc; --accent:#E03500; --action:#D43200; --slot:#8a3a0a; --slot-bg:#fff4e5; --field-line:#857d70; --m:clamp(16px,2.2vw,32px); --gap:clamp(88px,9vw,144px); --s-xl:clamp(40px,5vw,80px); --s-l:clamp(32px,3.2vw,50px); --s-m:20px; --s-b:17px; --s-s:14px; --ease:cubic-bezier(.2,.7,.2,1);}
+.ig *{box-sizing:border-box;margin:0;padding:0}
+.ig{background:var(--field);color:var(--ink);font:400 var(--s-b)/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.ig img{display:block;max-width:100%;height:auto}
+.ig a{color:inherit}
+.ig h1,.ig h2,.ig h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.02;text-wrap:balance}
+.ig h2{font-size:var(--s-l)}
+.ig h3{font-size:26px}
+.ig :focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.ig ::selection{background:var(--accent);color:#fff}
+.ig .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--action);color:#fff; font:600 17px/1 Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .18s var(--ease),background .18s}
+.ig .btn:hover{background:#b02a00}
+.ig .btn:active{transform:translateY(1px) scale(.99)}
+.ig .btn.ink{background:var(--ink);color:var(--paper)}
+.ig .btn.ink:hover{background:#000}
+.ig .btn .short{display:none}
+.ig .link{font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px}
+.ig .link:hover{color:var(--action)}
+.ig .top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px var(--m);background:var(--field);color:var(--on-field)}
+.ig .lockup{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--on-field)}
+.ig .lockup img{height:28px;width:auto}
+.ig .lockup span{font:400 26px/1 "Instrument Serif",serif;padding-left:4px}
+.ig .top nav{display:flex;gap:26px;font-size:14px}
+.ig .top nav a{text-decoration:none;color:var(--on-field)}
+.ig .top nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.ig .hero{display:grid;grid-template-columns:1fr minmax(0,760px) 1fr;gap:clamp(20px,3vw,48px);padding:44px var(--m) 0;overflow:hidden;align-items:end}
+.ig .sheet{grid-column:2;background:var(--paper);padding:48px clamp(24px,4vw,56px) 0;text-align:center; -webkit-mask:radial-gradient(circle 20px at 0 0,#0000 98%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle 20px at 100% 0,#0000 98%,#000) 100% 0/51% 100% no-repeat; mask:radial-gradient(circle 20px at 0 0,#0000 98%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle 20px at 100% 0,#0000 98%,#000) 100% 0/51% 100% no-repeat}
+.ig .sheet h1{font-size:var(--s-xl);line-height:.98;margin:0 auto 18px}
+.ig .sheet .sub{font-size:var(--s-m);line-height:1.45;max-width:31em;margin:0 auto}
+.ig .facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin:20px auto 0;font-size:14px;color:var(--soft);max-width:34em}
+.ig .facts li{display:flex;align-items:center;gap:10px}
+.ig .dia{display:inline-block;width:9px;height:9px;background:var(--accent);transform:rotate(45deg);flex:none}
+.ig .acts{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 26px;margin-top:26px}
+.ig .first-step{margin-top:16px;font-size:17px;color:var(--soft)}
+.ig .first-step b{color:var(--ink)}
+.ig .sheet .plate{margin-top:28px;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
+.ig .proofline{color:var(--on-field-soft);font-size:17px;text-align:center;padding:16px var(--m) 18px;background:var(--field)}
+.ig .proofline b{color:var(--on-field);font-weight:500}
+.ig .proofline.in-sheet{background:none;color:var(--soft);padding:14px 0 0;font-size:16px}
+.ig .proofline.in-sheet b{color:var(--ink);font-weight:600}
+.ig .sheet .slotplate{display:grid;place-items:center;background:var(--slot-bg);border:2px dashed var(--slot);color:var(--slot);font-weight:600;font-size:17px;line-height:1.4;padding:24px;text-align:center}
+.ig .est-line{font-size:15px;color:var(--soft);margin:2px 0 0}
+.ig .est-line:empty{display:none}
+.ig .aside{align-self:center;display:grid;gap:12px;max-width:260px}
+.ig .aside.l{justify-self:end}
+.ig .aside.r{justify-self:start}
+.ig .aside figure{background:var(--paper);padding:10px 10px 12px}
+.ig .aside figcaption{font-size:14px;color:var(--soft);margin-top:8px}
+.ig .aside .slotcard{background:var(--slot-bg);border:2px dashed var(--slot);color:var(--slot);padding:18px;font-size:17px;font-weight:600;line-height:1.4}
+.ig main{position:relative;background:var(--field)}
+.ig section{position:relative}
+.ig .band{padding:var(--gap) var(--m)}
+.ig .on-paper{background:var(--paper)}
+.ig .on-sand{background:var(--sand)}
+.ig .on-field{background:var(--field);color:var(--on-field)}
+.ig .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,104px);align-items:start}
+.ig .lede{font-size:var(--s-m);line-height:1.5;max-width:34em}
+.ig .lede + .lede{margin-top:14px}
+.ig h2 + .lede{margin-top:16px}
+.ig .make .stack{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.ig .make .stack figure:first-child{grid-row:span 2}
+.ig .make figure{background:#fff;padding:14px}
+.ig .make figure img{width:100%}
+.ig .make figcaption{font-size:14px;color:var(--soft);margin-top:10px}
+.ig .review{list-style:none;margin-top:30px;display:grid;gap:12px;max-width:34em}
+.ig .review li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline}
+.ig .review li .dia{transform:rotate(45deg) translateY(-2px)}
+.ig .review b{font-weight:600}
+.ig .review span{grid-column:2;font-size:14px;color:var(--soft)}
+.ig .review .is-slot b{color:var(--slot)}
+.ig .slot-note{display:inline-block;margin-top:24px;padding:12px 14px;background:var(--slot-bg);border:2px dashed var(--slot);color:var(--slot);font-size:17px;font-weight:500;max-width:34em}
+.ig .slot-note b{font-weight:700}
+.ig .cost{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px)}
+.ig .steps{list-style:none;display:grid;gap:22px;margin-top:30px}
+.ig .steps li{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start}
+.ig .steps li .dia{margin-top:10px}
+.ig .steps p{grid-column:2;max-width:36em}
+.ig .planner{margin-top:34px;background:var(--paper);padding:24px;display:grid;gap:16px;max-width:560px}
+.ig .ctl{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ig .ctl label{font-weight:500}
+.ig .ctl small{display:block;font-size:14px;color:var(--soft);font-weight:400}
+.ig .stepper{display:flex;align-items:center;background:var(--sand)}
+.ig .stepper button{width:48px;height:48px;border:0;background:var(--ink);color:var(--paper);font:600 20px/1 Inter;cursor:pointer;transition:background .15s,transform .12s}
+.ig .stepper button:hover{background:#000}
+.ig .stepper button:active{transform:scale(.94)}
+.ig .stepper output{min-width:64px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.ig .check{display:flex;gap:12px;align-items:center;cursor:pointer}
+.ig .check input{width:22px;height:22px;accent-color:var(--action)}
+.ig .running{display:none;justify-content:space-between;align-items:baseline;font-weight:600;padding-top:6px}
+.ig .running strong{font:400 34px/1 "Instrument Serif",serif;font-variant-numeric:tabular-nums}
+.ig .receipt{background:#fff;padding:32px 28px 60px; clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),96% 100%,92% calc(100% - 14px),88% 100%,84% calc(100% - 14px),80% 100%,76% calc(100% - 14px),72% 100%,68% calc(100% - 14px),64% 100%,60% calc(100% - 14px),56% 100%,52% calc(100% - 14px),48% 100%,44% calc(100% - 14px),40% 100%,36% calc(100% - 14px),32% 100%,28% calc(100% - 14px),24% 100%,20% calc(100% - 14px),16% 100%,12% calc(100% - 14px),8% 100%,4% calc(100% - 14px),0 100%)}
+.ig .receipt .head{text-align:center;font-weight:700;font-size:20px}
+.ig .receipt .sub{text-align:center;font-size:14px;color:var(--soft);margin:4px 0 20px}
+.ig .row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;font-variant-numeric:tabular-nums}
+.ig .row span:first-child{max-width:72%}
+.ig .row.off{color:#8e887e;text-decoration:line-through}
+.ig .bar{height:4px;background:var(--ink);margin:16px 0 14px}
+.ig .total{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.ig .total strong{font:400 54px/1 "Instrument Serif",serif;font-variant-numeric:tabular-nums}
+.ig .total span{font-size:20px}
+.ig .next{display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-size:14px;color:var(--soft);font-variant-numeric:tabular-nums}
+.ig .receipt .btn{width:100%;margin-top:22px}
+.ig .fig-note{margin-top:16px;font-size:14px;color:var(--soft);max-width:34em}
+.ig .fig-note b{color:var(--slot)}
+.ig .proof .model{list-style:none;display:grid;gap:14px;margin:24px 0 26px}
+.ig .proof .model li{display:flex;gap:14px;align-items:baseline;font-size:var(--s-m)}
+.ig .proof .model li .dia{transform:rotate(45deg) translateY(-2px)}
+.ig .proof .slot-note{background:transparent;color:#fde68a;border-color:#f59e0b}
+.ig .namecard{background:var(--paper);color:var(--ink);padding:40px clamp(24px,4vw,48px)}
+.ig .namecard h3{margin-bottom:18px}
+.ig .namecard ul{list-style:none;display:grid;gap:12px}
+.ig .namecard .logo{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center}
+.ig .namecard .logo img{width:64px;height:64px;object-fit:contain;background:#fff}
+.ig .namecard li{display:grid;gap:2px}
+.ig .namecard li b{font-weight:600;font-size:var(--s-m)}
+.ig .namecard li span{font-size:14px;color:var(--soft)}
+.ig .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(56px,6vw,88px)}
+.ig .q{background:var(--field-2);padding:28px 28px 30px;color:var(--on-field)}
+.ig .q blockquote{font-size:var(--s-b);line-height:1.6}
+.ig .q figcaption{margin-top:16px;font-size:14px;color:var(--on-field-soft)}
+.ig .q figcaption b{color:#fff;font-weight:600}
+.ig .q .confirm{display:block;margin-top:6px;color:#fbbf24;font-size:14px}
+.ig .next-step{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;font-size:var(--s-m)}
+.ig .ask{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,96px);align-items:start}
+.ig details{padding:12px 0}
+.ig summary{list-style:none;cursor:pointer;font-size:var(--s-m);font-weight:500;display:flex;justify-content:space-between;gap:18px;min-height:44px;align-items:center}
+.ig summary::-webkit-details-marker{display:none}
+.ig summary::after{content:"";width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translateY(-3px);transition:transform .2s var(--ease);flex:none}
+.ig details[open] summary::after{transform:rotate(225deg)}
+.ig details p{margin-top:8px;color:var(--soft);max-width:40em}
+.ig details .tag{display:inline-block;margin-left:6px;font-size:14px;font-weight:600;color:var(--slot)}
+.ig .ask h2{margin-bottom:14px}
+.ig .card{background:#fff;padding:34px clamp(22px,3vw,40px) 36px;position:sticky;top:84px}
+.ig .card h2{margin-bottom:6px}
+.ig .card .s{color:var(--soft);margin-bottom:22px}
+.ig .fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.ig .fields input,.ig .fields select{width:100%;min-width:0}
+.ig .fields label{display:grid;gap:6px;font-size:14px;font-weight:500}
+.ig .fields .full{grid-column:1/-1}
+.ig .fields input,.ig .fields select{height:48px;padding:0 12px;font:400 17px Inter,sans-serif;border:2px solid var(--field-line);background:#fff;color:var(--ink);border-radius:0}
+.ig .fields input:focus,.ig .fields select:focus{border-color:var(--action);outline:none}
+.ig .card .btn{width:100%;margin-top:20px;min-height:54px}
+.ig .card .alt{margin-top:14px;font-size:14px;color:var(--soft)}
+.ig .foot{background:var(--field);color:var(--on-field);padding:64px var(--m) 28px}
+.ig .foot .founders{float:right;width:220px;aspect-ratio:4/3;object-fit:cover;margin:0 0 16px 24px}
+.ig .foot .name{font:400 var(--s-l)/1 "Instrument Serif",serif;color:#fff}
+.ig .foot .cols{display:grid;grid-template-columns:2fr 1fr;gap:32px;margin-top:18px}
+.ig .foot p{color:var(--on-field-soft);max-width:36em}
+.ig .foot ul{list-style:none;display:grid;gap:10px}
+.ig .foot a{color:var(--on-field)}
+.ig .foot .imprint{margin-top:44px;font-size:14px;color:var(--on-field-soft)}
+.js .ig [data-rise]{opacity:0;translate:0 22px;transition:opacity .7s var(--ease),translate .7s var(--ease)}
+.js .ig [data-rise].in{opacity:1;translate:0 0}
+.ig .sheet{animation:ig-lift 1s var(--ease) both}
+.ig .aside{animation:ig-fade 1.1s .25s var(--ease) both}
+@keyframes ig-lift{from{translate:0 56px;opacity:0}to{translate:0 0;opacity:1}}
+@keyframes ig-fade{from{opacity:0}to{opacity:1}}
+.ig .sheet .plate{animation:ig-settle 1.6s .2s var(--ease) both}
+@keyframes ig-settle{from{scale:1.06}to{scale:1}}
+@media (prefers-reduced-motion:reduce){
+  .ig *,.ig *::before,.ig *::after{animation:none!important;transition:none!important}
+  .js .ig [data-rise]{opacity:1;translate:0 0}
+}
+@media (max-width:1300px){
+  .ig .hero{grid-template-columns:minmax(0,760px);justify-content:center}
+  .ig .aside{display:none}
+  .ig .sheet{grid-column:1}
+}
+@media (max-width:980px){
+  .ig .top nav{display:none}
+  .ig .top{padding:10px 12px;gap:12px}
+  .ig .lockup img{height:22px}
+  .ig .lockup span{font-size:20px}
+  .ig .top .btn{min-height:44px;padding:0 14px;font-size:14px}
+  .ig .top .btn .long{display:none}
+  .ig .top .btn .short{display:inline}
+  .ig .hero{grid-template-columns:1fr;padding:14px 12px 0}
+  .ig .aside{display:none}
+  .ig .sheet{grid-column:1;padding:30px 18px 0}
+  .ig .facts{gap:6px 18px;display:grid;justify-content:center;text-align:left}
+  .ig .split,.ig .cost,.ig .ask{grid-template-columns:1fr}
+  .ig .quotes{grid-template-columns:1fr}
+  .ig .card{position:relative;top:0}
+  .ig .fields{grid-template-columns:1fr}
+  .ig .running{display:flex}
+  .ig .foot .cols{grid-template-columns:1fr}
+  .ig .foot .founders{float:none;width:100%;margin:0 0 20px}
+  .ig .make .stack{grid-template-columns:1fr}
+}

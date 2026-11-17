@@ -1,0 +1,287 @@
+---
+/**
+ * Ignite Higher Ed for colleges. Replaces /education/higher-ed (redirected in vercel.json).
+ * Built from the overnight audit concept, 17 November 2026. Hocking is the model;
+ * Northwest State is listed for what it uses Ignite for (leadership teams), not as
+ * student proof. The placeholder NSCC figures, the Hocking figures that matched
+ * another school's, and the reworded quote are gone.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Img from '../../components/Img.astro';
+import IgniteTop from '../../components/ignite/IgniteTop.astro';
+import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
+import IgniteScript from '../../components/ignite/IgniteScript.astro';
+import { abs, faqPage, provider, type Faq } from '../../data/site';
+import { PRICES, REVIEW, usd, certCost, workbooks } from '../../data/ignite';
+import '../../styles/ignite.css';
+import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
+import framework from '../../assets/images/mission-portrait-framework.png';
+import sevenIgniters from '../../assets/images/7-igniters-diagram.png';
+import logoHocking from '../../assets/images/school-logo-hocking.png';
+import logoNorthwest from '../../assets/images/school-logo-2.png';
+
+const path = '/colleges/';
+
+const F = 6, N = 600;
+const cert = certCost(F);
+const w = workbooks(N, false);
+const total = PRICES.session + cert + w.cost;
+
+type PageFaq = Faq & { tag?: string; review?: boolean; open?: boolean };
+const faqsAll: PageFaq[] = [
+  {
+    q: 'Is there religious content?',
+    a: 'Not in the secular edition, which is written for public colleges. A faith-based edition exists for faith-based colleges.',
+    tag: 'Wildfire to confirm: what differs between the two editions, and that a college can review the full secular edition before it signs.',
+    open: true,
+  },
+  {
+    q: 'Where does it fit on our campus?',
+    a: 'Orientation, first-year experience courses, career services programming, student success initiatives, or a standalone workshop series.',
+  },
+  {
+    q: 'How would we measure it?',
+    a: 'Pick one measure you already track, such as first-to-second-year retention or a belonging survey, and compare students who took part with those who did not.',
+    tag: 'Slot: Hocking’s own measure, once Hocking approves it.',
+  },
+  {
+    q: 'Does it work at a community college?',
+    a: 'Yes. Hocking College runs it with every incoming freshman, and Northwest State Community College uses it with its leadership teams.',
+  },
+  {
+    q: 'What student data does the digital portrait keep?',
+    a: 'Wildfire to answer: what is collected, who sees it, where it is stored and how long it is kept.',
+    tag: 'Slot.',
+    review: true,
+  },
+  {
+    q: 'Can we start small?',
+    a: 'Yes. Start with the leadership session or one cohort, and decide on the rest afterward.',
+  },
+];
+const faqs = faqsAll.filter((f) => REVIEW || !f.review);
+
+const jsonLd = [
+  {
+    '@type': 'Service',
+    '@id': `${abs(path)}#service`,
+    name: 'Ignite Higher Ed',
+    serviceType: 'Purpose and career-planning program for colleges',
+    url: abs(path),
+    description:
+      'A purpose and career-planning program for orientation and the first-year seminar, led by a college’s own faculty and staff, using the Mission Portrait™ and the 7 Igniters™. A secular edition is written for public colleges.',
+    provider,
+    audience: { '@type': 'EducationalAudience', educationalRole: 'administrator' },
+  },
+  faqPage(path, faqs.filter((f) => !f.review)),
+];
+---
+
+<BaseLayout
+  title="Ignite Higher Ed for colleges"
+  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a secular edition written for public colleges. See the first-year cost and request a 20-minute call."
+  breadcrumbs={[{ name: 'Colleges', path }]}
+  jsonLd={jsonLd}
+  siteHeader={false}
+>
+  <div class="ig">
+    <IgniteTop
+      program="Ignite Higher Ed"
+      links={[
+        { href: '#make', label: 'What students make' },
+        { href: '#cost', label: 'First-year cost' },
+        { href: '#colleges', label: 'Colleges' },
+        { href: '#questions', label: 'Questions' },
+      ]}
+    />
+
+    <main>
+      <section class="hero" aria-labelledby="t">
+        <div class="aside l">
+          {REVIEW && <p class="slotcard">Slot: one first-year student's Mission Portrait from the secular edition, shown with permission.</p>}
+        </div>
+        <article class="sheet">
+          <h1 id="t">Every first-year student leaves with a plan</h1>
+          <p class="sub">Ignite Higher Ed fits orientation and your first-year seminar, led by your own faculty and staff. The secular edition is written for public colleges.</p>
+          <ul class="facts">
+            <li><i class="dia"></i>Faculty and staff certified in two 90-minute sessions</li>
+            <li><i class="dia"></i>A first portrait in about 90 minutes</li>
+            <li><i class="dia"></i>A written quote for your campus</li>
+          </ul>
+          <div class="acts">
+            <a class="btn" href="#reply">Request a 20-minute call</a>
+            <a class="link" href="#cost">See the first-year cost</a>
+          </div>
+          <p class="first-step">You can begin with <b>one {usd(PRICES.session)} session for your leaders</b>, then decide.</p>
+          <p class="proofline in-sheet">Used in Ohio at <b>Hocking College</b>, and with leadership teams at <b>Northwest State</b>.</p>
+          <Img
+            class="plate"
+            src={workbookCloseup}
+            alt="A student writing in the Core Values Word Bank pages of the Mission Portrait workbook"
+            widths={[480, 760, 1170]}
+            sizes="(min-width: 980px) 648px, calc(100vw - 60px)"
+            priority
+          />
+        </article>
+        <div class="aside r">
+          <figure>
+            <p class="lede" style="font-size:17px"><b>Hocking College</b>: every incoming freshman makes a Mission Portrait at orientation.</p>
+            <figcaption>Nelsonville, Ohio</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
+        <div>
+          <h2 id="make-h" data-rise>What each student makes</h2>
+          <p class="lede" data-rise>A one-page Mission Portrait: their core values, a personal motto, their mission and their vision, set over an image they choose.</p>
+          <p class="lede" data-rise>Then the 7 Igniters turn that page into a plan for the years ahead.</p>
+          <h3 style="margin-top:34px" data-rise>Review it before you call</h3>
+          <ul class="review">
+            <li data-rise><i class="dia"></i><b>The 7 Igniters roadmap</b><span>One page, the seven steps (shown here)</span></li>
+            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Sample lesson</b><span>Wildfire to add: an orientation session plan from the secular edition</span></li>}
+            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>First-year seminar module</b><span>Wildfire to add: the module outline, week by week</span></li>}
+            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Student data summary</b><span>Wildfire to add: what the digital portrait collects, who sees it, how long it is kept</span></li>}
+          </ul>
+        </div>
+        <div class="stack">
+          <figure data-rise>
+            <Img src={framework} alt="How a Mission Portrait is laid out: core values, an ID or slogan, mission, vision and a passage or quote, shown on an example portrait" widths={[360, 540, 720]} sizes="(min-width: 980px) 30vw, 100vw" kind="graphic" />
+            <figcaption>How a Mission Portrait is laid out (an adult's example)</figcaption>
+          </figure>
+          <figure data-rise>
+            <Img src={sevenIgniters} alt="The 7 Igniters roadmap: uncover your purpose, discover your ideal, create a sense of urgency, complete assessments, identify order of priorities, build your team, unleash potential" widths={[360, 540, 720]} sizes="(min-width: 980px) 30vw, 100vw" kind="graphic" />
+            <figcaption>The 7 Igniters roadmap, from portrait to plan</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band on-sand cost" id="cost" aria-labelledby="cost-h" data-stage>
+        <div>
+          <h2 id="cost-h" data-rise>Your first year, and what it costs</h2>
+          <p class="lede" data-rise>Three steps. Start with one cohort, such as every incoming freshman.</p>
+          <ol class="steps">
+            <li data-rise><i class="dia"></i><h3>Experience it first</h3><p>Your leaders make their own Mission Portraits in one session of about two hours. You can stop there and decide.</p></li>
+            <li data-rise><i class="dia"></i><h3>Equip your facilitators</h3><p>Choose the faculty and staff who will lead it. Two 90-minute sessions certify them in the Mission Portrait and the 7 Igniters. Lesson plans and materials are included.</p></li>
+            <li data-rise><i class="dia"></i><h3>Launch with a cohort</h3><p>Each student gets a digital workbook, priced by how many students take part. Add the 7 Igniters when you are ready.</p></li>
+          </ol>
+          <div class="planner" data-planner="he" data-rise>
+            <h3>Price your campus</h3>
+            <label class="check"><input type="checkbox" checked data-check="session" /> Start with the leadership session</label>
+            <div class="ctl">
+              <label id="lf">Facilitators to certify</label>
+              <div class="stepper" role="group" aria-labelledby="lf">
+                <button type="button" data-key="facilitators" data-step="-1" aria-label="One fewer facilitator">−</button>
+                <output data-out="facilitators">{F}</output>
+                <button type="button" data-key="facilitators" data-step="1" aria-label="One more facilitator">+</button>
+              </div>
+            </div>
+            <div class="ctl">
+              <label id="ls">Students in the first cohort</label>
+              <div class="stepper" role="group" aria-labelledby="ls">
+                <button type="button" data-key="students" data-step="-50" aria-label="Fifty fewer students">−</button>
+                <output data-out="students">{N}</output>
+                <button type="button" data-key="students" data-step="50" aria-label="Fifty more students">+</button>
+              </div>
+            </div>
+            <label class="check"><input type="checkbox" data-check="igniters" /> Add the 7 Igniters workbook for every student in the cohort</label>
+            <p class="running" aria-hidden="true"><span>First year</span><strong data-v="running">{usd(total)}</strong></p>
+          </div>
+        </div>
+        <div>
+          <div class="receipt" data-rise>
+            <p class="head">Ignite Higher Ed, year one</p>
+            <p class="sub">Estimate for one campus and one cohort.</p>
+            <div class="row" data-row="session"><span>Leadership team Mission Portrait session</span><span>{usd(PRICES.session)}</span></div>
+            <div class="row"><span data-l="cert">Certify {F} facilitators in both tools, {usd(certCost(1))} each</span><span data-v="cert">{usd(cert)}</span></div>
+            <div class="row"><span data-l="work">{N} digital student workbooks at {usd(w.each)} each, priced by volume</span><span data-v="work">{usd(w.cost)}</span></div>
+            <div class="bar"></div>
+            <div class="total"><strong data-v="total" aria-live="polite">{usd(total)}</strong><span>first year</span></div>
+            <div class="next"><span>Each new cohort this size, no new facilitators</span><span data-v="next">{usd(w.cost)}</span></div>
+            <a class="btn ink" href="#reply">Get this as a written quote</a>
+          </div>
+          {REVIEW && (
+            <p class="fig-note"><b>Figures to confirm.</b> {usd(PRICES.session)} is the 2026 menu's group session. Certification ({usd(PRICES.certPerTool)} per tool) and the per-student workbook prices come from the July 2025 menu. The old Higher Ed page also mentioned an annual license; show whichever model Wildfire actually sells to colleges, in src/data/ignite.ts.</p>
+          )}
+        </div>
+      </section>
+
+      <section class="band on-field proof" id="colleges" aria-labelledby="colleges-h" data-stage>
+        <div class="split">
+          <div>
+            <h2 id="colleges-h" data-rise>How one college runs it</h2>
+            <p class="lede" data-rise>Hocking College, a public college in Nelsonville, Ohio, starts every freshman with Ignite:</p>
+            <ul class="model">
+              <li data-rise><i class="dia"></i>Leadership trained first</li>
+              <li data-rise><i class="dia"></i>13 staff certified as facilitators</li>
+              <li data-rise><i class="dia"></i>Every incoming freshman makes a portrait</li>
+            </ul>
+            {REVIEW && <p class="slot-note" data-rise><b>Slot.</b> Add a result Hocking has approved, such as first-to-second-year retention, with the year and how many students it covers.</p>}
+          </div>
+          <div class="namecard" data-rise>
+            <h3>Colleges using Ignite</h3>
+            <ul>
+              <li class="logo"><Img src={logoHocking} alt="" width={64} kind="graphic" alpha /><span><b>Hocking College</b><br />Every incoming freshman, at orientation</span></li>
+              <li class="logo"><Img src={logoNorthwest} alt="" width={64} kind="graphic" /><span><b>Northwest State Community College</b><br />Leadership teams and selected departments</span></li>
+            </ul>
+            {REVIEW && <p class="fig-note"><b>To add:</b> other licensed colleges, each with what it uses Ignite for.</p>}
+          </div>
+        </div>
+        <div class="quotes">
+          <figure class="q" data-rise>
+            <blockquote>“The impact on our students has been remarkable. Wildfire Leadership gave them the tools to define their future with clarity and purpose. Students are now more confident and engaged in both their academic and personal lives.”</blockquote>
+            <figcaption><b>Hannah Guada</b>, Vice President of Student Affairs, Hocking College{REVIEW && <span class="confirm">From the 2025 implementation sheet. Confirm the wording with her.</span>}</figcaption>
+          </figure>
+          {REVIEW && <p class="slot-note q-slot" data-rise><b>Slot.</b> A second college voice, in their exact words with written permission: a dean or seminar instructor at Hocking, or Northwest State on its leadership work.</p>}
+        </div>
+        <p class="next-step" data-rise>Want the same plan for your campus? <a class="btn" href="#reply">Request a 20-minute call</a></p>
+      </section>
+
+      <section class="band on-paper ask" id="questions" aria-labelledby="q-h" data-stage>
+        <div>
+          <h2 id="q-h" data-rise>Questions colleges ask first</h2>
+          {faqs.map((f) => (
+            <details data-rise open={f.open}>
+              <summary>{f.q}</summary>
+              <p>{f.a}{REVIEW && f.tag && <span class="tag">{f.tag}</span>}</p>
+            </details>
+          ))}
+        </div>
+        <form class="card" id="reply" data-rise data-school-form data-program="Ignite Higher Ed" action="https://formsubmit.co/info@wildfireleadership.com" method="POST" aria-labelledby="reply-h">
+          <h2 id="reply-h">Plan your first year</h2>
+          <p class="s">A 20-minute call, then a written quote.</p>
+          <p class="s" data-sent hidden><b>Thank you.</b> Your request reached us. We reply within 24 business hours.</p>
+          <input type="hidden" name="_subject" value="Ignite Higher Ed inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_next" value="https://www.wildfireleadership.com/colleges/?sent=true#reply" />
+          <input type="hidden" name="interest" value="Ignite Higher Ed" />
+          <div class="fields">
+            <label>Your name<input name="name" autocomplete="name" required /></label>
+            <label>Your role
+              <select name="role" required>
+                <option value="" selected disabled>Choose one</option>
+                <option>President or vice president</option><option>Dean of students</option><option>First-year experience</option><option>Career services</option><option>Faculty</option><option>Other</option>
+              </select>
+            </label>
+            <label class="full">College or university<input name="college" autocomplete="organization" required data-org /></label>
+            <label>Where you would start
+              <select name="start" required>
+                <option value="" selected disabled>Choose one</option>
+                <option>Orientation</option><option>First-year seminar</option><option>Leadership session only</option><option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+            <input type="hidden" name="estimate" value="" />
+            <p class="est-line" data-v="estline"></p>
+          </div>
+          <button class="btn" type="submit">Request a 20-minute call</button>
+          <p class="alt">Or email <a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a>. We reply within 24 business hours.</p>
+        </form>
+      </section>
+    </main>
+
+    <IgniteAbout program="Ignite Higher Ed" other={{ href: '/schools/', label: 'Ignite Students, for K-12 schools' }} faithLine="Faith-based colleges: ask about the faith-based edition." />
+  </div>
+  <IgniteScript />
+</BaseLayout>

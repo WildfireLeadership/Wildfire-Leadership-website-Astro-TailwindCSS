@@ -34,8 +34,8 @@
 ## Who we serve
 
 - [Education](https://www.wildfireleadership.com/education/): Ignite Students K-12 and Ignite Higher Ed
-- [Ignite Students K-12](https://www.wildfireleadership.com/education/k-12/): curriculum, teacher certification, and a district case study (Northeastern Local Schools)
-- [Ignite Higher Ed](https://www.wildfireleadership.com/education/higher-ed/): case studies from Northwest State Community College and Hocking College
+- [Ignite Students K-12](https://www.wildfireleadership.com/schools/): a purpose and career-planning course a school's own teachers lead, with a secular edition for public schools; the first step, first-year cost, and how Northeastern Local Schools runs it
+- [Ignite Higher Ed](https://www.wildfireleadership.com/colleges/): orientation and first-year seminar program led by a college's own staff; how Hocking College runs it with every incoming freshman
 - [Business & Organizations](https://www.wildfireleadership.com/business/): leadership coaching, workshops, and licensing; Flatrock Bridge Group and Keller Logistics case studies
 - [Faith & Community](https://www.wildfireleadership.com/faith-community/): faith-based curriculum, team coaching, and INVEST Marriage for churches and nonprofits
 
