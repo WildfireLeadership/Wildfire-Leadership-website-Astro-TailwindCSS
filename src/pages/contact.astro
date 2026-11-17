@@ -20,7 +20,7 @@ import { abs, ids } from '../data/site';
     <PageHero
       variant="light"
       title='Get in<br/><em>Touch</em>'
-      subtitle="Every journey is unique — be it individual, family, business, faith & community, or leadership, we have something for you!"
+      subtitle="Every journey is unique — be it a school or college, an individual, family, business, faith & community, or leadership, we have something for you!"
     />
   </div>
 
@@ -72,6 +72,31 @@ import { abs, ids } from '../data/site';
           </fieldset>
 
           <p id="toolkit-inquiry-note" class="hidden rounded-xl bg-warm-white p-5 text-base text-charcoal/80">You’re asking about the planned 7 Igniters™ Facilitator Toolkit at a proposed $10/month. It is not yet available. This inquiry does not start a subscription or take payment.</p>
+
+          <!-- Shown for school and college inquiries: who is asking, and from where -->
+          <div id="school-fields" class="hidden rounded-2xl bg-warm-white border border-sand/70 p-6 md:p-8 space-y-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-ember mb-2">School or college details</p>
+              <p class="text-sm text-stone">Want a price first? <a href="/schools/#cost" class="text-ember underline underline-offset-2">See the first-year cost for schools</a> or <a href="/colleges/#cost" class="text-ember underline underline-offset-2">for colleges</a>.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="school-org" class="block text-sm font-medium text-charcoal mb-2">School, district or college</label>
+                <input type="text" id="school-org" name="school_or_district" autocomplete="organization" class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors" placeholder="For example: Northeastern Local Schools" />
+              </div>
+              <div>
+                <label for="school-role" class="block text-sm font-medium text-charcoal mb-2">Your role</label>
+                <select id="school-role" name="role" class="w-full px-4 py-3 rounded-xl border border-sand bg-white focus:border-ember focus:ring-1 focus:ring-ember/20 outline-none transition-colors">
+                  <option value="">Choose one</option>
+                  <option>Superintendent or president</option>
+                  <option>Principal or dean</option>
+                  <option>Counselor, career or first-year staff</option>
+                  <option>Teacher or faculty</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
           <!-- Additional details shown for INVEST Marriage inquiries -->
           <div id="invest-fields" class="hidden rounded-2xl bg-warm-white border border-sand/70 p-6 md:p-8 space-y-6">
@@ -265,24 +290,45 @@ import { abs, ids } from '../data/site';
   const formSubject = document.getElementById('form-subject') as HTMLInputElement | null;
   const formatSelect = document.getElementById('invest-format') as HTMLSelectElement | null;
 
+  // School and college inquiries get their own subject line, so they stand out in the inbox.
+  const schoolSubjects: Record<string, string> = {
+    'ignite-k12': 'Ignite Students (K-12) inquiry',
+    'ignite-higher-ed': 'Ignite Higher Ed inquiry',
+  };
+  const schoolFields = document.getElementById('school-fields');
+
   const updateInvestFields = (selectedInterest = '') => {
     const isInvest = selectedInterest.startsWith('invest-marriage');
+    const isSchool = selectedInterest in schoolSubjects;
     document.getElementById('toolkit-inquiry-note')?.classList.toggle('hidden', selectedInterest !== '7-igniters-toolkit');
     investFields?.classList.toggle('hidden', !isInvest);
+    schoolFields?.classList.toggle('hidden', !isSchool);
     if (formSubject) {
       formSubject.value = isInvest
         ? 'New INVEST Marriage inquiry from Wildfire Leadership website'
-        : selectedInterest === '7-igniters-toolkit'
-          ? '7 Igniters Facilitator Toolkit interest — proposed $10/month'
-          : 'New inquiry from Wildfire Leadership website';
+        : isSchool
+          ? schoolSubjects[selectedInterest]
+          : selectedInterest === '7-igniters-toolkit'
+            ? '7 Igniters Facilitator Toolkit interest — proposed $10/month'
+            : 'New inquiry from Wildfire Leadership website';
     }
   };
 
+  // Name the school in the subject line when one is given.
+  document.querySelector('form')?.addEventListener('submit', () => {
+    const org = (document.getElementById('school-org') as HTMLInputElement | null)?.value.trim();
+    const isSchool = schoolFields && !schoolFields.classList.contains('hidden');
+    if (formSubject && isSchool && org) formSubject.value = `${formSubject.value}: ${org}`;
+  });
+
+  // Older links used ?interest=education-leadership, which matches no option.
+  const aliases: Record<string, string> = { 'education-leadership': 'leadership' };
+
   if (interest && /^[a-z0-9-]+$/.test(interest)) {
-    const radio = document.querySelector(`input[name="interest"][data-interest="${interest}"]`) as HTMLInputElement;
+    const radio = document.querySelector(`input[name="interest"][data-interest="${aliases[interest] ?? interest}"]`) as HTMLInputElement;
     if (radio) {
       radio.checked = true;
-      updateInvestFields(interest);
+      updateInvestFields(radio.dataset.interest || '');
     }
   }
 
