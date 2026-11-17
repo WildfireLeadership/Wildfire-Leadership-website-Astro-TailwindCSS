@@ -5,21 +5,24 @@ import logoDark from '../assets/images/logo-dark.png';
 
 const currentPath = Astro.url.pathname;
 
+// Schools and colleges come first: they are the largest buyers, and the
+// /schools and /colleges pages have their own school-only top bar.
 const navGroups = [
+  {
+    label: 'Who We Serve',
+    items: [
+      { href: '/schools/', label: 'K-12 Schools: Ignite Students' },
+      { href: '/colleges/', label: 'Colleges: Ignite Higher Ed' },
+      { href: '/business', label: 'Business & Organizations' },
+      { href: '/faith-community', label: 'Faith & Community' },
+    ],
+  },
   {
     label: 'About',
     items: [
       { href: '/about', label: 'Our Story' },
       { href: '/team', label: 'Our Team' },
       { href: '/faq', label: 'FAQ' },
-    ],
-  },
-  {
-    label: 'Who We Serve',
-    items: [
-      { href: '/education', label: 'Education' },
-      { href: '/business', label: 'Business & Organizations' },
-      { href: '/faith-community', label: 'Faith & Community' },
     ],
   },
   {
@@ -144,6 +147,12 @@ const investUrl = 'https://invest.wildfireleadership.com';
     <div class="overflow-y-auto flex-1 px-5 py-6 bg-white">
       <a href="/" class:list={["block py-3 font-display text-2xl transition-colors border-b border-sand/30", currentPath === '/' ? "text-ember" : "text-charcoal/80 hover:text-charcoal"]}>
         Home
+      </a>
+      <a href="/schools/" class="block py-3 font-display text-2xl transition-colors border-b border-sand/30 text-charcoal/80 hover:text-charcoal">
+        K-12 Schools
+      </a>
+      <a href="/colleges/" class="block py-3 font-display text-2xl transition-colors border-b border-sand/30 text-charcoal/80 hover:text-charcoal">
+        Colleges
       </a>
       <a href={investUrl} class="block py-3 font-display text-2xl transition-colors border-b border-sand/30 text-charcoal/80 hover:text-charcoal">
         INVEST Marriage

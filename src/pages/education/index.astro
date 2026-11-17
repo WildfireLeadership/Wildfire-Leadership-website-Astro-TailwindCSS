@@ -5,8 +5,7 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 import Img from '../../components/Img.astro';
 import { aspect, coverSizes } from '../../lib/images';
 import educationStudents from '../../assets/images/education-students.jpg';
-import studentsMissionPortraits from '../../assets/images/students-mission-portraits.jpg';
-import educationHigher from '../../assets/images/education-higher.jpeg';
+import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import schoolLogo1 from '../../assets/images/school-logo-1.png';
 import schoolLogo2 from '../../assets/images/school-logo-2.png';
 import schoolLogo3 from '../../assets/images/school-logo-3.png';
@@ -52,7 +51,7 @@ import CallToAction from '../../components/CallToAction.astro';
           {
             title: "Ignite Students K-12",
             desc: "Adaptable, age-appropriate solutions for schools that help students discover their strengths, build character, and develop leadership skills from an early age.",
-            image: studentsMissionPortraits,
+            image: educationStudents,
             href: "/schools/",
             cta: "Explore K-12 Program",
             videos: [
@@ -62,7 +61,7 @@ import CallToAction from '../../components/CallToAction.astro';
           {
             title: "Ignite Higher Education",
             desc: "Empowering college and university students with purpose-driven frameworks that prepare them for meaningful careers and lives of impact.",
-            image: educationHigher,
+            image: workbookCloseup,
             href: "/colleges/",
             cta: "Explore Higher Ed Program",
             videos: [
@@ -189,7 +188,7 @@ import CallToAction from '../../components/CallToAction.astro';
         <div>
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-ember mb-6">Superintendent</p>
           <TestimonialCard
-            quote="This curriculum is a must for every student. It fosters a culture of purpose, reflection, and growth — the impact across our schools has been transformative."
+            quote="This curriculum is a must for students to learn the process of goal realization."
             name="Bob Morton"
             title="Superintendent, Defiance City Schools"
           />
@@ -219,7 +218,7 @@ import CallToAction from '../../components/CallToAction.astro';
     title='Ignite your<br/><em class="ember-gradient">students.</em>'
     image={educationStudents}
     buttonText="Bring Ignite to Your School"
-    buttonHref="/contact?interest=ignite-k12"
+    buttonHref="/schools/#reply"
   />
 
 </BaseLayout>
