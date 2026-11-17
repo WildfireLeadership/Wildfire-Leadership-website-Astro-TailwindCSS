@@ -15,14 +15,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Img from '../components/Img.astro';
-import investApp from '../assets/images/invest-app-note.webp';
-import portraitSarah from '../assets/images/portrait-sarah-full.png';
-import ftsApp from '../assets/images/fts-app-mockup.png';
+// The INVEST, Flip, portrait and books images are composed from real material only: the apps'
+// own App Store captures (goldie, Micah & Lauren demo data) in plain phone frames, Brenda's and
+// Sarah's real portraits as prints, the real book covers. Never a mockup of something that isn't.
+import investApp from '../assets/images/everything-invest.jpg';
+import portraits from '../assets/images/everything-portrait.jpg';
+import ftsApp from '../assets/images/everything-flip.jpg';
 import joePress from '../assets/images/joe-lammers-press.jpg';
 import workshop from '../assets/images/business-workshop-group.jpg';
-import igniters from '../assets/images/7-igniters-graphic.jpg';
-import ftsBook from '../assets/images/fts-book.png';
-import igniteAcademy from '../assets/images/ignite-academy-logo.png';
+import students from '../assets/images/education-students.jpg';
+import books from '../assets/images/everything-books.jpg';
+import igniteAcademy from '../assets/images/ignite-academy-mentor.jpg';
 import stephanie from '../assets/images/stephanie-lammers.jpg';
 
 const tag = '?utm_source=wildfire&utm_medium=link&utm_campaign=everything';
@@ -45,17 +48,17 @@ const cards: Card[] = [
     line: 'A few minutes a day to know each other better. The app from Bill and Stephanie’s INVEST marriage study, on iPhone and Android.',
     links: [{ href: `https://invest.wildfireleadership.com/${tag}`, text: 'See INVEST Marriage' }],
     image: investApp,
-    alt: 'INVEST Marriage on a phone: a note from a spouse on the Today screen',
-    fit: 'contain',
+    alt: 'INVEST Marriage on three phones: a Mission Portrait, the Today screen with notes Lauren and Micah wrote each other, and a communication style',
+    fit: 'cover',
   },
   {
     label: 'For you',
     title: 'The Mission Portrait',
     line: 'Your values, mission and vision on one page you will keep in front of you.',
     links: [{ href: '/mission-portrait', text: 'Make yours' }],
-    image: portraitSarah,
-    alt: 'Sarah’s Mission Portrait over a field of daisies',
-    fit: 'contain',
+    image: portraits,
+    alt: 'Two printed Mission Portraits, Brenda’s over a coral reef and Sarah’s over a field of daisies',
+    fit: 'cover',
   },
   {
     label: 'For your heart',
@@ -63,8 +66,8 @@ const cards: Card[] = [
     line: 'A free daily Bible app from Wildfire Foundation: a verse, a declaration and a few quiet minutes each day.',
     links: [{ href: `https://getflipthescript.com/app${tag}`, text: 'Get the app' }],
     image: ftsApp,
-    alt: 'The Flip the Script app on a phone',
-    fit: 'contain',
+    alt: 'Flip the Script on two phones: My Bible with the verse of the day, and a Flip card for 2 Corinthians 12:9',
+    fit: 'cover',
   },
   {
     label: 'Music',
@@ -95,18 +98,18 @@ const cards: Card[] = [
     title: 'Ignite Students and Ignite Higher Ed',
     line: 'A purpose and career-planning course your own teachers lead, built on the 7 Igniters.',
     links: [{ href: '/education', text: 'For schools' }],
-    image: igniters,
-    alt: 'The 7 Igniters roadmap, from portrait to plan',
-    fit: 'contain',
+    image: students,
+    alt: 'A student working in an Ignite Students workbook',
+    fit: 'cover',
   },
   {
     label: 'To read',
     title: 'Books and journals',
     line: 'Flip the Script, Discovering Joy in Your Lane, and the Wildfire Daily Journal.',
     links: [{ href: '/resources', text: 'See the books' }],
-    image: ftsBook,
-    alt: 'Flip the Script, the book by Bill Lammers',
-    fit: 'contain',
+    image: books,
+    alt: 'Three books: Flip the Script by Bill Lammers, Discovering Joy in Your Lane by Stephanie Lammers, and the Wildfire Daily Journal',
+    fit: 'cover',
   },
   {
     label: 'In communities',
@@ -114,8 +117,8 @@ const cards: Card[] = [
     line: 'A nonprofit bringing mentoring and purpose programs to young people.',
     links: [{ href: 'https://theigniteacademy.org', text: 'Visit Ignite Academy' }],
     image: igniteAcademy,
-    alt: 'The Ignite Academy logo',
-    fit: 'contain',
+    alt: 'An Ignite Academy mentor teaching a young man to build a frame',
+    fit: 'cover',
   },
   {
     label: 'Speaking',
