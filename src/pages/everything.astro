@@ -1,0 +1,183 @@
+---
+/**
+ * /everything: every Wildfire tool, app, book and song in one place (Will, 2026-11-17: "a link to
+ * something showing all of what we have", plus Joe Lammers' music). The page our emails and the
+ * footer point to. Wildfire Sharing Plan, wave 1.
+ *
+ * One card each, most-asked-for first: what it is, who it's for, one line, one link. Real images
+ * only (the app's own render, real portraits and photos).
+ *
+ * Who may link HERE: the Wildfire site, INVEST's emails, the Builder's adult emails. NOT the INVEST
+ * site or app (they open in the app, and this page has outside purchases: App Store 3.1.1), NOT
+ * Flip the Script (the Foundation does not promote the LLC until the written agreement), and NOT
+ * any school or student page (this page names faith and marriage).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Img from '../components/Img.astro';
+import investApp from '../assets/images/invest-app-note.webp';
+import portraitSarah from '../assets/images/portrait-sarah-full.png';
+import ftsApp from '../assets/images/fts-app-mockup.png';
+import joePress from '../assets/images/joe-lammers-press.jpg';
+import workshop from '../assets/images/business-workshop-group.jpg';
+import igniters from '../assets/images/7-igniters-graphic.jpg';
+import ftsBook from '../assets/images/fts-book.png';
+import igniteAcademy from '../assets/images/ignite-academy-logo.png';
+import stephanie from '../assets/images/stephanie-lammers.jpg';
+
+const tag = '?utm_source=wildfire&utm_medium=link&utm_campaign=everything';
+
+type Card = {
+  label: string;
+  title: string;
+  line: string;
+  links: { href: string; text: string }[];
+  image: ImageMetadata;
+  alt: string;
+  /** 'cover' fills the box (photos); 'contain' sits on the paper (renders, covers, logos). */
+  fit: 'cover' | 'contain';
+};
+
+const cards: Card[] = [
+  {
+    label: 'For your marriage',
+    title: 'INVEST Marriage',
+    line: 'A few minutes a day to know each other better. The app from Bill and Stephanie’s INVEST marriage study, on iPhone and Android.',
+    links: [{ href: `https://invest.wildfireleadership.com/${tag}`, text: 'See INVEST Marriage' }],
+    image: investApp,
+    alt: 'INVEST Marriage on a phone: a note from a spouse on the Today screen',
+    fit: 'contain',
+  },
+  {
+    label: 'For you',
+    title: 'The Mission Portrait',
+    line: 'Your values, mission and vision on one page you will keep in front of you.',
+    links: [{ href: '/mission-portrait', text: 'Make yours' }],
+    image: portraitSarah,
+    alt: 'Sarah’s Mission Portrait over a field of daisies',
+    fit: 'contain',
+  },
+  {
+    label: 'For your heart',
+    title: 'Flip the Script',
+    line: 'A free daily Bible app from Wildfire Foundation: a verse, a declaration and a few quiet minutes each day.',
+    links: [{ href: `https://getflipthescript.com/app${tag}`, text: 'Get the app' }],
+    image: ftsApp,
+    alt: 'The Flip the Script app on a phone',
+    fit: 'contain',
+  },
+  {
+    label: 'Music',
+    title: 'Joe Lammers',
+    line: 'Muddy Water, the new single, and Songs for Freedom & Joy, the record Joe is making now.',
+    links: [
+      { href: 'https://joelammers.lnk.to/muddywaters', text: 'Listen to Muddy Water' },
+      { href: 'https://joelammers.com', text: 'Songs for Freedom & Joy' },
+    ],
+    image: joePress,
+    alt: 'Joe Lammers singing, in black and white',
+    fit: 'cover',
+  },
+  {
+    label: 'For your team',
+    title: 'Workshops and coaching',
+    line: 'Mission Portrait workshops, team sessions and one-on-one leadership coaching.',
+    links: [
+      { href: '/workshops', text: 'See workshops' },
+      { href: '/leadership-coaching', text: 'Coaching' },
+    ],
+    image: workshop,
+    alt: 'A Wildfire workshop with a business team',
+    fit: 'cover',
+  },
+  {
+    label: 'For schools and colleges',
+    title: 'Ignite Students and Ignite Higher Ed',
+    line: 'A purpose and career-planning course your own teachers lead, built on the 7 Igniters.',
+    links: [{ href: '/education', text: 'For schools' }],
+    image: igniters,
+    alt: 'The 7 Igniters roadmap, from portrait to plan',
+    fit: 'contain',
+  },
+  {
+    label: 'To read',
+    title: 'Books and journals',
+    line: 'Flip the Script, Discovering Joy in Your Lane, and the Wildfire Daily Journal.',
+    links: [{ href: '/resources', text: 'See the books' }],
+    image: ftsBook,
+    alt: 'Flip the Script, the book by Bill Lammers',
+    fit: 'contain',
+  },
+  {
+    label: 'In communities',
+    title: 'Ignite Academy',
+    line: 'A nonprofit bringing mentoring and purpose programs to young people.',
+    links: [{ href: 'https://theigniteacademy.org', text: 'Visit Ignite Academy' }],
+    image: igniteAcademy,
+    alt: 'The Ignite Academy logo',
+    fit: 'contain',
+  },
+  {
+    label: 'Speaking',
+    title: 'Stephanie Lammers',
+    line: 'Stephanie’s speaking, writing and coaching.',
+    links: [{ href: 'https://stephanielammers.com', text: 'Visit Stephanie’s site' }],
+    image: stephanie,
+    alt: 'Stephanie Lammers',
+    fit: 'cover',
+  },
+];
+
+const external = (href: string) => href.startsWith('http');
+---
+
+<BaseLayout
+  title="Everything from Wildfire"
+  description="Every app, tool, book and song from Bill and Stephanie Lammers and the Wildfire family, in one place: INVEST Marriage, the Mission Portrait, Flip the Script, Joe Lammers’ music, workshops, and more."
+  breadcrumbs={[{ name: 'Everything', path: '/everything/' }]}
+>
+  <script>document.getElementById('site-header')?.classList.add('header-light');</script>
+
+  <PageHero
+    variant="light"
+    title='Everything from<br/><em>Wildfire</em>'
+    subtitle="Apps, tools, books and music from Bill and Stephanie Lammers and family, in one place."
+  />
+
+  <section class="relative pb-24 md:pb-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-5 md:px-8">
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" role="list">
+        {cards.map((card) => (
+          <li class="reveal group bg-white rounded-2xl border border-sand/50 overflow-hidden flex flex-col">
+            <div class={`aspect-[4/3] overflow-hidden ${card.fit === 'contain' ? 'bg-warm-white flex items-center justify-center p-6' : ''}`}>
+              <Img
+                src={card.image}
+                alt={card.alt}
+                widths={[360, 540, 720]}
+                sizes="(min-width: 1024px) 420px, (min-width: 640px) 46vw, 92vw"
+                kind={card.fit === 'contain' ? 'graphic' : 'photo'}
+                class={card.fit === 'contain' ? 'max-h-full w-auto object-contain' : 'w-full h-full object-cover'}
+              />
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-ember mb-3">{card.label}</p>
+              <h2 class="font-display text-2xl text-charcoal leading-tight">{card.title}</h2>
+              <p class="mt-3 text-[15px] text-stone leading-relaxed flex-1">{card.line}</p>
+              <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                {card.links.map((link) => (
+                  <a
+                    href={link.href}
+                    {...(external(link.href) ? { target: '_blank', rel: 'noopener' } : {})}
+                    class="inline-flex items-center gap-2 text-sm font-medium text-ember border-b border-ember/30 pb-0.5 hover:border-ember transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
