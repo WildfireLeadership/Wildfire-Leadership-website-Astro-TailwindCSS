@@ -3,8 +3,28 @@ import Img from './Img.astro';
 import logoDark from '../assets/images/logo-dark.png';
 import igniteLogo from '../assets/images/ignite-academy-logo.png';
 import { BASED_IN } from '../data/site';
+
+interface Props {
+  /**
+   * The "From the Wildfire family" line (Wildfire Sharing Plan, wave 1, approved 2026-11-17).
+   * Pages turn it off through BaseLayout's `familyLinks={false}`. The /schools and /colleges
+   * pages MUST turn it off: public schools use the non-faith-based version, so those pages
+   * never show faith or marriage links. Add nothing nonprofit (Ignite Academy) to this line.
+   */
+  family?: boolean;
+}
+
+const { family = true } = Astro.props;
 const currentYear = new Date().getFullYear();
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+// Tags as in invest-mobile docs/growth/share-links.md; never personal data in a tag.
+const familyTag = '?utm_source=wildfire&utm_medium=footer&utm_campaign=site_footer';
+const familyLinks = [
+  { href: `https://invest.wildfireleadership.com/${familyTag}`, label: 'INVEST Marriage' },
+  { href: `https://getflipthescript.com/app${familyTag}`, label: 'Flip the Script' },
+  // Everything in one place (/everything, 2026-11-17): the page our emails point to.
+  { href: '/everything', label: 'See everything' },
+];
 ---
 
 <footer class="border-t border-sand bg-warm-white">
@@ -99,7 +119,17 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
     <!-- Bottom -->
     <div class:list={["flex flex-col md:flex-row gap-6 pt-8 border-t border-sand", isHome ? "justify-between items-start md:items-center" : "justify-between items-center gap-4"]}>
-      <p class="text-[11px] text-stone">&copy; {currentYear} Wildfire Leadership, LLC</p>
+      <div class:list={["flex flex-col gap-2", !isHome && "items-center text-center md:items-start md:text-left"]}>
+        <p class="text-[11px] text-stone">&copy; {currentYear} Wildfire Leadership, LLC</p>
+        {family && (
+          <p class="text-xs text-stone">
+            From the Wildfire family:{' '}
+            {familyLinks.map((link, i) => (
+              <>{i > 0 && '\u00a0· '}<a href={link.href} rel="noopener" class="whitespace-nowrap py-1.5 text-charcoal/60 underline decoration-sand underline-offset-4 hover:text-charcoal hover:decoration-charcoal/40 transition-colors duration-300">{link.label}</a></>
+            ))}
+          </p>
+        )}
+      </div>
       {isHome && (
         <a
           href="https://theigniteacademy.org/"
