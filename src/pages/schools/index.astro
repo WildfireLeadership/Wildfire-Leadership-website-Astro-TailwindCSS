@@ -1,10 +1,13 @@
 ---
 /**
  * Ignite Students for K-12 schools. Replaces /education/k-12 (redirected in vercel.json).
- * Built from the overnight audit concept, 17 November 2026: what it is, the
- * non-faith-based version public schools use, who teaches it, the first step and its price, and one button, all in the
- * first screen. Proof only where Wildfire can stand behind it; dashed slots elsewhere
- * while REVIEW is true (src/data/ignite.ts).
+ * Built from the overnight audit concept, 17 November 2026, then Bill's notes of the same
+ * evening: what it is, the non-faith-based version public schools use, who teaches it, the
+ * first step and its price, and one button, all in the first screen. Verified educator
+ * quotes right under it. The 7 Igniters gets its own section. Only the first step is
+ * priced here; certification and the license are quoted per school. Nothing unconfirmed
+ * is shown: no sample lesson, outcome figures or student-data answers until Wildfire
+ * supplies them.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
@@ -12,7 +15,7 @@ import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
-import { PRICES, REVIEW, usd, certCost, k12License } from '../../data/ignite';
+import { PRICES, usd, IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import educationStudents from '../../assets/images/education-students.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
@@ -31,10 +34,6 @@ import logoAllenEast from '../../assets/images/school-logo-allen-east.jpg';
 
 const path = '/schools/';
 
-// Defaults the estimator opens with (the script recalculates the same way).
-const T = 4, C = 4;
-const cert = certCost(T), lic = k12License(C), total = PRICES.session + cert + lic;
-
 const schools = [
   { logo: logoNortheastern, name: 'Northeastern Local Schools', note: 'District-wide: 8th grade and a senior capstone' },
   { logo: logoDefiance, name: 'Defiance City Schools' },
@@ -45,13 +44,10 @@ const schools = [
   { logo: logoAllenEast, name: 'Allen East Schools' },
 ];
 
-type PageFaq = Faq & { tag?: string; review?: boolean; open?: boolean };
-const faqsAll: PageFaq[] = [
+const faqs: Faq[] = [
   {
     q: 'Is there religious content?',
     a: 'Not in the non-faith-based version, which is the one public schools use. A faith-based version exists for churches and faith-based schools.',
-    tag: 'Wildfire to confirm: what differs between the two versions, and that schools can review the full non-faith-based version before they sign.',
-    open: true,
   },
   {
     q: 'What grades is it for?',
@@ -66,24 +62,10 @@ const faqsAll: PageFaq[] = [
     a: 'Two 90-minute sessions certify your teachers in the Mission Portrait and the 7 Igniters. They leave with lesson plans and materials.',
   },
   {
-    q: 'How do schools pay for it?',
-    a: 'Your business office will know which funds fit. Similar programs often point to Title IV-A, and career-readiness work sometimes to Perkins V.',
-    tag: 'Proposed answer. Wildfire to confirm before it goes live.',
-    review: true,
-  },
-  {
-    q: 'What student data does the digital portrait keep?',
-    a: 'Wildfire to answer: what is collected, who sees it, where it is stored and how long it is kept.',
-    tag: 'Slot.',
-    review: true,
-  },
-  {
     q: 'Can we start small?',
     a: 'Yes. Begin with the leadership session, decide afterward, and add teachers and classes when you are ready.',
   },
 ];
-const faqs = faqsAll.filter((f) => REVIEW || !f.review);
-const faqsForSchema = faqs.filter((f) => !f.review);
 
 const jsonLd = [
   {
@@ -97,24 +79,25 @@ const jsonLd = [
     provider,
     audience: { '@type': 'EducationalAudience', educationalRole: 'administrator' },
   },
-  faqPage(path, faqsForSchema),
+  faqPage(path, faqs),
 ];
 ---
 
 <BaseLayout
   title="Ignite Students for K-12 schools"
-  description="Ignite Students is a purpose and career-planning course your own teachers lead, with a non-faith-based version for public schools. See the first-year cost and request a 20-minute call."
+  description="Ignite Students is a purpose and career-planning course your own teachers lead, with a non-faith-based version for public schools. See where to start and request a 20-minute call."
   breadcrumbs={[{ name: 'Schools', path }]}
   jsonLd={jsonLd}
   siteHeader={false}
+  familyLinks={false}
 >
   <div class="ig">
     <IgniteTop
       program="Ignite Students"
       links={[
         { href: '#make', label: 'What students make' },
-        { href: '#cost', label: 'First-year cost' },
-        { href: '#schools', label: 'Schools' },
+        { href: '#igniters', label: '7 Igniters' },
+        { href: '#cost', label: 'Cost' },
         { href: '#questions', label: 'Questions' },
       ]}
     />
@@ -137,9 +120,9 @@ const jsonLd = [
           </ul>
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
-            <a class="link" href="#cost">See the first-year cost</a>
+            <a class="link" href="#cost">See what it costs</a>
           </div>
-          <p class="first-step">You can begin with <b>one {usd(PRICES.session)} session for your leaders</b>, then decide.</p>
+          <p class="first-step">You can begin with <b>one session for your leaders</b>, {usd(PRICES.session)} for up to {PRICES.sessionLeaders}, then decide.</p>
           <p class="proofline in-sheet">Used in Ohio by <b>Northeastern Local</b>, <b>Defiance City</b>, <b>Napoleon Area</b>, <b>Patrick Henry Local</b> and other districts.</p>
           <Img
             class="plate"
@@ -158,81 +141,72 @@ const jsonLd = [
         </div>
       </section>
 
+      <section class="band on-sand voices" aria-label="What educators say" data-stage>
+        <div class="quotes">
+          <figure class="q" data-rise>
+            <blockquote>“What I love is that a Mission Portrait can be completed in as little as 90 minutes total if you choose — and every student still walks away with a digital asset they can use immediately.”</blockquote>
+            <figcaption><b>Alex Nafziger</b>, Principal, Northeastern Local Schools</figcaption>
+          </figure>
+          <figure class="q" data-rise>
+            <blockquote>“As a teacher, I have been able to watch this program transform students’ mindsets and build their confidence in who they are as people and how they hope to succeed in their lives.”</blockquote>
+            <figcaption><b>Mrs. Profera</b>, Teacher, Tinora High School, Northeastern Local Schools</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>
           <h2 id="make-h" data-rise>What each student makes</h2>
           <p class="lede" data-rise>A one-page Mission Portrait: their core values, a personal motto, their mission and their vision, set over an image they choose.</p>
           <p class="lede" data-rise>Then the 7 Igniters turn that page into a plan, one step at a time.</p>
-          <h3 style="margin-top:34px" data-rise>Review it before you call</h3>
-          <ul class="review">
-            <li data-rise><i class="dia"></i><b>The 7 Igniters roadmap</b><span>One page, the seven steps (shown here)</span></li>
-            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Sample lesson</b><span>Wildfire to add: one full lesson from the non-faith-based version</span></li>}
-            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Scope and sequence</b><span>Wildfire to add: what is taught, grade by grade</span></li>}
-            {REVIEW && <li class="is-slot" data-rise><i class="dia"></i><b>Student data summary</b><span>Wildfire to add: what the digital portrait collects, who sees it, how long it is kept</span></li>}
-          </ul>
+          <figure class="side-fig" data-rise>
+            <Img src={framework} alt="How a Mission Portrait is laid out: core values, an ID or slogan, mission, vision and a passage or quote, shown on an example portrait" widths={[360, 540, 720]} sizes="(min-width: 980px) 340px, 100vw" kind="graphic" />
+            <figcaption>How a Mission Portrait is laid out (an adult's example)</figcaption>
+          </figure>
         </div>
         <div class="stack">
           <figure class="real" data-rise>
             <Img src={portraitSarah} alt="Sarah's finished Mission Portrait over a field of daisies: core values family oriented, authentic, loyal and passionate, her ID, mission and vision, and the line There is no courage without vulnerability" widths={[480, 720, 960, 1280]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" alpha />
             <figcaption>Sarah's Mission Portrait</figcaption>
           </figure>
-          <figure data-rise>
-            <Img src={framework} alt="How a Mission Portrait is laid out: core values, an ID or slogan, mission, vision and a passage or quote, shown on an example portrait" widths={[360, 540, 720]} sizes="(min-width: 980px) 30vw, 100vw" kind="graphic" />
-            <figcaption>How a Mission Portrait is laid out (an adult's example)</figcaption>
-          </figure>
-          <figure data-rise>
-            <Img src={sevenIgniters} alt="The 7 Igniters roadmap: uncover your purpose, discover your ideal, create a sense of urgency, complete assessments, identify order of priorities, build your team, unleash potential" widths={[360, 540, 720]} sizes="(min-width: 980px) 30vw, 100vw" kind="graphic" />
-            <figcaption>The 7 Igniters roadmap, from portrait to plan</figcaption>
-          </figure>
         </div>
+      </section>
+
+      <section class="band on-field split igniters" id="igniters" aria-labelledby="ig-h" data-stage>
+        <div>
+          <h2 id="ig-h" data-rise>From purpose to a career plan</h2>
+          <p class="lede" data-rise>The 7 Igniters is a simple, seven-step career-discovery process that starts from each student's own purpose.</p>
+          <p class="lede" data-rise>The Mission Portrait helps students name who they are and what matters to them. The 7 Igniters connect that purpose with their strengths, dreams, assessment insights, possible career paths and practical next steps.</p>
+          <p class="lede" data-rise><b>Each student leaves with a personal roadmap.</b></p>
+          <p class="ai" data-rise><b>About the AI.</b> Step four has an optional Career Discovery feature that uses AI to suggest possible career paths from the student's own answers: their purpose, dreams, gifts, assessments and interests. The student chooses which ones to explore.</p>
+          <p class="next-step" data-rise><a class="link" href={IGNITERS_SAMPLE} target="_blank" rel="noopener">See a sample student roadmap</a></p>
+        </div>
+        <figure data-rise>
+          <Img src={sevenIgniters} alt="The 7 Igniters roadmap: uncover your purpose, discover your ideal, create a sense of urgency, complete assessments, identify order of priorities, build your team, unleash potential" widths={[360, 540, 720, 960]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" kind="graphic" />
+          <figcaption>The seven steps, from portrait to plan</figcaption>
+        </figure>
       </section>
 
       <section class="band on-sand cost" id="cost" aria-labelledby="cost-h" data-stage>
         <div>
-          <h2 id="cost-h" data-rise>Your first year, and what it costs</h2>
+          <h2 id="cost-h" data-rise>Where to start, and what it costs</h2>
           <p class="lede" data-rise>Three steps, on a typical timeline of six to eight weeks.</p>
           <ol class="steps">
             <li data-rise><i class="dia"></i><h3>Experience it first</h3><p>Your leaders make their own Mission Portraits in one session of about two hours. You can stop there and decide.</p></li>
             <li data-rise><i class="dia"></i><h3>Equip your teachers</h3><p>Choose the teachers who will lead it. Two 90-minute sessions certify them in the Mission Portrait and the 7 Igniters. Lesson plans and materials are included.</p></li>
-            <li data-rise><i class="dia"></i><h3>Launch and license</h3><p>The annual license covers print and digital workbooks and ready-to-play lesson videos for each class you run.</p></li>
+            <li data-rise><i class="dia"></i><h3>Launch with your students</h3><p>Your certified teachers lead it with their classes. The annual school license depends on scope and enrollment, so we quote it for your school.</p></li>
           </ol>
-          <div class="planner" data-planner="k12" data-rise>
-            <h3>Price your school</h3>
-            <label class="check"><input type="checkbox" checked data-check="session" /> Start with the leadership session</label>
-            <div class="ctl">
-              <label id="lt">Teachers to certify</label>
-              <div class="stepper" role="group" aria-labelledby="lt">
-                <button type="button" data-key="teachers" data-step="-1" aria-label="One fewer teacher">−</button>
-                <output data-out="teachers">{T}</output>
-                <button type="button" data-key="teachers" data-step="1" aria-label="One more teacher">+</button>
-              </div>
-            </div>
-            <div class="ctl">
-              <label id="lc">Classes in year one<small>Each class a certified teacher runs</small></label>
-              <div class="stepper" role="group" aria-labelledby="lc">
-                <button type="button" data-key="classes" data-step="-1" aria-label="One fewer class">−</button>
-                <output data-out="classes">{C}</output>
-                <button type="button" data-key="classes" data-step="1" aria-label="One more class">+</button>
-              </div>
-            </div>
-            <p class="running" aria-hidden="true"><span>First year</span><strong data-v="running">{usd(total)}</strong></p>
-          </div>
         </div>
         <div>
           <div class="receipt" data-rise>
-            <p class="head">Ignite Students, year one</p>
-            <p class="sub">Estimate for one school. Districts: we quote across schools.</p>
-            <div class="row" data-row="session"><span>Leadership team Mission Portrait session</span><span>{usd(PRICES.session)}</span></div>
-            <div class="row"><span data-l="cert">Certify {T} teachers in both tools, {usd(certCost(1))} each</span><span data-v="cert">{usd(cert)}</span></div>
-            <div class="row"><span data-l="lic">Annual license for {C} classes: print, digital and video</span><span data-v="lic">{usd(lic)}</span></div>
+            <p class="head">Start here</p>
+            <p class="sub">A leadership Mission Portrait session, about two hours</p>
+            <div class="row"><span>Up to {PRICES.sessionLeaders} leaders</span><span>{usd(PRICES.session)}</span></div>
+            <div class="row"><span>Small group, per person</span><span>{usd(PRICES.smallGroupPerPerson)}</span></div>
             <div class="bar"></div>
-            <div class="total"><strong data-v="total" aria-live="polite">{usd(total)}</strong><span>first year</span></div>
-            <div class="next"><span>Each year after, with no new teachers</span><span data-v="next">{usd(lic)}</span></div>
-            <a class="btn ink" href="#reply">Get this as a written quote</a>
+            <div class="next"><span>Teacher certification and the annual license</span><span>Quoted for your school</span></div>
+            <a class="btn ink" href="#reply">Get a written quote</a>
           </div>
-          {REVIEW && (
-            <p class="fig-note"><b>Figures to confirm.</b> {usd(PRICES.session)} is the 2026 menu's group session. Certification ({usd(PRICES.certPerTool)} per tool, so {usd(certCost(1))} a teacher for both) and the license ({usd(PRICES.k12LicenseBase)} a year plus {usd(PRICES.k12PerClass)} a class) come from the July 2025 menu. Replace with 2026 prices in src/data/ignite.ts before this goes live.</p>
-          )}
         </div>
       </section>
 
@@ -247,7 +221,6 @@ const jsonLd = [
               <li data-rise><i class="dia"></i>Every 8th grader takes the course</li>
               <li data-rise><i class="dia"></i>Seniors finish with a capstone</li>
             </ul>
-            {REVIEW && <p class="slot-note" data-rise><b>Slot.</b> Add Northeastern's own result, with the question asked, the year and how many students answered.</p>}
           </div>
           <div class="namecard" data-rise>
             <h3>Ohio schools using Ignite</h3>
@@ -259,18 +232,7 @@ const jsonLd = [
                 </li>
               ))}
             </ul>
-            {REVIEW && <p class="fig-note"><b>To add:</b> the grade and year each school started.</p>}
           </div>
-        </div>
-        <div class="quotes">
-          <figure class="q" data-rise>
-            <blockquote>“What I love is that a Mission Portrait can be completed in as little as 90 minutes total if you choose — and every student still walks away with a digital asset they can use immediately.”</blockquote>
-            <figcaption><b>Alex Nafziger</b>, Principal, Northeastern Local Schools</figcaption>
-          </figure>
-          <figure class="q" data-rise>
-            <blockquote>“As a teacher, I have been able to watch this program transform students’ mindsets and build their confidence in who they are as people and how they hope to succeed in their lives.”</blockquote>
-            <figcaption><b>Mrs. Profera</b>, Teacher, Northeastern Local Schools{REVIEW && <span class="confirm">From the 2025 implementation sheet. Confirm the wording and add her first name, with permission.</span>}</figcaption>
-          </figure>
         </div>
         <p class="next-step" data-rise>Want the same plan for your district? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>
@@ -278,10 +240,10 @@ const jsonLd = [
       <section class="band on-paper ask" id="questions" aria-labelledby="q-h" data-stage>
         <div>
           <h2 id="q-h" data-rise>Questions schools ask first</h2>
-          {faqs.map((f) => (
-            <details data-rise open={f.open}>
+          {faqs.map((f, i) => (
+            <details data-rise open={i === 0}>
               <summary>{f.q}</summary>
-              <p>{f.a}{REVIEW && f.tag && <span class="tag">{f.tag}</span>}</p>
+              <p>{f.a}</p>
             </details>
           ))}
         </div>
@@ -310,8 +272,6 @@ const jsonLd = [
               </select>
             </label>
             <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-            <input type="hidden" name="estimate" value="" />
-            <p class="est-line" data-v="estline"></p>
           </div>
           <button class="btn" type="submit">Request a 20-minute call</button>
           <p class="alt">Or email <a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a>. We reply within 24 business hours.</p>

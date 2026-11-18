@@ -192,3 +192,21 @@ html{scroll-padding-top:76px}
   .ig .foot .founders{float:none;width:100%;margin:0 0 20px}
   .ig .make .stack{grid-template-columns:1fr}
 }
+
+/* Bill's notes, 17 November 2026: quotes right under the hero, a 7 Igniters section, a simple start-here price for schools, the CSU menu's estimator for colleges. */
+.ig .voices{padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(40px,5vw,72px)}
+.ig .voices .quotes{margin-top:0}
+.ig .make .side-fig{margin-top:30px;max-width:340px}
+.ig .make .stack:has(> figure:only-child){grid-template-columns:1fr}
+.ig .igniters figure{background:#fff;padding:14px}
+.ig .igniters figure img{width:100%}
+.ig .igniters figcaption{font-size:14px;color:var(--soft);margin-top:10px}
+.ig .igniters .lede b{color:#fff;font-weight:600}
+.ig .igniters .ai{margin-top:22px;max-width:34em;padding:14px 16px;border-left:3px solid var(--accent);background:var(--field-2);color:var(--on-field-soft);font-size:var(--s-b);line-height:1.55}
+.ig .igniters .ai b{color:#fff;font-weight:600}
+.ig .igniters .link{color:#fff}
+.ig .igniters .next-step{margin-top:26px}
+.ig .planner select{height:48px;min-width:0;max-width:62%;padding:0 12px;font:400 17px Inter,sans-serif;border:2px solid var(--field-line);background:#fff;color:var(--ink);border-radius:0}
+.ig .planner select:focus{border-color:var(--action);outline:none}
+.ig .planner [hidden]{display:none}
+.ig .receipt .next span:last-child{text-align:right}

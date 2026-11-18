@@ -1,12 +1,12 @@
 ---
 /**
- * The first-year estimator and section entrances for /schools and /colleges.
+ * The college first-year estimator and section entrances for /schools and /colleges.
  * Prices come from src/data/ignite.ts, the same numbers the page prints.
  */
 ---
 
 <script>
-  import { PRICES, usd, plural, certCost, k12License, workbooks } from '../../data/ignite';
+  import { PRICES, usd, plural, certCost, sessionCost } from '../../data/ignite';
 
   document.documentElement.classList.add('js');
   // Never leave content hidden, even if something below fails.
@@ -18,7 +18,7 @@
     if (el) el.textContent = v;
   };
 
-  type State = Record<string, number | boolean>;
+  type State = Record<string, number | boolean | string>;
   function bind(root: HTMLElement, state: State, limits: Record<string, [number, number]>, render: () => void) {
     root.addEventListener('click', (e) => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-step]');
@@ -34,6 +34,12 @@
         render();
       })
     );
+    root.querySelectorAll<HTMLSelectElement>('[data-select]').forEach((s) =>
+      s.addEventListener('change', () => {
+        state[s.dataset.select!] = s.value;
+        render();
+      })
+    );
     render();
   }
 
@@ -43,46 +49,39 @@
     set('[data-v=estline]', `Your estimate goes with this request: ${est}.`);
   };
 
-  const k12 = $('[data-planner=k12]');
-  if (k12) {
-    const st = { session: true, teachers: 4, classes: 4 };
-    bind(k12, st, { teachers: [1, 40], classes: [1, 40] }, () => {
-      const c = certCost(st.teachers);
-      const lic = k12License(st.classes);
-      const total = (st.session ? PRICES.session : 0) + c + lic;
-      set('[data-out=teachers]', String(st.teachers));
-      set('[data-out=classes]', String(st.classes));
-      $('[data-row=session]')?.classList.toggle('off', !st.session);
-      set('[data-l=cert]', `Certify ${plural(st.teachers, 'teacher')} in both tools, ${usd(certCost(1))} each`);
-      set('[data-v=cert]', usd(c));
-      set('[data-l=lic]', `Annual license for ${plural(st.classes, 'class', 'classes')}: print, digital and video`);
-      set('[data-v=lic]', usd(lic));
-      set('[data-v=total]', usd(total));
-      set('[data-v=next]', usd(lic));
-      set('[data-v=running]', usd(total));
-      showEstimate(`${usd(total)} first year: ${st.session ? 'leadership session, ' : ''}${plural(st.teachers, 'teacher')}, ${plural(st.classes, 'class', 'classes')}`);
-    });
-  }
-
+  // Ignite Higher Ed: the CSU menu, nothing else (src/data/ignite.ts).
   const he = $('[data-planner=he]');
   if (he) {
-    const st = { session: true, facilitators: 6, students: 600, igniters: false };
-    bind(he, st, { facilitators: [1, 60], students: [50, 12000] }, () => {
-      const w = workbooks(st.students, st.igniters);
-      const c = certCost(st.facilitators);
-      const total = (st.session ? PRICES.session : 0) + c + w.cost;
+    const st = { session: 'mp', leaders: PRICES.sessionLeaders, facilitators: 6, mpTrack: true, igTrack: true, license: 'freshmen' };
+    bind(he, st, { leaders: [1, 60], facilitators: [1, 60] }, () => {
+      const hasSession = st.session !== 'none';
+      const wg = st.session === 'wg';
+      const s = hasSession ? sessionCost(st.leaders, wg) : 0;
+      const tracks = Number(st.mpTrack) + Number(st.igTrack);
+      const c = certCost(st.facilitators, tracks);
+      const lic = PRICES.collegeLicense.find((t) => t.key === st.license) ?? PRICES.collegeLicense[0];
+      const total = s + c + lic.price;
+      const extra = Math.max(0, st.leaders - PRICES.sessionLeaders);
+      set('[data-out=leaders]', String(st.leaders));
       set('[data-out=facilitators]', String(st.facilitators));
-      set('[data-out=students]', st.students.toLocaleString('en-US'));
-      $('[data-row=session]')?.classList.toggle('off', !st.session);
-      set('[data-l=cert]', `Certify ${plural(st.facilitators, 'facilitator')} in both tools, ${usd(certCost(1))} each`);
+      he.querySelector('[data-when=session]')?.toggleAttribute('hidden', !hasSession);
+      $('[data-row=session]')?.classList.toggle('off', !hasSession);
+      set(
+        '[data-l=session]',
+        `Leadership session, ${wg ? '4 hours with Working Genius' : '2 hours'}, ${plural(st.leaders, 'leader')}${extra ? ` (${extra} over ${PRICES.sessionLeaders} at ${usd(PRICES.extraPerson)})` : ''}`
+      );
+      set('[data-v=session]', usd(hasSession ? s : sessionCost(st.leaders, wg)));
+      const trackWords = tracks === 2 ? 'both tracks' : st.mpTrack ? 'the Mission Portrait track' : st.igTrack ? 'the 7 Igniters track' : 'no tracks';
+      set('[data-l=cert]', `Certify ${plural(st.facilitators, 'facilitator')} in ${trackWords}, ${usd(certCost(1, tracks))} each`);
       set('[data-v=cert]', usd(c));
-      const billed = w.billed !== st.students ? ` (priced as ${w.billed.toLocaleString('en-US')})` : '';
-      set('[data-l=work]', `${st.students.toLocaleString('en-US')} digital student workbooks at ${usd(w.each)} each, priced by volume${billed}${st.igniters ? ', with the 7 Igniters' : ''}`);
-      set('[data-v=work]', usd(w.cost));
+      set('[data-l=lic]', `Annual license: ${lic.label.toLowerCase()}`);
+      set('[data-v=lic]', usd(lic.price));
       set('[data-v=total]', usd(total));
-      set('[data-v=next]', usd(w.cost));
+      set('[data-v=next]', usd(lic.price));
       set('[data-v=running]', usd(total));
-      showEstimate(`${usd(total)} first year: ${st.session ? 'leadership session, ' : ''}${plural(st.facilitators, 'facilitator')}, ${st.students.toLocaleString('en-US')} students`);
+      showEstimate(
+        `${usd(total)} first year: ${hasSession ? `${wg ? '4-hour' : '2-hour'} session for ${plural(st.leaders, 'leader')}, ` : ''}${plural(st.facilitators, 'facilitator')} in ${trackWords}, ${lic.label.toLowerCase()} license`
+      );
     });
   }
 

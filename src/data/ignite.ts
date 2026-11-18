@@ -1,59 +1,47 @@
 /**
- * Ignite Students (K-12) and Ignite Higher Ed: the prices and review flag the
- * /schools and /colleges pages share. Change a price here and both the page
- * text and the first-year estimator follow.
+ * Ignite Students (K-12) and Ignite Higher Ed: the prices the /schools and /colleges
+ * pages share. Change a price here and the page text and the college estimator follow.
  *
- * Sources (none invented):
- * - session: the $1,500 group experience on the 2026 menu, as Bill described it
- *   (email, 16 November 2026).
- * - certPerTool, k12LicenseBase, k12PerClass, workbookTiers: the Wildfire Menu of
- *   Services, July 2025 copy ("Mission Portrait certification $300", "7 Igniters
- *   certification $300", "Ignite Academy curriculum $1,500 per year + $500 per
- *   section", the digital student workbook volume table).
- * Confirm each against the 2026 Ignite menu before this goes live.
+ * Sources, all from Bill's emails to Will of 17 November 2026 (nothing invented):
+ * - K-12: the example he sent Laura Young at Parkway. A leadership Mission Portrait
+ *   session is $1,500 for up to 12 leaders; for a small administrator group he honored
+ *   $249 a person. The public page shows only this first step. Certification and the
+ *   annual school license are quoted per school, and the license tiers and what each
+ *   includes are confirmed with Bill before they are ever published.
+ * - Higher Ed: the CSU menu. A two-hour Mission Portrait leadership experience is
+ *   $1,500, or four hours with Working Genius $2,200, for up to 12 leaders, plus $150
+ *   per additional person. Facilitator certification is $300 per person, per track.
+ *   The annual license starts at $5,000 for a pilot cohort or single program, $6,500
+ *   for incoming freshmen and $9,000 campus-wide. Final pricing scales with enrollment.
  */
 export const PRICES = {
   session: 1500,
-  certPerTool: 300,
-  tools: 2,
-  k12LicenseBase: 1500,
-  k12PerClass: 500,
-  /** [minimum students, Mission Portrait only, Mission Portrait + 7 Igniters], per student, digital workbook */
-  workbookTiers: [
-    [10000, 3.0, 5.4], [5000, 3.5, 6.3], [2000, 4.0, 7.2], [1000, 5.0, 9.0], [500, 6.0, 10.8],
-    [200, 7.0, 12.6], [100, 10.0, 18.0], [50, 25.0, 45.0], [20, 28.0, 50.4], [10, 30.0, 54.0], [1, 35.0, 63.0],
-  ] as [number, number, number][],
+  sessionWithWorkingGenius: 2200,
+  sessionLeaders: 12,
+  extraPerson: 150,
+  smallGroupPerPerson: 249,
+  certPerTrack: 300,
+  /** The two certification tracks: the Mission Portrait and the 7 Igniters. */
+  tracks: 2,
+  collegeLicense: [
+    { key: 'pilot', label: 'Pilot cohort or single program', price: 5000 },
+    { key: 'freshmen', label: 'Incoming freshmen', price: 6500 },
+    { key: 'campus', label: 'Campus-wide', price: 9000 },
+  ],
 };
-
-/**
- * While true, the pages show dashed "to add" slots and "to confirm" notes so
- * Bill, Stephanie and Will can see what is still missing. Set to false only
- * when every slot has real content or has been removed.
- */
-export const REVIEW = true;
 
 export const usd = (n: number) =>
   '$' + n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 
 export const plural = (n: number, one: string, many = one + 's') => `${n} ${n === 1 ? one : many}`;
 
-export const certCost = (people: number) => people * PRICES.certPerTool * PRICES.tools;
+/** Certification for `people` facilitators in `tracks` tracks. */
+export const certCost = (people: number, tracks = PRICES.tracks) => people * tracks * PRICES.certPerTrack;
 
-export const k12License = (classes: number) => PRICES.k12LicenseBase + classes * PRICES.k12PerClass;
+/** A leadership session for `leaders` people: the base covers 12, then $150 each. */
+export const sessionCost = (leaders: number, withWorkingGenius = false) =>
+  (withWorkingGenius ? PRICES.sessionWithWorkingGenius : PRICES.session) +
+  Math.max(0, leaders - PRICES.sessionLeaders) * PRICES.extraPerson;
 
-/** Volume price that never rises when students are removed. */
-export function workbooks(n: number, withIgniters: boolean) {
-  const col = withIgniters ? 2 : 1;
-  const at = PRICES.workbookTiers.find((t) => n >= t[0])!;
-  let best = n * at[col];
-  let each = at[col];
-  let billed = n;
-  for (const t of PRICES.workbookTiers) {
-    if (t[0] > n && t[0] * t[col] < best) {
-      best = t[0] * t[col];
-      each = t[col];
-      billed = t[0];
-    }
-  }
-  return { cost: Math.round(best * 100) / 100, each, billed };
-}
+/** 7igniters.com's overview in the general edition: a sample student roadmap, no sign-in. */
+export const IGNITERS_SAMPLE = 'https://7igniters.com/overview';
