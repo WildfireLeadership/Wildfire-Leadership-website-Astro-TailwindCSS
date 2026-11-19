@@ -206,6 +206,13 @@ html{scroll-padding-top:76px}
 .ig .igniters .ai b{color:#fff;font-weight:600}
 .ig .igniters .link{color:#fff}
 .ig .igniters .next-step{margin-top:26px}
+.ig .igniters .try{margin-top:22px;max-width:34em;padding:18px 20px 16px;background:var(--field-2);color:var(--on-field-soft);font-size:var(--s-b);line-height:1.55}
+.ig .igniters .try h3{color:#fff;font-size:24px;margin-bottom:8px}
+.ig .igniters .try ol{list-style:decimal;margin:10px 0 10px 1.3em;display:grid;gap:4px;color:var(--on-field)}
+.ig .igniters .try .eg{font-size:15px}
+.ig .igniters figure a{display:block}
+.ig .quotes.one{grid-template-columns:1fr;max-width:46em;margin-left:auto;margin-right:auto}
+.ig .proof .q{margin-top:28px;max-width:40em}
 .ig .planner select{height:48px;min-width:0;max-width:62%;padding:0 12px;font:400 17px Inter,sans-serif;border:2px solid var(--field-line);background:#fff;color:var(--ink);border-radius:0}
 .ig .planner select:focus{border-color:var(--action);outline:none}
 .ig .planner [hidden]{display:none}

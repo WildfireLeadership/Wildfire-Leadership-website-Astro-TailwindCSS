@@ -43,5 +43,12 @@ export const sessionCost = (leaders: number, withWorkingGenius = false) =>
   (withWorkingGenius ? PRICES.sessionWithWorkingGenius : PRICES.session) +
   Math.max(0, leaders - PRICES.sessionLeaders) * PRICES.extraPerson;
 
-/** 7igniters.com's overview in the general edition: a sample student roadmap, no sign-in. */
-export const IGNITERS_SAMPLE = 'https://7igniters.com/overview';
+/**
+ * A static copy of the General edition's sample roadmap (Maya Thompson, a fictional student),
+ * rendered from 7igniters.com/overview on 19 November 2026. Bill (18 November): point the
+ * education links straight to a standalone static sample, not the overview page with its
+ * "Try the digital experience" button, while the app's student-data page is under review.
+ * The same file is imported from src/assets for the picture on the page. Re-render both if
+ * the sample changes in the app.
+ */
+export const IGNITERS_SAMPLE = '/images/7-igniters-sample-roadmap.png';

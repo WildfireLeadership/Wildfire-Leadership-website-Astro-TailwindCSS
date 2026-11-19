@@ -6,8 +6,13 @@
  * first step and its price, and one button, all in the first screen. Verified educator
  * quotes right under it. The 7 Igniters gets its own section. Only the first step is
  * priced here; certification and the license are quoted per school. Nothing unconfirmed
- * is shown: no sample lesson, outcome figures or student-data answers until Wildfire
- * supplies them.
+ * is shown: no outcome figures or student-data answers until Wildfire supplies them.
+ * Bill's notes of 18 November: Northeastern ran it at the high school only, from ninth
+ * grade, with two teachers, and the case study describes the senior capstone (Alex
+ * Nafziger confirmed this to Bill on 11 May); Alex's quote is the K-12 mailer's, credited
+ * as principal during the implementation; Mrs. Profera is Teacher, Tinora High School.
+ * The 7 Igniters section shows the General edition's fictional sample roadmap (rendered
+ * from 7igniters.com/overview, served as a static image) and Bill's Igniter 7 exercise.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
@@ -23,7 +28,7 @@ import framework from '../../assets/images/mission-portrait-framework.png';
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
 import portraitBrenda from '../../assets/images/portrait-coleen-full.png';
 import portraitSarah from '../../assets/images/portrait-sarah-full.png';
-import sevenIgniters from '../../assets/images/7-igniters-diagram.png';
+import sampleRoadmap from '../../assets/images/7-igniters-sample-roadmap.png';
 import logoNortheastern from '../../assets/images/school-logo-3.png';
 import logoDefiance from '../../assets/images/school-logo-5.png';
 import logoAyersville from '../../assets/images/school-logo-6.png';
@@ -35,7 +40,7 @@ import logoAllenEast from '../../assets/images/school-logo-allen-east.jpg';
 const path = '/schools/';
 
 const schools = [
-  { logo: logoNortheastern, name: 'Northeastern Local Schools', note: 'District-wide: 8th grade and a senior capstone' },
+  { logo: logoNortheastern, name: 'Northeastern Local Schools', note: 'High school: ninth grade through a senior capstone' },
   { logo: logoDefiance, name: 'Defiance City Schools' },
   { logo: logoNapoleon, name: 'Napoleon Area Schools', alpha: true },
   { logo: logoPatrickHenry, name: 'Patrick Henry Local Schools', alpha: true },
@@ -51,7 +56,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'What grades is it for?',
-    a: 'Most schools start in 8th grade or with a senior capstone. It can be adapted for other middle and high school grades, and for elementary.',
+    a: 'Northeastern starts it in ninth grade and comes back to it in a senior capstone. It can be adapted for other middle and high school grades, and for elementary.',
   },
   {
     q: 'Where does it fit in the schedule?',
@@ -115,7 +120,7 @@ const jsonLd = [
           <p class="sub">Ignite Students is a purpose and career-planning course your own teachers lead. Public schools use the <span style="white-space:nowrap">non-faith-based version</span>.</p>
           <ul class="facts">
             <li><i class="dia"></i>Teachers certified in two 90-minute sessions</li>
-            <li><i class="dia"></i>Typical start: 8th grade or senior year</li>
+            <li><i class="dia"></i>Fits advisory or a senior capstone</li>
             <li><i class="dia"></i>Typical timeline: six to eight weeks</li>
           </ul>
           <div class="acts">
@@ -135,7 +140,7 @@ const jsonLd = [
         </article>
         <div class="aside r">
           <figure>
-            <p class="lede" style="font-size:17px"><b>Northeastern Local Schools</b> runs it district-wide: every 8th grader, then a senior capstone.</p>
+            <p class="lede" style="font-size:17px">At <b>Northeastern Local Schools</b>, two teachers lead it at the high school, from ninth grade to a senior capstone.</p>
             <figcaption>Defiance County, Ohio</figcaption>
           </figure>
         </div>
@@ -144,12 +149,12 @@ const jsonLd = [
       <section class="band on-sand voices" aria-label="What educators say" data-stage>
         <div class="quotes">
           <figure class="q" data-rise>
-            <blockquote>“What I love is that a Mission Portrait can be completed in as little as 90 minutes total if you choose — and every student still walks away with a digital asset they can use immediately.”</blockquote>
-            <figcaption><b>Alex Nafziger</b>, Principal, Northeastern Local Schools</figcaption>
+            <blockquote>“A Mission Portrait can be completed in as little as 90 minutes if you choose — and every student walks away with a digital asset they can use immediately.”</blockquote>
+            <figcaption><b>Alex Nafziger</b>, Principal at Northeastern during the implementation</figcaption>
           </figure>
           <figure class="q" data-rise>
             <blockquote>“As a teacher, I have been able to watch this program transform students’ mindsets and build their confidence in who they are as people and how they hope to succeed in their lives.”</blockquote>
-            <figcaption><b>Mrs. Profera</b>, Teacher, Tinora High School, Northeastern Local Schools</figcaption>
+            <figcaption><b>Mrs. Profera</b>, Teacher, Tinora High School</figcaption>
           </figure>
         </div>
       </section>
@@ -179,11 +184,22 @@ const jsonLd = [
           <p class="lede" data-rise>The Mission Portrait helps students name who they are and what matters to them. The 7 Igniters connect that purpose with their strengths, dreams, assessment insights, possible career paths and practical next steps.</p>
           <p class="lede" data-rise><b>Each student leaves with a personal roadmap.</b></p>
           <p class="ai" data-rise><b>About the AI.</b> Step four has an optional Career Discovery feature that uses AI to suggest possible career paths from the student's own answers: their purpose, dreams, gifts, assessments and interests. The student chooses which ones to explore.</p>
+          <div class="try" data-rise>
+            <h3>A sample for advisory or a senior capstone</h3>
+            <p>Igniter 7 shows how the portrait and the seven steps lead to something a student can act on. Ask each student to:</p>
+            <ol>
+              <li>Pick one career or education option they are curious about</li>
+              <li>Name one action they can take this week</li>
+              <li>Set a date</li>
+              <li>Name someone who can help</li>
+            </ol>
+            <p class="eg">For example, asking a counselor to help set up a job shadow.</p>
+          </div>
           <p class="next-step" data-rise><a class="link" href={IGNITERS_SAMPLE} target="_blank" rel="noopener">See a sample student roadmap</a></p>
         </div>
         <figure data-rise>
-          <Img src={sevenIgniters} alt="The 7 Igniters roadmap: uncover your purpose, discover your ideal, create a sense of urgency, complete assessments, identify order of priorities, build your team, unleash potential" widths={[360, 540, 720, 960]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" kind="graphic" />
-          <figcaption>The seven steps, from portrait to plan</figcaption>
+          <a href={IGNITERS_SAMPLE} target="_blank" rel="noopener"><Img src={sampleRoadmap} alt="A sample 7 Igniters roadmap for Maya Thompson, a fictional high school student: her values, vision and mission, her one, three and ten-year dreams, her commitments, assessment takeaways, priorities, her team, her next steps and the career paths she chose to explore" widths={[360, 540, 720, 960, 1280]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" kind="graphic" /></a>
+          <figcaption>A sample student roadmap. Maya is a fictional student.</figcaption>
         </figure>
       </section>
 
@@ -213,13 +229,12 @@ const jsonLd = [
       <section class="band on-field proof" id="schools" aria-labelledby="schools-h" data-stage>
         <div class="split">
           <div>
-            <h2 id="schools-h" data-rise>How one district runs it</h2>
-            <p class="lede" data-rise>Northeastern Local Schools in Defiance County, Ohio, uses Ignite across the district:</p>
+            <h2 id="schools-h" data-rise>How one high school runs it</h2>
+            <p class="lede" data-rise>Northeastern Local Schools in Defiance County, Ohio, runs Ignite at its high school:</p>
             <ul class="model">
-              <li data-rise><i class="dia"></i>School leaders trained first</li>
-              <li data-rise><i class="dia"></i>Teachers certified as facilitators</li>
-              <li data-rise><i class="dia"></i>Every 8th grader takes the course</li>
-              <li data-rise><i class="dia"></i>Seniors finish with a capstone</li>
+              <li data-rise><i class="dia"></i>Two teachers certified as facilitators</li>
+              <li data-rise><i class="dia"></i>Students start in ninth grade</li>
+              <li data-rise><i class="dia"></i>Seniors come back to it in a capstone</li>
             </ul>
           </div>
           <div class="namecard" data-rise>
@@ -234,7 +249,7 @@ const jsonLd = [
             </ul>
           </div>
         </div>
-        <p class="next-step" data-rise>Want the same plan for your district? <a class="btn" href="#reply">Request a 20-minute call</a></p>
+        <p class="next-step" data-rise>Want the same plan for your school? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>
 
       <section class="band on-paper ask" id="questions" aria-labelledby="q-h" data-stage>
@@ -268,7 +283,7 @@ const jsonLd = [
             <label>Where you would start
               <select name="start" required>
                 <option value="" selected disabled>Choose one</option>
-                <option>8th grade</option><option>Senior capstone</option><option>Leadership session only</option><option>Not sure yet</option>
+                <option>Ninth grade</option><option>Advisory</option><option>Senior capstone</option><option>Leadership session only</option><option>Not sure yet</option>
               </select>
             </label>
             <label>Email<input type="email" name="email" autocomplete="email" required /></label>
