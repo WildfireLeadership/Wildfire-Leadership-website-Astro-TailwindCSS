@@ -69,14 +69,13 @@ import CallToAction from '../../components/CallToAction.astro';
             ],
           },
         ].map((program, i) => (
-          <div class:list={["reveal group rounded-2xl overflow-hidden border border-sand/50 bg-white card-glow lift", `reveal-d${i + 1}`]}>
-            <div class="aspect-[16/10] overflow-hidden relative">
+          <div class:list={["reveal flex flex-col rounded-2xl overflow-hidden border border-sand/50 bg-white", `reveal-d${i + 1}`]}>
+            <a href={program.href} tabindex="-1" aria-hidden="true" class="group block aspect-[16/10] overflow-hidden relative">
               <Img src={program.image} alt={program.title} widths={[480, 720, 960, 1280, 1600]} sizes={coverSizes(program.image, 16 / 10, [['(min-width: 1400px)', 656, 'px'], ['(min-width: 768px)', 48, 'vw'], ['', 100, 'vw']])} class="w-full h-full object-cover img-hover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-charcoal-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-            <div class="relative z-10 p-8 md:p-10">
-              <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4">{program.title}</h3>
-              <p class="text-stone text-base leading-relaxed mb-6">{program.desc}</p>
+            </a>
+            <div class="relative z-10 flex flex-1 flex-col items-start p-8 md:p-10">
+              <h3 class="font-display text-2xl md:text-3xl text-charcoal leading-[1.1] mb-4"><a href={program.href} class="hover:text-ember transition-colors duration-300">{program.title}</a></h3>
+              <p class="flex-1 text-stone text-base leading-relaxed mb-6">{program.desc}</p>
               <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
                 {program.videos.map((video) => (
                   <a
