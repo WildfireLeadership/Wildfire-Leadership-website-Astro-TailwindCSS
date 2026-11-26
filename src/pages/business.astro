@@ -111,7 +111,6 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
 
   <!-- ===== CASE STUDY: FLATROCK BRIDGE GROUP ===== -->
   <section class="relative py-28 md:py-36 bg-charcoal overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
 
     <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
@@ -205,47 +204,50 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
       <p class="reveal reveal-d2 text-center text-sm text-stone/70 italic mb-16 md:mb-20">Each offering stands on its own — pick one, combine a few, or build toward a full rollout. There's no required order.</p>
 
       <!-- ── OFFERINGS GRID ── -->
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 max-w-6xl mx-auto mb-16">
         {[
           {
             title: "Leadership Workshop",
             desc: "A half-day, hands-on session where your leaders experience the Mission Portrait™ and Working Genius firsthand — building clarity and alignment across your team.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />`,
           },
           {
             title: "Leadership Coaching",
+            href: "/leadership-coaching",
+            link: "See leadership coaching",
             desc: "Personalized, strategic coaching sessions for individuals or teams — from 1-on-1 executive coaching to leadership cohorts of up to 10 leaders.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />`,
           },
           {
             title: "Development Workshops",
+            href: "/workshops",
+            link: "See all workshops",
             desc: "Hands-on sessions in Working Genius, DISC, Crucial Conversations, 5 Levels of Leadership, Extreme Ownership, and more — tailored for your team.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />`,
           },
           {
             title: "Employee Purpose & Growth",
             desc: "Equip your employees with the Mission Portrait™ and 7 Igniters™ — helping them uncover purpose, build a growth plan, and bring their best to your organization.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />`,
           },
           {
             title: "Certify Your Facilitators",
+            href: "/facilitators",
+            link: "See facilitator certification",
             desc: "Train internal leaders to deliver Wildfire content across departments — two 90-minute sessions and they're equipped to guide employees through the full curriculum.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />`,
           },
           {
             title: "Keynote Speaking",
             desc: "Energize your team at conferences, retreats, or company events with a keynote on purpose-driven leadership — practical, inspiring, and tailored to your audience.",
-            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />`,
           },
         ].map((card, i) => (
-          <div class:list={["reveal bg-white rounded-xl border border-sand/50 p-8", i > 0 && `reveal-d${Math.min(i, 2)}`]}>
-            <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-5">
-              <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <Fragment set:html={card.icon} />
-              </svg>
-            </div>
-            <h3 class="font-display text-xl text-charcoal mb-3">{card.title}</h3>
+          <div class:list={["reveal border-t border-charcoal/15 pt-6", i > 0 && `reveal-d${Math.min(i, 2)}`]}>
+            <h3 class="font-display text-2xl text-charcoal mb-3">{card.title}</h3>
             <p class="text-sm text-stone leading-relaxed">{card.desc}</p>
+            {card.href && (
+              <a href={card.href} class="group mt-4 inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-300">
+                {card.link}
+                <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            )}
           </div>
         ))}
       </div>
@@ -279,7 +281,7 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
             <p class="text-stone text-sm leading-relaxed mb-3">
               A visual guide that maps core values, vision, and mission — built for individuals, departments, or the entire organization.
             </p>
-            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+            <p class="text-ember text-sm font-medium group-hover:underline">See the Mission Portrait&trade; &rarr;</p>
           </div>
         </a>
         <a href="/7-igniters" class="reveal reveal-d1 group bg-warm-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
@@ -289,7 +291,7 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
             <p class="text-stone text-sm leading-relaxed mb-3">
               The primary coaching framework for business — seven stages of growth supported by over 20 proven tools and assessments.
             </p>
-            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+            <p class="text-ember text-sm font-medium group-hover:underline">See the 7 Igniters&trade; &rarr;</p>
           </div>
         </a>
       </div>
@@ -450,35 +452,19 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="reveal bg-white rounded-xl border border-sand/50 p-8">
-          <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-charcoal mb-3">Visual, Not Theoretical</h3>
+      <div class="grid md:grid-cols-3 gap-x-10 gap-y-12 max-w-6xl mx-auto">
+        <div class="reveal border-t border-charcoal/15 pt-6">
+          <h3 class="font-display text-2xl text-charcoal mb-3">Visual, Not Theoretical</h3>
           <p class="text-sm text-stone leading-relaxed">Most frameworks stay in a binder. The Mission Portrait™ is a visual tool your people see, use, and reference every day — like Keller Logistics etching theirs into their conference room doors.</p>
         </div>
 
-        <div class="reveal reveal-d1 bg-white rounded-xl border border-sand/50 p-8">
-          <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-charcoal mb-3">Action-Oriented</h3>
+        <div class="reveal reveal-d1 border-t border-charcoal/15 pt-6">
+          <h3 class="font-display text-2xl text-charcoal mb-3">Action-Oriented</h3>
           <p class="text-sm text-stone leading-relaxed">The 7 Igniters™ doesn't stop at insights — it builds a concrete action plan. Each step moves your people from understanding to implementation, with measurable outcomes along the way.</p>
         </div>
 
-        <div class="reveal reveal-d2 bg-white rounded-xl border border-sand/50 p-8">
-          <div class="w-12 h-12 rounded-xl bg-ember/8 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5 text-ember" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-charcoal mb-3">Works at Every Level</h3>
+        <div class="reveal reveal-d2 border-t border-charcoal/15 pt-6">
+          <h3 class="font-display text-2xl text-charcoal mb-3">Works at Every Level</h3>
           <p class="text-sm text-stone leading-relaxed">Individual, departmental, and organizational — the same framework scales from a single employee's clarity session to a company-wide culture transformation, supported by 20+ proven assessments.</p>
         </div>
       </div>
