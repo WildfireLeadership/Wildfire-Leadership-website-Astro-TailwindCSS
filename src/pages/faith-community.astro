@@ -73,7 +73,7 @@ const jsonLd = {
           { src: churchLogoFaith, alpha: true, alt: "Faith Church", dark: true },
           { src: churchLogoChurchcreek, alt: "The Retreat at Church Creek" },
         ].map((logo) => (
-          <div class:list={["rounded-xl p-4 flex items-center justify-center h-20 w-28 md:h-22 md:w-32 hover:shadow-lg transition-all duration-300", logo.dark ? "bg-charcoal hover:shadow-white/10" : "bg-white hover:shadow-white/10"]}>
+          <div class:list={["rounded-xl p-4 flex items-center justify-center h-20 w-28 md:h-22 md:w-32", logo.dark ? "bg-charcoal" : "bg-white"]}>
             <Img src={logo.src} alt={logo.alt} width={Math.min(96, Math.round(56 * aspect(logo.src)))} kind="graphic" alpha={logo.alpha} class="max-h-12 md:max-h-14 w-auto object-contain" />
           </div>
         ))}
@@ -129,7 +129,7 @@ const jsonLd = {
             <p class="text-stone text-sm leading-relaxed mb-3">
               A personalized visual guide that helps individuals, couples, and families articulate their God-given purpose, values, and vision.
             </p>
-            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+            <p class="text-ember text-sm font-medium group-hover:underline">See the Mission Portrait&trade; &rarr;</p>
           </div>
         </a>
         <a href="/7-igniters" class="reveal reveal-d1 group bg-white rounded-2xl border border-sand/50 overflow-hidden hover:border-ember/30 transition-colors duration-300">
@@ -139,7 +139,7 @@ const jsonLd = {
             <p class="text-stone text-sm leading-relaxed mb-3">
               A customized discipleship and leadership curriculum that guides your people through seven stages of purpose-driven growth.
             </p>
-            <p class="text-ember text-sm font-medium group-hover:underline">Learn more &rarr;</p>
+            <p class="text-ember text-sm font-medium group-hover:underline">See the 7 Igniters&trade; &rarr;</p>
           </div>
         </a>
       </div>
@@ -168,8 +168,8 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             Help your students and young adults discover who they are, where they're headed, and how to lead from that place. Our Mission Portrait™ and 7 Igniters™ curriculum is designed for small groups, classes, and youth ministry — building personal leadership, clarity, and confidence in the next generation.
           </p>
-          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-            Request info
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
+            Ask about student curriculum
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -183,7 +183,7 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             <em class="text-charcoal font-medium not-italic">Know who you are. Know who you married. Know what you are building together.</em> A Christ-centered marriage journey created by Bill and Stephanie Lammers. Churches begin with an eight-week INVEST cohort.
           </p>
-          <a href="https://invest.wildfireleadership.com/churches/#cohort" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
+          <a href="https://invest.wildfireleadership.com/churches/#cohort" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
             INVEST Marriage for churches
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -198,8 +198,8 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             Help married couples and families discover their shared purpose, values, and vision. Each couple or family leaves with a personalized Mission Portrait™ — a visual legacy they can live by every day.
           </p>
-          <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-            See examples & learn more
+          <a href="/family-mission-portrait" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
+            See family portrait examples
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -213,8 +213,8 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             Grow discipleship and keep your congregation engaged all week. The Flip the Script app's Echo feature takes your pastor's Sunday message and creates a 6-day devotional from it — extending the sermon's impact into daily life.
           </p>
-          <a href="https://getflipthescript.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-            Learn more
+          <a href="https://getflipthescript.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
+            Visit Flip the Script
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -228,8 +228,8 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             Equip your leadership team with proven tools and frameworks — Working Genius, Mission Portrait™, 5 Levels of Leadership, DISC, Crucial Conversations, and more. Includes ongoing team coaching tailored for your church, nonprofit, or organization.
           </p>
-          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-            Request info
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
+            Ask about leadership workshops
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -243,8 +243,8 @@ const jsonLd = {
           <p class="text-stone text-sm leading-relaxed mb-5">
             Bill and Stephanie Lammers are available for keynotes at conferences, retreats, and special events — sharing the frameworks, tools, and stories behind Wildfire Leadership and INVEST Marriage.
           </p>
-          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal/60 hover:text-ember transition-colors duration-400">
-            Request speaking info
+          <a href="/contact?interest=faith" class="group inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-ember transition-colors duration-400">
+            Ask about a keynote
             <svg class="w-3.5 h-3.5 transition-transform duration-400 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -266,7 +266,6 @@ const jsonLd = {
 
   <!-- ===== READY TO GO DEEPER? ===== -->
   <section class="relative py-24 md:py-32 bg-charcoal overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-ember/5 to-transparent pointer-events-none"></div>
 
     <div class="relative max-w-[1400px] mx-auto px-5 md:px-8">
       <div class="text-center mb-16 md:mb-20">
@@ -331,12 +330,4 @@ const jsonLd = {
 
 </BaseLayout>
 
-<style>
-  .ember-gradient {
-    background: linear-gradient(135deg, #f04a18 0%, #E03500 40%, #d4a04a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-</style>
 
