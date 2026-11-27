@@ -167,8 +167,6 @@ html{scroll-padding-top:76px}
 .ig .igniters figure img{width:100%}
 .ig .igniters figcaption{font-size:14px;color:var(--soft);margin-top:10px}
 .ig .igniters .lede b{color:#fff;font-weight:600}
-.ig .igniters .ai{margin-top:22px;max-width:34em;padding:14px 16px;border-left:3px solid var(--accent);background:var(--field-2);color:var(--on-field-soft);font-size:var(--s-b);line-height:1.55}
-.ig .igniters .ai b{color:#fff;font-weight:600}
 .ig .igniters .link{color:#fff}
 .ig .igniters .next-step{margin-top:26px}
 .ig .igniters .try{margin-top:22px;max-width:34em;padding:18px 20px 16px;background:var(--field-2);color:var(--on-field-soft);font-size:var(--s-b);line-height:1.55}
@@ -231,4 +229,17 @@ html{scroll-padding-top:76px}
 .ig .proof .stat-src{margin-top:8px;font-size:14px;color:var(--on-field-soft)}
 @media (max-width:980px){
   .ig .pairs{grid-template-columns:1fr}
+}
+
+.ig .partners { padding-block: clamp(32px, 5vw, 64px); text-align: center; }
+.ig .partners h2 { font-size: clamp(23px, 3.2vw, 34px); }
+.ig .partner-scroll { overflow-x: auto; margin-top: 18px; padding: 8px 4px 16px; }
+.ig .partner-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ig .partner-scroll ul { display: flex; gap: 16px; width: max-content; margin-inline: auto; list-style: none; padding: 0; }
+.ig .partner-scroll li { display: grid; gap: 8px; width: 145px; justify-items: center; font-size: 13px; line-height: 1.25; color: var(--soft); }
+.ig .partner-scroll img { width: 112px; height: 54px; object-fit: contain; }
+.ig .partner-scroll li:has(> span:only-child) { align-content: center; padding: 0 8px; }
+.ig .pair .src, .ig .proof .stat-src { font-size: 12px; }
+@media (min-width: 980px) {
+  .ig .quotes:has(> :nth-child(3)) { grid-template-columns: repeat(3, 1fr); }
 }

@@ -1,0 +1,24 @@
+---
+import type { ImageMetadata } from 'astro';
+import Img from '../Img.astro';
+
+interface Props {
+  heading: string;
+  partners: { name: string; logo?: ImageMetadata; alpha?: boolean }[];
+}
+const { heading, partners } = Astro.props;
+---
+
+<section class="band on-paper partners" aria-labelledby="partners-h">
+  <h2 id="partners-h">{heading}</h2>
+  <div class="partner-scroll" role="region" aria-labelledby="partners-h" tabindex="0">
+    <ul>
+      {partners.map(({ name, logo, alpha }) => (
+        <li>
+          {logo && <Img src={logo} alt="" width={120} kind="graphic" alpha={alpha} />}
+          <span>{name}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

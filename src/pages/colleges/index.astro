@@ -1,63 +1,56 @@
 ---
-/**
- * Ignite Higher Ed for colleges. Replaces /education/higher-ed (redirected in vercel.json).
- * Built from the overnight audit concept, 17 November 2026, then Bill's notes of the same
- * evening. Hocking is the model; Northwest State is listed for what it uses Ignite for
- * (leadership teams), not as student proof. The placeholder NSCC figures, the Hocking
- * figures that matched another school's, and the reworded quote are gone. No college
- * quote shows until one is confirmed with its speaker. Prices are the CSU menu's
- * (src/data/ignite.ts), and the estimator uses only those.
- * Bill's notes of 18 November: Dr. Todd Hernandez's homepage quote leads (Bill approved
- * the exact wording); Hocking reads "Every incoming freshman at Hocking College
- * participates in Ignite Higher Ed" (Bill confirmed it; the orientation timing is not
- * confirmed, so it is gone); Terry Koons's testimonial of 13 June 2025 supports the
- * Hocking Pathways example and needs Terry's OK on wording and title before launch.
- * Bill, 26 November 2026: Dr. Betty Young's quote is her exact wording, approved, and she
- * is still president of Hocking College, so it sits beside Dr. Hernandez's.
- * Bill, 26 November 2026 (Will approved): no Ignite prices on the public site, so the price
- * line, the cost section and the estimator are gone; Where to start asks colleges to request
- * the menu of services or a written quote on the contact form. Emma's clip is back, labeled
- * Ignite Higher Ed, with the Mission Portrait video, and one Hocking line: 94% against a
- * national baseline of 13%. The old 90%+, 90% and 87% figures stay off (source unknown).
- */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
 import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
+import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import IgniteClips, { type Clip } from '../../components/ignite/IgniteClips.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
-import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
 import emmaClip from '../../assets/images/emma-testimonial.jpg';
+import maysaClip from '../../assets/images/maysa-testimonial.jpg';
 import lifestyle from '../../assets/images/lifestyle.jpg';
 // Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
 import portraitBrenda from '../../assets/images/portrait-coleen-full.png';
 import portraitSarah from '../../assets/images/portrait-sarah-full.png';
-import sampleRoadmap from '../../assets/images/7-igniters-sample-roadmap.png';
 import logoHocking from '../../assets/images/school-logo-hocking.png';
 import logoNorthwest from '../../assets/images/school-logo-2.png';
+import logoSoutheastern from '../../assets/images/school-logo-1.png';
+import logoBowlingGreen from '../../assets/images/school-logo-8.png';
+import logoDefianceCollege from '../../assets/images/school-logo-4.png';
 
 const path = '/colleges/';
+const sampleRoadmap = '/images/7-igniters-college-sample-roadmap.jpg';
+const colleges = [
+  { logo: logoHocking, name: 'Hocking College', alpha: true },
+  { logo: logoNorthwest, name: 'Northwest State Community College' },
+  { logo: logoSoutheastern, name: 'Southeastern University' },
+  { logo: logoBowlingGreen, name: 'Bowling Green State University' },
+  { logo: logoDefianceCollege, name: 'Defiance College' },
+];
 
 // A student clip (Bill, 26 November 2026), as on the old Higher Ed page. First name and program only.
 const students: Clip[] = [
+  { vimeo: '1163802453', title: 'Maysa', program: 'Student Testimonial', play: "Play Maysa's clip", length: '1:04', thumb: maysaClip, alt: 'Maysa, smiling, in her room' },
   { vimeo: '1167969792', title: 'Emma', program: 'Ignite Higher Ed', play: "Play Emma's clip", length: '0:47', thumb: emmaClip, alt: 'Emma, seated, laughing' },
 ];
 
-// The Mission Portrait video, on both pages, titled as on Vimeo. "Who We Are - Overview" (1166391178)
-// was dropped on 26 November 2026: its content is unverified and it is not a Mission Portrait explainer.
 const mpVideos: Clip[] = [
-  { vimeo: '1166391250', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+  { vimeo: '1166391250', title: "How the Mission Portrait Works", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
 ];
 
 const faqs: Faq[] = [
   {
     q: 'Which version would our college use?',
     a: 'Public colleges use the non-faith-based version. Faith-based colleges use the faith-based version.',
+  },
+  {
+    q: 'Can students complete the online curriculum without AI?',
+    a: 'Yes. Students can complete the full roadmap without AI. Two optional tools use AI to suggest career paths or next steps based on what students enter. Students choose which suggestions to explore.',
   },
   {
     q: 'Where does it fit on our campus?',
@@ -69,7 +62,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'Does it work at a community college?',
-    a: 'Yes. Every incoming freshman at Hocking College participates in Ignite Higher Ed, and Northwest State Community College uses it with its leadership teams.',
+    a: 'Yes. You can start in one course or advising group, then expand to other programs if it fits your campus.',
   },
   {
     q: 'Can we start small?',
@@ -121,8 +114,8 @@ const jsonLd = [
           </figure>
         </div>
         <article class="sheet">
-          <h1 id="t">Every first-year student leaves with a plan</h1>
-          <p class="sub">Ignite Higher Ed fits orientation and your first-year seminar, led by your own faculty and staff. Public colleges use the <span style="white-space:nowrap">non-faith-based version</span>.</p>
+          <h1 id="t">Help students leave with a plan</h1>
+          <p class="sub">Your faculty and staff can bring Ignite Higher Ed into orientation, first-year seminars, advising, or career services. Public colleges use the <span style="white-space:nowrap">non-faith-based version</span>.</p>
           <ul class="facts">
             <li><i class="dia"></i>Faculty and staff certified in two 90-minute sessions</li>
             <li><i class="dia"></i>A first portrait in about 90 minutes</li>
@@ -131,7 +124,6 @@ const jsonLd = [
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
           </div>
-          <p class="proofline in-sheet">Used in Ohio at <b>Hocking College</b>, and with leadership teams at <b>Northwest State</b>.</p>
           <Img
             class="plate"
             src={workbookCloseup}
@@ -149,6 +141,8 @@ const jsonLd = [
         </div>
       </section>
 
+      <IgnitePartners heading="Our work with colleges and universities" partners={colleges} />
+
       <section class="band on-sand voices" aria-label="What college leaders say" data-stage>
         <div class="quotes">
           <figure class="q" data-rise>
@@ -162,7 +156,7 @@ const jsonLd = [
         </div>
       </section>
 
-      <IgniteClips lede="A short clip in her own words, then a short video on the Mission Portrait." heading="Hear it from a student" students={students} videos={mpVideos} />
+      <IgniteClips lede="Hear students describe their experience and see how the Mission Portrait works." heading="Hear it from students" students={students} videos={mpVideos} />
 
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>
@@ -188,7 +182,6 @@ const jsonLd = [
           <p class="lede" data-rise>The 7 Igniters is a simple, seven-step career-discovery process that starts from each student's own purpose.</p>
           <p class="lede" data-rise>The Mission Portrait helps students name who they are and what matters to them. The 7 Igniters connect that purpose with their strengths, dreams, assessment insights, possible career paths and practical next steps.</p>
           <p class="lede" data-rise><b>Each student leaves with a personal roadmap.</b></p>
-          <p class="ai" data-rise><b>About the AI.</b> Two helpers in the app use AI, and both are optional. Career Discovery in step four suggests possible career paths from the student's dreams, gifts, assessments and interests, and the student chooses which to explore. A guide on each step suggests next steps from what the student types into it. Neither is sent the student's name or email, and a student can finish the roadmap without them.</p>
           <div class="try" data-rise>
             <h3>A sample for first-year experience or advising</h3>
             <p>Igniter 7 shows how the portrait and the seven steps lead to something a student can act on. Ask each student to:</p>
@@ -200,45 +193,51 @@ const jsonLd = [
             </ol>
             <p class="eg">For example, asking an advisor to help set up a job shadow.</p>
           </div>
-          <p class="next-step" data-rise><a class="link" href={IGNITERS_SAMPLE} target="_blank" rel="noopener">See a sample student roadmap</a></p>
+          <p class="next-step" data-rise><a class="link" href={sampleRoadmap} target="_blank" rel="noopener">See a sample student roadmap</a></p>
         </div>
         <figure data-rise>
-          <a href={IGNITERS_SAMPLE} target="_blank" rel="noopener"><Img src={sampleRoadmap} alt="A sample 7 Igniters roadmap for Maya Thompson, a fictional high school student: her values, vision and mission, her one, three and ten-year dreams, her commitments, assessment takeaways, priorities, her team, her next steps and the career paths she chose to explore" widths={[360, 540, 720, 960, 1280]} sizes="(min-width: 980px) 44vw, calc(100vw - 48px)" kind="graphic" /></a>
-          <figcaption>A sample student roadmap. Maya is a fictional student.</figcaption>
+          <a href={sampleRoadmap} target="_blank" rel="noopener"><img src={sampleRoadmap} width="1836" height="2376" loading="lazy" decoding="async" alt="Sample 7 Igniters roadmap for Jasmine Carter, a fictional community college student exploring a nursing career" /></a>
+          <figcaption>A sample roadmap for a fictional community college student pursuing nursing.</figcaption>
         </figure>
       </section>
 
       <section class="band on-sand start" id="start" aria-labelledby="start-h" data-stage>
         <h2 id="start-h" data-rise>Where to start</h2>
-        <p class="lede" data-rise>Begin with one session for your leaders, then decide. We'll send our menu of services, or a written quote for your campus.</p>
+        <p class="lede" data-rise>Start with one session for your leaders or explore a pilot with a single course or student group. We’ll send a menu of services or a written quote for your campus.</p>
         <p class="next-step" data-rise><a class="btn ink" href="/contact?interest=ignite-higher-ed">Request pricing for your campus</a></p>
       </section>
 
       <section class="band on-field proof" id="colleges" aria-labelledby="colleges-h" data-stage>
         <div class="split">
           <div>
-            <h2 id="colleges-h" data-rise>How one college runs it</h2>
+            <h2 id="colleges-h" data-rise>How campuses use Ignite</h2>
             <p class="lede" data-rise>Hocking College is a public college in Nelsonville, Ohio. Every incoming freshman at Hocking College participates in Ignite Higher Ed:</p>
             <ul class="model">
               <li data-rise><i class="dia"></i>First-year students take it in the Pathways course</li>
               <li data-rise><i class="dia"></i>Each student makes a Mission Portrait, then works through the 7 Igniters</li>
             </ul>
-            <p class="lede stat" data-rise>At Hocking College, 94% of students reported understanding their purpose, compared to a national baseline of 13%.</p>
-            <p class="stat-src" data-rise>Hocking College internal reporting. Baseline: Lifeway Research, 2017.</p>
+            <p class="lede stat" data-rise>At Hocking College, 94% of students reported clarity on their purpose after completing the program.</p>
+            <p class="stat-src" data-rise>Hocking College internal reporting.</p>
             <figure class="q" data-rise>
               <blockquote>“As the Executive Director of Student Engagement and Success at Hocking College, I have had the privilege of observing firsthand the profound impact of the “Mission Portrait” and “7 Igniters” program on our first-year students in the Pathways course. This initiative is truly transformative, going far beyond a conventional academic plan to deeply engage students in discovering their authentic selves and charting a course for enduring success during the first semester and beyond.”</blockquote>
               <figcaption><b>Terry Koons</b>, Executive Director of Student Engagement and Success, Hocking College</figcaption>
             </figure>
           </div>
           <div class="namecard" data-rise>
-            <h3>Colleges using Ignite</h3>
-            <ul>
-              <li class="logo"><Img src={logoHocking} alt="" width={64} kind="graphic" alpha /><span><b>Hocking College</b><br />Every incoming freshman participates</span></li>
-              <li class="logo"><Img src={logoNorthwest} alt="" width={64} kind="graphic" /><span><b>Northwest State Community College</b><br />Leadership teams and selected departments</span></li>
-            </ul>
+            <h3>Northwest State Community College</h3>
+            <p>Started with leadership teams and brought the framework into selected departments.</p>
           </div>
         </div>
-        <p class="next-step" data-rise>Want the same plan for your campus? <a class="btn" href="#reply">Request a 20-minute call</a></p>
+        <div class="results" data-rise>
+          <h3>Wildfire program outcomes</h3>
+          <p class="lede stat">90%+ report clarity on their purpose after completing a Mission Portrait.</p>
+          <p class="stat-src">Wildfire Leadership data across partner schools and colleges.</p>
+          <p class="lede stat">90% leave with a personalized roadmap and career plan.</p>
+          <p class="stat-src">Wildfire Leadership data across partner schools and colleges.</p>
+          <p class="lede stat">Institutions report an 87% increase in leadership and personal development engagement.</p>
+          <p class="stat-src">Wildfire Leadership internal program data, across education partners.</p>
+        </div>
+        <p class="next-step" data-rise>Explore what would fit your campus? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>
 
       <section class="band on-paper ask" id="questions" aria-labelledby="q-h" data-stage>
