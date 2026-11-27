@@ -1,29 +1,20 @@
 ---
-/**
- * Ignite Students for K-12 schools. Replaces /education/k-12 (redirected in vercel.json).
- * Built from the overnight audit concept, 17 November 2026, then Bill's notes of the same
- * evening: what it is, the non-faith-based version public schools use, who teaches it, the
- * first step and its price, and one button, all in the first screen. Verified educator
- * quotes right under it. The 7 Igniters gets its own section. Only the first step is
- * priced here; certification and the license are quoted per school. Nothing unconfirmed
- * is shown: no outcome figures or student-data answers until Wildfire supplies them.
- * Bill's notes of 18 November: Northeastern ran it at the high school only, from ninth
- * grade, with two teachers, and the case study describes the senior capstone (Alex
- * Nafziger confirmed this to Bill on 11 May); Alex's quote is the K-12 mailer's, credited
- * as principal during the implementation; Mrs. Profera is Teacher, Tinora High School.
- * The 7 Igniters section shows the General edition's fictional sample roadmap (rendered
- * from 7igniters.com/overview, served as a static image) and Bill's Igniter 7 exercise.
- */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
 import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
+import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
+import IgniteClips, { type Clip } from '../../components/ignite/IgniteClips.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
-import { PRICES, usd, IGNITERS_SAMPLE } from '../../data/ignite';
+import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import educationStudents from '../../assets/images/education-students.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
+import maysaClip from '../../assets/images/maysa-testimonial.jpg';
+import josiahClip from '../../assets/images/josiah-testimonial.jpg';
+import studentsClip from '../../assets/images/students-share-impact.jpg';
+import lifestyle from '../../assets/images/lifestyle.jpg';
 // Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
 import portraitBrenda from '../../assets/images/portrait-coleen-full.png';
@@ -40,13 +31,36 @@ import logoAllenEast from '../../assets/images/school-logo-allen-east.jpg';
 const path = '/schools/';
 
 const schools = [
-  { logo: logoNortheastern, name: 'Northeastern Local Schools', note: 'High school: ninth grade through a senior capstone' },
   { logo: logoDefiance, name: 'Defiance City Schools' },
+  { logo: logoNortheastern, name: 'Northeastern Local Schools' },
   { logo: logoNapoleon, name: 'Napoleon Area Schools', alpha: true },
   { logo: logoPatrickHenry, name: 'Patrick Henry Local Schools', alpha: true },
   { logo: logoAyersville, name: 'Ayersville Local Schools' },
   { logo: logoIndianLake, name: 'Indian Lake High School' },
   { logo: logoAllenEast, name: 'Allen East Schools' },
+  { name: 'Burgettstown Area School District (PA)' },
+];
+
+// Student clips (Bill, 26 November 2026), as on the old K-12 page. First names and program only.
+const students: Clip[] = [
+  { vimeo: '1163802453', title: 'Maysa', program: 'Student Testimonial', play: "Play Maysa's clip", length: '1:04', thumb: maysaClip, alt: 'Maysa, smiling, in her room' },
+  { vimeo: '1167969928', title: 'Josiah', program: 'Ignite Students (K-12)', play: "Play Josiah's clip", length: '0:43', thumb: josiahClip, alt: 'Josiah, seated, in a cap and vest', focus: '50% 30%' },
+  { vimeo: '1179978600', title: 'Abel and Kingston', program: 'Ignite Students (K-12)', play: "Play Abel and Kingston's clip", length: '0:23', thumb: studentsClip, alt: 'One of the two students speaking, with the caption Before Ignite, I felt', focus: '50% 30%' },
+];
+
+const mpVideos: Clip[] = [
+  { vimeo: '1166391250', title: "How the Mission Portrait Works", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+];
+
+const results = [
+  {
+    before: { n: '13%', what: 'understood their purpose', src: 'Lifeway Research, 2017' },
+    after: { n: '94%', what: 'clarity and understanding of purpose', src: 'Wildfire Mission Portrait completion data' },
+  },
+  {
+    before: { n: '17%', what: 'had clarity of direction', src: 'Gallup-Strada, 2017' },
+    after: { n: '80%', what: 'clarity of direction and a defined roadmap', src: 'Wildfire 7 Igniters completion data' },
+  },
 ];
 
 const faqs: Faq[] = [
@@ -55,8 +69,12 @@ const faqs: Faq[] = [
     a: 'Public schools use the non-faith-based version. Churches and faith-based schools use the faith-based version.',
   },
   {
+    q: 'Can students complete the online curriculum without AI?',
+    a: 'Yes. Students can complete the full roadmap without AI. Two optional tools use AI to suggest career paths or next steps based on what students enter. Students choose which suggestions to explore.',
+  },
+  {
     q: 'What grades is it for?',
-    a: 'Northeastern starts it in ninth grade and comes back to it in a senior capstone. It can be adapted for other middle and high school grades, and for elementary.',
+    a: 'Ignite Students can be adapted for elementary, middle, and high school. Schools can start with one grade or group and fit it into advisory, career-readiness time, or a senior capstone.',
   },
   {
     q: 'Where does it fit in the schedule?',
@@ -102,7 +120,7 @@ const jsonLd = [
       links={[
         { href: '#make', label: 'What students make' },
         { href: '#igniters', label: '7 Igniters' },
-        { href: '#cost', label: 'Cost' },
+        { href: '#start', label: 'Where to start' },
         { href: '#questions', label: 'Questions' },
       ]}
     />
@@ -125,10 +143,7 @@ const jsonLd = [
           </ul>
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
-            <a class="link" href="#cost">See what it costs</a>
           </div>
-          <p class="first-step">You can begin with <b>one session for your leaders</b>, {usd(PRICES.session)} for up to {PRICES.sessionLeaders}, then decide.</p>
-          <p class="proofline in-sheet">Used in Ohio by <b>Northeastern Local</b>, <b>Defiance City</b>, <b>Napoleon Area</b>, <b>Patrick Henry Local</b> and other districts.</p>
           <Img
             class="plate"
             src={educationStudents}
@@ -146,6 +161,8 @@ const jsonLd = [
         </div>
       </section>
 
+      <IgnitePartners heading="Our work with schools and districts" partners={schools} />
+
       <section class="band on-sand voices" aria-label="What educators say" data-stage>
         <div class="quotes">
           <figure class="q" data-rise>
@@ -156,8 +173,14 @@ const jsonLd = [
             <blockquote>“As a teacher, I have been able to watch this program transform students’ mindsets and build their confidence in who they are as people and how they hope to succeed in their lives.”</blockquote>
             <figcaption><b>Mrs. Profera</b>, Teacher, Tinora High School</figcaption>
           </figure>
+          <figure class="q" data-rise>
+            <blockquote>“This curriculum is a must for every student.”</blockquote>
+            <figcaption><b>Bob Morton</b>, Defiance City Schools</figcaption>
+          </figure>
         </div>
       </section>
+
+      <IgniteClips lede="Short clips in their own words, then a short video on the Mission Portrait." heading="Hear it from students" students={students} videos={mpVideos} />
 
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>
@@ -183,7 +206,6 @@ const jsonLd = [
           <p class="lede" data-rise>The 7 Igniters is a simple, seven-step career-discovery process that starts from each student's own purpose.</p>
           <p class="lede" data-rise>The Mission Portrait helps students name who they are and what matters to them. The 7 Igniters connect that purpose with their strengths, dreams, assessment insights, possible career paths and practical next steps.</p>
           <p class="lede" data-rise><b>Each student leaves with a personal roadmap.</b></p>
-          <p class="ai" data-rise><b>About the AI.</b> Two helpers in the app use AI, and both are optional. Career Discovery in step four suggests possible career paths from the student's dreams, gifts, assessments and interests, and the student chooses which to explore. A guide on each step suggests next steps from what the student types into it. Neither is sent the student's name or email, and a student can finish the roadmap without them.</p>
           <div class="try" data-rise>
             <h3>A sample for advisory or a senior capstone</h3>
             <p>Igniter 7 shows how the portrait and the seven steps lead to something a student can act on. Ask each student to:</p>
@@ -203,27 +225,10 @@ const jsonLd = [
         </figure>
       </section>
 
-      <section class="band on-sand cost" id="cost" aria-labelledby="cost-h" data-stage>
-        <div>
-          <h2 id="cost-h" data-rise>Where to start, and what it costs</h2>
-          <p class="lede" data-rise>Three steps, on a typical timeline of six to eight weeks.</p>
-          <ol class="steps">
-            <li data-rise><i class="dia"></i><h3>Experience it first</h3><p>Your leaders make their own Mission Portraits in one session of about two hours. You can stop there and decide.</p></li>
-            <li data-rise><i class="dia"></i><h3>Equip your teachers</h3><p>Choose the teachers who will lead it. Two 90-minute sessions certify them in the Mission Portrait and the 7 Igniters. Lesson plans and materials are included.</p></li>
-            <li data-rise><i class="dia"></i><h3>Launch with your students</h3><p>Your certified teachers lead it with their classes. The annual school license depends on scope and enrollment, so we quote it for your school.</p></li>
-          </ol>
-        </div>
-        <div>
-          <div class="receipt" data-rise>
-            <p class="head">Start here</p>
-            <p class="sub">A leadership Mission Portrait session, about two hours</p>
-            <div class="row"><span>Up to {PRICES.sessionLeaders} leaders</span><span>{usd(PRICES.session)}</span></div>
-            <div class="row"><span>Small group, per person</span><span>{usd(PRICES.smallGroupPerPerson)}</span></div>
-            <div class="bar"></div>
-            <div class="next"><span>Teacher certification and the annual license</span><span>Quoted for your school</span></div>
-            <a class="btn ink" href="#reply">Get a written quote</a>
-          </div>
-        </div>
+      <section class="band on-sand start" id="start" aria-labelledby="start-h" data-stage>
+        <h2 id="start-h" data-rise>Where to start</h2>
+        <p class="lede" data-rise>Begin with one session for your leaders, then decide. We'll send our menu of services.</p>
+        <p class="next-step" data-rise><a class="btn ink" href="/contact?interest=ignite-k12">Request pricing for your school</a></p>
       </section>
 
       <section class="band on-field proof" id="schools" aria-labelledby="schools-h" data-stage>
@@ -237,19 +242,20 @@ const jsonLd = [
               <li data-rise><i class="dia"></i>Seniors come back to it in a capstone</li>
             </ul>
           </div>
-          <div class="namecard" data-rise>
-            <h3>Ohio schools using Ignite</h3>
-            <ul>
-              {schools.map((s) => (
-                <li class="logo">
-                  <Img src={s.logo} alt="" width={64} kind="graphic" alpha={s.alpha} />
-                  <span><b>{s.name}</b>{s.note && <><br />{s.note}</>}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-        <p class="next-step" data-rise>Want the same plan for your school? <a class="btn" href="#reply">Request a 20-minute call</a></p>
+        <div class="results" data-rise>
+          <h3>Wildfire program outcomes</h3>
+          <div class="pairs">
+            {results.map((r) => (
+              <div class="pair">
+                <div class="before"><p class="k">Comparison benchmark</p><p class="n">{r.before.n}</p><p>{r.before.what}</p><p class="src">{r.before.src}</p></div>
+                <div class="after"><p class="k">After completion</p><p class="n">{r.after.n}</p><p>{r.after.what}</p><p class="src">{r.after.src}</p></div>
+              </div>
+            ))}
+          </div>
+          <p class="note">Completion figures come from Wildfire engagements, including Northeastern Local Schools.</p>
+        </div>
+        <p class="next-step" data-rise>Explore what would fit your school? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>
 
       <section class="band on-paper ask" id="questions" aria-labelledby="q-h" data-stage>
