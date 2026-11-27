@@ -63,11 +63,11 @@ const outcomes = [
 const faqs: Faq[] = [
   {
     q: 'Where does it fit on our campus?',
-    a: 'You can build Ignite into orientation, a first-year course, advising, or career services. A standalone workshop series is also an option.',
+    a: 'You choose the students, setting, and pace. Orientation, a course, advising, career services, and a workshop series are all examples. Your campus can build Ignite into another program that already serves the students you want to reach.',
   },
   {
     q: 'Which version would our college use?',
-    a: 'Public colleges use the non-faith-based version. Faith-based colleges use the faith-based version.',
+    a: 'A non-faith-based version is available for public colleges. Institutions that want a faith-based version can choose that option.',
   },
   {
     q: 'Can students complete the online curriculum without AI?',
@@ -95,7 +95,7 @@ const jsonLd = [
     serviceType: 'Purpose and career-planning program for colleges',
     url: abs(path),
     description:
-      'A purpose and career-planning program for orientation and the first-year seminar, led by a college’s own faculty and staff, using the Mission Portrait™ and the 7 Igniters™. Public colleges use the non-faith-based version.',
+      'A purpose and career-planning curriculum for colleges and universities, using the Mission Portrait™ and the 7 Igniters™. Faculty and staff can adapt the setting and pace to their campus.',
     provider,
     audience: { '@type': 'EducationalAudience', educationalRole: 'administrator' },
   },
@@ -105,7 +105,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Ignite Higher Ed for colleges"
-  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a non-faith-based version for public colleges. See where to start and request a 20-minute call."
+  description="Ignite Higher Ed is a purpose and career-planning curriculum your faculty and staff can adapt to the students, schedule, and goals of your campus."
   breadcrumbs={[{ name: 'Colleges', path }]}
   jsonLd={jsonLd}
   siteHeader={false}
@@ -132,11 +132,10 @@ const jsonLd = [
         </div>
         <article class="sheet">
           <h1 id="t">Help students leave with a plan</h1>
-          <p class="sub">Your faculty and staff can bring Ignite Higher Ed into orientation, first-year seminars, advising, or career services. Public colleges use the <span style="white-space:nowrap">non-faith-based version</span>.</p>
+          <p class="sub">Ignite Higher Ed gives your faculty and staff a curriculum for purpose and career planning. You choose where it fits and how to pace it for your students.</p>
           <ul class="facts">
-            <li><i class="dia"></i>Faculty and staff certified in two 90-minute sessions</li>
-            <li><i class="dia"></i>A first portrait in about 90 minutes</li>
-            <li><i class="dia"></i>A written quote for your campus</li>
+            <li><i class="dia"></i>Ready-to-use curriculum and facilitator training</li>
+            <li><i class="dia"></i>Start with one group or plan a wider rollout</li>
           </ul>
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
@@ -200,7 +199,7 @@ const jsonLd = [
           <p class="lede" data-rise>The Mission Portrait helps students name who they are and what matters to them. The 7 Igniters connect that purpose with their strengths, dreams, assessment insights, possible career paths and practical next steps.</p>
           <p class="lede" data-rise><b>Each student leaves with a personal roadmap.</b></p>
           <div class="try" data-rise>
-            <h3>A sample for first-year experience or advising</h3>
+            <h3>One way to use a student roadmap</h3>
             <p>Igniter 7 shows how the portrait and the seven steps lead to something a student can act on. Ask each student to:</p>
             <ol>
               <li>Pick one career or education option they are curious about</li>
@@ -226,7 +225,7 @@ const jsonLd = [
 
       <section class="band on-field proof" id="colleges" aria-labelledby="colleges-h" data-stage>
         <h2 id="colleges-h" data-rise>How campuses use Ignite</h2>
-        <p class="lede" data-rise>Colleges and universities can start with a student group, a first-year course, or a leadership team. Here are two examples from our campus work.</p>
+        <p class="lede" data-rise>These two campuses started in different places. You can choose a group or program that fits your goals and set the pace around your campus schedule.</p>
         <div class="implementation-examples">
           <article class="implementation-example" data-rise>
             <h3>Hocking College</h3>
@@ -261,7 +260,7 @@ const jsonLd = [
           ))}
         </div>
         <form class="card" id="reply" data-rise data-school-form data-program="Ignite Higher Ed" action="https://formsubmit.co/info@wildfireleadership.com" method="POST" aria-labelledby="reply-h">
-          <h2 id="reply-h">Plan your first year</h2>
+          <h2 id="reply-h">Find the right starting point</h2>
           <p class="s">A 20-minute call, then a written quote.</p>
           <p class="s" data-sent hidden><b>Thank you.</b> Your request reached us. We reply within 24 business hours.</p>
           <input type="hidden" name="_subject" value="Ignite Higher Ed inquiry" />
@@ -277,14 +276,9 @@ const jsonLd = [
                 <option>President or vice president</option><option>Dean of students</option><option>First-year experience</option><option>Career services</option><option>Faculty</option><option>Other</option>
               </select>
             </label>
-            <label class="full">College or university<input name="college" autocomplete="organization" required data-org /></label>
-            <label>Where you would start
-              <select name="start" required>
-                <option value="" selected disabled>Choose one</option>
-                <option>Orientation</option><option>First-year seminar</option><option>Leadership session only</option><option>Not sure yet</option>
-              </select>
-            </label>
+            <label>College or university<input name="college" autocomplete="organization" required data-org /></label>
             <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+            <label class="full">What are you considering? (optional)<input name="start" /></label>
           </div>
           <button class="btn" type="submit">Request a 20-minute call</button>
           <p class="alt">Or email <a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a>. We reply within 24 business hours.</p>

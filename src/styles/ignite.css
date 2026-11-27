@@ -21,9 +21,11 @@ html{scroll-padding-top:76px}
 .ig .link{font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px}
 .ig .link:hover{color:var(--action)}
 .ig .top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px var(--m);background:var(--field);color:var(--on-field)}
-.ig .lockup{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--on-field)}
+.ig .lockup{display:flex;align-items:center;gap:16px;min-width:0;color:var(--on-field)}
+.ig .lockup .brand{flex:none}
 .ig .lockup img{height:28px;width:auto}
-.ig .lockup span{font:400 26px/1 "Instrument Serif",serif;padding-left:4px}
+.ig .lockup .program{font:400 28px/1.1 "Instrument Serif",serif;border-left:1px solid var(--field-line);padding-left:16px}
+.ig .top > .btn{flex:none}
 .ig .top nav{display:flex;gap:26px;font-size:14px}
 .ig .top nav a{text-decoration:none;color:var(--on-field)}
 .ig .top nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
@@ -134,11 +136,14 @@ html{scroll-padding-top:76px}
   .ig .aside{display:none}
   .ig .sheet{grid-column:1}
 }
-@media (max-width:980px){
+@media (max-width:1080px){
   .ig .top nav{display:none}
+}
+@media (max-width:980px){
   .ig .top{padding:10px 12px;gap:12px}
+  .ig .lockup{gap:8px}
   .ig .lockup img{height:22px}
-  .ig .lockup span{font-size:20px}
+  .ig .lockup .program{font-size:20px;padding-left:8px}
   .ig .top .btn{min-height:44px;padding:0 14px;font-size:14px}
   .ig .top .btn .long{display:none}
   .ig .top .btn .short{display:inline}

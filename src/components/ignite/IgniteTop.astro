@@ -15,10 +15,12 @@ const { program, links } = Astro.props;
 ---
 
 <header class="top">
-  <a class="lockup" href="/">
-    <Img src={logoWhite} alt="Wildfire Leadership home" width={80} kind="graphic" alpha eager />
-    <span>{program}</span>
-  </a>
+  <div class="lockup">
+    <a class="brand" href="/">
+      <Img src={logoWhite} alt="Wildfire Leadership home" width={80} kind="graphic" alpha eager />
+    </a>
+    <span class="program">{program}</span>
+  </div>
   <nav aria-label="On this page">
     {links.map((l) => <a href={l.href}>{l.label}</a>)}
   </nav>
