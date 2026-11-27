@@ -191,7 +191,7 @@ html{scroll-padding-top:76px}
 .ig .clips.solo .head{margin:0}
 .ig .clips.solo .clipgrid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}
 .ig .reels{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:20px}
-.ig .wides{display:grid;gap:20px}
+.ig .wides{display:grid;gap:20px;align-self:center}
 .ig .clip .frame{position:relative;background:var(--field-2);overflow:hidden}
 .ig .clip.tall .frame{aspect-ratio:9/16}
 .ig .clip.wide .frame{aspect-ratio:16/9}

@@ -17,7 +17,7 @@
  * Bill, 26 November 2026 (Will approved): no Ignite prices on the public site, so the price
  * line, the cost section and the estimator are gone; Where to start asks colleges to request
  * the menu of services or a written quote on the contact form. Emma's clip is back, labeled
- * Ignite Higher Ed, with the two Mission Portrait videos, and one Hocking line: 94% against a
+ * Ignite Higher Ed, with the Mission Portrait video, and one Hocking line: 94% against a
  * national baseline of 13%. The old 90%+, 90% and 87% figures stay off (source unknown).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -32,7 +32,6 @@ import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
 import emmaClip from '../../assets/images/emma-testimonial.jpg';
-import workshop from '../../assets/images/higher-ed-workshop.jpg';
 import lifestyle from '../../assets/images/lifestyle.jpg';
 // Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
@@ -49,10 +48,10 @@ const students: Clip[] = [
   { vimeo: '1167969792', title: 'Emma', program: 'Ignite Higher Ed', play: "Play Emma's clip", length: '0:47', thumb: emmaClip, alt: 'Emma, seated, laughing' },
 ];
 
-// The two Mission Portrait videos, on both pages (they were on the old K-12 and Higher Ed pages).
+// The Mission Portrait video, on both pages, titled as on Vimeo. "Who We Are - Overview" (1166391178)
+// was dropped on 26 November 2026: its content is unverified and it is not a Mission Portrait explainer.
 const mpVideos: Clip[] = [
-  { vimeo: '1166391178', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '3:18', thumb: workshop, alt: 'Students at long tables writing on Mission Portrait worksheets', focus: '50% 40%' },
-  { vimeo: '1166391250', title: 'How the Mission Portrait works', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+  { vimeo: '1166391250', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
 ];
 
 const faqs: Faq[] = [
@@ -163,7 +162,7 @@ const jsonLd = [
         </div>
       </section>
 
-      <IgniteClips lede="A short clip in her own words, then the Mission Portrait in two videos." heading="Hear it from a student" students={students} videos={mpVideos} />
+      <IgniteClips lede="A short clip in her own words, then a short video on the Mission Portrait." heading="Hear it from a student" students={students} videos={mpVideos} />
 
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>

@@ -15,8 +15,8 @@
  * from 7igniters.com/overview, served as a static image) and Bill's Igniter 7 exercise.
  * Bill, 26 November 2026 (Will approved): no Ignite prices on the public site, so the price
  * line and the cost section are gone; Where to start asks schools to request the menu of
- * services on the contact form. Student clips are back (Maysa, Josiah, Students share the
- * impact, each labeled Ignite Students (K-12)) with the two Mission Portrait videos, and
+ * services on the contact form. Student clips are back (Maysa, Josiah, Abel and Kingston,
+ * each labeled Ignite Students (K-12)) with the Mission Portrait video, and
  * Northeastern's before and after figures are back with the sources the old page gave.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -33,7 +33,6 @@ import framework from '../../assets/images/mission-portrait-framework.png';
 import maysaClip from '../../assets/images/maysa-testimonial.jpg';
 import josiahClip from '../../assets/images/josiah-testimonial.jpg';
 import studentsClip from '../../assets/images/students-share-impact.jpg';
-import workshop from '../../assets/images/higher-ed-workshop.jpg';
 import lifestyle from '../../assets/images/lifestyle.jpg';
 // Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
@@ -64,13 +63,13 @@ const schools = [
 const students: Clip[] = [
   { vimeo: '1163802453', title: 'Maysa', program: 'Ignite Students (K-12)', play: "Play Maysa's clip", length: '1:04', thumb: maysaClip, alt: 'Maysa, smiling, in her room' },
   { vimeo: '1167969928', title: 'Josiah', program: 'Ignite Students (K-12)', play: "Play Josiah's clip", length: '0:43', thumb: josiahClip, alt: 'Josiah, seated, in a cap and vest', focus: '50% 30%' },
-  { vimeo: '1179978600', title: 'Students share the impact', program: 'Ignite Students (K-12)', play: "Play the students' clip", length: '0:23', thumb: studentsClip, alt: 'A student speaking, with the caption Before Ignite, I felt', focus: '50% 30%' },
+  { vimeo: '1179978600', title: 'Abel and Kingston', program: 'Ignite Students (K-12)', play: "Play Abel and Kingston's clip", length: '0:23', thumb: studentsClip, alt: 'One of the two students speaking, with the caption Before Ignite, I felt', focus: '50% 30%' },
 ];
 
-// The two Mission Portrait videos, on both pages (they were on the old K-12 and Higher Ed pages).
+// The Mission Portrait video, on both pages, titled as on Vimeo. "Who We Are - Overview" (1166391178)
+// was dropped on 26 November 2026: its content is unverified and it is not a Mission Portrait explainer.
 const mpVideos: Clip[] = [
-  { vimeo: '1166391178', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '3:18', thumb: workshop, alt: 'Students at long tables writing on Mission Portrait worksheets', focus: '50% 40%' },
-  { vimeo: '1166391250', title: 'How the Mission Portrait works', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+  { vimeo: '1166391250', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
 ];
 
 // Northeastern's before and after figures (Bill, 26 November 2026), word for word as the old
@@ -194,7 +193,7 @@ const jsonLd = [
         </div>
       </section>
 
-      <IgniteClips lede="Short clips in their own words, then the Mission Portrait in two videos." heading="Hear it from students" students={students} videos={mpVideos} />
+      <IgniteClips lede="Short clips in their own words, then a short video on the Mission Portrait." heading="Hear it from students" students={students} videos={mpVideos} />
 
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>
