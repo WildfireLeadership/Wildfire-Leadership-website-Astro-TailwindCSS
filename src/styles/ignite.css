@@ -73,18 +73,15 @@ html{scroll-padding-top:76px}
 .ig .slot-note b{font-weight:700}
 .ig .fig-note{margin-top:16px;font-size:14px;color:var(--soft);max-width:34em}
 .ig .fig-note b{color:var(--slot)}
-.ig .proof .model{list-style:none;display:grid;gap:14px;margin:24px 0 26px}
-.ig .proof .model li{display:flex;gap:14px;align-items:baseline;font-size:var(--s-m)}
-.ig .proof .model li .dia{transform:rotate(45deg) translateY(-2px)}
 .ig .proof .slot-note{background:transparent;color:#fde68a;border-color:#f59e0b}
-.ig .namecard{background:var(--paper);color:var(--ink);padding:40px clamp(24px,4vw,48px)}
-.ig .namecard h3{margin-bottom:18px}
-.ig .namecard ul{list-style:none;display:grid;gap:12px}
-.ig .namecard .logo{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center}
-.ig .namecard .logo img{width:64px;height:64px;object-fit:contain;background:#fff}
-.ig .namecard li{display:grid;gap:2px}
-.ig .namecard li b{font-weight:600;font-size:var(--s-m)}
-.ig .namecard li span{font-size:14px;color:var(--soft)}
+.ig .campus-examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:28px}
+.ig .campus-example{background:var(--field-2);border-top:2px solid var(--field-line);padding:clamp(22px,3vw,36px)}
+.ig .campus-example h3{margin-bottom:14px}
+.ig .campus-example p{max-width:42em}
+.ig .campus-example p + p{margin-top:12px}
+@media (max-width:700px){
+  .ig .campus-examples{grid-template-columns:1fr;gap:16px}
+}
 .ig .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(56px,6vw,88px)}
 .ig .q{background:var(--field-2);padding:28px 28px 30px;color:var(--on-field)}
 .ig .q blockquote{font-size:var(--s-b);line-height:1.6}
@@ -175,7 +172,7 @@ html{scroll-padding-top:76px}
 .ig .igniters .try .eg{font-size:15px}
 .ig .igniters figure a{display:block}
 .ig .quotes.one{grid-template-columns:1fr;max-width:46em;margin-left:auto;margin-right:auto}
-.ig .proof .q{margin-top:28px;max-width:40em}
+.ig .proof .q{margin-top:28px;max-width:52em}
 
 /* Bill, 26 November 2026: no Ignite prices on the public site. Where to start, then one button to the contact form. */
 .ig .start{text-align:center}
@@ -215,7 +212,6 @@ html{scroll-padding-top:76px}
 .ig .results{margin-top:clamp(48px,5vw,72px)}
 .ig .results h3{color:#fff;margin-bottom:20px}
 .ig .results .note{margin-top:16px;font-size:13px;line-height:1.4;color:var(--on-field-soft);max-width:46em}
-.ig .proof .stat{margin-top:4px}
 .ig .proof .stat-src{margin-top:6px;font-size:13px;line-height:1.4;color:var(--on-field-soft)}
 .ig .figs-group + .figs-group{margin-top:32px}
 .ig .figs-group h4{font:600 14px/1.3 Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--on-field-soft)}
