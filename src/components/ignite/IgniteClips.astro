@@ -16,7 +16,7 @@ export interface Clip {
   vimeo: string;
   /** Shown in bold: the student's first name, or the video's title. */
   title: string;
-  /** The program, shown after the title. */
+  /** The program, shown below the title. */
   program: string;
   /** Visible text of the play link, e.g. "Play Maysa's clip". */
   play: string;
@@ -56,7 +56,7 @@ const solo = students.length === 1;
               <span>{c.play}</span>
             </a>
           </div>
-          <figcaption><span><b>{c.title}</b> · {c.program}</span><span class="len">{c.length}</span></figcaption>
+          <figcaption><span><b>{c.title}</b>{c.program}</span><span class="len">{c.length}</span></figcaption>
         </figure>
       ))}
     </div>
@@ -69,7 +69,7 @@ const solo = students.length === 1;
               <span>{c.play}</span>
             </a>
           </div>
-          <figcaption><span><b>{c.title}</b> · {c.program}</span><span class="len">{c.length}</span></figcaption>
+          <figcaption><span><b>{c.title}</b>{c.program}</span><span class="len">{c.length}</span></figcaption>
         </figure>
       ))}
     </div>

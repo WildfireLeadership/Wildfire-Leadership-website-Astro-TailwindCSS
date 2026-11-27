@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
+import TestimonialAttribution from '../../components/TestimonialAttribution.astro';
 import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
@@ -181,15 +182,15 @@ const jsonLd = [
         <div class="quotes">
           <figure class="q" data-rise>
             <blockquote>“A Mission Portrait can be completed in as little as 90 minutes if you choose — and every student walks away with a digital asset they can use immediately.”</blockquote>
-            <figcaption><b>Alex Nafziger</b>, Principal at Northeastern during the implementation</figcaption>
+            <TestimonialAttribution as="figcaption" name="Alex Nafziger" title="Principal at Northeastern during the implementation" dark />
           </figure>
           <figure class="q" data-rise>
             <blockquote>“As a teacher, I have been able to watch this program transform students’ mindsets and build their confidence in who they are as people and how they hope to succeed in their lives.”</blockquote>
-            <figcaption><b>Mrs. Profera</b>, Teacher, Tinora High School</figcaption>
+            <TestimonialAttribution as="figcaption" name="Mrs. Profera" title="Teacher, Tinora High School" dark />
           </figure>
           <figure class="q" data-rise>
             <blockquote>“This curriculum is a must for every student.”</blockquote>
-            <figcaption><b>Bob Morton</b>, Defiance City Schools</figcaption>
+            <TestimonialAttribution as="figcaption" name="Bob Morton" title="Defiance City Schools" dark />
           </figure>
         </div>
       </section>

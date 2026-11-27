@@ -1,4 +1,6 @@
 ---
+import TestimonialAttribution from './TestimonialAttribution.astro';
+
 interface Props {
   quote: string;
   name: string;
@@ -18,10 +20,7 @@ const { quote, name, title, variant = 'default' } = Astro.props;
     <blockquote class="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal leading-[1.3] italic">
       "{quote}"
     </blockquote>
-    <div class="mt-8">
-      <p class="text-sm font-medium text-charcoal">{name}</p>
-      {title && <p class="text-sm text-stone mt-1">{title}</p>}
-    </div>
+    <TestimonialAttribution {name} {title} class="mt-8" />
   </div>
 ) : (
   <div class="reveal p-8 md:p-10 rounded-xl bg-warm-white border border-sand/50">
@@ -31,9 +30,6 @@ const { quote, name, title, variant = 'default' } = Astro.props;
     <blockquote class="text-base text-charcoal/80 leading-relaxed italic">
       "{quote}"
     </blockquote>
-    <div class="mt-6 pt-6 border-t border-sand/50">
-      <p class="text-sm font-medium text-charcoal">{name}</p>
-      {title && <p class="text-[13px] text-stone mt-0.5">{title}</p>}
-    </div>
+    <TestimonialAttribution {name} {title} class="mt-6 pt-6 border-t border-sand" />
   </div>
 )}
