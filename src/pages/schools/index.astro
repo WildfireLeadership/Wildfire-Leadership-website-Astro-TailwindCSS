@@ -68,6 +68,19 @@ const mpVideos: Clip[] = [
   { vimeo: '1166391250', title: 'How the Mission Portrait works', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
 ];
 
+// Northeastern's before and after figures (Bill, 26 November 2026), word for word as the old
+// K-12 page gave them, each with its source. The "before" figures are national studies.
+const results = [
+  {
+    before: { n: '13%', what: 'understood their purpose', src: 'Lifeway Research, 2017' },
+    after: { n: '94%', what: 'clarity and understanding of purpose', src: 'Northeastern Local Schools internal reporting' },
+  },
+  {
+    before: { n: '17%', what: 'had clarity of direction', src: 'Gallup-Strada, 2017' },
+    after: { n: '80%', what: 'clarity of direction and a defined roadmap', src: 'Northeastern Local Schools internal reporting' },
+  },
+];
+
 const faqs: Faq[] = [
   {
     q: 'Which version would our school use?',
@@ -250,6 +263,18 @@ const jsonLd = [
               ))}
             </ul>
           </div>
+        </div>
+        <div class="results" data-rise>
+          <h3>The results</h3>
+          <div class="pairs">
+            {results.map((r) => (
+              <div class="pair">
+                <div class="before"><p class="k">Before</p><p class="n">{r.before.n}</p><p>{r.before.what}</p><p class="src">{r.before.src}</p></div>
+                <div class="after"><p class="k">After Ignite</p><p class="n">{r.after.n}</p><p>{r.after.what}</p><p class="src">{r.after.src}</p></div>
+              </div>
+            ))}
+          </div>
+          <p class="note">Based on internal survey data from Northeastern Local Schools, Defiance County, Ohio. Wildfire Leadership engagement.</p>
         </div>
         <p class="next-step" data-rise>Want the same plan for your school? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>

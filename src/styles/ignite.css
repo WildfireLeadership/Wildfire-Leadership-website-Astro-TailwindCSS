@@ -211,3 +211,24 @@ html{scroll-padding-top:76px}
   .ig .reels{grid-auto-columns:min(62vw,260px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-right:calc(-1 * var(--m));padding-right:var(--m)}
   .ig .reels .clip{scroll-snap-align:start}
 }
+
+/* Bill, 26 November 2026: outcome figures back, each with its source as the old pages gave it. */
+.ig .results{margin-top:clamp(48px,5vw,72px)}
+.ig .results h3{color:#fff;margin-bottom:20px}
+.ig .pairs{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ig .pair{display:grid;grid-template-columns:1fr 1fr}
+.ig .pair > div{padding:24px 22px 22px}
+.ig .pair .before{background:var(--field-2);color:var(--on-field)}
+.ig .pair .after{background:var(--paper);color:var(--ink)}
+.ig .pair .k{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--on-field-soft)}
+.ig .pair .after .k{color:var(--soft)}
+.ig .pair .n{font:400 clamp(48px,5vw,64px)/1 "Instrument Serif",serif;margin:10px 0 8px;font-variant-numeric:tabular-nums}
+.ig .pair .after .n{color:var(--action)}
+.ig .pair .src{margin-top:8px;font-size:14px;color:var(--on-field-soft)}
+.ig .pair .after .src{color:var(--soft)}
+.ig .results .note{margin-top:16px;font-size:14px;color:var(--on-field-soft);max-width:46em}
+.ig .proof .stat{margin-top:4px}
+.ig .proof .stat-src{margin-top:8px;font-size:14px;color:var(--on-field-soft)}
+@media (max-width:980px){
+  .ig .pairs{grid-template-columns:1fr}
+}
