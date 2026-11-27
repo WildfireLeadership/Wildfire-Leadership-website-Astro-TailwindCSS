@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CallToAction from '../components/CallToAction.astro';
+import TestimonialAttribution from '../components/TestimonialAttribution.astro';
 import { abs, provider } from '../data/site';
 import Img from '../components/Img.astro';
 import { lightboxSrc } from '../lib/images';
@@ -175,10 +176,7 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
           <p class="text-white/80 text-base md:text-lg leading-relaxed italic mb-6">
             Before Wildfire, we struggled to align our leaders with a unified vision. Now, from the field to senior leadership, everyone understands our purpose — and lives it daily.
           </p>
-          <div>
-            <p class="text-white font-medium text-sm">Leslie Meyer</p>
-            <p class="text-white/40 text-xs">President, Flatrock Bridge Group</p>
-          </div>
+          <TestimonialAttribution name="Leslie Meyer" title="President, Flatrock Bridge Group" dark />
         </div>
       </div>
 
@@ -357,8 +355,7 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
           <p class="text-charcoal text-base md:text-lg leading-relaxed italic">
             "Wildfire Leadership guided us in aligning our vision and purpose, uniting our teams, and driving lasting success."
           </p>
-          <p class="text-charcoal font-medium text-sm mt-4">Bryan Keller</p>
-          <p class="text-stone text-xs">CEO, Keller Logistics</p>
+          <TestimonialAttribution name="Bryan Keller" title="CEO, Keller Logistics" class="mt-4" />
         </div>
       </div>
 
@@ -432,10 +429,7 @@ const kellerOfficeFull = await lightboxSrc(kellerOffice);
           <div class:list={["reveal bg-warm-white rounded-xl border border-sand/50 p-8 flex flex-col", i > 0 && `reveal-d${i}`]}>
             <svg class="w-7 h-7 text-ember/25 mb-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             <p class="text-charcoal text-sm leading-relaxed italic flex-1 mb-5">{t.quote}</p>
-            <div>
-              <p class="text-charcoal font-medium text-sm">{t.name}</p>
-              <p class="text-stone text-xs">{t.title}</p>
-            </div>
+            <TestimonialAttribution name={t.name} title={t.title} class="border-t border-sand pt-4" />
           </div>
         ))}
       </div>

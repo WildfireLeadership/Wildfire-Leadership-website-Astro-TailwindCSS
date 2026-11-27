@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
+import TestimonialAttribution from '../../components/TestimonialAttribution.astro';
 import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
@@ -163,11 +164,11 @@ const jsonLd = [
         <div class="quotes">
           <figure class="q" data-rise>
             <blockquote>“Wildfire's curriculum gives students something most programs miss — real clarity on their purpose and a vision for their future.”</blockquote>
-            <figcaption><b>Dr. Todd Hernandez</b>, President, Northwest State Community College</figcaption>
+            <TestimonialAttribution as="figcaption" name="Dr. Todd Hernandez" title="President, Northwest State Community College" dark />
           </figure>
           <figure class="q" data-rise>
             <blockquote>“This program has been transformational for our campus. Students are more engaged, faculty are more connected, and we're seeing real results in retention and student success.”</blockquote>
-            <figcaption><b>Dr. Betty Young</b>, President, Hocking College</figcaption>
+            <TestimonialAttribution as="figcaption" name="Dr. Betty Young" title="President, Hocking College" dark />
           </figure>
         </div>
       </section>
@@ -240,7 +241,7 @@ const jsonLd = [
         </div>
         <figure class="q" data-rise>
           <blockquote>“As the Executive Director of Student Engagement and Success at Hocking College, I have had the privilege of observing firsthand the profound impact of the “Mission Portrait” and “7 Igniters” program on our first-year students in the Pathways course. This initiative is truly transformative, going far beyond a conventional academic plan to deeply engage students in discovering their authentic selves and charting a course for enduring success during the first semester and beyond.”</blockquote>
-          <figcaption><b>Terry Koons</b>, Executive Director of Student Engagement and Success, Hocking College</figcaption>
+          <TestimonialAttribution as="figcaption" name="Terry Koons" title="Executive Director of Student Engagement and Success, Hocking College" dark />
         </figure>
         <div class="results" data-rise>
           <h3>Wildfire program outcomes</h3>
