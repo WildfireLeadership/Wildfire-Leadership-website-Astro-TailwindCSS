@@ -20,11 +20,15 @@ import Img from '../../components/Img.astro';
 import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
+import IgniteClips, { type Clip } from '../../components/ignite/IgniteClips.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
 import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
+import emmaClip from '../../assets/images/emma-testimonial.jpg';
+import workshop from '../../assets/images/higher-ed-workshop.jpg';
+import lifestyle from '../../assets/images/lifestyle.jpg';
 // Real portraits already on the live homepage; Will OK'd showing them here, 2026-11-17.
 // Both have no faith content (Zeb's and Ryan's do), so they suit a public-school page.
 import portraitBrenda from '../../assets/images/portrait-coleen-full.png';
@@ -34,6 +38,17 @@ import logoHocking from '../../assets/images/school-logo-hocking.png';
 import logoNorthwest from '../../assets/images/school-logo-2.png';
 
 const path = '/colleges/';
+
+// A student clip (Bill, 26 November 2026), as on the old Higher Ed page. First name and program only.
+const students: Clip[] = [
+  { vimeo: '1167969792', title: 'Emma', program: 'Ignite Higher Ed', play: "Play Emma's clip", length: '0:47', thumb: emmaClip, alt: 'Emma, seated, laughing' },
+];
+
+// The two Mission Portrait videos, on both pages (they were on the old K-12 and Higher Ed pages).
+const mpVideos: Clip[] = [
+  { vimeo: '1166391178', title: "What's a Mission Portrait?", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '3:18', thumb: workshop, alt: 'Students at long tables writing on Mission Portrait worksheets', focus: '50% 40%' },
+  { vimeo: '1166391250', title: 'How the Mission Portrait works', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+];
 
 const faqs: Faq[] = [
   {
@@ -142,6 +157,8 @@ const jsonLd = [
           </figure>
         </div>
       </section>
+
+      <IgniteClips lede="A short clip in her own words, then the Mission Portrait in two videos." heading="Hear it from a student" students={students} videos={mpVideos} />
 
       <section class="band on-paper split make" id="make" aria-labelledby="make-h" data-stage>
         <div>
