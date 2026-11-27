@@ -6,6 +6,7 @@ import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import IgniteClips, { type Clip } from '../../components/ignite/IgniteClips.astro';
+import IgniteFigures from '../../components/ignite/IgniteFigures.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
 import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
@@ -41,25 +42,38 @@ const schools = [
   { name: 'Burgettstown Area School District (PA)' },
 ];
 
-// Student clips (Bill, 26 November 2026), as on the old K-12 page. First names and program only.
+// Student clips as on the old K-12 page. Bill, 27 November 2026: each reads Student Testimonial
+// (Maysa's clip is on both pages), with first names only.
 const students: Clip[] = [
   { vimeo: '1163802453', title: 'Maysa', program: 'Student Testimonial', play: "Play Maysa's clip", length: '1:04', thumb: maysaClip, alt: 'Maysa, smiling, in her room' },
-  { vimeo: '1167969928', title: 'Josiah', program: 'Ignite Students (K-12)', play: "Play Josiah's clip", length: '0:43', thumb: josiahClip, alt: 'Josiah, seated, in a cap and vest', focus: '50% 30%' },
-  { vimeo: '1179978600', title: 'Abel and Kingston', program: 'Ignite Students (K-12)', play: "Play Abel and Kingston's clip", length: '0:23', thumb: studentsClip, alt: 'One of the two students speaking, with the caption Before Ignite, I felt', focus: '50% 30%' },
+  { vimeo: '1167969928', title: 'Josiah', program: 'Student Testimonial', play: "Play Josiah's clip", length: '0:43', thumb: josiahClip, alt: 'Josiah, seated, in a cap and vest', focus: '50% 30%' },
+  { vimeo: '1179978600', title: 'Abel and Kingston', program: 'Student Testimonial', play: "Play Abel and Kingston's clip", length: '0:23', thumb: studentsClip, alt: 'One of the two students speaking, with the caption Before Ignite, I felt', focus: '50% 30%' },
 ];
 
+// Bill, 27 November 2026: titled What Is a Mission Portrait? on both pages.
 const mpVideos: Clip[] = [
-  { vimeo: '1166391250', title: "How the Mission Portrait Works", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+  { vimeo: '1166391250', title: 'What Is a Mission Portrait?', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
 ];
 
+// Bill, 27 November 2026: 94% and 80% are Wildfire completion figures across engagements,
+// including Northeastern, with his exact labels and source. The national studies stay a separate,
+// quieter group: comparison benchmarks, never paired with Wildfire's figures as a before and after.
+const completion = 'Wildfire completion figures across engagements, including Northeastern';
 const results = [
   {
-    before: { n: '13%', what: 'understood their purpose', src: 'Lifeway Research, 2017' },
-    after: { n: '94%', what: 'clarity and understanding of purpose', src: 'Wildfire Mission Portrait completion data' },
+    figs: [
+      { n: '94%', label: 'purpose clarity', src: completion },
+      { n: '80%', label: 'clarity of direction and a defined roadmap', src: completion },
+    ],
   },
   {
-    before: { n: '17%', what: 'had clarity of direction', src: 'Gallup-Strada, 2017' },
-    after: { n: '80%', what: 'clarity of direction and a defined roadmap', src: 'Wildfire 7 Igniters completion data' },
+    heading: 'Comparison benchmarks',
+    intro: 'Broader national studies, shown for comparison. They are not Wildfire or Northeastern figures.',
+    kind: 'compare' as const,
+    figs: [
+      { n: '13%', label: 'understood their purpose', src: 'Lifeway Research, 2017' },
+      { n: '17%', label: 'had clarity of direction', src: 'Gallup-Strada, 2017' },
+    ],
   },
 ];
 
@@ -245,15 +259,7 @@ const jsonLd = [
         </div>
         <div class="results" data-rise>
           <h3>Wildfire program outcomes</h3>
-          <div class="pairs">
-            {results.map((r) => (
-              <div class="pair">
-                <div class="before"><p class="k">Comparison benchmark</p><p class="n">{r.before.n}</p><p>{r.before.what}</p><p class="src">{r.before.src}</p></div>
-                <div class="after"><p class="k">After completion</p><p class="n">{r.after.n}</p><p>{r.after.what}</p><p class="src">{r.after.src}</p></div>
-              </div>
-            ))}
-          </div>
-          <p class="note">Completion figures come from Wildfire engagements, including Northeastern Local Schools.</p>
+          <IgniteFigures groups={results} />
         </div>
         <p class="next-step" data-rise>Explore what would fit your school? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>

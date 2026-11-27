@@ -1,0 +1,42 @@
+---
+/**
+ * Outcome figures on /schools and /colleges (Bill, 27 November 2026). Each figure carries its
+ * own source line in small, readable type directly beneath it, so the results stay easy to scan.
+ * Wildfire's own figures and the broader comparison benchmarks sit in separate groups, never
+ * paired as one before and after.
+ */
+interface Fig {
+  /** The figure, e.g. "94%" or "13% to 94%". */
+  n: string;
+  /** What it measures, in the source's own words. */
+  label: string;
+  src: string;
+}
+interface Group {
+  heading?: string;
+  intro?: string;
+  /** "compare" draws the group quieter, for benchmarks that are not Wildfire's own figures. */
+  kind?: 'main' | 'compare';
+  figs: Fig[];
+}
+interface Props {
+  groups: Group[];
+}
+const { groups } = Astro.props;
+---
+
+{groups.map((g) => (
+  <div class:list={['figs-group', g.kind ?? 'main']}>
+    {g.heading && <h4>{g.heading}</h4>}
+    {g.intro && <p class="figs-intro">{g.intro}</p>}
+    <ul class="figs">
+      {g.figs.map((f) => (
+        <li class="fig">
+          <p class="n">{f.n.split(' to ').map((part, i) => <>{i > 0 && <span class="to"> to </span>}{part}</>)}</p>
+          <p class="label">{f.label}</p>
+          <p class="src">Source: {f.src}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+))}

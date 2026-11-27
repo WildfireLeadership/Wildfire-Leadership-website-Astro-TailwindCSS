@@ -6,6 +6,7 @@ import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgnitePartners from '../../components/ignite/IgnitePartners.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import IgniteClips, { type Clip } from '../../components/ignite/IgniteClips.astro';
+import IgniteFigures from '../../components/ignite/IgniteFigures.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
 import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
@@ -33,14 +34,38 @@ const colleges = [
   { logo: logoDefianceCollege, name: 'Defiance College' },
 ];
 
-// A student clip (Bill, 26 November 2026), as on the old Higher Ed page. First name and program only.
+// Student clips as on the old Higher Ed page. Bill, 27 November 2026: each reads Student Testimonial
+// (the Higher Ed materials identify Maysa with Northwest State), with first names only.
 const students: Clip[] = [
   { vimeo: '1163802453', title: 'Maysa', program: 'Student Testimonial', play: "Play Maysa's clip", length: '1:04', thumb: maysaClip, alt: 'Maysa, smiling, in her room' },
-  { vimeo: '1167969792', title: 'Emma', program: 'Ignite Higher Ed', play: "Play Emma's clip", length: '0:47', thumb: emmaClip, alt: 'Emma, seated, laughing' },
+  { vimeo: '1167969792', title: 'Emma', program: 'Student Testimonial', play: "Play Emma's clip", length: '0:47', thumb: emmaClip, alt: 'Emma, seated, laughing' },
 ];
 
+// Bill, 27 November 2026: titled What Is a Mission Portrait? on both pages.
 const mpVideos: Clip[] = [
-  { vimeo: '1166391250', title: "How the Mission Portrait Works", program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+  { vimeo: '1166391250', title: 'What Is a Mission Portrait?', program: 'Ignite Students and Ignite Higher Ed', play: 'Play the video', length: '1:40', thumb: lifestyle, alt: 'A Mission Portrait worksheet with handwritten notes under Top 4 core values' },
+];
+
+// Bill, 27 November 2026, each with his exact label and source. Hocking's own figures come from
+// the Hocking brief; the 90%+ and 90% are the community-college brief's figures across partner
+// schools and colleges; the 87% line is his exact sentence and source.
+const hocking = [
+  {
+    figs: [
+      { n: '13% to 94%', label: 'purpose clarity', src: 'Hocking College brief' },
+      { n: '8% to 65%', label: 'personal roadmap', src: 'Hocking College brief' },
+    ],
+  },
+];
+const partners = 'Wildfire community-college brief, across Wildfire partner schools and colleges';
+const outcomes = [
+  {
+    figs: [
+      { n: '90%+', label: 'purpose clarity', src: partners },
+      { n: '90%', label: 'personal roadmap and career plan', src: partners },
+      { n: '87%', label: 'Institutions report an 87% increase in leadership and personal development engagement.', src: 'Wildfire Leadership internal program data, across education partners' },
+    ],
+  },
 ];
 
 const faqs: Faq[] = [
@@ -216,8 +241,10 @@ const jsonLd = [
               <li data-rise><i class="dia"></i>First-year students take it in the Pathways course</li>
               <li data-rise><i class="dia"></i>Each student makes a Mission Portrait, then works through the 7 Igniters</li>
             </ul>
-            <p class="lede stat" data-rise>At Hocking College, 94% of students reported clarity on their purpose after completing the program.</p>
-            <p class="stat-src" data-rise>Hocking College internal reporting.</p>
+            <div class="results hocking" data-rise>
+              <h3>At Hocking College</h3>
+              <IgniteFigures groups={hocking} />
+            </div>
             <figure class="q" data-rise>
               <blockquote>“As the Executive Director of Student Engagement and Success at Hocking College, I have had the privilege of observing firsthand the profound impact of the “Mission Portrait” and “7 Igniters” program on our first-year students in the Pathways course. This initiative is truly transformative, going far beyond a conventional academic plan to deeply engage students in discovering their authentic selves and charting a course for enduring success during the first semester and beyond.”</blockquote>
               <figcaption><b>Terry Koons</b>, Executive Director of Student Engagement and Success, Hocking College</figcaption>
@@ -230,12 +257,7 @@ const jsonLd = [
         </div>
         <div class="results" data-rise>
           <h3>Wildfire program outcomes</h3>
-          <p class="lede stat">90%+ report clarity on their purpose after completing a Mission Portrait.</p>
-          <p class="stat-src">Wildfire Leadership data across partner schools and colleges.</p>
-          <p class="lede stat">90% leave with a personalized roadmap and career plan.</p>
-          <p class="stat-src">Wildfire Leadership data across partner schools and colleges.</p>
-          <p class="lede stat">Institutions report an 87% increase in leadership and personal development engagement.</p>
-          <p class="stat-src">Wildfire Leadership internal program data, across education partners.</p>
+          <IgniteFigures groups={outcomes} />
         </div>
         <p class="next-step" data-rise>Explore what would fit your campus? <a class="btn" href="#reply">Request a 20-minute call</a></p>
       </section>
