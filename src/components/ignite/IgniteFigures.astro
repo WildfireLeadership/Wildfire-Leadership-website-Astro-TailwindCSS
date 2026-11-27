@@ -18,6 +18,8 @@ interface Group {
   /** "compare" draws the group quieter, for benchmarks that are not Wildfire's own figures. */
   kind?: 'main' | 'compare';
   figs: Fig[];
+  /** A line under the group's figures. */
+  note?: string;
 }
 interface Props {
   groups: Group[];
@@ -38,5 +40,6 @@ const { groups } = Astro.props;
         </li>
       ))}
     </ul>
+    {g.note && <p class="note">{g.note}</p>}
   </div>
 ))}
