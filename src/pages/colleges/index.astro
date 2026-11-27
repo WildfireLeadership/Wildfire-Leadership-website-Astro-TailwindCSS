@@ -61,6 +61,10 @@ const outcomes = [
 
 const faqs: Faq[] = [
   {
+    q: 'Where does it fit on our campus?',
+    a: 'You can build Ignite into orientation, a first-year course, advising, or career services. A standalone workshop series is also an option.',
+  },
+  {
     q: 'Which version would our college use?',
     a: 'Public colleges use the non-faith-based version. Faith-based colleges use the faith-based version.',
   },
@@ -69,20 +73,16 @@ const faqs: Faq[] = [
     a: 'Yes. Students can complete the full roadmap without AI. Two optional tools use AI to suggest career paths or next steps based on what students enter. Students choose which suggestions to explore.',
   },
   {
-    q: 'Where does it fit on our campus?',
-    a: 'Orientation, first-year experience courses, career services programming, student success initiatives, or a standalone workshop series.',
-  },
-  {
     q: 'How would we measure it?',
-    a: 'Pick one measure you already track, such as first-to-second-year retention or a belonging survey, and compare students who took part with those who did not.',
+    a: 'Choose a measure that fits your goal. For a small pilot, you could track completion or ask students how clear they feel about their next steps. For a larger rollout, you could use a belonging survey or look at persistence if your campus already tracks it.',
   },
   {
-    q: 'Does it work at a community college?',
-    a: 'Yes. You can start in one course or advising group, then expand to other programs if it fits your campus.',
+    q: 'Can community colleges and four-year institutions use Ignite?',
+    a: 'Yes. Both can adapt Ignite to the students they serve, whether the goal is helping students choose a program, explore careers, or make a plan for their first year.',
   },
   {
     q: 'Can we start small?',
-    a: 'Yes. Start with the leadership session or one cohort, and decide on the rest afterward.',
+    a: 'Yes. Start with a session for campus leaders or a pilot with one course or student group. You can spread the curriculum across several meetings and expand to more groups when you’re ready.',
   },
 ];
 
@@ -151,8 +151,8 @@ const jsonLd = [
         </article>
         <div class="aside r">
           <figure>
-            <p class="lede" style="font-size:17px">Every incoming freshman at <b>Hocking College</b> participates in Ignite Higher Ed.</p>
-            <figcaption>Nelsonville, Ohio</figcaption>
+            <p class="lede" style="font-size:17px">Campuses have started with <b>first-year students</b> or <b>leadership teams</b>.</p>
+            <figcaption><a class="link" href="#colleges">See how campuses use Ignite</a></figcaption>
           </figure>
         </div>
       </section>
@@ -224,26 +224,24 @@ const jsonLd = [
       </section>
 
       <section class="band on-field proof" id="colleges" aria-labelledby="colleges-h" data-stage>
-        <div class="split">
-          <div>
-            <h2 id="colleges-h" data-rise>How campuses use Ignite</h2>
-            <p class="lede" data-rise>Hocking College is a public college in Nelsonville, Ohio. Every incoming freshman at Hocking College participates in Ignite Higher Ed:</p>
-            <ul class="model">
-              <li data-rise><i class="dia"></i>First-year students take it in the Pathways course</li>
-              <li data-rise><i class="dia"></i>Each student makes a Mission Portrait, then works through the 7 Igniters</li>
-            </ul>
-            <p class="lede stat" data-rise>At Hocking College, 94% of students reported clarity on their purpose after completing the program.</p>
-            <p class="stat-src" data-rise>Hocking College internal reporting.</p>
-            <figure class="q" data-rise>
-              <blockquote>“As the Executive Director of Student Engagement and Success at Hocking College, I have had the privilege of observing firsthand the profound impact of the “Mission Portrait” and “7 Igniters” program on our first-year students in the Pathways course. This initiative is truly transformative, going far beyond a conventional academic plan to deeply engage students in discovering their authentic selves and charting a course for enduring success during the first semester and beyond.”</blockquote>
-              <figcaption><b>Terry Koons</b>, Executive Director of Student Engagement and Success, Hocking College</figcaption>
-            </figure>
-          </div>
-          <div class="namecard" data-rise>
+        <h2 id="colleges-h" data-rise>How campuses use Ignite</h2>
+        <p class="lede" data-rise>Colleges and universities can start with a student group, a first-year course, or a leadership team. Here are two examples from our campus work.</p>
+        <div class="campus-examples">
+          <article class="campus-example" data-rise>
+            <h3>Hocking College</h3>
+            <p>Every incoming first-year student creates a Mission Portrait and works through the 7 Igniters in the Pathways course.</p>
+            <p>At Hocking College, 94% of students reported clarity on their purpose after completing the program.</p>
+            <p class="stat-src">Hocking College internal reporting.</p>
+          </article>
+          <article class="campus-example" data-rise>
             <h3>Northwest State Community College</h3>
-            <p>Started with leadership teams and brought the framework into selected departments.</p>
-          </div>
+            <p>Started with leadership teams and brought the framework into selected departments and student-facing programs.</p>
+          </article>
         </div>
+        <figure class="q" data-rise>
+          <blockquote>“As the Executive Director of Student Engagement and Success at Hocking College, I have had the privilege of observing firsthand the profound impact of the “Mission Portrait” and “7 Igniters” program on our first-year students in the Pathways course. This initiative is truly transformative, going far beyond a conventional academic plan to deeply engage students in discovering their authentic selves and charting a course for enduring success during the first semester and beyond.”</blockquote>
+          <figcaption><b>Terry Koons</b>, Executive Director of Student Engagement and Success, Hocking College</figcaption>
+        </figure>
         <div class="results" data-rise>
           <h3>Wildfire program outcomes</h3>
           <IgniteFigures groups={outcomes} />
