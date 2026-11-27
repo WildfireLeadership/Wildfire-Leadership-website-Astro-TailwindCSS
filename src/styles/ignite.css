@@ -35,16 +35,12 @@ html{scroll-padding-top:76px}
 .ig .facts li{display:flex;align-items:center;gap:10px}
 .ig .dia{display:inline-block;width:9px;height:9px;background:var(--accent);transform:rotate(45deg);flex:none}
 .ig .acts{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 26px;margin-top:26px}
-.ig .first-step{margin-top:16px;font-size:17px;color:var(--soft)}
-.ig .first-step b{color:var(--ink)}
 .ig .sheet .plate{margin-top:28px;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 45%}
 .ig .proofline{color:var(--on-field-soft);font-size:17px;text-align:center;padding:16px var(--m) 18px;background:var(--field)}
 .ig .proofline b{color:var(--on-field);font-weight:500}
 .ig .proofline.in-sheet{background:none;color:var(--soft);padding:14px 0 0;font-size:16px}
 .ig .proofline.in-sheet b{color:var(--ink);font-weight:600}
 .ig .sheet .slotplate{display:grid;place-items:center;background:var(--slot-bg);border:2px dashed var(--slot);color:var(--slot);font-weight:600;font-size:17px;line-height:1.4;padding:24px;text-align:center}
-.ig .est-line{font-size:15px;color:var(--soft);margin:2px 0 0}
-.ig .est-line:empty{display:none}
 .ig .aside{align-self:center;display:grid;gap:12px;max-width:260px}
 .ig .aside.l{justify-self:end}
 .ig .aside.r{justify-self:start}
@@ -75,36 +71,6 @@ html{scroll-padding-top:76px}
 .ig .review .is-slot b{color:var(--slot)}
 .ig .slot-note{display:inline-block;margin-top:24px;padding:12px 14px;background:var(--slot-bg);border:2px dashed var(--slot);color:var(--slot);font-size:17px;font-weight:500;max-width:34em}
 .ig .slot-note b{font-weight:700}
-.ig .cost{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px)}
-.ig .steps{list-style:none;display:grid;gap:22px;margin-top:30px}
-.ig .steps li{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start}
-.ig .steps li .dia{margin-top:10px}
-.ig .steps p{grid-column:2;max-width:36em}
-.ig .planner{margin-top:34px;background:var(--paper);padding:24px;display:grid;gap:16px;max-width:560px}
-.ig .ctl{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.ig .ctl label{font-weight:500}
-.ig .ctl small{display:block;font-size:14px;color:var(--soft);font-weight:400}
-.ig .stepper{display:flex;align-items:center;background:var(--sand)}
-.ig .stepper button{width:48px;height:48px;border:0;background:var(--ink);color:var(--paper);font:600 20px/1 Inter;cursor:pointer;transition:background .15s,transform .12s}
-.ig .stepper button:hover{background:#000}
-.ig .stepper button:active{transform:scale(.94)}
-.ig .stepper output{min-width:64px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
-.ig .check{display:flex;gap:12px;align-items:center;cursor:pointer}
-.ig .check input{width:22px;height:22px;accent-color:var(--action)}
-.ig .running{display:none;justify-content:space-between;align-items:baseline;font-weight:600;padding-top:6px}
-.ig .running strong{font:400 34px/1 "Instrument Serif",serif;font-variant-numeric:tabular-nums}
-.ig .receipt{background:#fff;padding:32px 28px 60px; clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),96% 100%,92% calc(100% - 14px),88% 100%,84% calc(100% - 14px),80% 100%,76% calc(100% - 14px),72% 100%,68% calc(100% - 14px),64% 100%,60% calc(100% - 14px),56% 100%,52% calc(100% - 14px),48% 100%,44% calc(100% - 14px),40% 100%,36% calc(100% - 14px),32% 100%,28% calc(100% - 14px),24% 100%,20% calc(100% - 14px),16% 100%,12% calc(100% - 14px),8% 100%,4% calc(100% - 14px),0 100%)}
-.ig .receipt .head{text-align:center;font-weight:700;font-size:20px}
-.ig .receipt .sub{text-align:center;font-size:14px;color:var(--soft);margin:4px 0 20px}
-.ig .row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;font-variant-numeric:tabular-nums}
-.ig .row span:first-child{max-width:72%}
-.ig .row.off{color:#8e887e;text-decoration:line-through}
-.ig .bar{height:4px;background:var(--ink);margin:16px 0 14px}
-.ig .total{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.ig .total strong{font:400 54px/1 "Instrument Serif",serif;font-variant-numeric:tabular-nums}
-.ig .total span{font-size:20px}
-.ig .next{display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-size:14px;color:var(--soft);font-variant-numeric:tabular-nums}
-.ig .receipt .btn{width:100%;margin-top:22px}
 .ig .fig-note{margin-top:16px;font-size:14px;color:var(--soft);max-width:34em}
 .ig .fig-note b{color:var(--slot)}
 .ig .proof .model{list-style:none;display:grid;gap:14px;margin:24px 0 26px}
@@ -183,11 +149,10 @@ html{scroll-padding-top:76px}
   .ig .aside{display:none}
   .ig .sheet{grid-column:1;padding:30px 18px 0}
   .ig .facts{gap:6px 18px;display:grid;justify-content:center;text-align:left}
-  .ig .split,.ig .cost,.ig .ask{grid-template-columns:1fr}
+  .ig .split,.ig .ask{grid-template-columns:1fr}
   .ig .quotes{grid-template-columns:1fr}
   .ig .card{position:relative;top:0}
   .ig .fields{grid-template-columns:1fr}
-  .ig .running{display:flex}
   .ig .foot .cols{grid-template-columns:1fr}
   .ig .foot .founders{float:none;width:100%;margin:0 0 20px}
   .ig .make .stack{grid-template-columns:1fr}
@@ -213,7 +178,8 @@ html{scroll-padding-top:76px}
 .ig .igniters figure a{display:block}
 .ig .quotes.one{grid-template-columns:1fr;max-width:46em;margin-left:auto;margin-right:auto}
 .ig .proof .q{margin-top:28px;max-width:40em}
-.ig .planner select{height:48px;min-width:0;max-width:62%;padding:0 12px;font:400 17px Inter,sans-serif;border:2px solid var(--field-line);background:#fff;color:var(--ink);border-radius:0}
-.ig .planner select:focus{border-color:var(--action);outline:none}
-.ig .planner [hidden]{display:none}
-.ig .receipt .next span:last-child{text-align:right}
+
+/* Bill, 26 November 2026: no Ignite prices on the public site. Where to start, then one button to the contact form. */
+.ig .start{text-align:center}
+.ig .start .lede{margin-left:auto;margin-right:auto}
+.ig .start .next-step{justify-content:center;margin-top:28px}

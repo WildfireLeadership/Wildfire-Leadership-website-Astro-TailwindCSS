@@ -1,89 +1,15 @@
 ---
 /**
- * The college first-year estimator and section entrances for /schools and /colleges.
- * Prices come from src/data/ignite.ts, the same numbers the page prints.
+ * Section entrances and the reply form for /schools and /colleges.
+ * The college first-year estimator was removed on 26 November 2026: Bill asked for no
+ * Ignite prices on the public site (it is in git history before that date).
  */
 ---
 
 <script>
-  import { PRICES, usd, plural, certCost, sessionCost } from '../../data/ignite';
-
   document.documentElement.classList.add('js');
   // Never leave content hidden, even if something below fails.
   setTimeout(() => document.querySelectorAll('.ig [data-rise]').forEach((k) => k.classList.add('in')), 3500);
-
-  const $ = (s: string, r: ParentNode = document) => r.querySelector<HTMLElement>(s);
-  const set = (s: string, v: string) => {
-    const el = $(s);
-    if (el) el.textContent = v;
-  };
-
-  type State = Record<string, number | boolean | string>;
-  function bind(root: HTMLElement, state: State, limits: Record<string, [number, number]>, render: () => void) {
-    root.addEventListener('click', (e) => {
-      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-step]');
-      if (!b) return;
-      const k = b.dataset.key!;
-      const [lo, hi] = limits[k];
-      state[k] = Math.min(hi, Math.max(lo, (state[k] as number) + Number(b.dataset.step)));
-      render();
-    });
-    root.querySelectorAll<HTMLInputElement>('[data-check]').forEach((c) =>
-      c.addEventListener('change', () => {
-        state[c.dataset.check!] = c.checked;
-        render();
-      })
-    );
-    root.querySelectorAll<HTMLSelectElement>('[data-select]').forEach((s) =>
-      s.addEventListener('change', () => {
-        state[s.dataset.select!] = s.value;
-        render();
-      })
-    );
-    render();
-  }
-
-  const showEstimate = (est: string) => {
-    const f = document.querySelector<HTMLInputElement>('input[name=estimate]');
-    if (f) f.value = est;
-    set('[data-v=estline]', `Your estimate goes with this request: ${est}.`);
-  };
-
-  // Ignite Higher Ed: the CSU menu, nothing else (src/data/ignite.ts).
-  const he = $('[data-planner=he]');
-  if (he) {
-    const st = { session: 'mp', leaders: PRICES.sessionLeaders, facilitators: 6, mpTrack: true, igTrack: true, license: 'freshmen' };
-    bind(he, st, { leaders: [1, 60], facilitators: [1, 60] }, () => {
-      const hasSession = st.session !== 'none';
-      const wg = st.session === 'wg';
-      const s = hasSession ? sessionCost(st.leaders, wg) : 0;
-      const tracks = Number(st.mpTrack) + Number(st.igTrack);
-      const c = certCost(st.facilitators, tracks);
-      const lic = PRICES.collegeLicense.find((t) => t.key === st.license) ?? PRICES.collegeLicense[0];
-      const total = s + c + lic.price;
-      const extra = Math.max(0, st.leaders - PRICES.sessionLeaders);
-      set('[data-out=leaders]', String(st.leaders));
-      set('[data-out=facilitators]', String(st.facilitators));
-      he.querySelector('[data-when=session]')?.toggleAttribute('hidden', !hasSession);
-      $('[data-row=session]')?.classList.toggle('off', !hasSession);
-      set(
-        '[data-l=session]',
-        `Leadership session, ${wg ? '4 hours with Working Genius' : '2 hours'}, ${plural(st.leaders, 'leader')}${extra ? ` (${extra} over ${PRICES.sessionLeaders} at ${usd(PRICES.extraPerson)})` : ''}`
-      );
-      set('[data-v=session]', usd(hasSession ? s : sessionCost(st.leaders, wg)));
-      const trackWords = tracks === 2 ? 'both tracks' : st.mpTrack ? 'the Mission Portrait track' : st.igTrack ? 'the 7 Igniters track' : 'no tracks';
-      set('[data-l=cert]', `Certify ${plural(st.facilitators, 'facilitator')} in ${trackWords}, ${usd(certCost(1, tracks))} each`);
-      set('[data-v=cert]', usd(c));
-      set('[data-l=lic]', `Annual license: ${lic.label.toLowerCase()}`);
-      set('[data-v=lic]', usd(lic.price));
-      set('[data-v=total]', usd(total));
-      set('[data-v=next]', usd(lic.price));
-      set('[data-v=running]', usd(total));
-      showEstimate(
-        `${usd(total)} first year: ${hasSession ? `${wg ? '4-hour' : '2-hour'} session for ${plural(st.leaders, 'leader')}, ` : ''}${plural(st.facilitators, 'facilitator')} in ${trackWords}, ${lic.label.toLowerCase()} license`
-      );
-    });
-  }
 
   // The reply form: a subject line that names the school, so it stands out in the inbox.
   const form = document.querySelector<HTMLFormElement>('form[data-school-form]');

@@ -21,7 +21,7 @@ import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
-import { PRICES, usd, certCost, sessionCost, IGNITERS_SAMPLE } from '../../data/ignite';
+import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import workbookCloseup from '../../assets/images/workbook-closeup.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
@@ -34,12 +34,6 @@ import logoHocking from '../../assets/images/school-logo-hocking.png';
 import logoNorthwest from '../../assets/images/school-logo-2.png';
 
 const path = '/colleges/';
-
-// Defaults the estimator opens with (IgniteScript recalculates the same way).
-const L = PRICES.sessionLeaders, F = 6;
-const LIC = PRICES.collegeLicense.find((t) => t.key === 'freshmen')!;
-const session = sessionCost(L), cert = certCost(F);
-const total = session + cert + LIC.price;
 
 const faqs: Faq[] = [
   {
@@ -82,7 +76,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Ignite Higher Ed for colleges"
-  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a non-faith-based version for public colleges. See the first-year cost and request a 20-minute call."
+  description="Ignite Higher Ed fits orientation and the first-year seminar, led by your own faculty and staff, with a non-faith-based version for public colleges. See where to start and request a 20-minute call."
   breadcrumbs={[{ name: 'Colleges', path }]}
   jsonLd={jsonLd}
   siteHeader={false}
@@ -94,7 +88,7 @@ const jsonLd = [
       links={[
         { href: '#make', label: 'What students make' },
         { href: '#igniters', label: '7 Igniters' },
-        { href: '#cost', label: 'Cost' },
+        { href: '#start', label: 'Where to start' },
         { href: '#questions', label: 'Questions' },
       ]}
     />
@@ -117,9 +111,7 @@ const jsonLd = [
           </ul>
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
-            <a class="link" href="#cost">See the first-year cost</a>
           </div>
-          <p class="first-step">You can begin with <b>one session for your leaders</b>, {usd(PRICES.session)} for up to {PRICES.sessionLeaders}, then decide.</p>
           <p class="proofline in-sheet">Used in Ohio at <b>Hocking College</b>, and with leadership teams at <b>Northwest State</b>.</p>
           <Img
             class="plate"
@@ -195,65 +187,10 @@ const jsonLd = [
         </figure>
       </section>
 
-      <section class="band on-sand cost" id="cost" aria-labelledby="cost-h" data-stage>
-        <div>
-          <h2 id="cost-h" data-rise>Your first year, and what it costs</h2>
-          <p class="lede" data-rise>Three steps. Start with one cohort, such as every incoming freshman.</p>
-          <ol class="steps">
-            <li data-rise><i class="dia"></i><h3>Experience it first</h3><p>Your leaders make their own Mission Portraits in two hours, or four with Working Genius. You can stop there and decide.</p></li>
-            <li data-rise><i class="dia"></i><h3>Equip your facilitators</h3><p>Choose the faculty and staff who will lead it. Two 90-minute sessions certify them in the Mission Portrait and the 7 Igniters. Lesson plans and materials are included.</p></li>
-            <li data-rise><i class="dia"></i><h3>License your program</h3><p>An annual license, from a pilot cohort or one program up to campus-wide. Final pricing scales with enrollment.</p></li>
-          </ol>
-          <div class="planner" data-planner="he" data-rise>
-            <h3>Price your campus</h3>
-            <div class="ctl">
-              <label for="p-session">Leadership session</label>
-              <select id="p-session" data-select="session">
-                <option value="mp" selected>2 hours, Mission Portrait</option>
-                <option value="wg">4 hours, with Working Genius</option>
-                <option value="none">Skip for now</option>
-              </select>
-            </div>
-            <div class="ctl" data-when="session">
-              <label id="ll">Leaders in the session<small>Up to {PRICES.sessionLeaders} included, then {usd(PRICES.extraPerson)} each</small></label>
-              <div class="stepper" role="group" aria-labelledby="ll">
-                <button type="button" data-key="leaders" data-step="-1" aria-label="One fewer leader">−</button>
-                <output data-out="leaders">{L}</output>
-                <button type="button" data-key="leaders" data-step="1" aria-label="One more leader">+</button>
-              </div>
-            </div>
-            <div class="ctl">
-              <label id="lf">Facilitators to certify<small>{usd(PRICES.certPerTrack)} a person, per track</small></label>
-              <div class="stepper" role="group" aria-labelledby="lf">
-                <button type="button" data-key="facilitators" data-step="-1" aria-label="One fewer facilitator">−</button>
-                <output data-out="facilitators">{F}</output>
-                <button type="button" data-key="facilitators" data-step="1" aria-label="One more facilitator">+</button>
-              </div>
-            </div>
-            <label class="check"><input type="checkbox" checked data-check="mpTrack" /> Mission Portrait track</label>
-            <label class="check"><input type="checkbox" checked data-check="igTrack" /> 7 Igniters track</label>
-            <div class="ctl">
-              <label for="p-license">Annual license</label>
-              <select id="p-license" data-select="license">
-                {PRICES.collegeLicense.map((t) => <option value={t.key} selected={t.key === LIC.key}>{t.label}</option>)}
-              </select>
-            </div>
-            <p class="running" aria-hidden="true"><span>First year</span><strong data-v="running">{usd(total)}</strong></p>
-          </div>
-        </div>
-        <div>
-          <div class="receipt" data-rise>
-            <p class="head">Ignite Higher Ed, year one</p>
-            <p class="sub">Estimate for one campus. Final pricing scales with enrollment.</p>
-            <div class="row" data-row="session"><span data-l="session">Leadership session, 2 hours, up to {PRICES.sessionLeaders} leaders</span><span data-v="session">{usd(session)}</span></div>
-            <div class="row"><span data-l="cert">Certify {F} facilitators in both tracks, {usd(certCost(1))} each</span><span data-v="cert">{usd(cert)}</span></div>
-            <div class="row"><span data-l="lic">Annual license: {LIC.label.toLowerCase()}</span><span data-v="lic">{usd(LIC.price)}</span></div>
-            <div class="bar"></div>
-            <div class="total"><strong data-v="total" aria-live="polite">{usd(total)}</strong><span>first year</span></div>
-            <div class="next"><span>Each year after</span><span data-v="next">{usd(LIC.price)}</span></div>
-            <a class="btn ink" href="#reply">Get this as a written quote</a>
-          </div>
-        </div>
+      <section class="band on-sand start" id="start" aria-labelledby="start-h" data-stage>
+        <h2 id="start-h" data-rise>Where to start</h2>
+        <p class="lede" data-rise>Begin with one session for your leaders, then decide. We'll send our menu of services, or a written quote for your campus.</p>
+        <p class="next-step" data-rise><a class="btn ink" href="/contact?interest=ignite-higher-ed">Request pricing for your campus</a></p>
       </section>
 
       <section class="band on-field proof" id="colleges" aria-labelledby="colleges-h" data-stage>
@@ -316,8 +253,6 @@ const jsonLd = [
               </select>
             </label>
             <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-            <input type="hidden" name="estimate" value="" />
-            <p class="est-line" data-v="estline"></p>
           </div>
           <button class="btn" type="submit">Request a 20-minute call</button>
           <p class="alt">Or email <a href="mailto:info@wildfireleadership.com">info@wildfireleadership.com</a>. We reply within 24 business hours.</p>

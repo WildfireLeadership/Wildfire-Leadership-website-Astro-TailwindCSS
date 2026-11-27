@@ -20,7 +20,7 @@ import IgniteTop from '../../components/ignite/IgniteTop.astro';
 import IgniteAbout from '../../components/ignite/IgniteAbout.astro';
 import IgniteScript from '../../components/ignite/IgniteScript.astro';
 import { abs, faqPage, provider, type Faq } from '../../data/site';
-import { PRICES, usd, IGNITERS_SAMPLE } from '../../data/ignite';
+import { IGNITERS_SAMPLE } from '../../data/ignite';
 import '../../styles/ignite.css';
 import educationStudents from '../../assets/images/education-students.jpg';
 import framework from '../../assets/images/mission-portrait-framework.png';
@@ -102,7 +102,7 @@ const jsonLd = [
       links={[
         { href: '#make', label: 'What students make' },
         { href: '#igniters', label: '7 Igniters' },
-        { href: '#cost', label: 'Cost' },
+        { href: '#start', label: 'Where to start' },
         { href: '#questions', label: 'Questions' },
       ]}
     />
@@ -125,9 +125,7 @@ const jsonLd = [
           </ul>
           <div class="acts">
             <a class="btn" href="#reply">Request a 20-minute call</a>
-            <a class="link" href="#cost">See what it costs</a>
           </div>
-          <p class="first-step">You can begin with <b>one session for your leaders</b>, {usd(PRICES.session)} for up to {PRICES.sessionLeaders}, then decide.</p>
           <p class="proofline in-sheet">Used in Ohio by <b>Northeastern Local</b>, <b>Defiance City</b>, <b>Napoleon Area</b>, <b>Patrick Henry Local</b> and other districts.</p>
           <Img
             class="plate"
@@ -203,27 +201,10 @@ const jsonLd = [
         </figure>
       </section>
 
-      <section class="band on-sand cost" id="cost" aria-labelledby="cost-h" data-stage>
-        <div>
-          <h2 id="cost-h" data-rise>Where to start, and what it costs</h2>
-          <p class="lede" data-rise>Three steps, on a typical timeline of six to eight weeks.</p>
-          <ol class="steps">
-            <li data-rise><i class="dia"></i><h3>Experience it first</h3><p>Your leaders make their own Mission Portraits in one session of about two hours. You can stop there and decide.</p></li>
-            <li data-rise><i class="dia"></i><h3>Equip your teachers</h3><p>Choose the teachers who will lead it. Two 90-minute sessions certify them in the Mission Portrait and the 7 Igniters. Lesson plans and materials are included.</p></li>
-            <li data-rise><i class="dia"></i><h3>Launch with your students</h3><p>Your certified teachers lead it with their classes. The annual school license depends on scope and enrollment, so we quote it for your school.</p></li>
-          </ol>
-        </div>
-        <div>
-          <div class="receipt" data-rise>
-            <p class="head">Start here</p>
-            <p class="sub">A leadership Mission Portrait session, about two hours</p>
-            <div class="row"><span>Up to {PRICES.sessionLeaders} leaders</span><span>{usd(PRICES.session)}</span></div>
-            <div class="row"><span>Small group, per person</span><span>{usd(PRICES.smallGroupPerPerson)}</span></div>
-            <div class="bar"></div>
-            <div class="next"><span>Teacher certification and the annual license</span><span>Quoted for your school</span></div>
-            <a class="btn ink" href="#reply">Get a written quote</a>
-          </div>
-        </div>
+      <section class="band on-sand start" id="start" aria-labelledby="start-h" data-stage>
+        <h2 id="start-h" data-rise>Where to start</h2>
+        <p class="lede" data-rise>Begin with one session for your leaders, then decide. We'll send our menu of services.</p>
+        <p class="next-step" data-rise><a class="btn ink" href="/contact?interest=ignite-k12">Request pricing for your school</a></p>
       </section>
 
       <section class="band on-field proof" id="schools" aria-labelledby="schools-h" data-stage>
